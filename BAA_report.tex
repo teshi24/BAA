@@ -1,0 +1,104 @@
+\documentclass[a4paper,12pt]{report}
+
+% Package Imports
+\usepackage[utf8]{inputenc} % UTF-8 encoding
+\usepackage[T1]{fontenc}    % Proper font encoding
+\usepackage{lmodern}        % Modern font
+\usepackage{graphicx}       % Graphics support
+\usepackage[hidelinks]{hyperref}       % Clickable links
+\usepackage{amsmath, amssymb} % Math symbols
+\usepackage{listings}       % Code listings
+\usepackage{csquotes}       % Quotation support
+\usepackage{booktabs}       % Better tables
+\usepackage{caption}        % Better captions
+\usepackage[toc]{glossaries} % Glossary
+\usepackage[style=apa,backend=biber]{biblatex}       % Bibliography
+\addbibresource{references.bib} % Bibliography file
+\usepackage{todonotes}  % Add this to the preamble
+\usepackage{xcolor}
+\renewcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\usepackage{titlesec}
+
+% Change chapter format in the document (no "Chapter", just number + title)
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{1em}{}
+
+% Ensure chapters still appear correctly in the Table of Contents
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+
+
+
+% Title Page
+\title{Title of the Thesis}
+\author{Author Name}
+\date{\today}
+
+\begin{document}
+	
+	% Title Page
+	\maketitle
+	
+	% Abstract
+	\begin{abstract}
+		\todo{Your abstract here.}
+	\end{abstract}
+	
+	% Table of Contents
+	\tableofcontents
+	\listoftodos
+	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.}
+	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.}
+	\todo{Der Schreibstil aller Dokumente entspricht hohen Standards und enthält keine Übertreibungen oder unbegründete Beurteilungen. Die Sprache ist aussagekräftig, prägnant und präzise. Die Fachterminologie ist konsistent, d.h. für gleiche Gegenstände und Themen werden immer die gleichen Begriffe verwendet. Der Sprachgebrauch ist durchgängig geschlechtergerecht, einheitlich und sachlich.}
+	
+	
+	% Chapters
+	\chapter{Problem Statement}
+		\todo{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz	dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
+	
+		
+		(\cite{Gottfrois2024}).
+	
+	\chapter{State of Research}
+		\todo{Bezogen auf die eigenen Zielsetzungen und Fragestellungen soll aufgezeigt werden, wie andere dieses oder ähnliche Probleme gelöst haben. Worauf können Sie aufbauen, was müssen Sie neu angehen?	Wodurch unterscheidet sich Ihre Lösung von anderen Lösungen? Für wissenschaftlich orientierte Arbeiten sei hier explizit auf (Balzert, S. 66 ff) verwiesen.}
+		\todo{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
+	
+	\chapter{Ideas and Concepts}
+	\section{sub chapter}
+		\todo{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
+	
+	\chapter{Methods}
+		\todo{Hier halten Sie fest und begründen, welches Vorgehensmodell Sie für Ihr Projekt wählen. Sie verweisen allenfalls auf die daraus entstandenen, konkreten Terminpläne mit Meilensteinen, welche z.B. unter Realisierung (Kapitel 5) oder im Anhang versorgt sind. Bei Projekten mit einer verlangten wissenschaftlichen Tiefe werden hier die geplanten Forschungsmethoden wie quantitative/qualitative Interviews, Befragungen, Beobachtungen, Feldexperiment etc. beschrieben und begründet. Warum ist in Ihrer Situation ein Interview besser als eine Umfrage? Wer soll interview werden?}
+		\todo{Die gewählten Methoden sind nachvollziehbar und begründet. Eine methodische Übersicht (Methodisches BigPicture) wurde aufgezeigt und Abgrenzungen erläutert.}
+	
+	\chapter{Execution}
+		\todo{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
+		\todo{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
+	
+	\chapter{Evaluation and Validation}
+		\todo{Auswertung und Interpretation der Ergebnisse. Nachweis, dass die Ziele erreicht wurden, oder warum	welche nicht erreicht wurden.}
+		\todo{Die Ziele / Forschungsfragen sind dem Umfang der Arbeit entsprechend sehr klar abgegrenzt; sie sind präzise, überprüfbar und nach den Standards der Zielformulierung definiert. Die Zielerreichung wurde systematisch und korrekt validiert.}
+		\todo{Die Herleitung und Bedeutung der Ergebnisse, mögliche Varianten, Gütekriterien und eine Validierung allgemein werden nachvollziehbar diskutiert}
+	
+	\chapter{Outlook}
+		\todo{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
+		\todo{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
+	
+	% Lists and References
+	\printglossary
+	\todo{Add to ToC of content somehow and fix chapter numbers}
+	
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\listfigurename}
+	\listoffigures
+	\listoftables
+	\todo{Add List of Formulas if necessary}
+	\printbibliography
+	
+	% Appendix
+	\appendix
+	\chapter{Appendix}
+		\todo{Projektspezifisch können weitere Dokumentationsteile angefügt werden wie: Aufgabenstellung, Projektmanagement-Plan/Bericht, Testplan/Testbericht, Bedienungsanleitungen, Details zu Umfragen, detaillierte Anforderungslisten, Referenzen auf projektspezifische Daten in externen Entwicklungs- und Datenverwaltungstools etc.}
+	
+\end{document}
