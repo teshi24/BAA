@@ -1,0 +1,92 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{amssymb}  % for checkmarks and crosses
+\usepackage{xcolor}   % for coloring the symbols
+\usepackage{pifont}   % for coloring the symbols
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+
+\raggedright
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Bachelor Thesis Update}
+\chead{Nadja Stadelmann}
+\rhead{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+	
+	\renewcommand{\arraystretch}{1.5}
+	\begin{longtable}{|p{4cm}|p{10cm}|}
+		\hline
+		\textbf{Section} & \textbf{Details} \\
+		\hline
+		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}
+			\item[\textcolor{green}{\ding{52}}] KickOff and Assignment Upload
+			\item[\textcolor{orange}{\ding{45}}] Request Access to PASSION dataset
+			\begin{itemize}
+				\item Access granted but Switch Drive was down when I wanted to test the access
+			\end{itemize}
+			\item[\textcolor{green}{\ding{52}}] Prepare timetable
+			\item[\textcolor{orange}{\ding{45}}] Setup LaTex Base Document
+			\item[\textcolor{red}{\ding{56}}] Start Literature Review on general ML biases
+			\begin{itemize}
+				\item Started writing Problem Statement which helped getting into LaTex, which took some time away from the Review
+				\item Setting up LaTex templates took longer than expected
+			\end{itemize}
+		\end{itemize} \\
+		\hline
+		Accomplishments & \begin{itemize}
+			\item[\textcolor{green}{\ding{52}}] Setup of the most important documents / templates
+			\item[\textcolor{green}{\ding{52}}] Report already started
+			\item[\textcolor{green}{\ding{52}}] Tasks for first phase are clear
+		\end{itemize} \\
+		\hline
+		Risks and Measures & 
+		Wasting Time on Irrelevant/Poor-Quality Sources
+		\begin{itemize}
+			\item prioritizing papers with high citation counts
+			\item using systematic strategy as proposed by Ludovic
+		\end{itemize}
+		
+	    Missed Citations/Wasted Time Later to Re-Find Papers
+		\begin{itemize}
+			\item Writing a summary for each paper directly in the corresponding bib file that includes: key concept, research question, findings and potential section of the thesis where it could be used.
+			\item Adding citations immediately while writing in the final report.
+		\end{itemize}
+		
+		Focus Too Much on One Research Topic, Neglecting Others
+		\begin{itemize}
+			\item Applying time-boxing: Set time limits for each topic and stick to it.
+		\end{itemize} \\
+		
+		\hline
+		Next Steps & \begin{itemize}
+			\item Test the Access to PASSION dataset
+			\item Finalize Problem Statement (or should this be done later in the process?)
+			\item Literature Review according to plan
+			\item Fix LaTex Template
+		\end{itemize} \\
+		\hline
+		Discussion Points / Questions & \begin{itemize}
+			\item Timetable, especially the allocated time for the individual research topics
+			\item How can I fix that the Glossary and Figures List appear as chapters in LaTeX?
+			\item Feedback regarding this first report
+		\end{itemize} \\
+		\hline
+		Additional Notes & I will be out next Monday due to Lucerne Carneval. I will work instead more during the rest of the week from remote. \\
+		\hline
+		Attachments  & \begin{itemize}
+			\item Timetable
+			\item GitHub Repo: \href{https://github.com/teshi24/BAA}{https://github.com/teshi24/BAA}
+		\end{itemize} \\
+		\hline
+	\end{longtable}
+	
+\end{document}
