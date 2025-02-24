@@ -11,6 +11,8 @@
 \usepackage{csquotes}       % Quotation support
 \usepackage{booktabs}       % Better tables
 \usepackage{caption}        % Better captions
+\usepackage{float}			% better positioning
+\usepackage{tabularx}
 
 %\documentclass[listof=numbered]{scrreprt} % making lists caputred
 
@@ -80,11 +82,11 @@
 		\todo{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz	dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 	
 		\section{Context}
-			This thesis is part of the PASSION project. The PASSION research team identified that in Africa, dermatology treatment is not accessible. There is less than one dermatologist per one million citizens. In contrast, there is high demand for dermatology treatment, especially among children and adolescents. 80\% of the \gls{pediatric} population is affected. The goal of PASSION is, to make dermatology treatment more accessible by using AI supported telemedicine for triage (\cite{Gottfrois2024}).
+			This thesis is part of the PASSION project. The PASSION research team identified that in Africa, dermatology treatment is not accessible. There is less than one dermatologist per one million citizens. In contrast, there is high demand for dermatology treatment, especially among children and adolescents. 80\% of the \gls{pediatric} population is affected. The goal of PASSION is, to make dermatology treatment more accessible by using AI supported telemedicine for triage \autocite{Gottfrois2024}.
 		
-			For AI supported triage, demographic biases in existing dermatology models is a problem since the corresponding datasets lack diversity, especially regarding skin tones (\cite{Gottfrois2024}). This type of bias is especially important in dermatology, since different diseases present themselves differently depending on the skin-color (\cite{Diaz2022}) Further, skin diseases are more advanced or severe at diagnosis in patients with lower socioeconomic status (\cite{BAD2021}).
+			For AI supported triage, demographic biases in existing dermatology models is a problem since the corresponding datasets lack diversity, especially regarding skin tones \autocite{Gottfrois2024}. This type of bias is especially important in dermatology, since different diseases present themselves differently depending on the skin-color \autocite{Diaz2022}. Further, skin diseases are more advanced or severe at diagnosis in patients with lower socioeconomic status \autocite{BAD2021}.
 			
-			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa (\cite{Gottfrois2024}). This dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age. The project provides some data insights regarding demographics and skin types (\cite{Gottfrois2024}).
+			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa \autocite{Gottfrois2024}. This dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age. The project provides some data insights regarding demographics and skin types \autocite{Gottfrois2024}.
 			 
 			 
  			\todo{Describe Fitzpatrick skin type, "classifies skin based on its reaction to light" according to PASSION dataset}
@@ -104,32 +106,77 @@
 		\todo{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
 	
 		\section{PASSION for Dermatology}
-			\subsection{PASSION Dataset}
-			The PASSION dataset contains data from patients from four African countries. It contains images of dermatology cases and the corresponding demographic and clinical information. Those labels are available:
+			The PASSION research team provides a dataset including three analysis scripts and an AI model. For this thesis, it is important to understand which labels the dataset provides, so that the applicable bias mitigation methodologies can be chosen.
 			
-			\begin{table}[h!]
+			The provided analysis scripts show a first insight into the demographic distribution in the dataset, such as Fitzpatrick skin type and cases per country distribution. The results of those analyses reveal first biases.
+			
+			There are also dermatology specific analysis scripts in regards of body localization by condition or impetigo cases. Those results 
+			
+			\subsection{PASSION Dataset}
+			The PASSION dataset contains data from patients from four African countries. It contains 4901 images of dermatology cases and the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images. The images are linked with the record by filename, which contains the subject\_id of the row entry. Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
+			
+			\begin{table}[H]
 				\centering
-				\begin{tabular}{@{}|l|p{5cm}|l|@{}}
+				\begin{tabularx}{\textwidth}{>{\hsize=.27\hsize}X>{\hsize=.27\hsize\raggedright}X>{\hsize=.46\hsize}X}
 					\toprule
 					\textbf{Label}       & \textbf{Data Type} & \textbf{Description}       \\ \midrule
 					subject\_id          & string & Participant's unique identifier        \\
 					country              & string & Country of origin of the participant   \\
 					age                  & integer & Age of the participant in years       \\
-					sex                  & m/f/o & Gender of the participant \\
-					fitzpatrick          & integer & Fitzpatrick skin type \\
-					body\_loc            & string (semicolon-separated values, null-able) & Specific affected body locations \\
-					impetig              & 0/1  & Presence of impetigo (1=present)    \\
+					sex                  & m/f/o & Gender of the participant               \\
+					fitzpatrick          & integer & Fitzpatrick skin type                 \\
+					body\_loc            & string (list; null-able, semicolon-separated) & Specific affected body locations \\
+					impetig              & 0/1  & Presence of impetigo (1=present), may occur alone or with other conditions, affects the treatment options for coexisting conditions        \\
 					conditions\_PASSION  & Eczema, Scabies, Fungal, Others & Primary diagnosed skin condition \\
 					\bottomrule
-				\end{tabular}
-				\caption{Dataset Labels and Descriptions}
-				\label{tab:labels}
+				\end{tabularx}
+				\caption{PASSION dataset - labels and descriptions \autocite{Gottfrois2024} \todo{check if this is ok with the dataset citation, in this and the 2 following sections}}
+				\label{tab:PASSION_labels}
 			\end{table}
 			
-			The image filenames are in the format \{subject\_id\}\_\{image\_count\}.jpg, indicating the linkage between the data entries via the subject\_id and the order and count of the images related to the case. The dataset provides a code example for linking the images to the cases. The code example also provides a way to count the images per specific label values.
+			\subsection{PASSION Analysis Scripts}
+			With the Dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} with a description and an indicator, how relevant the scripts are for this thesis.
+			\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
+					\toprule
+					\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
+		  				Linking CSV Data with Image Files & 
+					  	Creates mapping between the data records and images. It further counts the cases by country  &
+					  	\textbf{High} - Basis for other analysis's, potentially provides dermatological info        \\
+					\hline
+						Extracting and Comparing Subject IDs &
+						Checks the dataset complecity and accurracy in regards of linking records and images &
+						\textbf{Low} - Checks loaded data for completeness, but is not providing more insight   \\
+					\hline
+						Regrouping Malawi and Tanzania to EAS &
+						data aggregation due to dataset size and geographical proximity &
+						\textbf{Low} - Might be relevant to understand the dataset and for interpreting the results of the following scripts correctly  \\
+					\hline
+						Conditions by Country &
+						Relationship between clinical conditions and country &
+						\textbf{Medium} - Currently unsure whether this information is relevant for this thesis \todo{research relevance between country vs. clinical conditions in regards of demographic bias} \\
+					\hline
+						Body Localizations by Conditions &
+						Shows correlation between the condition and primarily affected body parts; does not use all affected body parts listed in the data \todo{check with Philippe why this was done} &
+						\textbf{Low} - While the correlation can be interesting for other research, it is not relevant for demographic biases. \\
+					\hline
+						Impetigo Cases            &
+						Counts total number of impetigo cases as well as proportion to all cases &
+						\textbf{Medium} - Currently unsure whether this information is relevant for this thesis \todo{research relevance between impedigo and demographic bias} \\
+					\hline
+						Distribution of Fitzpatrick Skin Types &
+						Counts and visualizes the skin type distribution  &
+						\textbf{High} - Fitzpatrick Skin Type is a demographic information   \\
+					\bottomrule
+				\end{tabularx}
+				\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024} \todo{decide on a table style}}
+				\label{tab:PASSION_scripts}
+			\end{table}	
 			
-			\todo{add link to webpage/dataset}
-			.
+			\subsection{PASSION Experiments}
+			see https://github.com/Digital-Dermatology/PASSION-Evaluation
+			
 	
 	\chapter{Ideas and Concepts}
 	\section{sub chapter}
