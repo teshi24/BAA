@@ -22,7 +22,8 @@
 
 \usepackage[style=apa,backend=biber]{biblatex}       % Bibliography
 \addbibresource{references.bib} % Bibliography file
-\usepackage{todonotes}  % Add this to the preamble
+
+\usepackage{todonotes}
 \usepackage{xcolor}
 \renewcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 %\usepackage{titlesec} for report
@@ -85,6 +86,9 @@
 			
 			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa (\cite{Gottfrois2024}). This dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age. The project provides some data insights regarding demographics and skin types (\cite{Gottfrois2024}).
 			 
+			 
+ 			\todo{Describe Fitzpatrick skin type, "classifies skin based on its reaction to light" according to PASSION dataset}
+			 
 		\section{Objective}
 		The goal of this research is to
 		\begin{enumerate}
@@ -98,6 +102,34 @@
 	\chapter{State of Research}
 		\todo{Bezogen auf die eigenen Zielsetzungen und Fragestellungen soll aufgezeigt werden, wie andere dieses oder ähnliche Probleme gelöst haben. Worauf können Sie aufbauen, was müssen Sie neu angehen?	Wodurch unterscheidet sich Ihre Lösung von anderen Lösungen? Für wissenschaftlich orientierte Arbeiten sei hier explizit auf (Balzert, S. 66 ff) verwiesen.}
 		\todo{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
+	
+		\section{PASSION for Dermatology}
+			\subsection{PASSION Dataset}
+			The PASSION dataset contains data from patients from four African countries. It contains images of dermatology cases and the corresponding demographic and clinical information. Those labels are available:
+			
+			\begin{table}[h!]
+				\centering
+				\begin{tabular}{@{}|l|p{5cm}|l|@{}}
+					\toprule
+					\textbf{Label}       & \textbf{Data Type} & \textbf{Description}       \\ \midrule
+					subject\_id          & string & Participant's unique identifier        \\
+					country              & string & Country of origin of the participant   \\
+					age                  & integer & Age of the participant in years       \\
+					sex                  & m/f/o & Gender of the participant \\
+					fitzpatrick          & integer & Fitzpatrick skin type \\
+					body\_loc            & string (semicolon-separated values, null-able) & Specific affected body locations \\
+					impetig              & 0/1  & Presence of impetigo (1=present)    \\
+					conditions\_PASSION  & Eczema, Scabies, Fungal, Others & Primary diagnosed skin condition \\
+					\bottomrule
+				\end{tabular}
+				\caption{Dataset Labels and Descriptions}
+				\label{tab:labels}
+			\end{table}
+			
+			The image filenames are in the format \{subject\_id\}\_\{image\_count\}.jpg, indicating the linkage between the data entries via the subject\_id and the order and count of the images related to the case. The dataset provides a code example for linking the images to the cases. The code example also provides a way to count the images per specific label values.
+			
+			\todo{add link to webpage/dataset}
+			.
 	
 	\chapter{Ideas and Concepts}
 	\section{sub chapter}
