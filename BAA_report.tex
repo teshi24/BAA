@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt,listof=numbered,toc=chapterentrywithdots]{scrreport}
 
 % Package Imports
 \usepackage[utf8]{inputenc} % UTF-8 encoding
@@ -12,20 +12,25 @@
 \usepackage{booktabs}       % Better tables
 \usepackage{caption}        % Better captions
 
+%\documentclass[listof=numbered]{scrreprt} % making lists caputred
+
 \usepackage[toc]{glossaries} % Glossary
 \makeglossaries
-%\renewcommand{\glossaryname}{{\chapter}{Glossary}}
 \input{glossary}
+\renewcommand{\glossarysection}[2][]{}
+
 
 \usepackage[style=apa,backend=biber]{biblatex}       % Bibliography
 \addbibresource{references.bib} % Bibliography file
 \usepackage{todonotes}  % Add this to the preamble
 \usepackage{xcolor}
 \renewcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
-\usepackage{titlesec}
+%\usepackage{titlesec} for report
+\renewcommand{\chapterformat}{\thechapter\autodot\enskip}
+
 
 % Change chapter format in the document (no "Chapter", just number + title)
-\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{1em}{}
+%\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{1em}{}
 
 % Ensure chapters still appear correctly in the Table of Contents
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
@@ -33,16 +38,20 @@
 \renewcommand{\thesection}{\thechapter.\arabic{section}}
 
 
-\usepackage[titles]{tocloft}
+%\usepackage[titles]{tocloft}
 
 % adapt toc
-\usepackage[nottoc]{tocbibind}
+%\usepackage[nottoc]{tocbibind}
+\usepackage{tocbasic} % Instead of tocbibind
+%%\KOMAoptions{toc=chapterentrywithdots} % Ensures correct TOC formatting
+%%\KOMAoptions{listof=leveldown} 
+
 \setcounter{tocdepth}{2}
 
 
 % Title Page
-\title{Title of the Thesis}
-\author{Author Name}
+\title{Demographic Biases in Dermatology Models}
+\author{Nadja Stadelmann}
 \date{\today}
 
 \begin{document}
@@ -60,8 +69,8 @@
 	\listoftodos
 	
 	\todo{include the first three pages}
-	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.}
-	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.}
+	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} \linebreak
+	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.} \linebreak
 	\todo{Der Schreibstil aller Dokumente entspricht hohen Standards und enthält keine Übertreibungen oder unbegründete Beurteilungen. Die Sprache ist aussagekräftig, prägnant und präzise. Die Fachterminologie ist konsistent, d.h. für gleiche Gegenstände und Themen werden immer die gleichen Begriffe verwendet. Der Sprachgebrauch ist durchgängig geschlechtergerecht, einheitlich und sachlich.}
 	
 	
@@ -112,7 +121,10 @@
 		\todo{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
 	
 	% Lists and References
-	\printglossary
+	\chapter{\glossaryname}
+	\printglossary[title={}]
+
+
 	\todo{Add to ToC of content somehow and fix chapter numbers}
 	
 
@@ -122,6 +134,8 @@
 	\todo{Add List of Formulas if necessary}
 	\todo{add AI declarations somewhere}
 	
+	
+	\chapter{\bibname}
 	\printbibliography
 	
 	% Appendix
