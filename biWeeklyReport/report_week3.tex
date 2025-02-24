@@ -1,0 +1,103 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{amssymb}  % for checkmarks and crosses
+\usepackage{xcolor}   % for coloring the symbols
+\usepackage{pifont}   % for coloring the symbols
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+
+\newcommand{\done}{\textcolor{green}{\ding{52}}}
+\newcommand{\ongoing}{\textcolor{orange}{\ding{45}}}
+\newcommand{\notstarted}{\textcolor{red}{\ding{56}}}
+
+
+\raggedright
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Bachelor Thesis Update}
+\chead{Nadja Stadelmann}
+\rhead{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+	
+	\renewcommand{\arraystretch}{1.5}
+	\begin{longtable}{|p{4cm}|p{10cm}|}
+		\hline
+		\textbf{Section} & \textbf{Details} \\
+		\hline
+		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}
+			\item[\done] Adapt timetable based on feedback
+			\item[\ongoing] Finalize problem statement (assignment described)
+			\item[\notstarted] Getting familiar with PASSION dataset
+			\item[\ongoing] Fix LaTex template
+			\item[\ongoing] Literature review
+			
+			\item[\done] Good
+			\item[\ongoing] Ongoing
+			\begin{itemize}
+				\item Reason
+			\end{itemize}
+			\item[\notstarted] Not started
+			\begin{itemize}
+				\item Reason
+			\end{itemize}
+		\end{itemize} \\
+		\hline
+		Accomplishments & \begin{itemize}
+			\item[\done] 
+			\item[\done] 
+			\item[\done] 
+		\end{itemize} \\
+		\hline
+		Risks and Measures & 
+		Risk
+		\begin{itemize}
+			\item Measure
+		\end{itemize}
+		
+	    Risk
+		\begin{itemize}
+			\item Measure
+		\end{itemize}
+		
+		Risk
+		\begin{itemize}
+			\item Measure
+		\end{itemize} \\
+		
+		\hline
+		Next Steps & \begin{itemize}
+			\item Task
+		\end{itemize} \\
+		\hline
+		Discussion Points / Questions & \begin{itemize}
+			\item 
+		\end{itemize} \\
+		\hline
+		Additional Notes & - \\
+		\hline
+		Attachments  & \begin{itemize}
+			\item 
+		\end{itemize} \\
+		\hline
+		Protocol  & 
+		Topic
+		\begin{itemize}
+			\item 
+		\end{itemize}
+		
+		Topic
+		\begin{itemize}
+			\item 
+		\end{itemize} \\
+		\hline
+	\end{longtable}
+	
+\end{document}
