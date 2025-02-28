@@ -1,4 +1,7 @@
-\documentclass[a4paper,12pt,listof=numbered,toc=chapterentrywithdots]{scrreport}
+\documentclass[a4paper,10.5pt,
+			   bindingoffset=0.2in,left=3.35cm,right=2.12cm,top=3.75cm,bottom=2.88cm,%
+				footskip=.25in
+				listof=numbered,toc=chapterentrywithdots]{scrreport}
 
 % Package Imports
 \usepackage[utf8]{inputenc} % UTF-8 encoding
@@ -58,9 +61,48 @@
 \date{\today}
 
 \begin{document}
-	
+	\pagenumbering{gobble}
 	% Title Page
 	\maketitle
+	
+	
+	\fontsize{12}{14}
+	\noindent\textbf{Bachelor Thesis at Lucerne University of Applied Sciences and Arts
+		School of Computer Science and Information Technology} \\ \vspace*{0.6cm}
+	
+	\fontsize{10.5}{12}
+	\noindent
+	\textbf{Title of Bachelor Thesis:} Demographic Biases in Dermatology Models\\ \vspace*{0.2cm}
+	
+	\noindent
+	\textbf{Name of Student:} Nadja Stadelmann\newline \newline
+	\textbf{Degree Program:} BSc Computer Science \newline \newline
+	\textbf{Year of Graduation:} 2025\newline \newline
+	\textbf{Main Advisor:} Ludovic Amruthalingam\newline \newline
+	\textbf{External Expert:} \newline \newline
+	\textbf{Industry partner/provider:} Applied AI Research Lab, Lucerne University of Applied Sciences and Arts\newline \newline \newline
+	\textbf{Code / Thesis Classification:}\\
+	$\boxtimes$ Public (Standard) \newline
+	$\square$ Private
+	
+	
+	\paragraph{\textbf{Declaration}}
+	I hereby declare that I have completed this thesis alone and without any unauthorized or external help. I further declare that all the sources, references, literature and any other associated resources have been correctly and appropriately cited and referenced. The confidentiality of the project provider (industry partner) as well as the intellectual property rights of the Lucerne University of Applied Sciences and Arts have been fully and entirely respected in completion of this thesis. \newline \newline
+	Place / Date, Signature	\underline{\hspace*{8cm}} \newline \newline
+	
+	\paragraph{\textbf{Submission of the Thesis to the Portfolio Database:}}
+	Confirmation by the student \newline
+	I hereby confirm that this bachelor thesis has been correctly uploaded to the Portfolio Database in line with the code of practice of the University. I rescind all responsibility and authorization after upload so that no changes or amendments to the document may be undertaken.  \newline \newline
+	Place / Date, Signature	\underline{\hspace*{8cm}} \newline \newline
+	
+	\newpage
+	\pagenumbering{arabic}
+	\paragraph{\textbf{Expression of thanks and gratitude}}
+	d\newline
+	\todo{add thanks and gratitude}
+	Ludovic Amruthalingam
+	Simone Lionetti - deputy Ludovic
+	Pascal Baumann - LaTeX
 	
 	% Abstract
 	\begin{abstract}
