@@ -86,24 +86,30 @@
 	$\square$ Private
 	
 	
+	\todo{fix linebreaks and indents}
 	\paragraph{\textbf{Declaration}}
 	I hereby declare that I have completed this thesis alone and without any unauthorized or external help. I further declare that all the sources, references, literature and any other associated resources have been correctly and appropriately cited and referenced. The confidentiality of the project provider (industry partner) as well as the intellectual property rights of the Lucerne University of Applied Sciences and Arts have been fully and entirely respected in completion of this thesis. \newline \newline
 	Place / Date, Signature	\underline{\hspace*{8cm}} \newline \newline
 	
 	\paragraph{\textbf{Submission of the Thesis to the Portfolio Database:}}
+	
 	Confirmation by the student \newline
 	I hereby confirm that this bachelor thesis has been correctly uploaded to the Portfolio Database in line with the code of practice of the University. I rescind all responsibility and authorization after upload so that no changes or amendments to the document may be undertaken.  \newline \newline
-	Place / Date, Signature	\underline{\hspace*{8cm}} \newline \newline
+	Place / Date, Signature	\underline{\hspace*{8cm}} \newline
+	
+	\newpage
+	\paragraph{\textbf{Expression of thanks and gratitude}}
+	
+	\todo{add thanks and gratitude}
+	
+	Ludovic Amruthalingam
+	
+	Simone Lionetti - deputy Ludovic
+	
+	Pascal Baumann - LaTeX
 	
 	\newpage
 	\pagenumbering{arabic}
-	\paragraph{\textbf{Expression of thanks and gratitude}}
-	d\newline
-	\todo{add thanks and gratitude}
-	Ludovic Amruthalingam
-	Simone Lionetti - deputy Ludovic
-	Pascal Baumann - LaTeX
-	
 	% Abstract
 	\begin{abstract}
 		\todo{Your abstract here.}
@@ -124,14 +130,13 @@
 		\todo{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz	dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 	
 		\section{Context}
-			This thesis is part of the PASSION project. The PASSION research team identified that in Africa, dermatology treatment is not accessible. There is less than one dermatologist per one million citizens. In contrast, there is high demand for dermatology treatment, especially among children and adolescents. 80\% of the \gls{pediatric} population is affected. The goal of PASSION is, to make dermatology treatment more accessible by using AI supported telemedicine for triage \autocite{Gottfrois2024}.
+			This thesis is part of the PASSION project. The PASSION research team identified that in Africa, dermatology treatment is not accessible. There is less than one dermatologist per one million citizens. In contrast, there is high demand for dermatology treatment, especially among children and adolescents. 80\% of the \gls{pediatric} population is affected. The goal of PASSION is to make dermatology treatment more accessible by using AI supported telemedicine for triage \autocite{Gottfrois2024}.
 		
-			For AI supported triage, demographic biases in existing dermatology models is a problem since the corresponding datasets lack diversity, especially regarding skin tones \autocite{Gottfrois2024}. This type of bias is especially important in dermatology, since different diseases present themselves differently depending on the skin-color \autocite{Diaz2022}. Further, skin diseases are more advanced or severe at diagnosis in patients with lower socioeconomic status \autocite{BAD2021}.
+			For AI supported triage, demographic biases in existing dermatology models is a problem since the corresponding datasets lack diversity, especially regarding skin tones \autocite{Gottfrois2024}. This type of bias is important in dermatology, since different diseases present themselves differently depending on the skin-color \autocite{Diaz2022}. Further, skin diseases are more advanced or severe at diagnosis in patients with lower socioeconomic status \autocite{BAD2021}.
 			
-			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa \autocite{Gottfrois2024}. This dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age. The project provides some data insights regarding demographics and skin types \autocite{Gottfrois2024}.
-			 
-			 
- 			\todo{Describe Fitzpatrick skin type, "classifies skin based on its reaction to light" according to PASSION dataset}
+			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa. The PASSION team focused on gathering data with Fitzpatrick skin type (\gls{FST}) IV, V and VI. Further, the covered conditions represent up to 80\% of the conditions in the \gls{pediatric} population, the demographic group who is most affected by skin disease \autocite{Gottfrois2024}.
+			
+			The PASSION dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age or gender.
 			 
 		\section{Objective}
 		The goal of this research is to
@@ -166,13 +171,13 @@
 					country              & string & Country of origin of the participant   \\
 					age                  & integer & Age of the participant in years       \\
 					sex                  & m/f/o & Gender of the participant               \\
-					fitzpatrick          & integer & Fitzpatrick skin type                 \\
+					fitzpatrick          & integer & \gls{FST}                \\
 					body\_loc            & string (list; null-able, semicolon-separated) & Specific affected body locations \\
 					impetig              & 0/1  & Presence of impetigo (1=present), may occur alone or with other conditions, affects the treatment options for coexisting conditions        \\
 					conditions\_PASSION  & Eczema, Scabies, Fungal, Others & Primary diagnosed skin condition \\
 					\bottomrule
 				\end{tabularx}
-				\caption{PASSION dataset - labels and descriptions \autocite{Gottfrois2024} \todo{check if this is ok with the dataset citation, in this and the 2 following sections}}
+				\caption{PASSION dataset - labels and descriptions \autocite{Gottfrois2024}}
 				\label{tab:PASSION_labels}
 			\end{table}
 			
@@ -209,7 +214,7 @@
 					\hline
 						Distribution of Fitzpatrick Skin Types &
 						Counts and visualizes the skin type distribution  &
-						\textbf{High} - Fitzpatrick Skin Type is a demographic information   \\
+						\textbf{High} - \gls{FST} is a demographic information   \\
 					\bottomrule
 				\end{tabularx}
 				\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024} \todo{decide on a table style}}
@@ -218,6 +223,14 @@
 			
 			\subsection{PASSION Experiments}
 			see https://github.com/Digital-Dermatology/PASSION-Evaluation
+			
+			
+		\section{General ML biases}
+			\subsection{ML biases}
+			
+			\subsection{ML fairness metrics}
+			
+			\subsection{ML mitigation methods}
 			
 	
 	\chapter{Ideas and Concepts}
