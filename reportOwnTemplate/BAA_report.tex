@@ -1,137 +1,132 @@
-\documentclass[12pt, a4paper, oneside]{book}   	% document style definition
-\usepackage{hslu}                               % apply HSLU style
-\usepackage{comment}                            % having comment sections \begin{comment} \end{comment}
-\usepackage[hidelinks]{hyperref}                % hide red border in hyperlinks
-\usepackage[utf8]{inputenc}						% charactere interpretation
-\usepackage{amsmath}							% math package
-\usepackage{amsfonts}							% font package for math symbols
-\usepackage{amssymb}							% symbols package - definition of math symbols
-\usepackage{listings}							% package for code representation
+\documentclass[a4paper,10.5pt,
+			   bindingoffset=0.2in,left=3.35cm,right=2.12cm,top=3.75cm,bottom=2.88cm,%
+				footskip=.25in
+				listof=numbered,toc=chapterentrywithdots]{scrreport}
 
+% Package Imports
+\usepackage[utf8]{inputenc} % UTF-8 encoding
+\usepackage[T1]{fontenc}    % Proper font encoding
+\usepackage{lmodern}        % Modern font
+\usepackage{graphicx}       % Graphics support
+\usepackage[hidelinks]{hyperref}       % Clickable links
+\usepackage{amsmath, amssymb} % Math symbols
+\usepackage{listings}       % Code listings
 \usepackage{csquotes}       % Quotation support
-\usepackage[style=apa,backend=biber]{biblatex}       % Bibliography, 
-% todo: original template uses ieee3
-\addbibresource{references.bib} % Bibliography file
-
-\usepackage{graphicx}							% for inclusion of image
 \usepackage{booktabs}       % Better tables
 \usepackage{caption}        % Better captions
-\usepackage{subfig}								% to arrange figures next to each other
-\usepackage{float}								% text style surrounding images
-\usepackage[acronym]{glossaries}         				% package for glossary
-\usepackage{tikz}								% used to place logos on title page
-% \usepackage{gensymb}							% for special characters such as °
-
-\usepackage{multirow}
-\usepackage{siunitx}
+\usepackage{float}			% better positioning
 \usepackage{tabularx}
-\usepackage{tikzscale}
+
+%\documentclass[listof=numbered]{scrreprt} % making lists caputred
+
+\usepackage[toc]{glossaries} % Glossary
+\makeglossaries
+\input{glossary}
+\renewcommand{\glossarysection}[2][]{}
 
 
-\setcounter{tocdepth}{1}                        % hide subsections from TOC
-\makenoidxglossaries
-\input{acronyms}                                % include acronyms.txt file
-\input{glossary}                                % include glossary.txt file
-\graphicspath{{figures/}}						    % set path of graphics folder
+\usepackage[style=apa,backend=biber]{biblatex}       % Bibliography
+\addbibresource{references.bib} % Bibliography file
 
-
-\usepackage{titlesec}
-
-% Format chapter titles without "Chapter X" prefix
-\titleformat{\chapter}[hang]
-{\normalfont\LARGE\bfseries}  % Style: Large bold text
-{\thechapter}                 % Number format: Just the number
-{1em}                         % Space between number and title
-{}                            % Code before the title (empty)
-
-\setlength {\marginparwidth }{2cm}
 \usepackage{todonotes}
 \usepackage{xcolor}
 \renewcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
-%\presetkeys{todonotes}{inline, textcolor=red, color=none, noinlinepar}{}
-
-%\let\todoold\todo
-%\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}\todo[prepend, caption={TODO: #1}]{}}
+%\usepackage{titlesec} for report
+\renewcommand{\chapterformat}{\thechapter\autodot\enskip}
 
 
+% Change chapter format in the document (no "Chapter", just number + title)
+%\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{1em}{}
 
-%\renewcommand{\todo}[1]{\todo[inline]{\textcolor{red}{TODO: #1}}}
-%\renewcommand{\todo}[1]{\todo{\textcolor{red}{TODO: #1}}}
-
-
-
-%----------------------------------------------------------------------------------------
-%	DOCUMENT INFORMATION
-%----------------------------------------------------------------------------------------
-\author{Nadja Stadelmann}                       % author name
-\city{Lucerne (Switzerland)}                    % author's place of origin
-\title{Thesis Title}                            % thesis title
-\subtitle{\large \todo{subtitle}}               % thesis subtitle
-
-\date{2025}                                     % the year when the thesis was written (for the titlepage)
-\defensedate{\todo{adapt date} October 27th, 2024}                % the date of the private defense
-\defencelocation{Lucerne}                       % location of defence
-\extexpert{\todo{Expert Name}}                         % name of external expert
-\indpartner{\todo{Company Name}}                       % name of industry partner
-
-% jury, supervisor and dean are only relevant if acceptance sheet is enabled with the next line
-% \acceptsheet
-\jury{                                          % members of the jury
-    \begin{itemize}
-        \item Prof. Dr. Name Surname from Lucerne University of Applied Sciences and Arts, Switzerland (President of the Jury);
-        \item Prof. Dr. Name Surname from Lucerne University of Applied Sciences and Arts, Switzerland (Thesis Supervisor);
-        \item Prof. Dr. Name Surname from Lucerne University of Applied Sciences and Arts, Switzerland (External Expert).
-    \end{itemize}
-}
-
-\supervisor{\todo{adapt}Prof. Dr. Name Surname}             % name of supervisor
-\dean{\todo{adapt}Prof. Dr. Name Surname}                   % name of faculty dean
-
-\acknowledgments{Thanks to my family, relatives and friends for all the support given to finish this thesis.
-	\todo{add thanks and gratitude}
-	Ludovic Amruthalingam
-	Simone Lionetti - deputy Ludovic
-	Pascal Baumann - LaTeX
-}
+% Ensure chapters still appear correctly in the Table of Contents
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
 
 
+%\usepackage[titles]{tocloft}
+
+% adapt toc
+%\usepackage[nottoc]{tocbibind}
+\usepackage{tocbasic} % Instead of tocbibind
+%%\KOMAoptions{toc=chapterentrywithdots} % Ensures correct TOC formatting
+%%\KOMAoptions{listof=leveldown} 
+
+\setcounter{tocdepth}{2}
+
+
+% Title Page
+\title{Demographic Biases in Dermatology Models}
+\author{Nadja Stadelmann}
+\date{\today}
 
 \begin{document}
-	\english                                        % define thesis language: \german or \german
+	\pagenumbering{gobble}
+	% Title Page
 	\maketitle
 	
 	
-	%----------------------------------------------------------------------------------------
-	%	PREAMBLE
-	%----------------------------------------------------------------------------------------
-	\begin{abstractstyle}{\hsummary}
+	\fontsize{12}{14}
+	\noindent\textbf{Bachelor Thesis at Lucerne University of Applied Sciences and Arts
+		School of Computer Science and Information Technology} \\ \vspace*{0.6cm}
+	
+	\fontsize{10.5}{12}
+	\noindent
+	\textbf{Title of Bachelor Thesis:} Demographic Biases in Dermatology Models\\ \vspace*{0.2cm}
+	
+	\noindent
+	\textbf{Name of Student:} Nadja Stadelmann\newline \newline
+	\textbf{Degree Program:} BSc Computer Science \newline \newline
+	\textbf{Year of Graduation:} 2025\newline \newline
+	\textbf{Main Advisor:} Ludovic Amruthalingam\newline \newline
+	\textbf{External Expert:} \newline \newline
+	\textbf{Industry partner/provider:} Applied AI Research Lab, Lucerne University of Applied Sciences and Arts\newline \newline \newline
+	\textbf{Code / Thesis Classification:}\\
+	$\boxtimes$ Public (Standard) \newline
+	$\square$ Private
+	
+	
+	\todo{fix linebreaks and indents}
+	\paragraph{\textbf{Declaration}}
+	I hereby declare that I have completed this thesis alone and without any unauthorized or external help. I further declare that all the sources, references, literature and any other associated resources have been correctly and appropriately cited and referenced. The confidentiality of the project provider (industry partner) as well as the intellectual property rights of the Lucerne University of Applied Sciences and Arts have been fully and entirely respected in completion of this thesis. \newline \newline
+	Place / Date, Signature	\underline{\hspace*{8cm}} \newline \newline
+	
+	\paragraph{\textbf{Submission of the Thesis to the Portfolio Database:}}
+	
+	Confirmation by the student \newline
+	I hereby confirm that this bachelor thesis has been correctly uploaded to the Portfolio Database in line with the code of practice of the University. I rescind all responsibility and authorization after upload so that no changes or amendments to the document may be undertaken.  \newline \newline
+	Place / Date, Signature	\underline{\hspace*{8cm}} \newline
+	
+	\newpage
+	\paragraph{\textbf{Expression of thanks and gratitude}}
+	
+	\todo{add thanks and gratitude}
+	
+	Ludovic Amruthalingam
+	
+	Simone Lionetti - deputy Ludovic
+	
+	Pascal Baumann - LaTeX
+	
+	\newpage
+	\pagenumbering{arabic}
+	% Abstract
+	\begin{abstract}
 		\todo{Your abstract here.}
-	    The content of your thesis in brief.
-	\end{abstractstyle}
+	\end{abstract}
 	
+	% Table of Contents
 	\tableofcontents
-	
 	\listoftodos
-	\todo{switch off todos} \linebreak
+	
+	\todo{use the template on overleaf: https://www.overleaf.com/project/67cac1b71993d0b44b6ba7ee}
 	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} \linebreak
 	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.} \linebreak
 	\todo{Der Schreibstil aller Dokumente entspricht hohen Standards und enthält keine Übertreibungen oder unbegründete Beurteilungen. Die Sprache ist aussagekräftig, prägnant und präzise. Die Fachterminologie ist konsistent, d.h. für gleiche Gegenstände und Themen werden immer die gleichen Begriffe verwendet. Der Sprachgebrauch ist durchgängig geschlechtergerecht, einheitlich und sachlich.}
 	\todo{Portfolio DB für Referenzarbeiten anschauen}
 	
-	\listoffigures
-	\listoftables
-	% print list of acronyms and glossary
-	\printnoidxglossaries
 	
-	
-	
-	%----------------------------------------------------------------------------------------
-	%	MAIN CONTENT
-	%----------------------------------------------------------------------------------------
-	\mainmatter
-	
-	% write or compose the main document here
-	
+	% Chapters
 	\chapter{Problem Statement}
 		\todo{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 	
@@ -141,32 +136,35 @@
 			\item There are clear benefits to algorithmic decision-making; unlike people, machines do not become tired or bored [45, 119], and can take into account orders of magnitude more factors than people can. However, like people, algorithms are vulnerable to biases that render their decisions “unfair” [6, 121]. In the context of decision-making, fairness is \textit{the absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics}. Thus, an unfair algorithm is one whose decisions are skewed toward a particular group of people. \autocite{Mehrabi_2021}.
 			\item it is important for researchers and engineers to be concerned about the downstream applications and their potential harmful effects when modeling an algorithm or a system \autocite{Mehrabi_2021}.
 			\item We should think responsibly, and recognize that the application of these tools, and their subsequent decisions affect peoples’ lives; therefore, considering fairness constraints is a crucial task while designing and engineering these types of sensitive tools \autocite{Mehrabi_2021}.
+			\item \autocite{Mehrabi_2021}.
+			\item \autocite{Mehrabi_2021}.
+			
 		\end{itemize}
-	
 	
 		\section{Context}
 			This thesis is part of the PASSION project. The PASSION research team identified that in Africa, dermatology treatment is not accessible. There is less than one dermatologist per one million citizens. In contrast, there is high demand for dermatology treatment, especially among children and adolescents. 80\% of the \gls{pediatric} population is affected. The goal of PASSION is to make dermatology treatment more accessible by using AI supported telemedicine for triage \autocite{Gottfrois2024}.
-			
+		
 			For AI supported triage, demographic biases in existing dermatology models is a problem since the corresponding datasets lack diversity, especially regarding skin tones \autocite{Gottfrois2024}. This type of bias is important in dermatology, since different diseases present themselves differently depending on the skin-color \autocite{Diaz2022}. Further, skin diseases are more advanced or severe at diagnosis in patients with lower socioeconomic status \autocite{BAD2021}.
 			
-			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa. The PASSION team focused on gathering data with Fitzpatrick skin type (\gls{FST}, \todo{check with Pascal how to handle this}) IV, V and VI. Further, the covered conditions represent up to 80\% of the conditions in the \gls{pediatric} population, the demographic group who is most affected by skin disease \autocite{Gottfrois2024}.
+			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa. The PASSION team focused on gathering data with Fitzpatrick skin type (\gls{FST}) IV, V and VI. Further, the covered conditions represent up to 80\% of the conditions in the \gls{pediatric} population, the demographic group who is most affected by skin disease \autocite{Gottfrois2024}.
 			
 			The PASSION dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age or gender.
-	
+			 
 		\section{Objective}
-			The goal of this research is to
-			\begin{enumerate}
-				\item Identify demographic biases in dermatology AI models, using established fairness metrics.
-				\item Identify mitigation strategies to minimize these biases.
-				\item Assess the effectiveness of the mitigation strategies.
-			\end{enumerate}
-			It is important to identify the existent biases first, so that the mitigation strategies can be \todo{proceed here to reason why you chose those objectives}
+		The goal of this research is to
+		\begin{enumerate}
+			\item Identify demographic biases in dermatology AI models, using established fairness metrics.
+			\item Identify mitigation strategies to minimize these biases.
+			\item Assess the effectiveness of the mitigation strategies.
+		\end{enumerate}
+		It is important to identify the existent biases first, so that the mitigation strategies can be \todo{proceed here to reason why you chose those objectives}
+		
 	
 	\chapter{State of Research}
 		\todo{Bezogen auf die eigenen Zielsetzungen und Fragestellungen soll aufgezeigt werden, wie andere dieses oder ähnliche Probleme gelöst haben. Worauf können Sie aufbauen, was müssen Sie neu angehen?	Wodurch unterscheidet sich Ihre Lösung von anderen Lösungen? Für wissenschaftlich orientierte Arbeiten sei hier explizit auf (Balzert, S. 66 ff) verwiesen.}
 		\todo{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
-		
-		
+	
+	
 		\section{PASSION for Dermatology}
 			The PASSION research team provides a dataset including three analysis scripts and an AI model. For this thesis, it is important to understand which labels the dataset provides, so that the applicable bias mitigation methodologies can be chosen.
 			
@@ -175,69 +173,69 @@
 			There are also dermatology specific analysis scripts in regards of body localization by condition or impetigo cases. Those results 
 			
 			\subsection{PASSION Dataset}
-				The PASSION dataset contains data from patients from four African countries. It contains 4901 images of dermatology cases and the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images. The images are linked with the record by filename, which contains the subject\_id of the row entry. Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
-				
-				\begin{table}[H]
-					\centering
-					\begin{tabularx}{\textwidth}{>{\hsize=.27\hsize}X>{\hsize=.27\hsize\raggedright}X>{\hsize=.46\hsize}X}
-						\toprule
-						\textbf{Label}       & \textbf{Data Type} & \textbf{Description}       \\ \midrule
-						subject\_id          & string & Participant's unique identifier        \\
-						country              & string & Country of origin of the participant   \\
-						age                  & integer & Age of the participant in years       \\
-						sex                  & m/f/o & Gender of the participant               \\
-						fitzpatrick          & integer & \gls{FST}                \\
-						body\_loc            & string (list; null-able, semicolon-separated) & Specific affected body locations \\
-						impetig              & 0/1  & Presence of impetigo (1=present), may occur alone or with other conditions, affects the treatment options for coexisting conditions        \\
-						conditions\_PASSION  & Eczema, Scabies, Fungal, Others & Primary diagnosed skin condition \\
-						\bottomrule
-					\end{tabularx}
-					\caption{PASSION dataset - labels and descriptions \autocite{Gottfrois2024}}
-					\label{tab:PASSION_labels}
-				\end{table}
+			The PASSION dataset contains data from patients from four African countries. It contains 4901 images of dermatology cases and the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images. The images are linked with the record by filename, which contains the subject\_id of the row entry. Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabularx}{\textwidth}{>{\hsize=.27\hsize}X>{\hsize=.27\hsize\raggedright}X>{\hsize=.46\hsize}X}
+					\toprule
+					\textbf{Label}       & \textbf{Data Type} & \textbf{Description}       \\ \midrule
+					subject\_id          & string & Participant's unique identifier        \\
+					country              & string & Country of origin of the participant   \\
+					age                  & integer & Age of the participant in years       \\
+					sex                  & m/f/o & Gender of the participant               \\
+					fitzpatrick          & integer & \gls{FST}                \\
+					body\_loc            & string (list; null-able, semicolon-separated) & Specific affected body locations \\
+					impetig              & 0/1  & Presence of impetigo (1=present), may occur alone or with other conditions, affects the treatment options for coexisting conditions        \\
+					conditions\_PASSION  & Eczema, Scabies, Fungal, Others & Primary diagnosed skin condition \\
+					\bottomrule
+				\end{tabularx}
+				\caption{PASSION dataset - labels and descriptions \autocite{Gottfrois2024}}
+				\label{tab:PASSION_labels}
+			\end{table}
 			
 			\subsection{PASSION Analysis Scripts}
-				With the Dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} with a description and an indicator, how relevant the scripts are for this thesis.
-				\begin{table}[H]
-					\centering
-					\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
-						\toprule
-						\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
-						Linking CSV Data with Image Files & 
-						Creates mapping between the data records and images. It further counts the cases by country  &
-						\textbf{High} - Basis for other analysis's, potentially provides dermatological info        \\
-						\hline
+			With the Dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} with a description and an indicator, how relevant the scripts are for this thesis.
+			\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
+					\toprule
+					\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
+		  				Linking CSV Data with Image Files & 
+					  	Creates mapping between the data records and images. It further counts the cases by country  &
+					  	\textbf{High} - Basis for other analysis's, potentially provides dermatological info        \\
+					\hline
 						Extracting and Comparing Subject IDs &
 						Checks the dataset complecity and accurracy in regards of linking records and images &
 						\textbf{Low} - Checks loaded data for completeness, but is not providing more insight   \\
-						\hline
+					\hline
 						Regrouping Malawi and Tanzania to EAS &
 						data aggregation due to dataset size and geographical proximity &
 						\textbf{Low} - Might be relevant to understand the dataset and for interpreting the results of the following scripts correctly  \\
-						\hline
+					\hline
 						Conditions by Country &
 						Relationship between clinical conditions and country &
 						\textbf{Medium} - Currently unsure whether this information is relevant for this thesis \todo{research relevance between country vs. clinical conditions in regards of demographic bias} \\
-						\hline
+					\hline
 						Body Localizations by Conditions &
 						Shows correlation between the condition and primarily affected body parts; does not use all affected body parts listed in the data \todo{check with Philippe why this was done} &
 						\textbf{Low} - While the correlation can be interesting for other research, it is not relevant for demographic biases. \\
-						\hline
+					\hline
 						Impetigo Cases            &
 						Counts total number of impetigo cases as well as proportion to all cases &
 						\textbf{Medium} - Currently unsure whether this information is relevant for this thesis \todo{research relevance between impedigo and demographic bias} \\
-						\hline
+					\hline
 						Distribution of Fitzpatrick Skin Types &
 						Counts and visualizes the skin type distribution  &
 						\textbf{High} - \gls{FST} is a demographic information   \\
-						\bottomrule
-					\end{tabularx}
-					\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024} \todo{decide on a table style}}
-					\label{tab:PASSION_scripts}
-				\end{table}	
-				
+					\bottomrule
+				\end{tabularx}
+				\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024} \todo{decide on a table style}}
+				\label{tab:PASSION_scripts}
+			\end{table}	
+			
 			\subsection{PASSION Experiments}
-				see https://github.com/Digital-Dermatology/PASSION-Evaluation
+			see https://github.com/Digital-Dermatology/PASSION-Evaluation
 			
 			
 		\section{General ML biases}
@@ -249,7 +247,7 @@
 				\item compared SAVRY, a tool used in risk assessment frameworks that includes human intervention in its process, with automatic machine learning methods in order to see which one is more accurate and more fair. Conducting these types of studies should be done more frequently, but prior to releasing the tools in order to avoid doing harm \autocite{Mehrabi_2021}.
 				\item \textbf{Assessment Tools} An interesting direction that researchers have taken is introducing tools that can assess the amount of fairness in a tool or system. For example, Aequitas [136] is a toolkit that lets users to test models with regards to several bias and fairness metrics for different population subgroups. Aequitas produces reports from the obtained data that helps data scientists, machine learning researchers, and policymakers to make conscious decisions and avoid harm and damage toward certain populations. AI Fairness 360 (AIF360) is another toolkit developed by IBM in order to help moving fairness research algorithms into an industrial setting and to create a benchmark for fairness algorithms to get evaluated and an environment for fairness researchers to share their ideas [11]. These types of toolkits can be helpful for learners, researchers, and people working in the industry to move towards developing fair machine learning application away from discriminatory behavior \autocite{Mehrabi_2021}.
 			\end{itemize}	
-			
+				
 			\begin{itemize}
 				\item Most AI systems and algorithms are data driven and require data upon which to be trained. Thus, data is tightly coupled to the functionality of these algorithms and systems. In the cases where the underlying training data contains biases, the algorithms trained on them will learn these biases and reflect them into their predictions. As a result, existing biases in data can affect the algorithms using the data, producing biased outcomes. Algorithms can even amplify and perpetuate existing biases in the data.\autocite{Mehrabi_2021}.
 				\item In addition, algorithms themselves can display biased behavior due to certain design choices, even if the data itself is not biased. The outcomes of these biased algorithms can then be fed into real-world systems and affect users’ decisions, which will result in more biased data for training future algorithms.\autocite{Mehrabi_2021}.
@@ -287,7 +285,7 @@
 				\item \autocite{Mehrabi_2021}.
 				\item \autocite{Mehrabi_2021}.
 			\end{itemize}	
-			
+						
 			Algorithmic biases (Algorithm to user (A modulates U behaviour, biases in algorithm might lead to introduce biases in user behaviour and affect it as a consequence)) \autocite{Mehrabi_2021}
 			\begin{itemize}
 				\item Algorithmic Bias. Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm [9]. The algorithmic design choices, such as use of certain optimization functions, regularizations, choices in applying regression models on the data as a whole or considering subgroups, and the general use of statistically biased estimators in algorithms [44], can all contribute to biased algorithmic decisions that can bias the outcome of the algorithms.\autocite{Mehrabi_2021}.
@@ -316,8 +314,8 @@
 				\item \autocite{Mehrabi_2021}
 				\item \autocite{Mehrabi_2021}
 			\end{itemize}
-			
-			
+		
+		
 			Data bias examples and mitigation ideas
 			\begin{itemize}
 				\item Bias in ML Data - IJB-A / Adience imbalanced (mainly light-skinned subjects) - Bias towards dark-skinned groups (underrepresented). Other instance - when we do not consider different subgroups in the data. Considering only male-female groups not enough, use race to further subdivide gender groups. Only then, clear biases in sub groups can be found, since otherwise part of the groups would  compromise the other group and hide the underlaying bias towards that subgroup \autocite{Mehrabi_2021}
@@ -327,7 +325,7 @@
 				\item \autocite{Mehrabi_2021}
 				\item \autocite{Mehrabi_2021}
 			\end{itemize}
-			
+		
 			Discrimination vs. bias
 			\begin{itemize}
 				\item bias and discrimination = source of unfairness. Discrimination can be considered as a source for unfairness that is due to human prejudice and stereotyping based on the sensitive attributes, which may happen intentionally or unintentionally, while bias can be considered as a source for unfairness that is due to the data collection, sampling, and measurement. Although bias can also be seen as a source of unfairness that is due to human prejudice and stereotyping, in the algorithmic fairness literature it is more intuitive to categorize them as such according to the existing research in these areas. In this survey, we mainly focus on concepts that are relevant to algorithmic fairness issues. \autocite{Mehrabi_2021}
@@ -377,14 +375,13 @@
 				\item \autocite{Mehrabi_2021}
 			\end{itemize}
 			\todo{move on with page 13-15}
-			
+		
 			\subsection{ML biases}
 			
 			\subsection{ML fairness metrics}
 			
 			\subsection{ML mitigation methods}
-		
-	
+			
 	
 	\chapter{Ideas and Concepts}
 		\todo{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
@@ -404,16 +401,15 @@
 				\item Divide and Conquer vs. All-In-One-Model (either by etnicity x algorithms at a time or one which seperates the imgs first by demographic subgroup (incl. Fitzpatrick skin type))
 				\item BLIND performance vs. Including the demographic data
 			\end{itemize}
-
+	
 	\chapter{Methods}
 		\todo{Hier halten Sie fest und begründen, welches Vorgehensmodell Sie für Ihr Projekt wählen. Sie verweisen allenfalls auf die daraus entstandenen, konkreten Terminpläne mit Meilensteinen, welche z.B. unter Realisierung (Kapitel 5) oder im Anhang versorgt sind. Bei Projekten mit einer verlangten wissenschaftlichen Tiefe werden hier die geplanten Forschungsmethoden wie quantitative/qualitative Interviews, Befragungen, Beobachtungen, Feldexperiment etc. beschrieben und begründet. Warum ist in Ihrer Situation ein Interview besser als eine Umfrage? Wer soll interview werden?}
 		\todo{Die gewählten Methoden sind nachvollziehbar und begründet. Eine methodische Übersicht (Methodisches BigPicture) wurde aufgezeigt und Abgrenzungen erläutert.}
-
+	
 	\chapter{Execution}
 		\todo{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
 		\todo{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
-
-
+	
 	\chapter{Evaluation and Validation}
 		\todo{Auswertung und Interpretation der Ergebnisse. Nachweis, dass die Ziele erreicht wurden, oder warum	welche nicht erreicht wurden.}
 		\todo{Die Ziele / Forschungsfragen sind dem Umfang der Arbeit entsprechend sehr klar abgegrenzt; sie sind präzise, überprüfbar und nach den Standards der Zielformulierung definiert. Die Zielerreichung wurde systematisch und korrekt validiert.}
@@ -422,36 +418,29 @@
 	\chapter{Outlook}
 		\todo{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
 		\todo{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
-		
-		% Lists and References
-		\newpage
-
-
-
-
+	
+	% Lists and References
 	\chapter{\glossaryname}
-		%\printglossary[title={}]
-	%\todo{Add to ToC of content somehow and fix chapter numbers}
-	%\listoffigures
-	%\listoftables
+	\printglossary[title={}]
+
+
+	\todo{Add to ToC of content somehow and fix chapter numbers}
+	
+
+	\listoffigures
+	
+	\listoftables
 	\todo{Add List of Formulas if necessary}
 	\todo{add AI declarations somewhere}
 	
 	
 	\chapter{\bibname}
-		\printbibliography[heading=none]
-		
-		%\bibliographystyle{ieeetr}
-		%\footnotesize\bibliography{references}
-		
-		
-		%----------------------------------------------------------------------------------------
-		%	APPENDIX
-		%----------------------------------------------------------------------------------------
-		\appendix
-			\todo{Projektspezifisch können weitere Dokumentationsteile angefügt werden wie: Aufgabenstellung, Projektmanagement-Plan/Bericht, Testplan/Testbericht, Bedienungsanleitungen, Details zu Umfragen, detaillierte Anforderungslisten, Referenzen auf projektspezifische Daten in externen Entwicklungs- und Datenverwaltungstools etc.}
-			
-		\glsaddallunused                                % add all unused items to glossary
-		\todo{check the gls all unused.}
+	\printbibliography[heading=none]
+
+	
+	% Appendix
+	\appendix
+	\chapter{Appendix}
+		\todo{Projektspezifisch können weitere Dokumentationsteile angefügt werden wie: Aufgabenstellung, Projektmanagement-Plan/Bericht, Testplan/Testbericht, Bedienungsanleitungen, Details zu Umfragen, detaillierte Anforderungslisten, Referenzen auf projektspezifische Daten in externen Entwicklungs- und Datenverwaltungstools etc.}
 	
 \end{document}
