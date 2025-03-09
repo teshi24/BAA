@@ -95,7 +95,6 @@
 }
 
 
-
 \begin{document}
 	\english                                        % define thesis language: \german or \german
 	\maketitle
@@ -149,7 +148,7 @@
 			
 			For AI supported triage, demographic biases in existing dermatology models is a problem since the corresponding datasets lack diversity, especially regarding skin tones \autocite{Gottfrois2024}. This type of bias is important in dermatology, since different diseases present themselves differently depending on the skin-color \autocite{Diaz2022}. Further, skin diseases are more advanced or severe at diagnosis in patients with lower socioeconomic status \autocite{BAD2021}.
 			
-			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa. The PASSION team focused on gathering data with Fitzpatrick skin type (\gls{FST}, \todo{check with Pascal how to handle this}) IV, V and VI. Further, the covered conditions represent up to 80\% of the conditions in the \gls{pediatric} population, the demographic group who is most affected by skin disease \autocite{Gottfrois2024}.
+			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa. The PASSION team focused on gathering data with \gls{FST} \todo{ask Pascal for support} IV, V and VI. Further, the covered conditions represent up to 80\% of the conditions in the \gls{pediatric} population, the demographic group who is most affected by skin disease \autocite{Gottfrois2024}. \gls{HSLU}
 			
 			The PASSION dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age or gender.
 	
@@ -400,6 +399,19 @@
 			
 		\section{Broad Methodology}
 			\todo{write things to consider more precisely:}
+			\begin{itemize}
+				\item Divide and Conquer vs. All-In-One-Model
+				\begin{itemize}
+					 \item An algorithm per ethnicity / subgroup running at the same time
+					\item Running 1 Algorithm chosen based on Fitzpatrick skin type
+					\item Running 1 Algorithm which detects first the demographic subgroup (FST, gender, age, …) and runs the specific subgroup algorithm afterwards
+				\end{itemize}
+			\item BLIND performance vs. Including the demographic data
+				\begin{itemize}
+					\item Idea to try if the labels are not relevant for the diagnosis and should only be used for evaluating fairness purposes as some papers suggest 
+					\item Might be obsolete after demographic biases in dermatology research, since melanin response and melanoma risk is different in male and female according to research https://pmc.ncbi.nlm.nih.gov/articles/PMC4797181/
+				\end{itemize}
+			\end{itemize}
 			\begin{itemize}
 				\item Divide and Conquer vs. All-In-One-Model (either by etnicity x algorithms at a time or one which seperates the imgs first by demographic subgroup (incl. Fitzpatrick skin type))
 				\item BLIND performance vs. Including the demographic data

@@ -9,7 +9,7 @@
 \usepackage{xcolor}   % for coloring the symbols
 \usepackage{pifont}   % for coloring the symbols
 \usepackage{enumitem}
-\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt, leftmargin=1.2em}
 
 \newcommand{\done}{\textcolor{green}{\ding{52}}}
 \newcommand{\ongoing}{\textcolor{orange}{\ding{45}}}
@@ -28,74 +28,84 @@
 \begin{document}
 	
 	\renewcommand{\arraystretch}{1.5}
-	\begin{longtable}{|p{4cm}|p{10cm}|}
+	\begin{longtable}{|p{3.5cm}|p{12cm}|}
 		\hline
 		\textbf{Section} & \textbf{Details} \\
 		\hline
-		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}
-			\item[\done] Adapt timetable based on feedback
-			\item[\ongoing] Finalize problem statement (assignment described)
+		Progress Overview (inkl. Reasons for Deviations of the Plan) &
+		\begin{itemize}
+			\item[\done] Adapted timetable based on feedback and initial progress
+			\item[\done] Integrated new HSLU LaTex template
+			\item[\ongoing] Finalized problem statement (assignment described)
 			\item[\ongoing] Getting familiar with PASSION dataset
 			\begin{itemize}
-				\item answers from Philippe outstanding
+				\item awaiting answers from Philippe
 			\end{itemize}
-			\item[\ongoing] Fix LaTex template (incl. 1st 3 pages)
+			\item[\ongoing] Literature review (biases, fairness and mitigation)
 			\begin{itemize}
-				\item new template for bachelor thesis just came out now
-			\end{itemize}
-			\item[\ongoing] Literature review - ML general biases
-			\begin{itemize}
-				\item read survey bc had a big list of potentials
-			\end{itemize}
-			\item[\ongoing] Literature review - Demographic biases
-			\begin{itemize}
-				\item hard to find specific information about what are demographic biases in general, always goes back to ML
-			\end{itemize}
-			
-			\item[\notstarted] Not started
-			\begin{itemize}
-				\item Reason
+				\item[\ongoing] generally in ML
+				\begin{itemize}
+					\item found a survey with a broad list of biases and fairness metrics
+				\end{itemize}
+				\item[\ongoing] generally related to demographics
+				\begin{itemize}
+					\item lacking a general overview, most sources focus on AI and face recognition
+					\item research lead to sources with insights in demographic biases in dermatology
+				\end{itemize}
+				\item[\notstarted] generally related to dermatology biases
+				\begin{itemize}
+					\item ML survey took more time to read than expected
+				\end{itemize}
 			\end{itemize}
 		\end{itemize} \\
 		\hline
 		Accomplishments & \begin{itemize}
-			\item[\done] Access to PASSION dataset
-			\item[\done] Documented overview over the PASSION dataset
-			\item[\done] Most relevant LaTex issues fixed
-			\item[\done] Literature Review started to be fun
-			\item[\done] First Methodology ideas formed
+			\item[\done] Documented overview of the PASSION dataset
+			\item[\done] Literature review became engaging
+			\item[\done] First methodology ideas formed
 		\end{itemize} \\
 		\hline
 		Risks and Measures & 
-		Writing to much bc of struggling to identify most relevant parts to document
+		Struggling to filter the most relevant information
 		\begin{itemize}
-			\item ?
+			\item before diving into a paper, revisit the goal of the review
+ 			\item categorize insights into Scope BAA, Scope Outlook, Out Of Scope
 		\end{itemize}
 		
-	    Risk
+	    Difficulty identifying key demographic bias factors (most research focuses on gender and skin type, leading to gaps)
 		\begin{itemize}
-			\item Measure
+			\item Resort to statistic biases
+			\item Research specific ideas instead (such as relevant risk factors in dermatology)
 		\end{itemize}
 		
-		Risk
+		Deciding on wrong biases or fairness metrics to focus on.
 		\begin{itemize}
-			\item Measure
-		\end{itemize} \\
+			\item Narrow down the options, justifying the choices
+			\item Validate with Ludovic
+		\end{itemize}
 		
+		%Procrastination
+		%\begin{itemize}
+		%	\item Need to allocate specific time slots when working on the thesis
+		%	\item Accountability partners also on Wednesday afternoon and one day on the weekend
+		%\end{itemize}
+		\\
 		\hline
 		Next Steps & \begin{itemize}
-			\item Continue Literature Review
-			\item Categorize Biases, Fairness Metrics and Mitigation Methods - Scope BAA, Scope Outlook, Out Of Scope
+			\item Continue literature review
+			\item Categorize already found biases, fairness metrics and mitigation methods - Scope BAA, Scope Outlook, Out Of Scope
+			\item Craft methodology to use during this thesis
 		\end{itemize} \\
 		\hline
 		Discussion Points / Questions & \begin{itemize}
-			\item When citing from a meta-study, I'm supposed to cite the underlying original studies, right?
+			\item When citing meta-studies, should I reference the original studies instead?
+			\item Should I document out-of-scope but seemingly relevant findings? To what extent?
 		\end{itemize} \\
 		\hline
-		Additional Notes & - \\
+		Additional Notes & The hints regarding how to literature review were very helpful advise\\
 		\hline
 		Attachments  & \begin{itemize}
-			\item 
+			\item Adapted timetable
 		\end{itemize} \\
 		\hline
 		Protocol  & 
