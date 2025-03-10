@@ -1,7 +1,8 @@
 \documentclass[12pt, a4paper, oneside]{book}   	% document style definition
+
+
 \usepackage{hslu}                               % apply HSLU style
 \usepackage{comment}                            % having comment sections \begin{comment} \end{comment}
-\usepackage[hidelinks]{hyperref}                % hide red border in hyperlinks
 \usepackage[utf8]{inputenc}						% charactere interpretation
 \usepackage{amsmath}							% math package
 \usepackage{amsfonts}							% font package for math symbols
@@ -14,19 +15,33 @@
 \addbibresource{references.bib} % Bibliography file
 
 \usepackage{graphicx}							% for inclusion of image
+\setlength {\marginparwidth }{2cm}
+\usepackage{todonotes}
+%\usepackage{xcolor}
+\renewcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+
+
 \usepackage{booktabs}       % Better tables
 \usepackage{caption}        % Better captions
 \usepackage{subfig}								% to arrange figures next to each other
 \usepackage{float}								% text style surrounding images
-\usepackage[acronym]{glossaries}         				% package for glossary
 \usepackage{tikz}								% used to place logos on title page
 % \usepackage{gensymb}							% for special characters such as °
-
+\usepackage{titlesec}
 \usepackage{multirow}
 \usepackage{siunitx}
 \usepackage{tabularx}
 \usepackage{tikzscale}
 
+
+% PDF/A Compliance, todo: enable and remove hyperref usepackage afterwards
+% \usepackage[a-1b]{pdfx}
+% \catcode30=12
+
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\usepackage[acronym]{glossaries}         				% package for glossary
 
 \setcounter{tocdepth}{1}                        % hide subsections from TOC
 \makenoidxglossaries
@@ -35,7 +50,7 @@
 \graphicspath{{figures/}}						    % set path of graphics folder
 
 
-\usepackage{titlesec}
+
 
 % Format chapter titles without "Chapter X" prefix
 \titleformat{\chapter}[hang]
@@ -44,10 +59,6 @@
 {1em}                         % Space between number and title
 {}                            % Code before the title (empty)
 
-\setlength {\marginparwidth }{2cm}
-\usepackage{todonotes}
-\usepackage{xcolor}
-\renewcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 %\presetkeys{todonotes}{inline, textcolor=red, color=none, noinlinepar}{}
 
 %\let\todoold\todo
@@ -111,7 +122,8 @@
 	\tableofcontents
 	
 	\listoftodos
-	\todo{switch off todos} \linebreak
+	\todo{solve todos} \linebreak
+	\todo{also solve todos in the code ;)} \linebreak
 	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} \linebreak
 	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.} \linebreak
 	\todo{Der Schreibstil aller Dokumente entspricht hohen Standards und enthält keine Übertreibungen oder unbegründete Beurteilungen. Die Sprache ist aussagekräftig, prägnant und präzise. Die Fachterminologie ist konsistent, d.h. für gleiche Gegenstände und Themen werden immer die gleichen Begriffe verwendet. Der Sprachgebrauch ist durchgängig geschlechtergerecht, einheitlich und sachlich.}
@@ -382,8 +394,25 @@
 			\subsection{ML fairness metrics}
 			
 			\subsection{ML mitigation methods}
-		
+		\section{Statistical biases}
+			https://data36.com/statistical-bias-types-explained/
+			\begin{itemize}
+				\item Selection bias - wrong sampling method, working on a specific subset of audience; usually by working only with data that is easy to access
+				\item Self-selection bias - when you let the subjects of the analyses select themselves, less proactive people will be excluded \todo{could be an issue as well for PASSION, couldn't it? since the doctors probably ask the clients. One way to go is to default should be to provide access to the data. but is it ethical?}
+				\item Recall bias - respondent doesn't remember things correctly \todo{keep an eye on this when recalling evidences!!}
+				\item Observer bias - projecting expectations onto the research
+				\item Survivorship bias
+				\item Omitted variable bias
+				\item Cause-effect bias
+				\item Funding bias
+				\item Cognitive bias
+			\end{itemize}	
 	
+		\section{Dermatology Bias}
+			\begin{itemize}
+				\item https://ijdvl.com/biases-in-dermatology-a-primer/ 29 biases, 4 reasons to know about it, 7 mitigation methods
+				
+			\end{itemize}
 	
 	\chapter{Ideas and Concepts}
 		\todo{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
@@ -395,6 +424,7 @@
 				\item include profession / at least an adapted version to indicate high risk patients for certain diseases? -> might lead to other biases?
 				\item change country of origin to ethnicity (less of a proxy variable)
 				\item are the data collectors specialized in some fields? That could lead to bias towards the center's country and the diagnosed diseases
+				\item include images of healthy skin
 			\end{itemize}
 			
 		\section{Broad Methodology}
@@ -404,13 +434,15 @@
 				\begin{itemize}
 					 \item An algorithm per ethnicity / subgroup running at the same time
 					\item Running 1 Algorithm chosen based on Fitzpatrick skin type
-					\item Running 1 Algorithm which detects first the demographic subgroup (FST, gender, age, …) and runs the specific subgroup algorithm afterwards
+					\item Running 1 Algorithm which detects first the demographic subgroup (\gls{FST}, gender, age, …) and runs the specific subgroup algorithm afterwards
+					\item Hint Ludovic: Still not of data, maybe also others; often limited because the data is missing, you are missing data from others
 				\end{itemize}
-			\item BLIND performance vs. Including the demographic data
+				\item BLIND performance vs. Including the demographic data
 				\begin{itemize}
 					\item Idea to try if the labels are not relevant for the diagnosis and should only be used for evaluating fairness purposes as some papers suggest 
 					\item Might be obsolete after demographic biases in dermatology research, since melanin response and melanoma risk is different in male and female according to research https://pmc.ncbi.nlm.nih.gov/articles/PMC4797181/
 				\end{itemize}
+				\item Hint Ludovic: Maybe Focal Loss more relevant --> emphasis on data vs model
 			\end{itemize}
 			\begin{itemize}
 				\item Divide and Conquer vs. All-In-One-Model (either by etnicity x algorithms at a time or one which seperates the imgs first by demographic subgroup (incl. Fitzpatrick skin type))
