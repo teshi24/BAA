@@ -17,14 +17,23 @@
 \usepackage{graphicx}							% for inclusion of image
 \setlength {\marginparwidth }{2cm}
 \usepackage{todonotes}
-%\usepackage{xcolor}
 \renewcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+%\presetkeys{todonotes}{inline, textcolor=red, color=none, noinlinepar}{}
+
+%\let\todoold\todo
+%\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}\todo[prepend, caption={TODO: #1}]{}}
+
+%\renewcommand{\todo}[1]{\todo[inline]{\textcolor{red}{TODO: #1}}}
+%\renewcommand{\todo}[1]{\todo{\textcolor{red}{TODO: #1}}}
+
+
 
 
 \usepackage{booktabs}       % Better tables
 \usepackage{caption}        % Better captions
 \usepackage{subfig}								% to arrange figures next to each other
 \usepackage{float}								% text style surrounding images
+\usepackage{threeparttable}
 \usepackage{tikz}								% used to place logos on title page
 % \usepackage{gensymb}							% for special characters such as °
 \usepackage{titlesec}
@@ -58,16 +67,6 @@
 {\thechapter}                 % Number format: Just the number
 {1em}                         % Space between number and title
 {}                            % Code before the title (empty)
-
-%\presetkeys{todonotes}{inline, textcolor=red, color=none, noinlinepar}{}
-
-%\let\todoold\todo
-%\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}\todo[prepend, caption={TODO: #1}]{}}
-
-
-
-%\renewcommand{\todo}[1]{\todo[inline]{\textcolor{red}{TODO: #1}}}
-%\renewcommand{\todo}[1]{\todo{\textcolor{red}{TODO: #1}}}
 
 
 
@@ -122,11 +121,21 @@
 	\tableofcontents
 	
 	\listoftodos
-	\todo{solve todos} \linebreak
-	\todo{also solve todos in the code ;)} \linebreak
-	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} \linebreak
-	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.} \linebreak
+	\todo{solve todos} 
+	
+	
+	\todo{also solve todos in the code ;)} 
+	
+	
+	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} 
+	
+	
+	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.} 
+	
+	
 	\todo{Der Schreibstil aller Dokumente entspricht hohen Standards und enthält keine Übertreibungen oder unbegründete Beurteilungen. Die Sprache ist aussagekräftig, prägnant und präzise. Die Fachterminologie ist konsistent, d.h. für gleiche Gegenstände und Themen werden immer die gleichen Begriffe verwendet. Der Sprachgebrauch ist durchgängig geschlechtergerecht, einheitlich und sachlich.}
+
+
 	\todo{Portfolio DB für Referenzarbeiten anschauen}
 	
 	\listoffigures
@@ -160,7 +169,7 @@
 			
 			For AI supported triage, demographic biases in existing dermatology models is a problem since the corresponding datasets lack diversity, especially regarding skin tones \autocite{Gottfrois2024}. This type of bias is important in dermatology, since different diseases present themselves differently depending on the skin-color \autocite{Diaz2022}. Further, skin diseases are more advanced or severe at diagnosis in patients with lower socioeconomic status \autocite{BAD2021}.
 			
-			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa. The PASSION team focused on gathering data with \gls{FST} \todo{ask Pascal for support} IV, V and VI. Further, the covered conditions represent up to 80\% of the conditions in the \gls{pediatric} population, the demographic group who is most affected by skin disease \autocite{Gottfrois2024}. \gls{HSLU}
+			PASSION tries to mitigate the demographic bias by providing a dataset of pigmented skin images of patients from Sub-Saharan Africa. The PASSION team focused on gathering data with \gls{FST} IV, V and VI. Further, the covered conditions represent up to 80\% of the conditions in the \gls{pediatric} population, the demographic group who is most affected by skin disease \autocite{Gottfrois2024}. \gls{HSLU}
 			
 			The PASSION dataset is complementary to the existing datasets and improves the diversity in a combined dataset. Within the dataset itself, there could potentially be further demographic biases, e.g. related to age or gender.
 	
@@ -272,16 +281,73 @@
 					\label{fig:example}
 				\end{figure}
 				\item Bias can exist in many shapes and forms, some of which can lead to unfairness in different downstream learning tasks. In [144], authors talk about sources of bias in machine learning with their categorizations and descriptions in order to motivate future solutions to each of the sources of bias introduced in the paper. In [120], the authors prepare a complete list of different types of biases with their corresponding definitions that exist in different cycles from data origins to its collection and its processing.\autocite{Mehrabi_2021}.
-				\item \autocite{Mehrabi_2021}.
-				\item \autocite{Mehrabi_2021}.
-				\item \autocite{Mehrabi_2021}.
-				\item \autocite{Mehrabi_2021}.
-				\item \autocite{Mehrabi_2021}.
 			\end{itemize}	
 			
 			Already rewritten: The following categorization was modeled with the intent to show that the different biases are intertwined and one should consider the effects between each other in the cycle to address them correctly \autocite{Mehrabi_2021}
+		
+			\begin{table}[H]
+				\centering
+				\begin{threeparttable}
+					\begin{tabularx}{\textwidth}{>{\hsize=0.4\hsize\raggedright}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+						\toprule
+						\textbf{Bias} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
+						%	\midrule
+						\multicolumn{4}{l}{\textbf{Data Biases}} \\ 
+						Measurement Bias     & X\tnote{1,2} &  &   \\
+						Omitted Variable Bias& X\tnote{1,11,13} &  &   \\
+						Representation Bias  & X\tnote{1,2} &  &   \\
+						Aggregation Bias     & X\tnote{1,2} &  &   \\
+						Sampling Bias        & X\tnote{1} &  &   \\
+						Longitudinal Data Fallacy & X\tnote{1} &  &   \\
+						Linking Bias         & X\tnote{1,3} &  &   \\
+						%	\midrule
+						\multicolumn{4}{l}{\textbf{Algorithmic Biases}} \\ 
+						Algorithmic Bias     & X\tnote{1,4,5} &  &   \\
+						User Interaction Bias& X\tnote{1,4} &  &   \\
+						Presentation Bias    & X\tnote{1,4} &  &   \\
+						Ranking Bias         & X\tnote{1,4,6} &  &   \\
+						Popularity Bias      & X\tnote{1,10} &  &   \\
+						Emergent Bias        & X\tnote{1,9} &  &   \\
+						Evaluation Bias      & X\tnote{1,2,12} &  &  \\
+						%	\midrule
+						\multicolumn{4}{l}{\textbf{User Biases}} \\ 
+						Historical Bias      & X\tnote{1,2} &  &   \\
+						Population Bias      & X\tnote{1,3,8} &  &   \\
+						Self-Selection Bias  & X\tnote{1} &  &   \\
+						Social Bias          & X\tnote{1,4,7} &  &   \\
+						Behavioral Bias      & X\tnote{1,3} &  &   \\
+						Temporal Bias        & X\tnote{1,3} &  &   \\
+						Content Production Bias & X\tnote{1,3} &  &   \\
+						\bottomrule
+					\end{tabularx}
+					\begin{tablenotes}
+						\footnotesize
+						\begin{minipage}{0.49\textwidth} 
+							\item[1] \autocite{Mehrabi_2021}
+							\item[2] [144] \autocite{M144_Suresh_2021}
+							\item[3] [120] \autocite{M120_Olteanu_2019}
+							\item[4] [9] \autocite{M9_Baeza-Yates_2018}
+							\item[5] [44] \autocite{M44_Danks_2017}
+							\item[6] [93] \autocite{M93_Lerman_2014}
+							\item[7] [151] \autocite{M151_Wang_2014}
+						\end{minipage}%
+						\begin{minipage}{0.49\textwidth} 
+							\item[8] [64] \autocite{M64_Hargittai_2007}
+							\item[9] [53] \autocite{M53_Friedman_1996}
+							\item[10] [117] \autocite{M117_Ciampaglia_2018}
+							\item[11] [38, 131] \autocites{M38_Clarke_2005}{M131_Riegg_2008}
+							\item[12] [24] \autocite{M24_Buolamwini_2018}
+							\item[13] [114] \autocite{M114_Mustard_2003}
+						\end{minipage}%
+					\end{tablenotes}
+				\end{threeparttable}
+				\caption{Biases - Mentioned in Contextual Research, the author cannot guarantee for completeness}
+				\label{tab:biases_data}
+			\end{table}
 			
-			Data biases (data to algorithm (biases in data which might have an impact on biased algorithmic outcomes \autocite{Mehrabi_2021}))
+			
+			Data biases (data to algorithm (biases in data which might have an impact on biased algorithmic outcomes \autocite{Mehrabi_2021}))	
 			\begin{itemize}
 				\item Measurement Bias. Measurement, or reporting, bias arises from how we choose, utilize, and measure particular features [144] (e.g. mismeasured proxy variables (= "one or more variables that encode the protected attribute with a substantial degree of accuracy" according to https://medium.com/bcggamma/practice-ai-responsibly-with-proxy-variable-detection-42c2156ad986)) \autocite{Mehrabi_2021}. (= e.g. someone who lives at that postal code probably has this ethnicity https://medium.com/bcggamma/practice-ai-responsibly-with-proxy-variable-detection-42c2156ad986); --> could that be an issue with the country of origin feature?
 				\item Omitted Variable Bias. Omitted variable bias4 occurs when one or more important variables are left out of the model [38, 114, 131]. Something that the model was not ready for\autocite{Mehrabi_2021}. did not take into account
@@ -294,9 +360,6 @@
 				\item Sampling Bias. Sampling bias is similar to representation bias, and it arises due to nonrandom sampling of subgroups. As a consequence of sampling bias, the trends estimated for one population may not generalize to data collected from a new population. \autocite{Mehrabi_2021}. This is what the PASSION dataset tries to improve
 				\item Longitudinal Data Fallacy. Researchers analyzing temporal data must use longitudinal analysis to track cohorts over time to learn their behavior. Instead, temporal data is often modeled using cross-sectional analysis, which combines diverse cohorts at a single time point. The heterogeneous cohorts can bias cross-sectional analysis, leading to different conclusions than longitudinal analysis \autocite{Mehrabi_2021}. --> could this be relevant for the progress of a specific disease? Or would that only be an issue when the progress of the disease would be predicted?
 				\item Linking Bias. Linking bias arises when network attributes obtained from user connections, activities, or interactions differ and misrepresent the true behavior of the users [120] \autocite{Mehrabi_2021}. --> probably less important since we got individuals? Or could that be an issue with the country of origin feature?
-				\item \autocite{Mehrabi_2021}.
-				\item \autocite{Mehrabi_2021}.
-				\item \autocite{Mehrabi_2021}.
 			\end{itemize}	
 			
 			Algorithmic biases (Algorithm to user (A modulates U behaviour, biases in algorithm might lead to introduce biases in user behaviour and affect it as a consequence)) \autocite{Mehrabi_2021}
@@ -321,11 +384,6 @@
 				\item Behavioral Bias. Behavioral bias arises from different user behavior across platforms, contexts, or different datasets [120]. \autocite{Mehrabi_2021} maybe, people from different countries go to the dermatologist for different diseases, based on cultural differences?
 				\item Temporal Bias. Temporal bias arises from differences in populations and behaviors over time [120]. \autocite{Mehrabi_2021} -- could this also be differences in the year, when people go to dermatologists? over which timeline has the PASSION data been captured? 
 				\item Content Production Bias. Content Production bias arises from structural, lexical, semantic, and syntactic differences in the contents generated by users [120]. \autocite{Mehrabi_2021} -- could the quality of the pictures been related to this as well?
-				\item \autocite{Mehrabi_2021}
-				\item \autocite{Mehrabi_2021}
-				\item \autocite{Mehrabi_2021}
-				\item \autocite{Mehrabi_2021}
-				\item \autocite{Mehrabi_2021}
 			\end{itemize}
 			
 			
