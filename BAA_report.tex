@@ -551,82 +551,161 @@
 			
 			
 			\subsection{Mitigation Methods Overview}
-				\begin{comment}
-					\begin{table}[H]
-						\centering
-						\begin{threeparttable}
-								\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
-										\toprule
-										\textbf{Mitigation Methods} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-										& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
-										%	\midrule
-										\multicolumn{4}{l}{\textbf{Pre-processing}} \\ 
-										Community Detection & X\tnote{1,2} &  &   \\
-										Word Embedding & X\tnote{1,3} &  &   \\
-										Optimized Pre-processing & X\tnote{1,4} &  &   \\
-										Data Pre-processing & X\tnote{1,5} &  &   \\
-										%	\midrule
-										\multicolumn{4}{l}{\textbf{In-processing}} \\ 
-										Classification    & X\tnote{1,6,7,8} &  &   \\
-										Regression    & X\tnote{1,9} &  &   \\
-										%	\midrule
-										\multicolumn{4}{l}{\textbf{Post-processing}} \\ 
-										Adversarial Learning    & X\tnote{1,10} &  &   \\
-										Classification \todo{fix footnotes from here} & X\tnote{1,63,125,102} & & \\
-										Word Embedding & X\tnote{1,20} & & \\
-										\bottomrule
-									\end{tabularx}
-								\begin{tablenotes}
-										\footnotesize
-										\begin{minipage}{0.33\textwidth}\raggedright
-												\item[1] \autocite{Mehrabi_2021}
-												\item[2] \autocite{M104_}
-												\item[3] \autocite{M23_}
-												\item[4] \autocite{M27_}
-												\item[5] \autocite{M76_}
-												\item[6] \autocite{M159_}
-												\item[7] \autocite{M78_}
-												\item[8] \autocite{M155_}
-												\item[9] \autocite{M14_}
-												\item[10] \autocite{M90_}
-											\end{minipage}%
-										\begin{minipage}{0.33\textwidth}\raggedright
-												%\item[5] \autocite{M87_Kusner_2017}
-											\end{minipage}%
-										\begin{minipage}{0.33\textwidth}\raggedright
-												%\item[9] \autocite{M50_Farnadi_2018}
-											\end{minipage}%
-									\end{tablenotes}
-							\end{threeparttable}
-						\caption{Mitigation Methods - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
-						\label{tab:mitigation_methods_algorithms}
-					\end{table}
-				\end{comment}
-			
 				\todo{write definitions of pre-in and post-processing, see Methods for fair machine learning below [43, 11, 14]}
-			
+
 				\begin{table}[H]
 				\centering
 				\begin{threeparttable}
 					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
 						\toprule
-						\textbf{Mitigation Methods} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
+						\textbf{Mitigation Methods - Unbiasing Data (Pre-Processing)} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
+						Good Practices while using Data & X\tnote{1,2,3} &  &   \\
+						Datasheets as supporting document for dataset creation method, characteristics, motivations and skews & X\tnote{1,2,3} &  &   \\
+						Datasheets as supporting document for model method, characteristics, motivations and skews & X\tnote{1,4} &  &   \\
+						Dataset Nutrition Label & X\tnote{1,5,6} &  &   \\
+						Test for Simpson's Paradox \todo{Discribe Simpson's Paradox} & X\tnote{1,7,8,9} &  &   \\
+						Detect Direct Discrimination with Causal Models and Graphs & X\tnote{1,10} &  &   \\					
+						Preventing Direct and Indirect Discrimination & X\tnote{1,11} &  &   \\
+						Messaging & X\tnote{1,12} &  &   \\
+						Preferential Sampling & X\tnote{1,13,14} &  &   \\
+						Disparate Impact Removal & X\tnote{1,15} &  &   \\
+						\bottomrule
+					\end{tabularx}
+					\begin{tablenotes}
+						\footnotesize
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[1] \autocite{Mehrabi_2021}
+							\item[2] \autocite{M13_}
+							\item[3] \autocite{M55_}
+							\item[4] \autocite{M110_}
+							\item[5] \autocite{M66_}
+						\end{minipage}%
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[6] \autocite{M66Successor_}
+							\item[7] \autocite{M81_}
+							\item[8] \autocite{M3_}
+							\item[9] \autocite{M4_}
+							\item[10] \autocite{M163_}
+						\end{minipage}%
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[11] \autocite{M62_}
+							\item[12] \autocite{M74_}
+							\item[13] \autocite{M75_}
+							\item[14] \autocite{M76_}
+							\item[15] \autocite{M51_}
+						\end{minipage}%
+					\end{tablenotes}
+				\end{threeparttable}
+				\caption{Mitigation Methods - Unbiasing Data - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\label{tab:mitigation_methods_unbiasing_data}
+			\end{table}
+				
+				
+			\begin{table}[H]
+				\centering
+				\begin{threeparttable}
+					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+						\toprule
+						\textbf{Mitigation Methods - Fair Classification} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Fair Representations (Pre/In-processing \todo{check with Ludovic})}} \\ 
-						Representation Learning by Disentanglement & X\tnote{1,2} &  &   \\
-						Variational Fair Autoencoder & X\tnote{1,3} &  &   \\
-						VAE without adversarial training & X\tnote{1,4} &  &   \\
-						 & X\tnote{1,5} &  &   \\
+						\multicolumn{4}{l}{\textbf{satisfy certain fairness definitions}} \\ 
+						Satisfy subgroup fairness  \todo{unclear if \tnote{*} in \tnote{3} as well, or if \tnote{2} also handles \tnote{*}} & X\tnote{1,2} &  &   \\
+						Satisfy equality of opportunity\tnote{*} & X\tnote{1,3,6} &  & \\					
+						Satisfy equalized odds\tnote{*} & X\tnote{1,3} &  &   \\
+						Disparate Treatment\tnote{**} & X\tnote{1,4,5} &  &  \\
+						Disparate Impact\tnote{**} & X\tnote{1,4,5} &  &  \\
+						\todo{find out what} & X\tnote{1,7} &  &  \\
+						\todo{find out what} & X\tnote{1,8} &  &  \\
+						\todo{find out what} & X\tnote{1,9} &  &  \\
+						\todo{find out what} & X\tnote{1,10} &  &  \\
+						\multicolumn{4}{l}{\textbf{satisfy fairness definitions and stability for test set changes}} \\ 
+						\todo{find out what} & X\tnote{1,11} &  &  \\
+						\multicolumn{4}{l}{\textbf{Adaptions of existing classifiers}} \\ 
+						Modified discrimination-free Naive Bayes classifier & X\tnote{1,12} &  &  \\
+						\multicolumn{4}{l}{\textbf{Frameworks}} \\ 
+						Framework for fairness-aware classification & X\tnote{1,13} &  &  \\
+						Fairness constraints in Multitask learning (MTL) framework & X\tnote{1,14} &  &  \\
+						Decoupled Classification System with Transfer Learning & X\tnote{1,15} &  &  \\
+						
+						\multicolumn{4}{l}{\textbf{Preferential Data Usage \todo{find better name}}} \\ 
+						Wasserstein Distance Measure for mitigating dependence on sensitive attributes & X\tnote{1,16} &  &  \\
+						Preferential Sampling (PS) for discrimination free train data set & X\tnote{1,17} &  &  \\
+						\multicolumn{4}{l}{\textbf{Provide Interpretability}} \\ 
+						Post-Processing with attention mechanism & X\tnote{1,18} &  &  \\
+						\bottomrule
+					\end{tabularx}
+					\begin{tablenotes}
+						\footnotesize
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[*] possible to satisfy together
+							\item[**] possible to satisfy together
+							\item[1] \autocite{Mehrabi_2021}
+							\item[2] \autocite{M147_}
+							\item[3] \autocite{M63_Hardt_2016}
+							\item[4] \autocite{M2_}
+							\item[5] \autocite{M159_}
+						\end{minipage}%
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[6] \autocite{M154_}
+							\item[7] \autocite{M57_}
+							\item[8] \autocite{M78_}
+							\item[9] \autocite{M85_}
+							\item[10] \autocite{M106_}
+							\item[11] \autocite{M69_}
+							\item[12] \autocite{M25_}
+						\end{minipage}%
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[13] \autocite{M155_}
+							\item[14] \autocite{M12_}
+							\item[15] \autocite{M49_}
+							\item[16] \autocite{M73_}
+							\item[17] \autocite{M75_}
+							\item[18] \autocite{M102_}
+						\end{minipage}%
+					\end{tablenotes}
+				\end{threeparttable}
+				\caption{Mitigation Methods - Fair Classification - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\label{tab:mitigation_methods_fair_classification}
+			\end{table}
+			
+			\begin{table}[H]
+				\centering
+				\begin{threeparttable}
+					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+						\toprule
+						\textbf{Mitigation Methods - not so relevant for us} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Fair Word-Embedding (Pre/In-processing) \todo{check with Ludovic}}} \\ 
+						\multicolumn{4}{l}{\textbf{Fair Representation Learning (Pre/In-processing \todo{check with Ludovic})}} \\ 
+						Representation Learning by Disentanglement & X\tnote{1,2} &  &   \\
+						Variational Fair Autoencoder & X\tnote{1,3,15} &  &   \\
+						VAE without adversarial training & X\tnote{1,4} &  &   \\
+						Adversial Learning with FairGAN & X\tnote{1,16} &  &   \\
+						Removing correlation between protected and unprotected features with a geometric solution & X\tnote{1,17} &  &   \\
+						%	\midrule
+						\multicolumn{4}{l}{\textbf{Fair NLP \todo{check with Ludovic}}} \\ 
 						Fair Word-Embedding & X\tnote{1,5,6,7} &  &   \\
 						Train-Time Data Augmentation & X\tnote{1,8} &  &   \\
 						Test-Time Neutralization & X\tnote{1,8} &  &   \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Others}} \\ 
+						\multicolumn{4}{l}{\textbf{Fair Regression (In-processing)}} \\ 
+						Price of Fairness (POF) & X\tnote{1,10} & & \\
+						XY \todo{check this} and bounded group loss & X\tnote{1,11} & & \\
+						Decision Tree for Disoarate Impact and Treatment & X\tnote{1,12} & & \\
+						%	\midrule
+						\multicolumn{4}{l}{\textbf{Structured Prediction (In-processing)}} \\ 
+						Reducing Bias Amplification (RBA) as calibration algorithm & X\tnote{1,13} & & \\
+						%	\midrule
+						\multicolumn{4}{l}{\textbf{Principal Component Analysis (PCA) (In-processing)}} \\ 
+						Fair PCA & X\tnote{1,14} & & \\
+						%	\midrule
+						\multicolumn{4}{l}{\textbf{Others \todo{find other categorization}}} \\ 
 						Disparate Learning Processes (DLP) & X\tnote{1,9} &  &   \\
 						Disregard sensitive attributes in effect on decision making & X\tnote{1} &  &   \\						
+						Community Detection / Graph Embedding  \todo{how to proceed with this} & X\tnote{} & & \\
+						Causal Approach to Fairness \todo{how to proceed with this} & X\tnote{}  & & \\
 						Disregard path in causal graph which result in sensitive attributes affecting decision outcome & X\tnote{1} &  &   \\
 						\bottomrule
 					\end{tabularx}
@@ -638,73 +717,32 @@
 							\item[3] \autocite{M97_}
 							\item[4] \autocite{M112_}
 							\item[5] \autocite{M20_}
+							\item[6] \autocite{M58_}
 						\end{minipage}%
 						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[6] \autocite{M58_}
 							\item[7] \autocite{M169_}
 							\item[8] \autocite{M166_}
 							\item[9] \autocite{M94_}
+							\item[10] \autocite{M14_}
+							\item[11] \autocite{M1_}
+							\item[12] \autocite{M2_}
 						\end{minipage}%
 						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[13] \autocite{M167_}
+							\item[14] \autocite{M137_}
+							\item[15] \autocite{M5_}
+							\item[16] \autocite{M90_}
+							\item[17] \autocite{M65_}
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
-				\caption{Mitigation Methods - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
-				\label{tab:mitigation_methods}
+				\caption{Mitigation Methods - Others - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\label{tab:mitigation_methods_others}
 			\end{table}
-
-			\begin{table}[H]
-			\centering
-			\begin{threeparttable}
-				\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
-					\toprule
-					\textbf{Mitigation Methods - Unbiasing Data (Pre-Processing)} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-					& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
-					Good Practices while using Data & X\tnote{1,2,3} &  &   \\
-					Datasheets as supporting document for dataset creation method, characteristics, motivations and skews & X\tnote{1,2,3} &  &   \\
-					Datasheets as supporting document for model method, characteristics, motivations and skews & X\tnote{1,4} &  &   \\
-					Dataset Nutrition Label & X\tnote{1,5,6} &  &   \\
-					Test for Simpson's Paradox \todo{Discribe Simpson's Paradox} & X\tnote{1,7,8,9} &  &   \\
-					Detect Direct Discrimination with Causal Models and Graphs & X\tnote{1,10} &  &   \\					
-					Preventing Direct and Indirect Discrimination & X\tnote{1,11} &  &   \\
-					Messaging & X\tnote{1,12} &  &   \\
-					Preferential Sampling & X\tnote{1,13,14} &  &   \\
-					Disparate Impact Removal & X\tnote{1,15} &  &   \\
-					\bottomrule
-				\end{tabularx}
-				\begin{tablenotes}
-					\footnotesize
-					\begin{minipage}{0.33\textwidth}\raggedright
-						\item[1] \autocite{Mehrabi_2021}
-						\item[2] \autocite{M13_}
-						\item[3] \autocite{M55_}
-						\item[4] \autocite{M110_}
-						\item[5] \autocite{M66_}
-					\end{minipage}%
-					\begin{minipage}{0.33\textwidth}\raggedright
-						\item[6] \autocite{M66Successor_}
-						\item[7] \autocite{M81_}
-						\item[8] \autocite{M3_}
-						\item[9] \autocite{M4_}
-						\item[10] \autocite{M163_}
-					\end{minipage}%
-					\begin{minipage}{0.33\textwidth}\raggedright
-						\item[11] \autocite{M62_}
-						\item[12] \autocite{M74_}
-						\item[13] \autocite{M75_}
-						\item[14] \autocite{M76_}
-						\item[15] \autocite{M51_}
-					\end{minipage}%
-				\end{tablenotes}
-			\end{threeparttable}
-			\caption{Mitigation Methods - Unbiasing Data - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
-			\label{tab:mitigation_methods}
-		\end{table}
 			
-			
+			\todo{mention also the IBM AI Fairness 360 toolkit [11] and that authors evaluated their work in benchmark datasets [65], [72], [158], [159]}
 			
 		\subsection{Mitigation Methods Extensive Sources}
-			
 			
 			\paragraph{Bias Examples and Mitigation Ideas}
 			Data bias examples and mitigation ideas
@@ -743,7 +781,6 @@
 					\item Other pre-processing approaches, such as messaging [74], preferential sampling [75, 76], disparate impact removal [51], also aim to remove biases from the data. \autocite{Mehrabi_2021}
 				\end{itemize}
 			
-			\todo{move on here to fill the mitigation methods table}
 			\subparagraph{Fair Classification}
 				\begin{itemize}
 					\item certain methods have been proposed [57, 78, 85, 106] that satisfy certain definitions of fairness in classification. For instance, in [147] authors try to satisfy subgroup fairness in classification, equality of opportunity and equalized odds in [63], both disparate treatment and disparate impact in [2, 159], and equalized odds in [154]. \autocite{Mehrabi_2021}
@@ -755,6 +792,8 @@
 					\item In [75] authors propose the Preferential Sampling (PS) method to create a discrimination free train data set. They then learn a classifier on this discrimination free dataset to have a classifier with no discrimination.\autocite{Mehrabi_2021}
 					\item In [102], authors propose a post-processing bias mitigation strategy that utilizes attention mechanism for classification and that can provide interpretability. \autocite{Mehrabi_2021}
 				\end{itemize}
+				
+			\todo{move on here to fill the mitigation methods table}
 			\subparagraph{Fair Regression}
 				\todo{only summarize briefly, as PASSION is a classification and not a regression task}
 				\begin{itemize}
