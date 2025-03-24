@@ -330,72 +330,101 @@
 				\centering
 				\begin{threeparttable}
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
-					%\begin{tabularx}{\textwidth}{>{\hsize=0.6\hsize\raggedright}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
 						\toprule
 						\textbf{Bias} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Data Biases}} \\ 
-						Measurement Bias     & X\tnote{1,2} &   \\
-						Omitted Variable Bias& X\tnote{1,11,13,18} &  \\
-						Representation Bias  & X\tnote{1,2,15,20} & X\tnote{21} \\
-						Aggregation Bias     & X\tnote{1,2} &   \\
+						\multicolumn{3}{l}{\textbf{\textit{Sampling and Selection Biases}}} \\
 						Sampling Bias        & X\tnote{1} &    \\
 						(Systematic) Selection Bias		 & X\tnote{18} & X\tnote{19,c5,c6,c33,20} \\
-						Longitudinal Data Fallacy & X\tnote{1} &  \\
-						Linking Bias         & X\tnote{1,3} &    \\
-						Ascertainment Bias	 & X\tnote{16} & X\tnote{19,c9,c10}\\
 						Healthy Volunteer Selection Bias & X\tnote{14} & \\
 						Survivorship Bias    & X\tnote{18} & \\
-						Funding / (Industry) Sponsorship Bias    & X\tnote{18} & X\tnote{19} \\
-						Cognitive Bias    & X\tnote{18} & \\
 						Recall Bias			 & X\tnote{18}& X\tnote{19, c3–c6}\\
-						Observer Bias		 & X\tnote{18}& X\tnote{19,c29} \\
-						Berkesonian Bias     &            & X\tnote{19,c7}  \\
-						Collider Bias        &            & X\tnote{19,c8,c9} \\
-						Availability bias    &  & X\tnote{19,c9} \\
-						Chronological bias   & & X\tnote{19,c9} \\
-						Data dredging bias   & & X\tnote{19,c16-c19} \\
-						Diagnostic Access Bias & & X\tnote{19,c19,c20,20} \\
-						Diagnostic reference test bias & & X\tnote{19,c21} \\
-						Hot stuff bias & & X\tnote{19,c22,c23} \\
-						Immortal time bias & & X\tnote{19,c24} \\
-						Informed presence bias & & X\tnote{19,c27} \\
-						Mimicry Bias & & X\tnote{19,c28} \\
-						Unacceptable disease Bias & & X\tnote{19,30} \\
-						Hypothetical Bias    & & X\tnote{19,c31} \\
+						Ascertainment Bias	 & X\tnote{16} & X\tnote{19,c9,c10}\\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Demographic and Representation Biases}}} \\
+						Representation Bias  & X\tnote{1,2,15,20} & X\tnote{21} \\
+						Aggregation Bias     & X\tnote{1,2} &   \\
+						Omitted Variable Bias & X\tnote{1,11,13,18} &  \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Data Processing and Measurement Biases}}} \\
+						Measurement Bias     & X\tnote{1,2} &   \\
+						Linking Bias         & X\tnote{1,3} &    \\
 						Image Quality/Visual Artifacts Bias    & &  X\tnote{20,\todo{add those from young}} \\
 						Annotator Bias & & X\tnote{21} \\
+						Data dredging bias   & & X\tnote{19,c16-c19} \\
+												
+						\multicolumn{3}{l}{\textbf{\textit{Temporal and Study Design Biases}}} \\
+						Longitudinal Data Fallacy & X\tnote{1} &  \\
+						Chronological bias   & & X\tnote{19,c9} \\
+						Immortal time bias & & X\tnote{19,c24} \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Clinical and Diagnostic Biases}}} \\
+						Berkesonian Bias     &            & X\tnote{19,c7}  \\
+						Collider Bias        &            & X\tnote{19,c8,c9} \\
+						Diagnostic Access Bias & & X\tnote{19,c19,c20,20} \\
+						Diagnostic Reference Test Bias & & X\tnote{19,c21} \\
+							
+						\multicolumn{3}{l}{\textbf{\textit{Funding and Research Biases}}} \\
+						Funding / (Industry) Sponsorship Bias    & X\tnote{18} & X\tnote{19} \\
+						Hot stuff bias & & X\tnote{19,c22,c23} \\
+						Hypothetical Bias    & & X\tnote{19,c31} \\
+						Observer Bias		 & X\tnote{18}& X\tnote{19,c29} \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Availability and Selection Biases}}} \\
+						Availability bias    &  & X\tnote{19,c9} \\
+						Informed presence bias & & X\tnote{19,c27} \\
+						Mimicry Bias & & X\tnote{19,c28} \\
+						Unacceptable Disease Bias & & X\tnote{19,30} \\
+							
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Algorithmic Biases}} \\ 
+						\multicolumn{3}{l}{\textbf{\textit{Biases in Model Training and Learning}}} \\
 						Algorithmic Bias     & X\tnote{1,4,5} &   \\
-						User Interaction Bias& X\tnote{1,4} &    \\
-						Presentation Bias    & X\tnote{1,4} &    \\
-						Ranking Bias         & X\tnote{1,4,6} &    \\
-						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9}   \\
 						Emergent Bias        & X\tnote{1,9} &    \\
 						Evaluation Bias      & X\tnote{1,2,12} &   \\
-						Incorporation Bias   & & X\tnote{19,c25,c26} \\
 						Generalization Issues &  & X\tnote{20,\todo{add those from young}} \\
+	
+						\multicolumn{3}{l}{\textbf{\textit{Biases in Predictions and User Interaction}}} \\
+						User Interaction Bias& X\tnote{1,4} &    \\
+							Presentation Bias    & X\tnote{1,4} &    \\
+							Ranking Bias         & X\tnote{1,4,6} &    \\
+						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9}   \\
+						Incorporation Bias   & & X\tnote{19,c25,c26} \\
+						
+						
+						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{User Biases}} \\ 
-						Historical Bias      & X\tnote{1,2,17} &  \\
-						Population Bias      & X\tnote{1,3,8} &   \\
+						\multicolumn{3}{l}{\textbf{\textit{Cognitive and Decision-Making Biases}}} \\
+						Cognitive Bias    & X\tnote{18} & \\
+						Previous opinion Bias & & X\tnote{19, c32} \\
+						Confirmation bias &   &X\tnote{19,c15} \\
+						Cause-Effect Bias    & X\tnote{18} & \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Behavioral and Social Biases}}} \\
 						Self-Selection Bias  & X\tnote{1,18,20} &   \\
 						Social Bias          & X\tnote{1,4,7} &     \\
+						Historical Bias      & X\tnote{1,2,17} &  \\
 						Behavioral Bias      & X\tnote{1,3} &    \\
 						Temporal Bias        & X\tnote{1,3} &    \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Medical and Publication Biases}}} \\
 						Content Production Bias & X\tnote{1,3} &    \\
-						Cause-Effect Bias    & X\tnote{18} & \\
 						Publication/All is Well Bias     & \todo{add citation} & X\tnote{19,c10-c12} \\
-						Apprehension bias   &  & X\tnote{19,c13} \\
 						Non-Responder bias / Attrition bias      &  & X\tnote{19, c9} \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Population and Perception Biases}}} \\
+						Population Bias      & X\tnote{1,3,8} &   \\
+							
+ 						\multicolumn{3}{l}{\textbf{\textit{Other Biases}}} \\
+						Apprehension bias   &  & X\tnote{19,c13} \\
 						Rethoric bias & & X\tnote{19, c14} \\
 						Centripetal bias &  &X\tnote{19} \\
-						Confirmation bias &   &X\tnote{19,c15} \\
 						Novelty bias & & X\tnote{19} \\
 						Language Bias & & X\tnote{19} \\
-						Previous opinion Bias & & X\tnote{19, c32} \\
+							
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -433,6 +462,18 @@
 				\label{tab:biases_types}
 			\end{table}
 			
+			
+			\paragraph{Sensitive Features}
+			Research showed sensitive features which are prone to bias. Those led to issues in existing AI applications and their usage should therefore be investigated carefully.
+			
+			\ref{tab:biases_features} summarizes mentioned features. Since PASSION tries to improve the classification of skin diseases with photographs alone, those features which directly influence the appearance of a disease on the skin are most important. Skin type including undertone are affecting the diseases appearance, but also genetic factors, gender and the age \todo{doublecheck impact of age} of a patient can influence how the diseases manifest themselves. Therefore, they are directly relevant for skin detection and must be considered in the dataset.
+			
+			Other demographic factors can have an impact on the progression of skin diseases or increase the prevalence of skin conditions (e.g. tropical vs dry climates) \todo{add source}. While this information could support the diagnostic process, it is not visible in the images. Therefore, they could potentially be relevant and enhance the diagnostic process when included into the PASSION dataset. However, the linkage is weak and could introduce further biases.
+			
+			For completeness, \ref{tab:biases_features} shows further sensitive demographic features which seem not to be linked to dermatology according to research.
+			
+			
+			\todo{check what to do with those additional features:}
 			Other important features according to (\autocite{Montoya_2025} 13):
 			lesion type, anatomical location of lesion, img characteristics such as source, imaging techniques, resolution, real vs. artificially generated
 			\begin{table}[H]
@@ -443,21 +484,27 @@
 						\textbf{Bias sensitive Features} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%\midrule
-						\multicolumn{3}{l}{\textbf{Affected Features}} \\
+						\multicolumn{3}{l}{\textbf{\textit{Dermatology Related Features}}} \\
 						Skin Type & X\tnote{1,2,7,12} & X\tnote{2,13}\\
 						Skin Undertones & & X\tnote{13} \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Demographic Features with Direct Relevance for Skin Disease Detection}}} \\
+						Age & X\tnote{7,11} &  X\tnote{13} \\
+						Ethnicity/Race \todo{check definitions} & X\tnote{1,2,4,5,6,7,11,12}&  X\tnote{13} \\
 						Gender/Sex & X\tnote{1,2,7,8,9,10,11} & X\tnote{13} \\
 						Gender and Skin Type Subgroups & X\tnote{1,2} & \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Demographic Features Potential Relevance for Skin Disease Detection}}} \\
 						Geographic Location & X\tnote{1,3} & \\
-						Ethnicity/Race \todo{check definitions} & X\tnote{1,2,4,5,6,7,11,12}&  X\tnote{13} \\
 						Socio-Economic Status & X\tnote{6,12} & \\
-						Familial status & X\tnote{7} & \\
 						Disabilities & X\tnote{7,11} & \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Demographic Features no Relevance for Skin Disease Detection}}} \\
+						Familial status & X\tnote{7} & \\
 						Marital status & X\tnote{7,11} & \\
-						Recipient of public assistance & X\tnote{7} & \\
-						Age & X\tnote{7,11} &  X\tnote{13} \\
-						Religion & X\tnote{7,11} & \\
 						Nationality/National origin & X\tnote{7,11} & \\
+						Recipient of public assistance & X\tnote{7} & \\
+						Religion & X\tnote{7,11} & \\
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -570,9 +617,9 @@
 						Subgroup Fairness    & X\tnote{1,11,12} &   \\
 						%\midrule
 						\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
+						Counterfactual Fairness     & X\tnote{1,5} &   \\
 						Fairness Through Awareness     & X\tnote{1,4,5} &   \\
 						Fairness Through Unawareness        & X\tnote{1,5,6} &   \\
-						Counterfactual Fairness     & X\tnote{1,5} &   \\
 						%\midrule
 						\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
 						Fairness in Relational Domains& X\tnote{1,9} &   \\
@@ -634,6 +681,7 @@
 			\subsection{Mitigation Methods Overview}
 				\todo{write definitions of pre-in and post-processing, see Methods for fair machine learning below [43, 11, 14]}
 
+				\todo{double check and futher improve groups}
 				\begin{table}[H]
 				\centering
 				\begin{threeparttable}
@@ -641,25 +689,40 @@
 						\toprule
 						\textbf{Mitigation Methods - Unbiasing Data (Pre-Processing)} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
+						\multicolumn{3}{l}{\textbf{Documentation and Transparency}} \\
 						Good Practices while using Data & X\tnote{1,2,3} &   \\
 						Datasheets as supporting document for dataset creation method, characteristics, motivations and skews & X\tnote{1,2,3} &   \\
 						Datasheets as supporting document for model method, characteristics, motivations and skews & X\tnote{1,4} &   \\
 						Dataset (Nutrition) Labels & X\tnote{1,5,6} & X\tnote{18, \todo{add spec source}}   \\
+						
+						\multicolumn{3}{l}{\textbf{Communication and Reporting}} \\
+						Messaging & X\tnote{1,12} &   \\
+						
+						\multicolumn{3}{l}{\textbf{Bias Detection and Evaluation}} \\
 						Test for Simpson's Paradox \todo{Discribe Simpson's Paradox} & X\tnote{1,7,8,9} &   \\
 						Detect Direct Discrimination with Causal Models and Graphs & X\tnote{1,10} &   \\					
-						Preventing Direct and Indirect Discrimination & X\tnote{1,11} &   \\
-						Messaging & X\tnote{1,12} &   \\
-						Preferential Sampling & X\tnote{1,13,14} &   \\
-						Disparate Impact Removal & X\tnote{1,15} &   \\
-						Geographical Diversity and Inclusion for Dataset creation & X\tnote{16} & \\
-						Allocation concealment and blinding & & X\tnote{17} \\
-						Check confidence interval and p-curve analysis instead of p-value & & X\tnote{17} \\
-						Data Collection from diverse sources (incl. primary care clinics) & X\tnote{18} & \\
-						Balanced Representation accross skin tones and genders & & X\tnote{19} \\
-						Multidimensional Scale for Skin Tones & & X\tnote{19} \\
-						Robust standards for external validation & X\tnote{18} & \\
-						Public Datasets & & X\tnote{18, \todo{add source}} \\
 						Out-of-Distribution Detection in Dermatology Using Input Perturbation and Subset Scanning & & X\tnote{19} \\
+						Check confidence interval and p-curve analysis instead of p-value & & X\tnote{17} \\
+						 
+						\multicolumn{3}{l}{\textbf{Study Design}} \\ 
+						Allocation concealment and blinding & & X\tnote{17} \\
+						Preventing Direct and Indirect Discrimination & X\tnote{1,11} &   \\
+						
+						\multicolumn{3}{l}{\textbf{Data Gathering}} \\ 
+						Data Collection from diverse sources (incl. primary care clinics) & X\tnote{18} & \\
+						Robust standards for external validation & X\tnote{18} & \\
+						Preferential Sampling & X\tnote{1,13,14} &   \\
+						Geographical Diversity and Inclusion for Dataset creation & X\tnote{16} & \\
+						Balanced Representation accross skin tones and genders & & X\tnote{19} \\
+						Disparate Impact Removal & X\tnote{1,15} &   \\
+						
+						\multicolumn{3}{l}{\textbf{Labeling}} \\ 
+						Multidimensional Scale for Skin Tones & & X\tnote{19} \\
+						
+						
+						\multicolumn{3}{l}{\textbf{Data Availability and Open Science}} \\ 
+						Publish Datasets accessible for the public & & X\tnote{18, \todo{add source}} \\						
+						
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -704,31 +767,43 @@
 						\textbf{Mitigation Methods - Fair Classification} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
-						\multicolumn{3}{l}{\textbf{satisfy certain fairness definitions}} \\ 
-						Satisfy subgroup fairness  \todo{unclear if \tnote{*} in \tnote{3} as well, or if \tnote{2} also handles \tnote{*}} & X\tnote{1,2} &   \\
-						Satisfy equality of opportunity\tnote{*} & X\tnote{1,3,6} & \\					
-						Satisfy equalized odds\tnote{*} & X\tnote{1,3} &   \\
+						
+						\multicolumn{3}{l}{\textbf{Satisfy Fairness Definitions}} \\ 
+						Satisfy Subgroup Fairness  \todo{unclear if \tnote{*} in \tnote{3} as well, or if \tnote{2} also handles \tnote{*}} & X\tnote{1,2} &   \\
+						Satisfy Equality of Opportunity\tnote{*} & X\tnote{1,3,6} & \\					
+						Satisfy Equalized Odds\tnote{*} & X\tnote{1,3} &   \\
 						Disparate Treatment\tnote{**} & X\tnote{1,4,5} &  \\
 						Disparate Impact\tnote{**} & X\tnote{1,4,5} &  \\
 						\todo{find out exact method} & X\tnote{1,7} &  \\
 						\todo{find out exact method} & X\tnote{1,8} &  \\
 						\todo{find out exact method} & X\tnote{1,9} &  \\
 						\todo{find out exact method} & X\tnote{1,10} &  \\
-						\multicolumn{3}{l}{\textbf{satisfy fairness definitions and stability for test set changes}} \\ 
+						
+						\multicolumn{3}{l}{\textbf{Satisfy Fairness and Stability Under Distribution Shifts}} \\ 
 						\todo{find out exact method} & X\tnote{1,11} &  \\
-						\multicolumn{3}{l}{\textbf{Adaptions of existing classifiers}} \\ 
-						Modified discrimination-free Naive Bayes classifier & X\tnote{1,12} &  \\
-						\multicolumn{3}{l}{\textbf{Frameworks}} \\ 
-						Framework for fairness-aware classification & X\tnote{1,13} &  \\
-						Fairness constraints in Multitask learning (MTL) framework & X\tnote{1,14} &  \\
+						
+						\multicolumn{3}{l}{\textbf{Fair Representation Learning (Pre/In-processing)}} \\ 
+						Representation Learning by Disentanglement & X\tnote{1,2} &   \\
+						Variational Fair Autoencoder & X\tnote{1,3,15} &   \\
+						VAE without adversarial training & X\tnote{1,4} &   \\
+						Adversial Learning with FairGAN & X\tnote{1,16} &   \\
+						Removing correlation between protected and unprotected features with a geometric solution & X\tnote{1,17} &   \\
+						
+						\multicolumn{3}{l}{\textbf{Algorithmic Adaptions for Fairness}} \\ 
+						Modified Discrimination-Free Naive Bayes Classifier & X\tnote{1,12} &  \\
+						
+						\multicolumn{3}{l}{\textbf{Fairness-Aware ML Frameworks}} \\ 
+						Fairness-Aware Classification Framework & X\tnote{1,13} &  \\
+						Fairness Constraints in Multitask Learning (MTL) Framework & X\tnote{1,14} &  \\
 						Decoupled Classification System with Transfer Learning & X\tnote{1,15} &  \\
 						
-						\multicolumn{3}{l}{\textbf{Preferential Data Usage \todo{find better name}}} \\ 
-						Wasserstein Distance Measure for mitigating dependence on sensitive attributes & X\tnote{1,16} &  \\
-						Preferential Sampling (PS) for discrimination free train data set & X\tnote{1,17} &  \\
-						\multicolumn{3}{l}{\textbf{Provide Interpretability}} \\ 
-						Post-Processing with attention mechanism & X\tnote{1,18} &  \\
-						Use Brier Score and response rate accuracy & & X\tnote{19, \todo{add clear source}} \\
+						\multicolumn{3}{l}{\textbf{Preferential Data Selection and Representation}} \\ 
+						Wasserstein Distance Measure for Dependence Mitigation & X\tnote{1,16} &  \\
+						Preferential Sampling (PS) for Discrimination-Free Training Data & X\tnote{1,17} &  \\
+						
+						\multicolumn{3}{l}{\textbf{Model Interpretability}} \\ 
+						Post-Processing with Attention Mechanism & X\tnote{1,18} &  \\
+						Use Brier Score and Response Rate Accuracy & & X\tnote{19, \todo{add clear source}} \\
 						some more methods \todo{describe} & & X\tnote{19} \\
 						\bottomrule
 					\end{tabularx}
@@ -768,7 +843,6 @@
 			\end{table}
 			
 			\todo{check categorization}
-			\todo{Representation Learning: relevant for BAA}
 			\begin{table}[H]
 				\centering
 				\begin{threeparttable}
@@ -777,35 +851,36 @@
 						\textbf{Mitigation Methods - not so relevant for us} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
-						\multicolumn{3}{l}{\textbf{Fair Representation Learning (Pre/In-processing)}} \\ 
-						Representation Learning by Disentanglement & X\tnote{1,2} &   \\
-						Variational Fair Autoencoder & X\tnote{1,3,15} &   \\
-						VAE without adversarial training & X\tnote{1,4} &   \\
-						Adversial Learning with FairGAN & X\tnote{1,16} &   \\
-						Removing correlation between protected and unprotected features with a geometric solution & X\tnote{1,17} &   \\
-						%	\midrule
 						\multicolumn{3}{l}{\textbf{Fair NLP}} \\ 
 						Fair Word-Embedding & X\tnote{1,5,6,7} &   \\
 						Train-Time Data Augmentation & X\tnote{1,8} &   \\
 						Test-Time Neutralization & X\tnote{1,8} &   \\
-						%	\midrule
+						
+						%	\midrule	
 						\multicolumn{3}{l}{\textbf{Fair Regression (In-processing)}} \\ 
 						Price of Fairness (POF) & X\tnote{1,10} & \\
 						XY \todo{check this} and bounded group loss & X\tnote{1,11} & \\
 						Decision Tree for Disparate Impact and Treatment & X\tnote{1,12} & \\
+						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Structured Prediction (In-processing)}} \\ 
 						Reducing Bias Amplification (RBA) as calibration algorithm & X\tnote{1,13} & \\
+						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Principal Component Analysis (PCA) (In-processing)}} \\ 
 						Fair PCA & X\tnote{1,14} & \\
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Others \todo{find other categorization}}} \\ 
-						Disparate Learning Processes (DLP) & X\tnote{1,9} &   \\
-						Disregard sensitive attributes in effect on decision making & X\tnote{1} &   \\						
+						
+						\multicolumn{3}{l}{\textbf{Graph-Based Fairness Methods}} \\ 
 						Community Detection / Graph Embedding  \todo{how to proceed with this} & X\tnote{} & \\
-						Causal Approach to Fairness \todo{how to proceed with this} & X\tnote{}  & \\
+						
+						\multicolumn{3}{l}{\textbf{Causal Fairness and Disparate Learning}} \\ 
+						Disparate Learning Processes (DLP) & X\tnote{1,9} &   \\
+						Causal Approach to Fairness \todo{how to proceed with this} & X\tnote{\todo{add clear source}}  & \\
 						Disregard path in causal graph which result in sensitive attributes affecting decision outcome & X\tnote{1} &   \\
+						
+						%	\midrule
+						\multicolumn{3}{l}{\textbf{Removing Sensitive Attributes}} \\ 
+						Disregard sensitive attributes in effect on decision making & X\tnote{1} &   \\						
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
