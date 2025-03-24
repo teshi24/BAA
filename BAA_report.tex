@@ -69,6 +69,10 @@
 {}                            % Code before the title (empty)
 
 
+% mentioned in header
+\newcommand{\tblWidthDescription}{\hsize=0.6\hsize\raggedright}
+\newcommand{\tblWidthContext}{\hsize=0.2\hsize}
+
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
@@ -262,7 +266,14 @@
 				
 			\subsection{PASSION Experiments}
 				see https://github.com/Digital-Dermatology/PASSION-Evaluation
-			
+		
+			\subsection{Telemedicine}
+				\begin{itemize}
+					\item Teledermatology. Telemedicine may be one of the first fields to embrace AI, driven by demand for services, the necessity of collecting fit-for-purpose high-quality images, and the availability of existing technology (Xiong et al., 2019). Face-to-face diagnostic accuracy exceeds that of teledermatology (Finnane et al., 2017); however, inequalities surrounding access to dermatological care persist. Teledermatology has the potential to increase access by facilitating referrals and offering convenience and decreased wait times (Finnane et al., 2017), as well as providing diagnostic support at the time of case review. For teledermatology cases, the accuracy of a DL classifier (0.67) matched dermatologists’ (0.63) and was higher than primary care physicians’ (0.45) for 26 skin conditions (Liu et al., 2019b). AI may be integrated into smartphone apps to photograph skin lesions, collect relevant clinical information, and generate a referral if appropriate. Many smartphones already support on-device DL with Google’s TensorFlow Lite (TensorFlow, 2020) or Apple’s CoreML (Apple Inc, 2020), preserving privacy by keeping health information on the device. A systematic review found nine studies that evaluated six algorithm-based smartphone apps and concluded that evidence of diagnostic accuracy was poor and does not support current implementation, despite two apps having obtained the CE marking; no apps are Food and Drug Administration approved (Freeman et al., 2020). AI may also assist in automatic tracking and monitoring of skin lesions; although preliminary results are promising, existing studies used small datasets with little description, and there is no established standard metric of change (Navarro et al., 2019). Further study hinges on the prospective collection of large datasets. \autocite{Young_2020}
+					\item \autocite{Tsetsi_2017} on smartphone / internet access divide between populations
+					\item https://www.tandfonline.com/doi/full/10.1080/08870446.2019.1579330 on how open people are to use AI
+					\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020}
+				\end{itemize}
 			
 		\section{General ML biases}
 		
@@ -277,6 +288,7 @@
 					\item Indirect Discrimination. In indirect discrimination, individuals appear to be treated based on seemingly neutral and non-protected attributes; however, protected groups, or individuals still get to be treated unjustly as a result of implicit effects from their protected attributes \autocite{Mehrabi_2021}
 				\end{itemize}
 				\item Discrimination can be either direct or indirect. Direct discrimination occurs when decisions are made based on sensitive attributes. Indirect discrimination occurs when decisions are made based on nonsensitive attributes which are strongly correlated with biased sensitive ones \autocite{M62_}
+				\item ML algorithms reflect cognitive biases in humans, which can result in predictions and decisions that are “unfair” [5]. Unfairness in ML decision-making equates to prejudice or favoritism based on inherent or acquired characteristics of an individual or group [6]. Within medical research, the term bias refers to “a feature of the design of a study, or the execution of a study, or the analysis of the data from a study, that makes evidence misleading” [7,8]. \autocite{Montonaya_2025}
 			\end{itemize}
 			
 			\subsection{Bias Introduction}
@@ -317,69 +329,73 @@
 			\begin{table}[H]
 				\centering
 				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
+					%\begin{tabularx}{\textwidth}{>{\hsize=0.6\hsize\raggedright}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
 						\toprule
-						\textbf{Bias} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
+						\textbf{Bias} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Data Biases}} \\ 
-						Measurement Bias     & X\tnote{1,2} &  &   \\
-						Omitted Variable Bias& X\tnote{1,11,13,18} &  &   \\
-						Representation Bias  & X\tnote{1,2,15} &  &   \\
-						Aggregation Bias     & X\tnote{1,2} &  &   \\
-						Sampling Bias        & X\tnote{1} &  &   \\
-						(Systematic) Selection Bias		 & X\tnote{18} & X\tnote{19,c5,c6,c33}  & \\
-						Longitudinal Data Fallacy & X\tnote{1} &  &   \\
-						Linking Bias         & X\tnote{1,3} &  &   \\
-						Ascertainment Bias	 & X\tnote{16} & X\tnote{19,c9,c10}& \\
-						Healthy Volunteer Selection Bias & X\tnote{14} & & \\
-						Survivorship Bias    & X\tnote{18} & & \\
-						Funding / (Industry) Sponsorship Bias    & X\tnote{18} & X\tnote{19} & \\
-						Cognitive Bias    & X\tnote{18} & & \\
-						Recall Bias			 & X\tnote{18}& X\tnote{19, c3–c6}& \\
-						Observer Bias		 & X\tnote{18}& X\tnote{19,c29}& \\
-						Berkesonian Bias     &            & X\tnote{19,c7} & \\
-						Collider Bias        &            & X\tnote{19,c8,c9} & \\
-						Availability bias    &  & X\tnote{19,c9} & \\
-						Chronological bias   & & X\tnote{19,c9} & \\
-						Data dredging bias   & & X\tnote{19,c16-c19} & \\
-						Diagnostic Access Bias & & X\tnote{19,c19,c20} & \\
-						Diagnostic reference test bias & & X\tnote{19,c21} & \\
-						Hot stuff bias & & X\tnote{19,c22,c23} & \\
-						Immortal time bias & & X\tnote{19,c24} & \\
-						Informed presence bias & & X\tnote{19,c27} & \\
-						Mimicry Bias & & X\tnote{19,c28} & \\
-						Unacceptable disease Bias & & X\tnote{19,30} & \\
-						Hypothetical Bias    & X\tnote{19,c31} & & \\
+						\multicolumn{3}{l}{\textbf{Data Biases}} \\ 
+						Measurement Bias     & X\tnote{1,2} &   \\
+						Omitted Variable Bias& X\tnote{1,11,13,18} &  \\
+						Representation Bias  & X\tnote{1,2,15,20} & X\tnote{21} \\
+						Aggregation Bias     & X\tnote{1,2} &   \\
+						Sampling Bias        & X\tnote{1} &    \\
+						(Systematic) Selection Bias		 & X\tnote{18} & X\tnote{19,c5,c6,c33,20} \\
+						Longitudinal Data Fallacy & X\tnote{1} &  \\
+						Linking Bias         & X\tnote{1,3} &    \\
+						Ascertainment Bias	 & X\tnote{16} & X\tnote{19,c9,c10}\\
+						Healthy Volunteer Selection Bias & X\tnote{14} & \\
+						Survivorship Bias    & X\tnote{18} & \\
+						Funding / (Industry) Sponsorship Bias    & X\tnote{18} & X\tnote{19} \\
+						Cognitive Bias    & X\tnote{18} & \\
+						Recall Bias			 & X\tnote{18}& X\tnote{19, c3–c6}\\
+						Observer Bias		 & X\tnote{18}& X\tnote{19,c29} \\
+						Berkesonian Bias     &            & X\tnote{19,c7}  \\
+						Collider Bias        &            & X\tnote{19,c8,c9} \\
+						Availability bias    &  & X\tnote{19,c9} \\
+						Chronological bias   & & X\tnote{19,c9} \\
+						Data dredging bias   & & X\tnote{19,c16-c19} \\
+						Diagnostic Access Bias & & X\tnote{19,c19,c20,20} \\
+						Diagnostic reference test bias & & X\tnote{19,c21} \\
+						Hot stuff bias & & X\tnote{19,c22,c23} \\
+						Immortal time bias & & X\tnote{19,c24} \\
+						Informed presence bias & & X\tnote{19,c27} \\
+						Mimicry Bias & & X\tnote{19,c28} \\
+						Unacceptable disease Bias & & X\tnote{19,30} \\
+						Hypothetical Bias    & & X\tnote{19,c31} \\
+						Image Quality/Visual Artifacts Bias    & &  X\tnote{20,\todo{add those from young}} \\
+						Annotator Bias & & X\tnote{21} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Algorithmic Biases}} \\ 
-						Algorithmic Bias     & X\tnote{1,4,5} &  &   \\
-						User Interaction Bias& X\tnote{1,4} &  &   \\
-						Presentation Bias    & X\tnote{1,4} &  &   \\
-						Ranking Bias         & X\tnote{1,4,6} &  &   \\
-						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9} &   \\
-						Emergent Bias        & X\tnote{1,9} &  &   \\
-						Evaluation Bias      & X\tnote{1,2,12} &  &  \\
-						Incorporation Bias   & & X\tnote{19,c25,c26} & \\
+						\multicolumn{3}{l}{\textbf{Algorithmic Biases}} \\ 
+						Algorithmic Bias     & X\tnote{1,4,5} &   \\
+						User Interaction Bias& X\tnote{1,4} &    \\
+						Presentation Bias    & X\tnote{1,4} &    \\
+						Ranking Bias         & X\tnote{1,4,6} &    \\
+						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9}   \\
+						Emergent Bias        & X\tnote{1,9} &    \\
+						Evaluation Bias      & X\tnote{1,2,12} &   \\
+						Incorporation Bias   & & X\tnote{19,c25,c26} \\
+						Generalization Issues &  & X\tnote{20,\todo{add those from young}} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{User Biases}} \\ 
-						Historical Bias      & X\tnote{1,2,17} &  &   \\
-						Population Bias      & X\tnote{1,3,8} &  &   \\
-						Self-Selection Bias  & X\tnote{1,18} &  &   \\
-						Social Bias          & X\tnote{1,4,7} &  &   \\
-						Behavioral Bias      & X\tnote{1,3} &  &   \\
-						Temporal Bias        & X\tnote{1,3} &  &   \\
-						Content Production Bias & X\tnote{1,3} &  &   \\
-						Cause-Effect Bias    & X\tnote{18} & & \\
-						Publication/All is Well Bias     & \todo{add citation} & X\tnote{19,c10-c12} & \\
-						Apprehension bias   &  & X\tnote{19,c13} & \\
-						Non-Responder bias / Attrition bias      &  & X\tnote{19, c9} & \\
-						Rethoric bias & & X\tnote{19, c14} & \\
-						Centripetal bias &  &X\tnote{19} & \\
-						Confirmation bias &   &X\tnote{19,c15} & \\
-						Novelty bias & & X\tnote{19} & \\
-						Language Bias & & X\tnote{19} & \\
-						Previous opinion Bias & & X\tnote{19, c32} & \\
+						\multicolumn{3}{l}{\textbf{User Biases}} \\ 
+						Historical Bias      & X\tnote{1,2,17} &  \\
+						Population Bias      & X\tnote{1,3,8} &   \\
+						Self-Selection Bias  & X\tnote{1,18,20} &   \\
+						Social Bias          & X\tnote{1,4,7} &     \\
+						Behavioral Bias      & X\tnote{1,3} &    \\
+						Temporal Bias        & X\tnote{1,3} &    \\
+						Content Production Bias & X\tnote{1,3} &    \\
+						Cause-Effect Bias    & X\tnote{18} & \\
+						Publication/All is Well Bias     & \todo{add citation} & X\tnote{19,c10-c12} \\
+						Apprehension bias   &  & X\tnote{19,c13} \\
+						Non-Responder bias / Attrition bias      &  & X\tnote{19, c9} \\
+						Rethoric bias & & X\tnote{19, c14} \\
+						Centripetal bias &  &X\tnote{19} \\
+						Confirmation bias &   &X\tnote{19,c15} \\
+						Novelty bias & & X\tnote{19} \\
+						Language Bias & & X\tnote{19} \\
+						Previous opinion Bias & & X\tnote{19, c32} \\
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -408,6 +424,8 @@
 							\item[17] \autocite{M150_}
 							\item[18] \autocites{Mester_2022}{Mester_2017}
 							\item[19] \autocite{Chakraborty_2024}
+							\item[20] \autocite{Young_2020}
+							\item[21] \autocite{Montoya_2025}
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
@@ -415,28 +433,31 @@
 				\label{tab:biases_types}
 			\end{table}
 			
+			Other important features according to (\autocite{Montoya_2025} 13):
+			lesion type, anatomical location of lesion, img characteristics such as source, imaging techniques, resolution, real vs. artificially generated
 			\begin{table}[H]
 				\centering
 				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\hsize=0.4\hsize\raggedright}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
-						\textbf{Bias sensitive Features} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
+						\textbf{Bias sensitive Features} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} \\
 						%\midrule
-						\multicolumn{4}{l}{\textbf{Affected Features}} \\
-						Skin Type & X\tnote{1,2,7} & & \\
-						Gender/Sex & X\tnote{1,2,7,8,9,10,11} & & \\
-						Gender and Skin Type Subgroups & X\tnote{1,2} & & \\
-						Geographic Location & X\tnote{1,3} & & \\
-						Ethnicity/Race \todo{check definitions} & X\tnote{1,2,4,5,6,7,11}& & \\
-						Socio-Economic Status & X\tnote{6} & & \\
-						Familial status & X\tnote{7} & & \\
-						Disabilities & X\tnote{7,11} & & \\
-						Marital status & X\tnote{7,11} & & \\
-						Recipient of public assistance & X\tnote{7} & & \\
-						Age & X\tnote{7,11} & & \\
-						Religion & X\tnote{7,11} & & \\
-						Nationality/National origin & X\tnote{7,11} & & \\
+						\multicolumn{3}{l}{\textbf{Affected Features}} \\
+						Skin Type & X\tnote{1,2,7,12} & X\tnote{2,13}\\
+						Skin Undertones & & X\tnote{13} \\
+						Gender/Sex & X\tnote{1,2,7,8,9,10,11} & X\tnote{13} \\
+						Gender and Skin Type Subgroups & X\tnote{1,2} & \\
+						Geographic Location & X\tnote{1,3} & \\
+						Ethnicity/Race \todo{check definitions} & X\tnote{1,2,4,5,6,7,11,12}&  X\tnote{13} \\
+						Socio-Economic Status & X\tnote{6,12} & \\
+						Familial status & X\tnote{7} & \\
+						Disabilities & X\tnote{7,11} & \\
+						Marital status & X\tnote{7,11} & \\
+						Recipient of public assistance & X\tnote{7} & \\
+						Age & X\tnote{7,11} &  X\tnote{13} \\
+						Religion & X\tnote{7,11} & \\
+						Nationality/National origin & X\tnote{7,11} & \\
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -457,6 +478,8 @@
 							\item[9] \autocite{M20_}
 							\item[10] \autocite{M168_}
 							\item[11] \autocite{M62_}
+							\item[12] \autocite{Young_2020}
+							\item[13] \autocite{Montoya_2025}
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
@@ -513,34 +536,46 @@
 				\item Content Production Bias. Content Production bias arises from structural, lexical, semantic, and syntactic differences in the contents generated by users \autocite{M120_Olteanu_2019}. \autocite{Mehrabi_2021} -- could the quality of the pictures been related to this as well?
 			\end{itemize}
 		
+			\paragraph{Dermatology Biases}
+			\begin{itemize}
+				\item Equity. AI has the potential to worsen health-care disparities, as recognized by the popular media (Khullar, 2019), particularly in dermatology (Adamson and Smith, 2018). The first concern is adequate representation of underserved populations in training data. Existing DL models have been trained on mainly European or East Asian populations, and the relative lack of training on darker skin pigmentation may limit overall diagnostic accuracy. This possibility is demonstrated by the increased error rates in commercial systems, trained on predominantly white datasets, for facial analysis in identifying black individuals (Buolamwini and Gebru, 2018). Second, AI may entrench existing social and economic biases and perpetuate inadvertent discriminatory practices, for example, in recommending less follow-up for black patients than for whites, when health costs are used as a proxy for health needs (Obermeyer et al., 2019). Third, disproportionate adoption by different groups may exacerbate existing inequities. Access to and use of technology differs based on sociodemographics (Tsetsi and Rains, 2017), and more techsavvy users may be more likely to embrace AI for skin screening (Tong and Sopory, 2019). The issue of equity in AI diagnosis needs to be carefully addressed to avoid inadvertent exacerbation of health-care disparities. \autocite{Young_2020}
+				\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020}
+				\item Model generalizability. Generalizability is a major concern for AI models; studies of computer-assisted diagnosis of melanoma report lower sensitivity for melanoma on independent test sets than on nonindependent test sets (Dick et al., 2019). It is difficult to study generalizability because published DL models are not publicly available, making it impossible to compare performance, unless each study uses a standardized benchmark database, such as the Melanoma Classification Benchmark (Brinker et al., 2019d). Han et al. (2018a) reported excellent metrics of performance and made their model available for image submission; however, the model prediction was not robust when images from an outside clinic were submitted, image magnification or contrast was altered, or images were rotated (NavarreteDechent et al., 2018). On ImageNet, a nonmedical dataset of 1,000 object categories, training on a dataset of 300 ... \autocite{Young_2020}
+			\end{itemize}
+			\paragraph{Papers I would need access to}
+			\begin{itemize}
+				\item https://jamanetwork.com/journals/jamadermatology/article-abstract/2688587 (linked to \autocite{Young_2020})
+				\item https://academic.oup.com/bjd/article-abstract/190/6/789/7603706?redirectedFrom=fulltext Ethical considerations for artificial intelligence in dermatology: a scoping review
+				
+			\end{itemize}
 			
 		    \subsection{Fairness Overview}
 			\begin{table}[H]
 				\centering
 				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
-						\textbf{Fairness Definitions} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
+						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Group Fairness}} \\ 
-						Conditional Statistical Parity    & X\tnote{1,3,10} &  &   \\
-						Demographic/Statistical Parity  & X\tnote{1,3,4,5} &  &   \\
-						Equalized Odds     & X\tnote{1,2,3} &  &   \\
-						Equal Opportunity& X\tnote{1,2,3} &  &   \\
-						Treatment Equality & X\tnote{1,7} &  &   \\
-						Test Fairness         & X\tnote{1,3,8} &  &   \\
+						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
+						Conditional Statistical Parity    & X\tnote{1,3,10} &   \\
+						Demographic/Statistical Parity  & X\tnote{1,3,4,5} &   \\
+						Equalized Odds     & X\tnote{1,2,3} &   \\
+						Equal Opportunity& X\tnote{1,2,3} &   \\
+						Treatment Equality & X\tnote{1,7} &   \\
+						Test Fairness         & X\tnote{1,3,8} &   \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Subgroup Fairness}} \\ 
-						Subgroup Fairness    & X\tnote{1,11,12} &  &   \\
+						\multicolumn{3}{l}{\textbf{Subgroup Fairness}} \\ 
+						Subgroup Fairness    & X\tnote{1,11,12} &   \\
 						%\midrule
-						\multicolumn{4}{l}{\textbf{Individual Fairness}} \\ 
-						Fairness Through Awareness     & X\tnote{1,4,5} &  &   \\
-						Fairness Through Unawareness        & X\tnote{1,5,6} &  &   \\
-						Counterfactual Fairness     & X\tnote{1,5} &  &   \\
+						\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
+						Fairness Through Awareness     & X\tnote{1,4,5} &   \\
+						Fairness Through Unawareness        & X\tnote{1,5,6} &   \\
+						Counterfactual Fairness     & X\tnote{1,5} &   \\
 						%\midrule
-						\multicolumn{4}{l}{\textbf{Not Categorized}} \\ 
-						Fairness in Relational Domains& X\tnote{1,9} &  &   \\
+						\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
+						Fairness in Relational Domains& X\tnote{1,9} &   \\
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -602,23 +637,29 @@
 				\begin{table}[H]
 				\centering
 				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+						\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
-						\textbf{Mitigation Methods - Unbiasing Data (Pre-Processing)} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
-						Good Practices while using Data & X\tnote{1,2,3} &  &   \\
-						Datasheets as supporting document for dataset creation method, characteristics, motivations and skews & X\tnote{1,2,3} &  &   \\
-						Datasheets as supporting document for model method, characteristics, motivations and skews & X\tnote{1,4} &  &   \\
-						Dataset Nutrition Label & X\tnote{1,5,6} &  &   \\
-						Test for Simpson's Paradox \todo{Discribe Simpson's Paradox} & X\tnote{1,7,8,9} &  &   \\
-						Detect Direct Discrimination with Causal Models and Graphs & X\tnote{1,10} &  &   \\					
-						Preventing Direct and Indirect Discrimination & X\tnote{1,11} &  &   \\
-						Messaging & X\tnote{1,12} &  &   \\
-						Preferential Sampling & X\tnote{1,13,14} &  &   \\
-						Disparate Impact Removal & X\tnote{1,15} &  &   \\
-						Geographical Diversity and Inclusion for Dataset creation & X\tnote{16} & & \\
-						Allocation concealment and blinding & & \tnote{17} & \\
-						Check confidence interval and p-curve analysis instead of p-value & & \tnote{17} & \\
+						\textbf{Mitigation Methods - Unbiasing Data (Pre-Processing)} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} \\
+						Good Practices while using Data & X\tnote{1,2,3} &   \\
+						Datasheets as supporting document for dataset creation method, characteristics, motivations and skews & X\tnote{1,2,3} &   \\
+						Datasheets as supporting document for model method, characteristics, motivations and skews & X\tnote{1,4} &   \\
+						Dataset (Nutrition) Labels & X\tnote{1,5,6} & X\tnote{18, \todo{add spec source}}   \\
+						Test for Simpson's Paradox \todo{Discribe Simpson's Paradox} & X\tnote{1,7,8,9} &   \\
+						Detect Direct Discrimination with Causal Models and Graphs & X\tnote{1,10} &   \\					
+						Preventing Direct and Indirect Discrimination & X\tnote{1,11} &   \\
+						Messaging & X\tnote{1,12} &   \\
+						Preferential Sampling & X\tnote{1,13,14} &   \\
+						Disparate Impact Removal & X\tnote{1,15} &   \\
+						Geographical Diversity and Inclusion for Dataset creation & X\tnote{16} & \\
+						Allocation concealment and blinding & & X\tnote{17} \\
+						Check confidence interval and p-curve analysis instead of p-value & & X\tnote{17} \\
+						Data Collection from diverse sources (incl. primary care clinics) & X\tnote{18} & \\
+						Balanced Representation accross skin tones and genders & & X\tnote{19} \\
+						Multidimensional Scale for Skin Tones & & X\tnote{19} \\
+						Robust standards for external validation & X\tnote{18} & \\
+						Public Datasets & & X\tnote{18, \todo{add source}} \\
+						Out-of-Distribution Detection in Dermatology Using Input Perturbation and Subset Scanning & & X\tnote{19} \\
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -629,22 +670,24 @@
 							\item[3] \autocite{M55_}
 							\item[4] \autocite{M110_}
 							\item[5] \autocite{M66_}
+							\item[6] \autocite{M66Successor_}
 						\end{minipage}%
 						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[6] \autocite{M66Successor_}
 							\item[7] \autocite{M81_}
 							\item[8] \autocite{M3_}
 							\item[9] \autocite{M4_}
 							\item[10] \autocite{M163_}
-						\end{minipage}%
-						\begin{minipage}{0.33\textwidth}\raggedright
 							\item[11] \autocite{M62_}
 							\item[12] \autocite{M74_}
+						\end{minipage}%
+						\begin{minipage}{0.33\textwidth}\raggedright
 							\item[13] \autocite{M75_}
 							\item[14] \autocite{M76_}
 							\item[15] \autocite{M51_}
 							\item[16] \autocite{M142_}
 							\item[17] \autocite{Chakraborty_2024}
+							\item[18] \autocite{Young_2020}
+							\item[19] \autocite{Montoya_2025}
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
@@ -656,35 +699,37 @@
 			\begin{table}[H]
 				\centering
 				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
-						\textbf{Mitigation Methods - Fair Classification} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
+						\textbf{Mitigation Methods - Fair Classification} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{satisfy certain fairness definitions}} \\ 
-						Satisfy subgroup fairness  \todo{unclear if \tnote{*} in \tnote{3} as well, or if \tnote{2} also handles \tnote{*}} & X\tnote{1,2} &  &   \\
-						Satisfy equality of opportunity\tnote{*} & X\tnote{1,3,6} &  & \\					
-						Satisfy equalized odds\tnote{*} & X\tnote{1,3} &  &   \\
-						Disparate Treatment\tnote{**} & X\tnote{1,4,5} &  &  \\
-						Disparate Impact\tnote{**} & X\tnote{1,4,5} &  &  \\
-						\todo{find out what} & X\tnote{1,7} &  &  \\
-						\todo{find out what} & X\tnote{1,8} &  &  \\
-						\todo{find out what} & X\tnote{1,9} &  &  \\
-						\todo{find out what} & X\tnote{1,10} &  &  \\
-						\multicolumn{4}{l}{\textbf{satisfy fairness definitions and stability for test set changes}} \\ 
-						\todo{find out what} & X\tnote{1,11} &  &  \\
-						\multicolumn{4}{l}{\textbf{Adaptions of existing classifiers}} \\ 
-						Modified discrimination-free Naive Bayes classifier & X\tnote{1,12} &  &  \\
-						\multicolumn{4}{l}{\textbf{Frameworks}} \\ 
-						Framework for fairness-aware classification & X\tnote{1,13} &  &  \\
-						Fairness constraints in Multitask learning (MTL) framework & X\tnote{1,14} &  &  \\
-						Decoupled Classification System with Transfer Learning & X\tnote{1,15} &  &  \\
+						\multicolumn{3}{l}{\textbf{satisfy certain fairness definitions}} \\ 
+						Satisfy subgroup fairness  \todo{unclear if \tnote{*} in \tnote{3} as well, or if \tnote{2} also handles \tnote{*}} & X\tnote{1,2} &   \\
+						Satisfy equality of opportunity\tnote{*} & X\tnote{1,3,6} & \\					
+						Satisfy equalized odds\tnote{*} & X\tnote{1,3} &   \\
+						Disparate Treatment\tnote{**} & X\tnote{1,4,5} &  \\
+						Disparate Impact\tnote{**} & X\tnote{1,4,5} &  \\
+						\todo{find out exact method} & X\tnote{1,7} &  \\
+						\todo{find out exact method} & X\tnote{1,8} &  \\
+						\todo{find out exact method} & X\tnote{1,9} &  \\
+						\todo{find out exact method} & X\tnote{1,10} &  \\
+						\multicolumn{3}{l}{\textbf{satisfy fairness definitions and stability for test set changes}} \\ 
+						\todo{find out exact method} & X\tnote{1,11} &  \\
+						\multicolumn{3}{l}{\textbf{Adaptions of existing classifiers}} \\ 
+						Modified discrimination-free Naive Bayes classifier & X\tnote{1,12} &  \\
+						\multicolumn{3}{l}{\textbf{Frameworks}} \\ 
+						Framework for fairness-aware classification & X\tnote{1,13} &  \\
+						Fairness constraints in Multitask learning (MTL) framework & X\tnote{1,14} &  \\
+						Decoupled Classification System with Transfer Learning & X\tnote{1,15} &  \\
 						
-						\multicolumn{4}{l}{\textbf{Preferential Data Usage \todo{find better name}}} \\ 
-						Wasserstein Distance Measure for mitigating dependence on sensitive attributes & X\tnote{1,16} &  &  \\
-						Preferential Sampling (PS) for discrimination free train data set & X\tnote{1,17} &  &  \\
-						\multicolumn{4}{l}{\textbf{Provide Interpretability}} \\ 
-						Post-Processing with attention mechanism & X\tnote{1,18} &  &  \\
+						\multicolumn{3}{l}{\textbf{Preferential Data Usage \todo{find better name}}} \\ 
+						Wasserstein Distance Measure for mitigating dependence on sensitive attributes & X\tnote{1,16} &  \\
+						Preferential Sampling (PS) for discrimination free train data set & X\tnote{1,17} &  \\
+						\multicolumn{3}{l}{\textbf{Provide Interpretability}} \\ 
+						Post-Processing with attention mechanism & X\tnote{1,18} &  \\
+						Use Brier Score and response rate accuracy & & X\tnote{19, \todo{add clear source}} \\
+						some more methods \todo{describe} & & X\tnote{19} \\
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -714,6 +759,7 @@
 							\item[16] \autocite{M73_}
 							\item[17] \autocite{M75_}
 							\item[18] \autocite{M102_}
+							\item[19] \autocite{Young_2020}
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
@@ -721,43 +767,45 @@
 				\label{tab:mitigation_methods_fair_classification}
 			\end{table}
 			
+			\todo{check categorization}
+			\todo{Representation Learning: relevant for BAA}
 			\begin{table}[H]
 				\centering
 				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\hsize=0.5\hsize\raggedright}X|>{\hsize=0.1\hsize}X|>{\hsize=0.2\hsize}X|>{\hsize=0.2\hsize}X}
+					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
-						\textbf{Mitigation Methods - not so relevant for us} & \multicolumn{3}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} & \textbf{Demography in Dermatology} \\
+						\textbf{Mitigation Methods - not so relevant for us} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Fair Representation Learning (Pre/In-processing \todo{check with Ludovic})}} \\ 
-						Representation Learning by Disentanglement & X\tnote{1,2} &  &   \\
-						Variational Fair Autoencoder & X\tnote{1,3,15} &  &   \\
-						VAE without adversarial training & X\tnote{1,4} &  &   \\
-						Adversial Learning with FairGAN & X\tnote{1,16} &  &   \\
-						Removing correlation between protected and unprotected features with a geometric solution & X\tnote{1,17} &  &   \\
+						\multicolumn{3}{l}{\textbf{Fair Representation Learning (Pre/In-processing)}} \\ 
+						Representation Learning by Disentanglement & X\tnote{1,2} &   \\
+						Variational Fair Autoencoder & X\tnote{1,3,15} &   \\
+						VAE without adversarial training & X\tnote{1,4} &   \\
+						Adversial Learning with FairGAN & X\tnote{1,16} &   \\
+						Removing correlation between protected and unprotected features with a geometric solution & X\tnote{1,17} &   \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Fair NLP \todo{check with Ludovic}}} \\ 
-						Fair Word-Embedding & X\tnote{1,5,6,7} &  &   \\
-						Train-Time Data Augmentation & X\tnote{1,8} &  &   \\
-						Test-Time Neutralization & X\tnote{1,8} &  &   \\
+						\multicolumn{3}{l}{\textbf{Fair NLP}} \\ 
+						Fair Word-Embedding & X\tnote{1,5,6,7} &   \\
+						Train-Time Data Augmentation & X\tnote{1,8} &   \\
+						Test-Time Neutralization & X\tnote{1,8} &   \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Fair Regression (In-processing)}} \\ 
-						Price of Fairness (POF) & X\tnote{1,10} & & \\
-						XY \todo{check this} and bounded group loss & X\tnote{1,11} & & \\
-						Decision Tree for Disoarate Impact and Treatment & X\tnote{1,12} & & \\
+						\multicolumn{3}{l}{\textbf{Fair Regression (In-processing)}} \\ 
+						Price of Fairness (POF) & X\tnote{1,10} & \\
+						XY \todo{check this} and bounded group loss & X\tnote{1,11} & \\
+						Decision Tree for Disparate Impact and Treatment & X\tnote{1,12} & \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Structured Prediction (In-processing)}} \\ 
-						Reducing Bias Amplification (RBA) as calibration algorithm & X\tnote{1,13} & & \\
+						\multicolumn{3}{l}{\textbf{Structured Prediction (In-processing)}} \\ 
+						Reducing Bias Amplification (RBA) as calibration algorithm & X\tnote{1,13} & \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Principal Component Analysis (PCA) (In-processing)}} \\ 
-						Fair PCA & X\tnote{1,14} & & \\
+						\multicolumn{3}{l}{\textbf{Principal Component Analysis (PCA) (In-processing)}} \\ 
+						Fair PCA & X\tnote{1,14} & \\
 						%	\midrule
-						\multicolumn{4}{l}{\textbf{Others \todo{find other categorization}}} \\ 
-						Disparate Learning Processes (DLP) & X\tnote{1,9} &  &   \\
-						Disregard sensitive attributes in effect on decision making & X\tnote{1} &  &   \\						
-						Community Detection / Graph Embedding  \todo{how to proceed with this} & X\tnote{} & & \\
-						Causal Approach to Fairness \todo{how to proceed with this} & X\tnote{}  & & \\
-						Disregard path in causal graph which result in sensitive attributes affecting decision outcome & X\tnote{1} &  &   \\
+						\multicolumn{3}{l}{\textbf{Others \todo{find other categorization}}} \\ 
+						Disparate Learning Processes (DLP) & X\tnote{1,9} &   \\
+						Disregard sensitive attributes in effect on decision making & X\tnote{1} &   \\						
+						Community Detection / Graph Embedding  \todo{how to proceed with this} & X\tnote{} & \\
+						Causal Approach to Fairness \todo{how to proceed with this} & X\tnote{}  & \\
+						Disregard path in causal graph which result in sensitive attributes affecting decision outcome & X\tnote{1} &   \\
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -861,8 +909,10 @@
 					\item vanilla PCA exaggerate error in reconstruction for one group of people [137] \autocite{Mehrabi_2021}
 					\item And their proposed algorithm is a two-step process listed below: (1) Relax the Fair PCA objective to a semidefinite program (SDP) and solve it. (2) Solve a linear program that would reduce the rank of the solution. [137] \autocite{Mehrabi_2021}
 				\end{itemize}
-			\subparagraph{Community Detection/Graph Embedding}
-				This types of algorithms are mainly used on data in regards of connections between the data, e.g. in online communities and social networks. Please refer to \cite{Mehrabi_2021} for more information, as this type of data is not found in the PASSION context.
+			\subparagraph{Community Detection}
+				\todo{use this as an example for out of scope text, - Ludovic approved}
+				Community detection algorithms are specifically tailored to analyze network data and find connections in such datasets. For example, they can be used to detect groups of people with similar interest in social networks \autocite{Jayawickrama_2021}. This kind of data is not found in the context of PASSION, which is a classification task. Please refer to \cite{Mehrabi_2021} for more information on bias mitigation in community detection algorithms.
+				
 			\subparagraph{Causal Approach to Fairness}
 				\todo{only relevant, if our variables have a dependency on the variables, e.g. age / gender determines how the disease is presenting itself in the images; check \autocite{Mehrabi_2021} page 18 if relevant}
 				
@@ -937,8 +987,25 @@
 				\item  Previous opinion bias: In performing a second diagnostic test, if the result of a previous test is known, it is likely to influence the result. An extension of this is the Greenwald’s law of lupus: the Sontheimer amendment – anything and everything that happens to a lupus erythematosus patient is correctly or incorrectly attributed to lupus.32 29. \autocite{Chakraborty_2023}
 				\item Selection bias: Since it is not possible to work with large populations, for most dermatological studies, samples are chosen that are said to be representative of the original population. In selection bias, the selected subgroups are not representative of their original population. A variation of this is systematic selection bias, where samples chosen differ dramatically from their representative populations. Our experience suggests, such selection bias occurs more commonly in studies conducted in regional referral centers where only the sickest or more severe patients are usually seen. For example, a study compared the efficacy of thalidomide vs. prednisolone in hospitalised patients of erythema nodosum leprosum. It derived that thalidomide was more efficacious than steroids in erythema nodosum leprosum. Such findings cannot be generalised to all erythema nodosum leprosum since patients admitted to a regional referral center will likely have more severe disease.5,6,33 Selection bias is again divided into two types endogenous selection bias and exogenous selection bias. The best example of endogenous selection bias in dermatology is the inclusion of non-response. If a trial tests the efficacy of a particular biologic in psoriasis, the response is usually collected from trial participants via postal services. Certain participants will not respond, although they might have substantially improved. Their exclusion will result in significant differences in efficacy evaluation.33 Exogenous selection bias results when both treatment and outcome result from dependency on an external variable that is not controlled. For example, if sunlight exposure is not controlled, it will influence both the intervention and control groups since psoriasis is a photosensitive (and photoexcerbated) dermatosis.
 				
-				
+				\item A recent study reported mean top-1 and top-5 model accuracy of 44.8\% and 78.1\%, respectively, for the classification of 134 diseases (Han et al., 2019b). Most datasets are proprietary, often with minimal description, and datasets collected in dermatology clinics may be skewed toward more complex cases, to those patients with better access to care, or by the choice of camera used in one clinic versus another. Data should be collected from as many diverse sources as possible, including primary care clinics, and robust standards for external validation are needed. \autocite{Young_2020}
+				\item There have been successful efforts to support reproducibility and open access. For example, the study by Han et al. (2018a) details the number and characteristics of images from each data source and makes thumbnails of the images publicly available. Additionally, several studies classifying dermoscopic images use the publicly available International Skin Imaging Collaboration archive (Gutman et al., 2016). By making datasets public, it becomes possible to examine them for bias (Bissoto et al., 2019). Alternatively, reporting a model training database’s patient demographics and disease classes would be helpful in predicting model performance on external populations. \autocite{Young_2020}
+				\item Metrics of model performance. Standard metrics are needed to assess the performance of different models (Figure 1). Currently, standard performance metrics such as accuracy and area under the receiver operating characteristic and precision recall curves are routinely reported. However, for use in the clinic, studies should additionally describe how well their models deal with uncertainty by reporting (i) the Brier Score, or mean-squared calibration error (Rufibach, 2010), which measures how reliably a model can forecast its accuracy, and (ii) area under the response rate accuracy curve, which measures how capably a model can identify examples it is likely to predict falsely and thus abstain from predicting (Hendrycks et al., 2019) \autocite{Young_2020}
+				\item Model interpretability. Acceptance of AI in clinical decision making hinges on being able to understand the decisionmaking process fundamental to its predictions. DL models are inherently difficult to interpret because they are complex, routinely containing millions of learned parameters; interpretation of DL models’ output is an active field of research (Murdoch et al., 2019). One approach for interpreting model diagnoses is contentbased image retrieval, a method for retrieving training images that are visually similar to a test image (Tschandl et al., 2019a). This method may reassure the physician if all the retrieved training images have the same diagnosis as the predicted diagnosis but is less helpful if the test image looks similar to two or more training images with conflicting diagnoses. A second approach is to highlight pixels in an image most relevant for a model’s prediction, using methods such as saliency mapping (Figure 1). However, it is often the case that highlighted pixels correspond to the entire lesion or visually distinctive features that are already obvious to clinicians without indication as to why these pixels are important to the diagnosis. A third approach is to see through the eyes of a model by plotting an activation atlas (Carter et al., 2019), which shows how subtle changes, in particular visual features, may tip the model over into choosing one diagnosis over another. These activation atlases are experimental and have yet to be applied in dermatology. Understanding a model’s predictions and how the prediction is applicable to the patient at hand is necessary to build trust. As AI exceeds human performance in various tasks, interpreting models may help to advance scientific knowledge by understanding what the machine sees that is relevant to its predications \autocite{Young_2020}
 			\end{itemize}
+		\subsection{Demographic Bias in Dermatology}
+		\paragraph{fairness melanoma detection}
+		\begin{itemize}
+			\item Some biases can be easily detected and countered, such as through appropriate data curation; for example, having a balanced representation across skin tones and genders in training sets. However, in other cases, biases are hidden and untraceable [9]. \autocite{Montoya_2025}
+			\item whether information on demographic diversity (age, gender, race, or ethnicity of patients), clinical diversity (skin type, lesion type, anatomical location of lesion), or image characteristics (source, imaging techniques, resolution, and whether the images were real or artificially generated) \autocite{Montoya_2025}
+			\item The most popular skin color scale currently being used for data annotation for image recognition techniques is the Fitzpatrick Skin Tone Scale (FST) [10]which has six skin tones. Dating from the 1970s, it originally featured just 4 light tones and was designed for detecting photo sensitivity for white skin, with two darker tones added later [11]. The Monk Skin Scale was recently developed and still needs testing, but promisingly has 10 tones, 5 light and 5 dark [12].\autocite{Montoya_2025} \todo{highlight this (FST alternatives)}
+			\item Fig. 4. Comparison of skin tone scales that can be used for skin cancer detection utilizing AI. Recreation of fitzpatrick skin type scale, monk skin tone scale, and sampling of L’Oreal color chart map for reference. \autocite{Montoya_2025} \todo{include this figure}
+			\item While this systemic review provides a comprehensive review of the literature on fairness in AI for melanoma detection, it is primarily based on existing research. To validate the proposed recommendations or frameworks, continuing work is necessary to complete empirical analysis and experiments. Additionally, the suggested adoption of new skin tone scales, while beneficial, may face practical challenges in implementation. Furthermore, while the paper strongly advocates for specific skin tone scales, it’s important to note that other methods or tools might also effectively address fairness issues in AI for melanoma detection. Finally, while the study addresses fairness in AI, it could benefit from further exploration of the practical implementation of these recommendations in real-world clinical settings. Potential obstacles and the feasibility of widespread adoption should be considered to ensure that the proposed solutions are not only theoretically sound but also practically viable. \autocite{Montoya_2025} \todo{also mention the limitations regarding FST alternatives}
+			\item Recent research [13] adds another axis, skin hue, which is described as ranging from red to yellow. This offers a more complete representation of variations of skin color by providing a multidimensional scale [13]. \autocite{Montoya_2025}
+			\item The effect of hue (blue, red, yellow, green) on skin tones adds depth to each face producing a range of undertones (cold, neutral, warm, and olive). In the realm of color theory, the concept of ‘contrast of hue’ emphasizes the distinctiveness among fundamental colors, with primary hues like yellow, red, and blue exhibiting the most pronounced differences [14]. Because skin cancer appears differently on different colored skin, it is important to acknowledge a full range of colors present in both healthy skin and suspicious lesions within datasets used to train skin cancer detection ML tools. \autocite{Montoya_2025}
+			\item These findings should correlate to AI for melanoma detection since the contrast between skin color and skin lesions is a preliminary marker during feature extraction. Although the Fitzpatrick Skin Tone (FST) measurement scale is not diverse enough and leads to biased AI tools, it is continually used and has even been used to test a recently FDA-approved AI device for detecting melanoma. \autocite{Montoya_2025}
+			\item We advocate for the adoption of improved scales like the Monk and L’Oreal maps. Future studies should ensure equitable representation and testing across skin tones to guarantee AI’s effectiveness for all. Please refer to Tables 2 through 7 in the discussion section for further recommendations for curating a diverse dataset, including purpose, ownership, funding, and data annotation, as well as recommendations for each stage of the data life cycle. \autocite{Montoya_2025} \todo{Link for further mitigation methods}
+			\item This study found that while using skin tone instead of race for fairness evaluations in computer vision seems objective, the annotation process remains biased by human annotators. Untested scales, unclear procedures, and a lack of awareness about annotator backgrounds and social context significantly influence skin tone labeling. This study exposes how even minor design choices in the annotation process, like scale order (dark to light instead of light to dark) or image context (face or no face, skin lesion presence), can sway agreement and introduce uncertainty in skin tone assessments. ... The researchers emphasize the need for greater transparency, standardized procedures, and careful consideration of annotator biases to mitigate these challenges and ensure fairer and more robust evaluations in computer vision. \autocite{Montoya_2025}
+		\end{itemize}
 	
 	\chapter{Ideas and Concepts}
 		\todo{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
