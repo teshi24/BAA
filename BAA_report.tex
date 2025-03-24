@@ -74,6 +74,30 @@
 \newcommand{\tblWidthContext}{\hsize=0.2\hsize}
 
 
+%indicate citations
+% Define a flag to track whether we're inside a raw citation block
+\newif\ifrawcitationactive
+\rawcitationactivefalse % Default: Not inside a raw citation block
+
+% Define color commands with conditional checking
+\newcommand{\rawcitationstart}{\color{purple}\rawcitationactivetrue}
+\newcommand{\rawcitationend}{\color{black}\rawcitationactivefalse}
+
+\newcommand{\rawcitationusedstart}{\color{violet}}
+\newcommand{\rawcitationusedend}{%
+	\ifrawcitationactive
+	\color{purple}  % If inside rawcitation, reset to purple
+	\else
+	\color{black}  % Otherwise, reset to black
+	\fi
+}
+
+
+% indicate info about criteria
+\newcommand{\baaCriteria}[1]{\textcolor{blue}{#1}}
+
+
+
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
@@ -135,16 +159,18 @@
 	\todo{also fix metadata entry!!!} 
 	
 	
-	\todo{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} 
-	
-	
-	\todo{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.} 
-	
-	
-	\todo{Der Schreibstil aller Dokumente entspricht hohen Standards und enthält keine Übertreibungen oder unbegründete Beurteilungen. Die Sprache ist aussagekräftig, prägnant und präzise. Die Fachterminologie ist konsistent, d.h. für gleiche Gegenstände und Themen werden immer die gleichen Begriffe verwendet. Der Sprachgebrauch ist durchgängig geschlechtergerecht, einheitlich und sachlich.}
-
-
 	\todo{Portfolio DB für Referenzarbeiten anschauen}
+	
+	\todo{remove all \textbackslash rawcitationstart \textbackslash rawcitationend  \textbackslash baaCriteria}
+	
+	
+	\baaCriteria{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} 
+	
+	
+	\baaCriteria{Die erstellten Artefakte sind von sehr hoher Qualität. Das trifft u.a. auf Diagramme, Skizzen sowie Notationen (z.B. BPMN/UML) zu. Darstellungen sind einwandfrei, alle statistisch notwendigen Qualitätskriterien sind erfüllt. Beschriftungen etc. sind vorhanden, keine Einwände, Text und Bild stimmen beschreibend gut überein. Es wurden angemessene Dokumentationsmethoden und -arten korrekt verwendet. Vereinbarte Interview Transkripte, Beobachtungsprotokolle bzw. Zusammen-fassungen sind vorhanden. Daten, Ort, Kontext, Beschreibung, Zeilennummer, Verweise, Strukturen sind erkennbar, gut formatiert und korrekt mit dem Text/ der Analyse verknüpft. Alle Elemente und Themen sind im methodischen Teil/Text erklärt und verständlich, keine technischen oder strukturellen Einwände. Auch Zwischenanalysen, Zwischenschritte oder Gesamtauswertungen wurden durchgeführt, die Herkunft der Daten ist erkennbar und professionell aufbereitet.} 
+	
+	
+	\baaCriteria{Der Schreibstil aller Dokumente entspricht hohen Standards und enthält keine Übertreibungen oder unbegründete Beurteilungen. Die Sprache ist aussagekräftig, prägnant und präzise. Die Fachterminologie ist konsistent, d.h. für gleiche Gegenstände und Themen werden immer die gleichen Begriffe verwendet. Der Sprachgebrauch ist durchgängig geschlechtergerecht, einheitlich und sachlich.}
 	
 	\listoffigures
 	\listoftables
@@ -161,7 +187,7 @@
 	% write or compose the main document here
 	
 	\chapter{Problem Statement}
-		\todo{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
+		\baaCriteria{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 	
 		\todo{Formulate statement from those citations}:
 		\begin{itemize}
@@ -191,8 +217,8 @@
 			It is important to identify the existent biases first, so that the mitigation strategies can be \todo{proceed here to reason why you chose those objectives}
 	
 	\chapter{State of Research}
-		\todo{Bezogen auf die eigenen Zielsetzungen und Fragestellungen soll aufgezeigt werden, wie andere dieses oder ähnliche Probleme gelöst haben. Worauf können Sie aufbauen, was müssen Sie neu angehen?	Wodurch unterscheidet sich Ihre Lösung von anderen Lösungen? Für wissenschaftlich orientierte Arbeiten sei hier explizit auf (Balzert, S. 66 ff) verwiesen.}
-		\todo{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
+		\baaCriteria{Bezogen auf die eigenen Zielsetzungen und Fragestellungen soll aufgezeigt werden, wie andere dieses oder ähnliche Probleme gelöst haben. Worauf können Sie aufbauen, was müssen Sie neu angehen?	Wodurch unterscheidet sich Ihre Lösung von anderen Lösungen? Für wissenschaftlich orientierte Arbeiten sei hier explizit auf (Balzert, S. 66 ff) verwiesen.}
+		\baaCriteria{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
 		
 		
 		\section{PASSION for Dermatology}
@@ -268,62 +294,62 @@
 				see https://github.com/Digital-Dermatology/PASSION-Evaluation
 		
 			\subsection{Telemedicine}
+				\rawcitationstart
 				\begin{itemize}
 					\item Teledermatology. Telemedicine may be one of the first fields to embrace AI, driven by demand for services, the necessity of collecting fit-for-purpose high-quality images, and the availability of existing technology (Xiong et al., 2019). Face-to-face diagnostic accuracy exceeds that of teledermatology (Finnane et al., 2017); however, inequalities surrounding access to dermatological care persist. Teledermatology has the potential to increase access by facilitating referrals and offering convenience and decreased wait times (Finnane et al., 2017), as well as providing diagnostic support at the time of case review. For teledermatology cases, the accuracy of a DL classifier (0.67) matched dermatologists’ (0.63) and was higher than primary care physicians’ (0.45) for 26 skin conditions (Liu et al., 2019b). AI may be integrated into smartphone apps to photograph skin lesions, collect relevant clinical information, and generate a referral if appropriate. Many smartphones already support on-device DL with Google’s TensorFlow Lite (TensorFlow, 2020) or Apple’s CoreML (Apple Inc, 2020), preserving privacy by keeping health information on the device. A systematic review found nine studies that evaluated six algorithm-based smartphone apps and concluded that evidence of diagnostic accuracy was poor and does not support current implementation, despite two apps having obtained the CE marking; no apps are Food and Drug Administration approved (Freeman et al., 2020). AI may also assist in automatic tracking and monitoring of skin lesions; although preliminary results are promising, existing studies used small datasets with little description, and there is no established standard metric of change (Navarro et al., 2019). Further study hinges on the prospective collection of large datasets. \autocite{Young_2020}
 					\item \autocite{Tsetsi_2017} on smartphone / internet access divide between populations
 					\item https://www.tandfonline.com/doi/full/10.1080/08870446.2019.1579330 on how open people are to use AI
 					\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020}
 				\end{itemize}
-			
-		\section{General ML biases}
+				\rawcitationend
 		
-			\subsection{Discrimination vs. Biases}
-			\begin{itemize}
-				\item The Cambridge English dictionary defines bias as “the action of supporting or opposing a particular person or thing in an unfair way as a result of allowing personal opinions to influence your judgement.”1 However, statistical bias is defined as any systematic error in the determination of the association between exposure and disease.2 \autocite{Chakraborty_2024}
-				\item bias and discrimination = source of unfairness. Discrimination can be considered as a source for unfairness that is due to human prejudice and stereotyping based on the sensitive attributes, which may happen intentionally or unintentionally, while bias can be considered as a source for unfairness that is due to the data collection, sampling, and measurement. Although bias can also be seen as a source of unfairness that is due to human prejudice and stereotyping, in the algorithmic fairness literature it is more intuitive to categorize them as such according to the existing research in these areas. In this survey, we mainly focus on concepts that are relevant to algorithmic fairness issues. \autocite{Mehrabi_2021}
-				\item Explainable Discrimination. Differences in treatment and outcomes amongst different groups can be justified and explained via some attributes in some cases. In situations where these differences are justified and explained, it is not considered to be illegal discrimination and hence called explainable [77]. In [77], authors present a methodology to quantify the explainable and illegal discrimination in data. They argue that methods that do not take the explainable part of the discrimination into account may result in non-desirable outcomes, so they introduce a reverse discrimination which is equally harmful and undesirable. They explain how to quantify and measure discrimination in data or a classifier’s decisions which directly considers illegal and explainable discrimination.\autocite{Mehrabi_2021}
-				\item Unexplainable Discrimination. In contrast to explainable discrimination, there is unexplainable discrimination in which the discrimination toward a group is unjustified and therefore considered illegal. Authors in [77] also present local techniques for removing only the illegal or unexplainable discrimination, allowing only for explainable differences in decisions. These are preprocessing techniques that change the training data such that it contains no unexplainable discrimination. We expect classifiers trained on this preprocessed data to not capture illegal or unexplainable discrimination. Unexplainable discrimination consists of direct and indirect discrimination.\autocite{Mehrabi_2021}
-				\begin{itemize}
-					\item Direct Discrimination. Direct discrimination happens when protected attributes of individuals explicitly result in non-favorable outcomes toward them [164]. ... these traits that are considered to be “protected” or “sensitive” attributes in computer science literature  \autocite{Mehrabi_2021}
-					\item Indirect Discrimination. In indirect discrimination, individuals appear to be treated based on seemingly neutral and non-protected attributes; however, protected groups, or individuals still get to be treated unjustly as a result of implicit effects from their protected attributes \autocite{Mehrabi_2021}
-				\end{itemize}
-				\item Discrimination can be either direct or indirect. Direct discrimination occurs when decisions are made based on sensitive attributes. Indirect discrimination occurs when decisions are made based on nonsensitive attributes which are strongly correlated with biased sensitive ones \autocite{M62_}
-				\item ML algorithms reflect cognitive biases in humans, which can result in predictions and decisions that are “unfair” [5]. Unfairness in ML decision-making equates to prejudice or favoritism based on inherent or acquired characteristics of an individual or group [6]. Within medical research, the term bias refers to “a feature of the design of a study, or the execution of a study, or the analysis of the data from a study, that makes evidence misleading” [7,8]. \autocite{Montonaya_2025}
-			\end{itemize}
+		
+		\section{Bias}
+		The usage of AI with its algorithmic decisions affect peoples' lives. Due to that, tools in healthcare, like the PASSION project which should make triage and potentially diagnosis easier \autocite{Gottfrois2024}, are sensitive tools. AI application decisions proved to be biased. Therefore, AI engineers should aim to address and mitigate those biases. To do so, it is crucial for AI engineers to know what bias is, what types of biases exist and where they are coming from. Further, AI engineers need to know what prevention methods are available \autocite{Mehrabi_2021}.
 			
-			\subsection{Bias Introduction}
-			\begin{itemize}
-				\item These biased predictions stem from the hidden or neglected biases in data or algorithms \autocite{Mehrabi_2021}.
-				\item two potential sources of unfairness in machine learning outcomes - those that arise from biases in the data and those that arise from the algorithms ... we observe that biased algorithmic outcomes might impact user experience, thus generating a feedback loop between data, algorithms and users that can perpetuate and even amplify existing sources of bias \autocite{Mehrabi_2021}.
+		\rawcitationusedstart
+		\begin{itemize}
 				\item Bias in facial recognition systems [128] and recommender systems [140] have also been largely studied and evaluated and in many cases shown to be discriminative towards certain populations and subgroups. In order to be able to address the bias issue in these applications, it is important for us to know where these biases are coming from and what we can do to prevent them.\autocite{Mehrabi_2021}.
 				\item We should think responsibly, and recognize that the application of these tools, and their subsequent decisions affect peoples’ lives; therefore, considering fairness constraints is a crucial task while designing and engineering these types of sensitive tools \autocite{Mehrabi_2021}.
-				\item compared SAVRY, a tool used in risk assessment frameworks that includes human intervention in its process, with automatic machine learning methods in order to see which one is more accurate and more fair. Conducting these types of studies should be done more frequently, but prior to releasing the tools in order to avoid doing harm \autocite{Mehrabi_2021}.
-				\item \textbf{Assessment Tools} An interesting direction that researchers have taken is introducing tools that can assess the amount of fairness in a tool or system. For example, Aequitas [136] is a toolkit that lets users to test models with regards to several bias and fairness metrics for different population subgroups. Aequitas produces reports from the obtained data that helps data scientists, machine learning researchers, and policymakers to make conscious decisions and avoid harm and damage toward certain populations. AI Fairness 360 (AIF360) is another toolkit developed by IBM in order to help moving fairness research algorithms into an industrial setting and to create a benchmark for fairness algorithms to get evaluated and an environment for fairness researchers to share their ideas [11]. These types of toolkits can be helpful for learners, researchers, and people working in the industry to move towards developing fair machine learning application away from discriminatory behavior \autocite{Mehrabi_2021}.
-				\item At first sight, automating decisions may give a sense of fairness: classification rules do not guide themselves by personal preferences. However, at a closer look, one realizes that classification rules are actually learned by the system (e.g., loan granting) from the training data. If the training data are inherently biased for or against a particular community (e.g., foreigners), the learned model may show a discriminatory prejudiced behavior. In other words, the system may infer that just being foreign is a legitimate reason for loan denial. \autocite{M62_}
-				\item One might think of a straightforward preprocessing approach consisting of just removing the discriminatory attributes from the data set. Although this would solve the direct discrimination problem, it would cause much information loss and in general it would not solve indirect discrimination. \autocite{M62_}
-				\item Hence, there are two important challenges regarding discrimination prevention: one challenge is to consider both direct and indirect discrimination instead of only direct discrimination; the other challenge is to find a good tradeoff between discrimination removal and the quality of the resulting training data sets and data mining models. \autocite{M62_}
-			\end{itemize}	
-			
-			\begin{itemize}
-				\item Most AI systems and algorithms are data driven and require data upon which to be trained. Thus, data is tightly coupled to the functionality of these algorithms and systems. In the cases where the underlying training data contains biases, the algorithms trained on them will learn these biases and reflect them into their predictions. As a result, existing biases in data can affect the algorithms using the data, producing biased outcomes. Algorithms can even amplify and perpetuate existing biases in the data.\autocite{Mehrabi_2021}.
-				\item In addition, algorithms themselves can display biased behavior due to certain design choices, even if the data itself is not biased. The outcomes of these biased algorithms can then be fed into real-world systems and affect users’ decisions, which will result in more biased data for training future algorithms.\autocite{Mehrabi_2021}.
-				\item The loop capturing this feedback between biases in data, algorithms, and user interaction is illustrated in Figure 1. We use this loop to categorize definitions of bias in the section below \autocite{Mehrabi_2021}.
-				\begin{figure}[H]
-					\centering
-					\includegraphics[width=0.8\textwidth]{figures/BiasCategoriesInMLLifecycle.png}
-					\caption{Bias definitions in a ML lifecycle \autocite{Mehrabi_2021}.}
-					\label{fig:example}
-				\end{figure}
-				\item Bias can exist in many shapes and forms, some of which can lead to unfairness in different downstream learning tasks. In \autocite{M144_Suresh_2021}, authors talk about sources of bias in machine learning with their categorizations and descriptions in order to motivate future solutions to each of the sources of bias introduced in the paper. In \autocite{M120_Olteanu_2019}, the authors prepare a complete list of different types of biases with their corresponding definitions that exist in different cycles from data origins to its collection and its processing.\autocite{Mehrabi_2021}.
-			\end{itemize}	
-			
-			\begin{itemize}
-				\item The list of biases that can occur in any research is considerably long, and certainly not all of them can be avoided. However, dermatologists should be well aware of them because: 1. While conducting systematic reviews and metaanalysis, PRISMA guidelines need to be followed, and the PRISMA checklist requires a very exhaustive list of declarations to be made by the authors as to how biases in the individual studies were detected, their types and whether they were included in the systematic review or not. This usually requires more than two authors working independently. 2. Biases can result in dramatically opposite inferences, which may not be biologically plausible; the knowledge of the biases can help detect them and thereby negate such findings. 3. The knowledge of biases is a vital part of the postgraduate dermatology curriculum and is a mustknow area for thesis/dissertation purposes. 4. Since there is no fool-proof way to avoid all biases, the help of a well-qualified biostatistician might help detect and prevent many of these biases in research. \autocite{Chakraborty_2024}
-			\end{itemize}
-			
-			Already rewritten: The following categorization was modeled with the intent to show that the different biases are intertwined and one should consider the effects between each other in the cycle to address them correctly \autocite{Mehrabi_2021}
+		\end{itemize}
+		\rawcitationusedend
 		
-			\subsection{Bias Overview}
+		This chapter provides an overview over biases and related features which were mentioned in ML and dermatology related research.
+		
+			\subsection{Introduction to Bias in AI}
+			According to the Cambridge English dictionary, bias can be defined as "the fact of preferring a particular subject or thing" or even as "the action of supporting or opposing a particular person or thing in an unfair way, because of allowing personal opinions to influence your judgment" \autocite{Cambridge_2025}. While an AI does not hold personal opinions, the judgment of an AI algorithm is influenced by the underlying data and how the algorithm uses this data. The data and even the algorithm itself can hold biases, which affects the final outcome and potential lead to unfair decisions. In decision-making, fairness means "absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics" - or in other terms, a fair algorithms decisions are not scewed toward a group of people \autocite{Mehrabi_2021}. 
+			\todo{Do I need to say more about this? If so, add infos from section Discrimination vs. Biases}
+
+			\rawcitationusedstart
+			\begin{itemize}
+				\item The Cambridge English dictionary defines bias as “the action of supporting or opposing a particular person or thing in an unfair way as a result of allowing personal opinions to influence your judgement.”1 However, statistical bias is defined as any systematic error in the determination of the association between exposure and disease.2 \autocite{Chakraborty_2024}
+				\item These biased predictions stem from the hidden or neglected biases in data or algorithms \autocite{Mehrabi_2021}.
+				\item There are clear benefits to algorithmic decision-making; unlike people, machines do not become tired or bored [45, 119], and can take into account orders of magnitude more factors than people can. However, like people, algorithms are vulnerable to biases that render their decisions “unfair” [6, 121]. In the context of decision-making, fairness is \textit{the absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics}. Thus, an unfair algorithm is one whose decisions are skewed toward a particular group of people. \autocite{Mehrabi_2021}.
+			\end{itemize}
+			\rawcitationusedend
+			
+			\subsection{Bias Sources}
+			The general ML lifecycle consists of data gathering, training the algorithm and the user interaction with the trained model. Now, while data gathering, biases can arise either through the collection process or it is already inherited in the available data. Further, depending on the algorithm design, during training, the existing bias in the data can be amplified and new bias can be introduced. Lastly, the result of the algorithm can affect the user experience on inference which can lead to further bias amplification. This generates a feedback loop between the biases in each step of the ML lifecycle which can make it hard to identify the original bias source. The feedback loop is illustrated in \ref{fig:bias_definitions_ML_lifecycle}, which also shows first bias definitons, which were categorized according to this feedback loop \autocite{Mehrabi_2021}.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.8\textwidth]{figures/BiasCategoriesInMLLifecycle.png}
+				\caption{Bias definitions in a ML lifecycle \autocite{Mehrabi_2021}.}
+				\label{fig:bias_definitions_ML_lifecycle}
+			\end{figure}
+			
+			\rawcitationusedstart
+
+			\begin{itemize}
+				\item two potential sources of unfairness in machine learning outcomes - those that arise from biases in the data and those that arise from the algorithms ... we observe that biased algorithmic outcomes might impact user experience, thus generating a feedback loop between data, algorithms and users that can perpetuate and even amplify existing sources of bias \autocite{Mehrabi_2021}.
+				\item The loop capturing this feedback between biases in data, algorithms, and user interaction is illustrated in Figure 1. We use this loop to categorize definitions of bias in the section below \autocite{Mehrabi_2021}
+			\end{itemize}
+			\rawcitationusedend
+			
+			
+			\subsection{Bias Types}
+			Following This thesis follows the categorization of \cite{Mehrabi_2021}.
+			
 			\todo{check categorization of table ref18, statistical biases}
 			\todo{check the c citations pls}
 			\begin{table}[H]
@@ -354,7 +380,7 @@
 						Image Quality/Visual Artifacts Bias    & &  X\tnote{20,\todo{add those from young}} \\
 						Annotator Bias & & X\tnote{21} \\
 						Data dredging bias   & & X\tnote{19,c16-c19} \\
-												
+						
 						\multicolumn{3}{l}{\textbf{\textit{Temporal and Study Design Biases}}} \\
 						Longitudinal Data Fallacy & X\tnote{1} &  \\
 						Chronological bias   & & X\tnote{19,c9} \\
@@ -365,7 +391,7 @@
 						Collider Bias        &            & X\tnote{19,c8,c9} \\
 						Diagnostic Access Bias & & X\tnote{19,c19,c20,20} \\
 						Diagnostic Reference Test Bias & & X\tnote{19,c21} \\
-							
+						
 						\multicolumn{3}{l}{\textbf{\textit{Funding and Research Biases}}} \\
 						Funding / (Industry) Sponsorship Bias    & X\tnote{18} & X\tnote{19} \\
 						Hot stuff bias & & X\tnote{19,c22,c23} \\
@@ -377,7 +403,7 @@
 						Informed presence bias & & X\tnote{19,c27} \\
 						Mimicry Bias & & X\tnote{19,c28} \\
 						Unacceptable Disease Bias & & X\tnote{19,30} \\
-							
+						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Algorithmic Biases}} \\ 
 						\multicolumn{3}{l}{\textbf{\textit{Biases in Model Training and Learning}}} \\
@@ -385,11 +411,11 @@
 						Emergent Bias        & X\tnote{1,9} &    \\
 						Evaluation Bias      & X\tnote{1,2,12} &   \\
 						Generalization Issues &  & X\tnote{20,\todo{add those from young}} \\
-	
+						
 						\multicolumn{3}{l}{\textbf{\textit{Biases in Predictions and User Interaction}}} \\
 						User Interaction Bias& X\tnote{1,4} &    \\
-							Presentation Bias    & X\tnote{1,4} &    \\
-							Ranking Bias         & X\tnote{1,4,6} &    \\
+						Presentation Bias    & X\tnote{1,4} &    \\
+						Ranking Bias         & X\tnote{1,4,6} &    \\
 						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9}   \\
 						Incorporation Bias   & & X\tnote{19,c25,c26} \\
 						
@@ -417,14 +443,14 @@
 						
 						\multicolumn{3}{l}{\textbf{\textit{Population and Perception Biases}}} \\
 						Population Bias      & X\tnote{1,3,8} &   \\
-							
- 						\multicolumn{3}{l}{\textbf{\textit{Other Biases}}} \\
+						
+						\multicolumn{3}{l}{\textbf{\textit{Other Biases}}} \\
 						Apprehension bias   &  & X\tnote{19,c13} \\
 						Rethoric bias & & X\tnote{19, c14} \\
 						Centripetal bias &  &X\tnote{19} \\
 						Novelty bias & & X\tnote{19} \\
 						Language Bias & & X\tnote{19} \\
-							
+						
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -463,7 +489,7 @@
 			\end{table}
 			
 			
-			\paragraph{Sensitive Features}
+			\subsection{Sensitive Features}
 			Research showed sensitive features which are prone to bias. Those led to issues in existing AI applications and their usage should therefore be investigated carefully.
 			
 			\ref{tab:biases_features} summarizes mentioned features. Since PASSION tries to improve the classification of skin diseases with photographs alone, those features which directly influence the appearance of a disease on the skin are most important. Skin type including undertone are affecting the diseases appearance, but also genetic factors, gender and the age \todo{doublecheck impact of age} of a patient can influence how the diseases manifest themselves. Therefore, they are directly relevant for skin detection and must be considered in the dataset.
@@ -533,9 +559,63 @@
 				\caption{Features which often hold biases - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
 				\label{tab:biases_features}
 			\end{table}
+			
+			
+		\section{Fairness}
+			
+			
+			
+		\section{Mitigation Methods}
+			
+			
+			
+		\section{Extensive Sources}
+			
+			\rawcitationstart
+			\subsection{Discrimination vs. Biases}
+			\begin{itemize}
+				\item bias and discrimination = source of unfairness. Discrimination can be considered as a source for unfairness that is due to human prejudice and stereotyping based on the sensitive attributes, which may happen intentionally or unintentionally, while bias can be considered as a source for unfairness that is due to the data collection, sampling, and measurement. Although bias can also be seen as a source of unfairness that is due to human prejudice and stereotyping, in the algorithmic fairness literature it is more intuitive to categorize them as such according to the existing research in these areas. In this survey, we mainly focus on concepts that are relevant to algorithmic fairness issues. \autocite{Mehrabi_2021}
+				\item Explainable Discrimination. Differences in treatment and outcomes amongst different groups can be justified and explained via some attributes in some cases. In situations where these differences are justified and explained, it is not considered to be illegal discrimination and hence called explainable [77]. In [77], authors present a methodology to quantify the explainable and illegal discrimination in data. They argue that methods that do not take the explainable part of the discrimination into account may result in non-desirable outcomes, so they introduce a reverse discrimination which is equally harmful and undesirable. They explain how to quantify and measure discrimination in data or a classifier’s decisions which directly considers illegal and explainable discrimination.\autocite{Mehrabi_2021}
+				\item Unexplainable Discrimination. In contrast to explainable discrimination, there is unexplainable discrimination in which the discrimination toward a group is unjustified and therefore considered illegal. Authors in [77] also present local techniques for removing only the illegal or unexplainable discrimination, allowing only for explainable differences in decisions. These are preprocessing techniques that change the training data such that it contains no unexplainable discrimination. We expect classifiers trained on this preprocessed data to not capture illegal or unexplainable discrimination. Unexplainable discrimination consists of direct and indirect discrimination.\autocite{Mehrabi_2021}
+				\begin{itemize}
+					\item Direct Discrimination. Direct discrimination happens when protected attributes of individuals explicitly result in non-favorable outcomes toward them [164]. ... these traits that are considered to be “protected” or “sensitive” attributes in computer science literature  \autocite{Mehrabi_2021}
+					\item Indirect Discrimination. In indirect discrimination, individuals appear to be treated based on seemingly neutral and non-protected attributes; however, protected groups, or individuals still get to be treated unjustly as a result of implicit effects from their protected attributes \autocite{Mehrabi_2021}
+				\end{itemize}
+				\item Discrimination can be either direct or indirect. Direct discrimination occurs when decisions are made based on sensitive attributes. Indirect discrimination occurs when decisions are made based on nonsensitive attributes which are strongly correlated with biased sensitive ones \autocite{M62_}
+				\item ML algorithms reflect cognitive biases in humans, which can result in predictions and decisions that are “unfair” [5]. Unfairness in ML decision-making equates to prejudice or favoritism based on inherent or acquired characteristics of an individual or group [6]. Within medical research, the term bias refers to “a feature of the design of a study, or the execution of a study, or the analysis of the data from a study, that makes evidence misleading” [7,8]. \autocite{Montonaya_2025}
+			\end{itemize}
+		
+		
+		\section{General ML biases}
+		
+			\subsection{Bias Introduction}
+			\begin{itemize}
+				\item compared SAVRY, a tool used in risk assessment frameworks that includes human intervention in its process, with automatic machine learning methods in order to see which one is more accurate and more fair. Conducting these types of studies should be done more frequently, but prior to releasing the tools in order to avoid doing harm \autocite{Mehrabi_2021}.
+				\item \textbf{Assessment Tools} An interesting direction that researchers have taken is introducing tools that can assess the amount of fairness in a tool or system. For example, Aequitas [136] is a toolkit that lets users to test models with regards to several bias and fairness metrics for different population subgroups. Aequitas produces reports from the obtained data that helps data scientists, machine learning researchers, and policymakers to make conscious decisions and avoid harm and damage toward certain populations. AI Fairness 360 (AIF360) is another toolkit developed by IBM in order to help moving fairness research algorithms into an industrial setting and to create a benchmark for fairness algorithms to get evaluated and an environment for fairness researchers to share their ideas [11]. These types of toolkits can be helpful for learners, researchers, and people working in the industry to move towards developing fair machine learning application away from discriminatory behavior \autocite{Mehrabi_2021}.
+				\item At first sight, automating decisions may give a sense of fairness: classification rules do not guide themselves by personal preferences. However, at a closer look, one realizes that classification rules are actually learned by the system (e.g., loan granting) from the training data. If the training data are inherently biased for or against a particular community (e.g., foreigners), the learned model may show a discriminatory prejudiced behavior. In other words, the system may infer that just being foreign is a legitimate reason for loan denial. \autocite{M62_}
+				\item One might think of a straightforward preprocessing approach consisting of just removing the discriminatory attributes from the data set. Although this would solve the direct discrimination problem, it would cause much information loss and in general it would not solve indirect discrimination. \autocite{M62_}
+				\item Hence, there are two important challenges regarding discrimination prevention: one challenge is to consider both direct and indirect discrimination instead of only direct discrimination; the other challenge is to find a good tradeoff between discrimination removal and the quality of the resulting training data sets and data mining models. \autocite{M62_}
+			\end{itemize}	
+			
+			\begin{itemize}
+				\item Most AI systems and algorithms are data driven and require data upon which to be trained. Thus, data is tightly coupled to the functionality of these algorithms and systems. In the cases where the underlying training data contains biases, the algorithms trained on them will learn these biases and reflect them into their predictions. As a result, existing biases in data can affect the algorithms using the data, producing biased outcomes. Algorithms can even amplify and perpetuate existing biases in the data.\autocite{Mehrabi_2021}.
+				\item In addition, algorithms themselves can display biased behavior due to certain design choices, even if the data itself is not biased. The outcomes of these biased algorithms can then be fed into real-world systems and affect users’ decisions, which will result in more biased data for training future algorithms.\autocite{Mehrabi_2021}.
+				
+				\item Bias can exist in many shapes and forms, some of which can lead to unfairness in different downstream learning tasks. In \autocite{M144_Suresh_2021}, authors talk about sources of bias in machine learning with their categorizations and descriptions in order to motivate future solutions to each of the sources of bias introduced in the paper. In \autocite{M120_Olteanu_2019}, the authors prepare a complete list of different types of biases with their corresponding definitions that exist in different cycles from data origins to its collection and its processing.\autocite{Mehrabi_2021}.
+			\end{itemize}	
+			
+			\begin{itemize}
+				\item The list of biases that can occur in any research is considerably long, and certainly not all of them can be avoided. However, dermatologists should be well aware of them because: 1. While conducting systematic reviews and metaanalysis, PRISMA guidelines need to be followed, and the PRISMA checklist requires a very exhaustive list of declarations to be made by the authors as to how biases in the individual studies were detected, their types and whether they were included in the systematic review or not. This usually requires more than two authors working independently. 2. Biases can result in dramatically opposite inferences, which may not be biologically plausible; the knowledge of the biases can help detect them and thereby negate such findings. 3. The knowledge of biases is a vital part of the postgraduate dermatology curriculum and is a mustknow area for thesis/dissertation purposes. 4. Since there is no fool-proof way to avoid all biases, the help of a well-qualified biostatistician might help detect and prevent many of these biases in research. \autocite{Chakraborty_2024}
+			\end{itemize}
+			\rawcitationend
+			
+			Already rewritten: The following categorization was modeled with the intent to show that the different biases are intertwined and one should consider the effects between each other in the cycle to address them correctly \autocite{Mehrabi_2021}
+		
 
 
 
+
+			\rawcitationstart
 			\subsection{Biases Extensive Sources}
 			
 			\paragraph{Data Biases}
@@ -595,6 +675,7 @@
 				\item https://academic.oup.com/bjd/article-abstract/190/6/789/7603706?redirectedFrom=fulltext Ethical considerations for artificial intelligence in dermatology: a scoping review
 				
 			\end{itemize}
+			\rawcitationend
 			
 		    \subsection{Fairness Overview}
 			\begin{table}[H]
@@ -651,6 +732,7 @@
 				\label{tab:fairness_definitions}
 			\end{table}
 			
+			\rawcitationstart
 			\subsection{Fairness Extensive Sources}
 			\paragraph{Algorithmic Fairness}
 			\begin{itemize}
@@ -676,7 +758,7 @@
 					\item Another important aspect to consider is time and temporal analysis of the impacts that these definitions may have on individuals or groups. In [95] authors show that current fairness definitions are not always helpful and do not promote improvement for sensitive groups—and can actually be harmful when analyzed over time in some cases. They also show that measurement errors can also act in favor of these fairness definitions; therefore, they show how temporal modeling and measurement are important in evaluation of fairness criteria and introduce a new range of trade-offs and challenges toward this direction. It is also important to pay attention to the sources of bias and their types when trying to solve fairness-related questions. \autocite{Mehrabi_2021}
 				\end{itemize}
 			\end{itemize}
-			
+			\rawcitationend
 			
 			\subsection{Mitigation Methods Overview}
 				\todo{write definitions of pre-in and post-processing, see Methods for fair machine learning below [43, 11, 14]}
@@ -916,6 +998,7 @@
 			
 			\todo{mention also the IBM AI Fairness 360 toolkit [11] and that authors evaluated their work in benchmark datasets [65], [72], [158], [159]}
 			
+		\rawcitationstart
 		\subsection{Mitigation Methods Extensive Sources}
 			
 			\paragraph{Bias Examples and Mitigation Ideas}
@@ -1081,9 +1164,10 @@
 			\item We advocate for the adoption of improved scales like the Monk and L’Oreal maps. Future studies should ensure equitable representation and testing across skin tones to guarantee AI’s effectiveness for all. Please refer to Tables 2 through 7 in the discussion section for further recommendations for curating a diverse dataset, including purpose, ownership, funding, and data annotation, as well as recommendations for each stage of the data life cycle. \autocite{Montoya_2025} \todo{Link for further mitigation methods}
 			\item This study found that while using skin tone instead of race for fairness evaluations in computer vision seems objective, the annotation process remains biased by human annotators. Untested scales, unclear procedures, and a lack of awareness about annotator backgrounds and social context significantly influence skin tone labeling. This study exposes how even minor design choices in the annotation process, like scale order (dark to light instead of light to dark) or image context (face or no face, skin lesion presence), can sway agreement and introduce uncertainty in skin tone assessments. ... The researchers emphasize the need for greater transparency, standardized procedures, and careful consideration of annotator biases to mitigate these challenges and ensure fairer and more robust evaluations in computer vision. \autocite{Montoya_2025}
 		\end{itemize}
+	\rawcitationend
 	
 	\chapter{Ideas and Concepts}
-		\todo{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
+		\baaCriteria{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
 		
 		\section{PASSION Dataset}
 			\todo{write things to consider more precisely:}
@@ -1118,22 +1202,22 @@
 			\end{itemize}
 
 	\chapter{Methods}
-		\todo{Hier halten Sie fest und begründen, welches Vorgehensmodell Sie für Ihr Projekt wählen. Sie verweisen allenfalls auf die daraus entstandenen, konkreten Terminpläne mit Meilensteinen, welche z.B. unter Realisierung (Kapitel 5) oder im Anhang versorgt sind. Bei Projekten mit einer verlangten wissenschaftlichen Tiefe werden hier die geplanten Forschungsmethoden wie quantitative/qualitative Interviews, Befragungen, Beobachtungen, Feldexperiment etc. beschrieben und begründet. Warum ist in Ihrer Situation ein Interview besser als eine Umfrage? Wer soll interview werden?}
-		\todo{Die gewählten Methoden sind nachvollziehbar und begründet. Eine methodische Übersicht (Methodisches BigPicture) wurde aufgezeigt und Abgrenzungen erläutert.}
+		\baaCriteria{Hier halten Sie fest und begründen, welches Vorgehensmodell Sie für Ihr Projekt wählen. Sie verweisen allenfalls auf die daraus entstandenen, konkreten Terminpläne mit Meilensteinen, welche z.B. unter Realisierung (Kapitel 5) oder im Anhang versorgt sind. Bei Projekten mit einer verlangten wissenschaftlichen Tiefe werden hier die geplanten Forschungsmethoden wie quantitative/qualitative Interviews, Befragungen, Beobachtungen, Feldexperiment etc. beschrieben und begründet. Warum ist in Ihrer Situation ein Interview besser als eine Umfrage? Wer soll interview werden?}
+		\baaCriteria{Die gewählten Methoden sind nachvollziehbar und begründet. Eine methodische Übersicht (Methodisches BigPicture) wurde aufgezeigt und Abgrenzungen erläutert.}
 
 	\chapter{Execution}
-		\todo{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
-		\todo{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
+		\baaCriteria{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
+		\baaCriteria{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
 
 
 	\chapter{Evaluation and Validation}
-		\todo{Auswertung und Interpretation der Ergebnisse. Nachweis, dass die Ziele erreicht wurden, oder warum	welche nicht erreicht wurden.}
-		\todo{Die Ziele / Forschungsfragen sind dem Umfang der Arbeit entsprechend sehr klar abgegrenzt; sie sind präzise, überprüfbar und nach den Standards der Zielformulierung definiert. Die Zielerreichung wurde systematisch und korrekt validiert.}
-		\todo{Die Herleitung und Bedeutung der Ergebnisse, mögliche Varianten, Gütekriterien und eine Validierung allgemein werden nachvollziehbar diskutiert}
+		\baaCriteria{Auswertung und Interpretation der Ergebnisse. Nachweis, dass die Ziele erreicht wurden, oder warum	welche nicht erreicht wurden.}
+		\baaCriteria{Die Ziele / Forschungsfragen sind dem Umfang der Arbeit entsprechend sehr klar abgegrenzt; sie sind präzise, überprüfbar und nach den Standards der Zielformulierung definiert. Die Zielerreichung wurde systematisch und korrekt validiert.}
+		\baaCriteria{Die Herleitung und Bedeutung der Ergebnisse, mögliche Varianten, Gütekriterien und eine Validierung allgemein werden nachvollziehbar diskutiert}
 	
 	\chapter{Outlook}
-		\todo{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
-		\todo{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
+		\baaCriteria{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
+		\baaCriteria{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
 		
 		% Lists and References
 		\newpage
@@ -1161,7 +1245,7 @@
 		%	APPENDIX
 		%----------------------------------------------------------------------------------------
 		\appendix
-			\todo{Projektspezifisch können weitere Dokumentationsteile angefügt werden wie: Aufgabenstellung, Projektmanagement-Plan/Bericht, Testplan/Testbericht, Bedienungsanleitungen, Details zu Umfragen, detaillierte Anforderungslisten, Referenzen auf projektspezifische Daten in externen Entwicklungs- und Datenverwaltungstools etc.}
+			\baaCriteria{Projektspezifisch können weitere Dokumentationsteile angefügt werden wie: Aufgabenstellung, Projektmanagement-Plan/Bericht, Testplan/Testbericht, Bedienungsanleitungen, Details zu Umfragen, detaillierte Anforderungslisten, Referenzen auf projektspezifische Daten in externen Entwicklungs- und Datenverwaltungstools etc.}
 			
 		\glsaddallunused                                % add all unused items to glossary
 		\todo{check the gls all unused.}
