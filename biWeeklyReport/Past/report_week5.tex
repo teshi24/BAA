@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{amssymb}  % for checkmarks and crosses
+\usepackage{xcolor}   % for coloring the symbols
+\usepackage{pifont}   % for coloring the symbols
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt, leftmargin=1.2em}
+
+\newcommand{\done}{\textcolor{green}{\ding{52}}}
+\newcommand{\ongoing}{\textcolor{orange}{\ding{45}}}
+\newcommand{\notstarted}{\textcolor{red}{\ding{56}}}
+
+
+\raggedright
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Bachelor Thesis Update}
+\chead{Nadja Stadelmann}
+\rhead{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+	
+	\renewcommand{\arraystretch}{1.5}
+	\begin{longtable}{|p{3.5cm}|p{12cm}|}
+		\hline
+		\textbf{Section} & \textbf{Details} \\
+		\hline
+		Progress Overview (inkl. Reasons for Deviations of the Plan) &
+		
+		\begin{itemize}
+			\item[\ongoing] Getting familiar with PASSION dataset
+			\begin{itemize}
+				\item still awaiting answers from Philippe (reminder sent)
+			\end{itemize}
+			\item[\ongoing] Literature review (biases, fairness and mitigation)
+			\begin{itemize}
+				\item there are many different biases out there
+				\item got an overview in table form, texts still outstanding
+				\item fairness metrics and mitigation methods in dermatology could be more detailed 
+			\end{itemize}
+			\item[\ongoing] Categorize already found biases, fairness metrics and mitigation methods - Scope BAA, Scope Outlook, Out Of Scope
+			\begin{itemize}
+				\item lots of information to compile (not trusting ChatGPT to do it)
+				\item working to much instead of focusing on BAA
+			\end{itemize}
+			\item[\notstarted] Crafting methodology for thesis
+			\begin{itemize}
+				\item I am stuck in an information overflow and unsure on how to proceed between categorization and crafting the methodology
+			\end{itemize}
+		\end{itemize} \\
+		\hline
+		Accomplishments & \begin{itemize}
+			\item[\done] Collected an extensive list of biases, sensitive features, fairness definitions and mitigation methods
+			\item[\done] Split mitigation methods between scopes (PASSION, Others)
+			\item[\done] Found interesting and relevant insights e.g. FST scale critique (2025)
+		\end{itemize} \\
+		\hline
+		Risks and Measures & 
+		Missing Balance BAA - Work - Life, mainly due to chaos at work
+		\begin{itemize}
+			\item Set clear boundaries at work (work hours, prioritization, delegation)
+			\item Shift focus from work to BAA
+			\item Plan clear off time for regeneration
+		\end{itemize}
+		
+		Struggling to filter the most relevant information
+		\begin{itemize}
+			\item categorize insights into scopes BAA (ML, Dermatology), Outlook, Out Of Scope
+		\end{itemize}
+		
+		Deciding on wrong biases or fairness metrics to focus on.
+		\begin{itemize}
+			\item Narrow down the options, justifying the choices
+			\item Validate with Ludovic
+		\end{itemize}
+		
+		%Procrastination
+		%\begin{itemize}
+		%	\item Need to allocate specific time slots when working on the thesis
+		%	\item Accountability partners also on Wednesday afternoon and one day on the weekend
+		%\end{itemize}
+		 \\
+		
+		\hline
+		Next Steps & \begin{itemize}
+			\item Follow up Philippe
+			\item Finalize categorization of already found biases, fairness metrics and mitigation methods in the already defined scopes
+			\item Craft methodology to use during this thesis
+		\end{itemize} \\
+		\hline
+		Discussion Points / Questions & \begin{itemize}
+			\item Best way to follow up Philippe
+			\item Dates for mid-term presentation, my suggestion:
+			\begin{itemize}
+				\item 7.4. trial presentation with AI Research Lab
+				\item 8.4. - 15.4. mid-term presentation
+			\end{itemize} 
+			\item Can't access those papers, both related to ethic / bias in AI for dermatology
+			\begin{itemize}
+				\item https://jamanetwork.com/journals/jamadermatology/article-abstract/2688587
+				\item  https://academic.oup.com/bjd/article-abstract/190/6/789/7603706?redirectedFrom=fullte
+			\end{itemize}
+		\end{itemize} \\
+		\hline
+		Additional Notes & - \\
+		\hline
+		Attachments  & \begin{itemize}
+			\item 
+		\end{itemize} \\
+		\hline
+		Protocol  & 
+		Coordination / Infos
+		\begin{itemize}
+			\item Nadja writes another mail to Philippe with Ludovic in CC
+			\item Ludovic coordinates the dates for the presentations
+			\item Ludovic will send the 2 outstanding papers
+		\end{itemize}
+		
+		Work Load Management
+		\begin{itemize}
+			\item "Treat your future self as a friend" -> think about that when planning / committing to work
+			\item Boundaries and focus shift important - limited time for BAA which persists later vs. time at work can be extended
+		\end{itemize}
+		
+		Relevance for the Thesis
+		\begin{itemize}
+			\item Representation Learning methods are relevant, since this is used for feature extraction; mitigation methods therefore in scope
+			\item FST scale is good to mention, but it cannot be changed during the thesis --> add as proposal (mention practicability, Color Chart Map would need to be done automatically)
+			\item While categorizing, keep in mind that certain methods are not possible anyway for the BAA period (e.g. sudden re-labelling); this will narrow the amount of possible methodologies further
+		\end{itemize}
+		
+		Data Display
+		\begin{itemize}
+		\item Categorize further, mention only categories in tables and examples in text
+		\item Merge Dermatology and Demography in Dermatology columns
+		
+		\end{itemize}
+		
+		Citations
+		\begin{itemize}
+		\item For subsequent sentences from the same source - only add the citation on the last sentence 
+		\item For categories, cite survey, for examples original source
+		\end{itemize} \\
+		\hline
+	\end{longtable}
+	
+\end{document}
