@@ -74,6 +74,9 @@
 \newcommand{\tblWidthContext}{\hsize=0.2\hsize}
 
 
+%improved basic functionality
+\newcommand{\bolditalic}[1]{\textbf{\textit{{#1}}}}
+
 %indicate citations
 % Define a flag to track whether we're inside a raw citation block
 \newif\ifrawcitationactive
@@ -309,8 +312,8 @@
 			
 		\rawcitationusedstart
 		\begin{itemize}
-				\item Bias in facial recognition systems [128] and recommender systems [140] have also been largely studied and evaluated and in many cases shown to be discriminative towards certain populations and subgroups. In order to be able to address the bias issue in these applications, it is important for us to know where these biases are coming from and what we can do to prevent them.\autocite{Mehrabi_2021}.
-				\item We should think responsibly, and recognize that the application of these tools, and their subsequent decisions affect peoples’ lives; therefore, considering fairness constraints is a crucial task while designing and engineering these types of sensitive tools \autocite{Mehrabi_2021}.
+			\item Bias in facial recognition systems [128] and recommender systems [140] have also been largely studied and evaluated and in many cases shown to be discriminative towards certain populations and subgroups. In order to be able to address the bias issue in these applications, it is important for us to know where these biases are coming from and what we can do to prevent them.\autocite{Mehrabi_2021}.
+			\item We should think responsibly, and recognize that the application of these tools, and their subsequent decisions affect peoples’ lives; therefore, considering fairness constraints is a crucial task while designing and engineering these types of sensitive tools \autocite{Mehrabi_2021}.
 		\end{itemize}
 		\rawcitationusedend
 		
@@ -339,7 +342,6 @@
 			\end{figure}
 			
 			\rawcitationusedstart
-
 			\begin{itemize}
 				\item two potential sources of unfairness in machine learning outcomes - those that arise from biases in the data and those that arise from the algorithms ... we observe that biased algorithmic outcomes might impact user experience, thus generating a feedback loop between data, algorithms and users that can perpetuate and even amplify existing sources of bias \autocite{Mehrabi_2021}.
 				\item The loop capturing this feedback between biases in data, algorithms, and user interaction is illustrated in Figure 1. We use this loop to categorize definitions of bias in the section below \autocite{Mehrabi_2021}
@@ -348,7 +350,7 @@
 			
 			
 			\subsection{Bias Types}
-			Following This thesis follows the categorization of \cite{Mehrabi_2021}.
+			 The \autoref{tab:biases_types} aims to provide an overview over what kind of biases exist according to research. The more detailed categories listed in the table try to capture similar kind of biases. This thesis follows roughly the categorization of \cite{Mehrabi_2021}. Some biases might acctually fit in multiple categories. The definition of the categories including examples of specific biases follows.
 			
 			\todo{check categorization of table ref18, statistical biases}
 			\todo{check the c citations pls}
@@ -361,44 +363,42 @@
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Data Biases}} \\ 
-						\multicolumn{3}{l}{\textbf{\textit{Sampling and Selection Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Sampling Biases}} \\
 						Sampling Bias        & X\tnote{1} &    \\
 						(Systematic) Selection Bias		 & X\tnote{18} & X\tnote{19,c5,c6,c33,20} \\
-						Healthy Volunteer Selection Bias & X\tnote{14} & \\
 						Survivorship Bias    & X\tnote{18} & \\
-						Recall Bias			 & X\tnote{18}& X\tnote{19, c3–c6}\\
 						Ascertainment Bias	 & X\tnote{16} & X\tnote{19,c9,c10}\\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Demographic and Representation Biases}}} \\
+						Healthy Volunteer Selection Bias & X\tnote{14} & \\
+						Recall Bias			 & X\tnote{18}& X\tnote{19, c3–c6}\\
+						
+						\multicolumn{3}{l}{\bolditalic{Demographic and Representation Biases}} \\
 						Representation Bias  & X\tnote{1,2,15,20} & X\tnote{21} \\
 						Aggregation Bias     & X\tnote{1,2} &   \\
 						Omitted Variable Bias & X\tnote{1,11,13,18} &  \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Data Processing and Measurement Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Data Processing and Measurement Biases}} \\
 						Measurement Bias     & X\tnote{1,2} &   \\
 						Linking Bias         & X\tnote{1,3} &    \\
 						Image Quality/Visual Artifacts Bias    & &  X\tnote{20,\todo{add those from young}} \\
 						Annotator Bias & & X\tnote{21} \\
 						Data dredging bias   & & X\tnote{19,c16-c19} \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Temporal and Study Design Biases}}} \\
-						Longitudinal Data Fallacy & X\tnote{1} &  \\
-						Chronological bias   & & X\tnote{19,c9} \\
-						Immortal time bias & & X\tnote{19,c24} \\
+						\bolditalic{Temporal Data Biases} & X\tnote{1} & X\tnote{19}\\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Clinical and Diagnostic Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Clinical and Diagnostic Biases}} \\
 						Berkesonian Bias     &            & X\tnote{19,c7}  \\
 						Collider Bias        &            & X\tnote{19,c8,c9} \\
 						Diagnostic Access Bias & & X\tnote{19,c19,c20,20} \\
 						Diagnostic Reference Test Bias & & X\tnote{19,c21} \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Funding and Research Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Funding and Research Biases}} \\
 						Funding / (Industry) Sponsorship Bias    & X\tnote{18} & X\tnote{19} \\
 						Hot stuff bias & & X\tnote{19,c22,c23} \\
 						Hypothetical Bias    & & X\tnote{19,c31} \\
 						Observer Bias		 & X\tnote{18}& X\tnote{19,c29} \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Availability and Selection Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Availability and Selection Biases}} \\
 						Availability bias    &  & X\tnote{19,c9} \\
 						Informed presence bias & & X\tnote{19,c27} \\
 						Mimicry Bias & & X\tnote{19,c28} \\
@@ -406,45 +406,43 @@
 						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Algorithmic Biases}} \\ 
-						\multicolumn{3}{l}{\textbf{\textit{Biases in Model Training and Learning}}} \\
+						\multicolumn{3}{l}{\bolditalic{Biases in Model Training and Learning}} \\
 						Algorithmic Bias     & X\tnote{1,4,5} &   \\
 						Emergent Bias        & X\tnote{1,9} &    \\
 						Evaluation Bias      & X\tnote{1,2,12} &   \\
 						Generalization Issues &  & X\tnote{20,\todo{add those from young}} \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Biases in Predictions and User Interaction}}} \\
+						\multicolumn{3}{l}{\bolditalic{Biases in Predictions and User Interaction}} \\
 						User Interaction Bias& X\tnote{1,4} &    \\
 						Presentation Bias    & X\tnote{1,4} &    \\
 						Ranking Bias         & X\tnote{1,4,6} &    \\
 						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9}   \\
 						Incorporation Bias   & & X\tnote{19,c25,c26} \\
 						
-						
-						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{User Biases}} \\ 
-						\multicolumn{3}{l}{\textbf{\textit{Cognitive and Decision-Making Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Cognitive and Decision-Making Biases}} \\
 						Cognitive Bias    & X\tnote{18} & \\
 						Previous opinion Bias & & X\tnote{19, c32} \\
 						Confirmation bias &   &X\tnote{19,c15} \\
 						Cause-Effect Bias    & X\tnote{18} & \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Behavioral and Social Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Behavioral and Social Biases}} \\
 						Self-Selection Bias  & X\tnote{1,18,20} &   \\
 						Social Bias          & X\tnote{1,4,7} &     \\
 						Historical Bias      & X\tnote{1,2,17} &  \\
 						Behavioral Bias      & X\tnote{1,3} &    \\
 						Temporal Bias        & X\tnote{1,3} &    \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Medical and Publication Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Medical and Publication Biases}} \\
 						Content Production Bias & X\tnote{1,3} &    \\
 						Publication/All is Well Bias     & \todo{add citation} & X\tnote{19,c10-c12} \\
 						Non-Responder bias / Attrition bias      &  & X\tnote{19, c9} \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Population and Perception Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Population and Perception Biases}} \\
 						Population Bias      & X\tnote{1,3,8} &   \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Other Biases}}} \\
+						\multicolumn{3}{l}{\bolditalic{Other Biases}} \\
 						Apprehension bias   &  & X\tnote{19,c13} \\
 						Rethoric bias & & X\tnote{19, c14} \\
 						Centripetal bias &  &X\tnote{19} \\
@@ -488,6 +486,225 @@
 				\label{tab:biases_types}
 			\end{table}
 			
+			\subsubsection{Data Biases}
+					
+				\paragraph{Sampling Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}		
+				When gathering data, it's usually not possible to gather the data of a whole population. Instead, the data is gathered by sampling. A sample is a subgroup of individuals from the population. To get unbiased results, this sampling process should represent the true population, with a low sampling error \autocites{HP_2022}. This is often achieved with randomized samples. With non-random sampling processes, sampling bias arises. The consequence is, that the insights of one sampled population may not generalize with insights on another sampled popluation \autocite{Mehrabi_2021}.
+				
+				Those biases can be introduced with a flawed sampling process:
+				\begin{itemize}
+					\item \textbf{Sampling bias}, due to nonrandom sampling of subgroups, leading to poor generalization \autocite{Mehrabi_2021}
+					\item \textbf{Selection bias}, working only on specific subset of the population which is not representative \autocites{Mestner_2022}{Chakraborty_2024}
+					\item \textbf{Systematic selection bias}, chosen samples differ dramatically from the representative populations; e.g. in dermatology, when only the most severe patient data gets included \autocite{Chakraborty_2024, c5,c6,c33}
+					\item \textbf{Ascertainment bias}, tendency to exclude segments from the population due to e.g. cultural differences, such as which patient segment goes to government clinics vs. private clinics (usually influenced by socioeconomic status) \autocite{Chakraborty_2024, c5}
+					\item \textbf{Availability bias}, focus on widely available data instead of most representative data \autocites{Chakraborty_2024, c9, c10}{}
+					\item \textbf{Survivorship bias}, focus only on pre-selected data, ignoring the initial data-points which got filtered out \autocite{Mestner_2022}.
+					
+					\item \textbf{bias}, what is it, consequence \autocite{}
+				\end{itemize}
+				
+				
+				\subparagraph{Potential Biases in PASSION}
+				PASSION tries to reduce sampling bias in dermatology against high pigmented skin.
+				PASSION might introduce (systematic) selection bias or Ascertainment bias, if in the dermatology centers only sickest / more severe patients are seen as indicated by \cite{Chakraborty_2024}
+				PASSION inherits availability bias as it is using \gls{FST} scale.
+				Survivorship bias could be relevant for PASSION, if dermatology diseases could be lethal. Further, all patients which are not able to go to one of the dermatology centers which were used in PASSION could be considered to left out by survivorship bias.
+				
+				\rawcitationstart
+				used
+				\begin{itemize}		
+			 	\rawcitationusedstart
+					\item Sampling Bias. Sampling bias is similar to representation bias, and it arises due to nonrandom sampling of subgroups. As a consequence of sampling bias, the trends estimated for one population may not generalize to data collected from a new population. \autocite{Mehrabi_2021}. This is what the PASSION dataset tries to improve
+					
+					\item Selection bias - wrong sampling method, working on a specific subset of audience; usually by working only with data that is easy to access \autocites{Mester_2022}{Mester_2017} - statistical bias
+					\item Selection bias: Since it is not possible to work with large populations, for most dermatological studies, samples are chosen that are said to be representative of the original population. 
+					In selection bias, the selected subgroups are not representative of their original population.
+					A variation of this is systematic selection bias, where samples chosen differ dramatically from their representative populations.
+					Our experience suggests, such selection bias occurs more commonly in studies conducted in regional referral centers where only the sickest or more severe patients are usually seen.
+					For example, a study compared the efficacy of thalidomide vs. prednisolone in hospitalised patients of erythema nodosum leprosum. It derived that thalidomide was more efficacious than steroids in erythema nodosum leprosum. Such findings cannot be generalised to all erythema nodosum leprosum since patients admitted to a regional referral center will likely have more severe disease.5,6,33 \autocite{Chakraborty_2024}
+					\item  Availability bias: More emphasis is placed on widely available data than scantily available data. A classic example is the use of antihistamines in pregnancy dermatoses, where nearly all standard books recommend first-generation antihistamine chlorpheniramine because more data is available.9 10. \autocite{Chakraborty_2023} - dermatology
+					
+					\item Survivorship bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+					
+					
+					\item Ascertainment Bias: This bias is commonly encountered in venereology practice. It is defined as a bias due to the tendency of some segments of the target population to get excluded due to cultural and other differences. For example, in most venereology clinics in government setups, studies show that venereal diseases are commoner in lower socioeconomic status. One reason might be that the higher socioeconomic status people tend to go to private practitioners and thereby get excluded from government-run clinics.9,10 Allocation concealment and blinding are good ways to avoid this. 5. \autocite{Chakraborty_2023} - healthcare
+				\rawcitationusedend
+				\end{itemize}
+				
+				even more extensive
+				\begin{itemize}
+					\item Selection bias is again divided into two types endogenous selection bias and exogenous selection bias. The best example of endogenous selection bias in dermatology is the inclusion of non-response. If a trial tests the efficacy of a particular biologic in psoriasis, the response is usually collected from trial participants via postal services. Certain participants will not respond, although they might have substantially improved. Their exclusion will result in significant differences in efficacy evaluation.33
+					Exogenous selection bias results when both treatment and outcome result from dependency on an external variable that is not controlled. For example, if sunlight exposure is not controlled, it will influence both the intervention and control groups since psoriasis is a photosensitive (and photoexcerbated) dermatosis. \autocite{Chakraborty_2023} - dermatology
+					
+					
+					\item survivorship bias - World War II planes \autocite{Silfwer_2017} - https://doctorspin.org/media-psychology/psychology/survivorship-bias/
+				\end{itemize}
+					
+				\rawcitationusedend
+					
+				\paragraph{Representation Bias \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+				\todo{still figure out whether this is a single category, and whether some of the more relevant selection biases should be considered here} 
+				
+				Those biases can be introduced :
+				\begin{itemize}
+					\item \textbf{Representation bias}, non-representative sample lead to missing subgroups or other representation anomalies, which can be harmful to downstream applications. Popular ML datasets suffer from representation bias \autocites{Mehrabi_2021}{M142_}
+					\item \textbf{Aggregation bias}, what is it, consequence \autocite{}
+					\item \textbf{bias}, what is it, consequence \autocite{}
+					\item \textbf{bias}, what is it, consequence \autocite{}
+				\end{itemize}
+				
+				
+				\subparagraph{Potential Biases in PASSION}
+				PASSION tries to mitigate representation bias, by including more FST skin types - however, it could introuce other representation biases
+				
+				
+				\rawcitationstart
+				used
+				\begin{itemize}		
+					\rawcitationusedstart
+					\item Representation Bias. Representation bias arises from how we sample from a population during data collection process \autocite{M144_Suresh_2021}. Non-representative samples lack the diversity of the population, with missing subgroups and other anomalies \autocite{Mehrabi_2021}.
+					\item Popular machine-learning datasets that serve as a base for most of the developed algorithms and tools can also be biased—which can be harmful to the downstream applications that are based on these datasets. ... In [142], researchers showed that these datasets suffer from representation bias and advocate for the need to incorporate geographic diversity and inclusion while creating such datasets. \autocite{Mehrabi_2021}
+					\rawcitationusedend
+				\end{itemize}
+				
+				even more extensive
+				\begin{itemize}
+					\item 
+				\end{itemize}
+								
+				not checked yet
+				\begin{itemize}
+					\item Aggregation Bias. Aggregation bias (or ecological fallacy) arises when false conclusions are drawn about individuals from observing the entire population. An example of this type of bias can be seen in clinical aid tools. Consider diabetes patients who have apparent morbidity differences across ethnicities and genders. Specifically, HbA1c levels, that are widely used to diagnose and monitor diabetes, differ in complex ways across genders and ethnicities. Therefore, a model that ignores individual differences will likely not be well-suited for all ethnic and gender groups in the population \autocite{M144_Suresh_2021}. This is true even when they are represented equally in the training data. Any general assumptions about subgroups within the population can result in aggregation bias. \autocite{Mehrabi_2021}. --> could also be important for dermatology issues!!!
+					\begin{itemize}
+						\item Simpson’s Paradox. Simpson’s paradox is a type of aggregation bias that arises in the analysis of heterogeneous data [18]. The paradox arises when an association observed in aggregated data disappears or reverses when the same data is disaggregated into its underlying subgroups (Fig. 2(a)). ... After analyzing graduate school admissions data, it seemed like there was bias toward women, a smaller fraction of whom were being admitted to graduate programs compared to their male counterparts. However, when admissions data was separated and analyzed over the departments, women applicants had equality and in some cases even a small advantage over men. The paradox happened as women tended to apply to departments with lower admission rates for both genders. Simpson’s paradox has been observed in a variety of domains, including biology [37], psychology [81], astronomy [109], and computational social science [91].\autocite{Mehrabi_2021}.	
+						\item Modifiable Areal Unit Problem is a statistical bias in geospatial analysis, which arises when modeling data at different levels of spatial aggregation [56]. This bias results in different trends learned when data is aggregated at different spatial scales \autocite{Mehrabi_2021}.
+					\end{itemize}
+					
+					\item Omitted Variable Bias. Omitted variable bias4 occurs when one or more important variables are left out of the model \autocites{M38_Clarke_2005}{M131_Riegg_2008}\autocite{M114_Mustard_2003}. Something that the model was not ready for\autocite{Mehrabi_2021}. did not take into account
+					\item Omitted variable bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\end{itemize}
+				%\rawcitationusedend
+				\rawcitationend
+			
+			\paragraph{Temporal Data Bias}
+			Certain studies require to track temporal data, to learn about behaviour or disease progression over time \autocite{Mehrabi_2021}. For PASSION, temporal biases are currently irrelevant, since PASSION contains images independently of time and is not tracking the disease progression. Therefore, the listed biases in this chapter are not explained in detail, refer to the sources for further information.
+			
+			Examples for temporal data biases are:
+			\begin{itemize}
+				\item \textbf{Longitudinal Data Fallacy} \autocite{Mehrabi_2021}
+				\item \textbf{Chronological bias} \autocite{Chakraborty_2024, c9, c13}
+				\item \textbf{Immortal time bias} \autocite{Chakraborty_2024, c24, c20}
+			\end{itemize}
+							
+			others
+			\begin{itemize}
+				\item \todo{check if healthy volunteer is self-selection bias} Other such studies were conducted in [54] which states that UK Biobank, a large and widely used genetic dataset, may not represent the sampling population. Researchers found evidence of a “healthy volunteer” selection bias. [150] has other examples of studies on existing biases in the data used in the medical domain. [157] also looks at machine-learning algorithms and data utilized in medical fields, and writes about how artificial intelligence in health care has not impacted all patients equally.\autocite{Mehrabi_2021} --> [150] also provides an ovverview over the impact of social determinants on health, such as Economic stability, neighborhood and physical environment, education, food, community and scial context, access to healthcare and quality
+				\item Recall bias - respondent doesn't remember things correctly; Recall bias is another common error of interview/survey situations. It happens when the respondent doesn’t remember things correctly. It’s not about bad or good memory – humans have selective memory by default. After a few years (or even a few days), certain things stay and others fade. It’s normal, but it makes research much more difficult. \todo{keep an eye on this when recalling evidences!!} \autocites{Mester_2022}{Mester_2017} - statistical bias
+			\end{itemize}
+			
+			
+			
+			
+			\paragraph{ Bias \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item 
+				\rawcitationusedend
+			\end{itemize}
+			
+			even more extensive
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			
+			not checked yet
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			\rawcitationend
+			
+			
+			
+			\paragraph{ Bias \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item 
+				\rawcitationusedend
+			\end{itemize}
+			
+			even more extensive
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			
+			not checked yet
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			\rawcitationend
+			
+			
+			
+			\paragraph{ Bias \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item 
+				\rawcitationusedend
+			\end{itemize}
+			
+			even more extensive
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			
+			not checked yet
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			\rawcitationend
+			
 			
 			\subsection{Sensitive Features}
 			Research showed sensitive features which are prone to bias. Those led to issues in existing AI applications and their usage should therefore be investigated carefully.
@@ -510,22 +727,22 @@
 						\textbf{Bias sensitive Features} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%\midrule
-						\multicolumn{3}{l}{\textbf{\textit{Dermatology Related Features}}} \\
+						\multicolumn{3}{l}{\bolditalic{Dermatology Related Features}} \\
 						Skin Type & X\tnote{1,2,7,12} & X\tnote{2,13}\\
 						Skin Undertones & & X\tnote{13} \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Demographic Features with Direct Relevance for Skin Disease Detection}}} \\
+						\multicolumn{3}{l}{\bolditalic{Demographic Features with Direct Relevance for Skin Disease Detection}} \\
 						Age & X\tnote{7,11} &  X\tnote{13} \\
 						Ethnicity/Race \todo{check definitions} & X\tnote{1,2,4,5,6,7,11,12}&  X\tnote{13} \\
 						Gender/Sex & X\tnote{1,2,7,8,9,10,11} & X\tnote{13} \\
 						Gender and Skin Type Subgroups & X\tnote{1,2} & \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Demographic Features Potential Relevance for Skin Disease Detection}}} \\
+						\multicolumn{3}{l}{\bolditalic{Demographic Features Potential Relevance for Skin Disease Detection}} \\
 						Geographic Location & X\tnote{1,3} & \\
 						Socio-Economic Status & X\tnote{6,12} & \\
 						Disabilities & X\tnote{7,11} & \\
 						
-						\multicolumn{3}{l}{\textbf{\textit{Demographic Features no Relevance for Skin Disease Detection}}} \\
+						\multicolumn{3}{l}{\bolditalic{Demographic Features no Relevance for Skin Disease Detection}} \\
 						Familial status & X\tnote{7} & \\
 						Marital status & X\tnote{7,11} & \\
 						Nationality/National origin & X\tnote{7,11} & \\
@@ -622,15 +839,6 @@
 			Data biases (data to algorithm (biases in data which might have an impact on biased algorithmic outcomes \autocite{Mehrabi_2021}))	
 			\begin{itemize}
 				\item Measurement Bias. Measurement, or reporting, bias arises from how we choose, utilize, and measure particular features \autocite{M144_Suresh_2021} (e.g. mismeasured proxy variables (= "one or more variables that encode the protected attribute with a substantial degree of accuracy" according to https://medium.com/bcggamma/practice-ai-responsibly-with-proxy-variable-detection-42c2156ad986)) \autocite{Mehrabi_2021}. (= e.g. someone who lives at that postal code probably has this ethnicity https://medium.com/bcggamma/practice-ai-responsibly-with-proxy-variable-detection-42c2156ad986); --> could that be an issue with the country of origin feature?
-				\item Omitted Variable Bias. Omitted variable bias4 occurs when one or more important variables are left out of the model \autocites{M38_Clarke_2005}{M131_Riegg_2008}\autocite{M114_Mustard_2003}. Something that the model was not ready for\autocite{Mehrabi_2021}. did not take into account
-				\item Representation Bias. Representation bias arises from how we sample from a population during data collection process \autocite{M144_Suresh_2021}. Non-representative samples lack the diversity of the population, with missing subgroups and other anomalies \autocite{Mehrabi_2021}.
-				\item Aggregation Bias. Aggregation bias (or ecological fallacy) arises when false conclusions are drawn about individuals from observing the entire population. An example of this type of bias can be seen in clinical aid tools. Consider diabetes patients who have apparent morbidity differences across ethnicities and genders. Specifically, HbA1c levels, that are widely used to diagnose and monitor diabetes, differ in complex ways across genders and ethnicities. Therefore, a model that ignores individual differences will likely not be well-suited for all ethnic and gender groups in the population \autocite{M144_Suresh_2021}. This is true even when they are represented equally in the training data. Any general assumptions about subgroups within the population can result in aggregation bias. \autocite{Mehrabi_2021}. --> could also be important for dermatology issues!!!
-				\begin{itemize}
-					\item Simpson’s Paradox. Simpson’s paradox is a type of aggregation bias that arises in the analysis of heterogeneous data [18]. The paradox arises when an association observed in aggregated data disappears or reverses when the same data is disaggregated into its underlying subgroups (Fig. 2(a)). ... After analyzing graduate school admissions data, it seemed like there was bias toward women, a smaller fraction of whom were being admitted to graduate programs compared to their male counterparts. However, when admissions data was separated and analyzed over the departments, women applicants had equality and in some cases even a small advantage over men. The paradox happened as women tended to apply to departments with lower admission rates for both genders. Simpson’s paradox has been observed in a variety of domains, including biology [37], psychology [81], astronomy [109], and computational social science [91].\autocite{Mehrabi_2021}.	
-					\item Modifiable Areal Unit Problem is a statistical bias in geospatial analysis, which arises when modeling data at different levels of spatial aggregation [56]. This bias results in different trends learned when data is aggregated at different spatial scales \autocite{Mehrabi_2021}.
-				\end{itemize}
-				\item Sampling Bias. Sampling bias is similar to representation bias, and it arises due to nonrandom sampling of subgroups. As a consequence of sampling bias, the trends estimated for one population may not generalize to data collected from a new population. \autocite{Mehrabi_2021}. This is what the PASSION dataset tries to improve
-				\item Longitudinal Data Fallacy. Researchers analyzing temporal data must use longitudinal analysis to track cohorts over time to learn their behavior. Instead, temporal data is often modeled using cross-sectional analysis, which combines diverse cohorts at a single time point. The heterogeneous cohorts can bias cross-sectional analysis, leading to different conclusions than longitudinal analysis \autocite{Mehrabi_2021}. --> could this be relevant for the progress of a specific disease? Or would that only be an issue when the progress of the disease would be predicted?
 				\item Linking Bias. Linking bias arises when network attributes obtained from user connections, activities, or interactions differ and misrepresent the true behavior of the users \autocite{M120_Olteanu_2019} \autocite{Mehrabi_2021}. --> probably less important since we got individuals? Or could that be an issue with the country of origin feature?
 			\end{itemize}	
 			
@@ -1005,9 +1213,10 @@
 			Data bias examples and mitigation ideas
 			\begin{itemize}
 				\item Bias in ML Data - \autocite{M24_Buolamwini_2018} IJB-A / Adience imbalanced (mainly light-skinned subjects) - Bias towards dark-skinned groups (underrepresented). Other instance - when we do not consider different subgroups in the data. Considering only male-female groups not enough, use race to further subdivide gender groups. Only then, clear biases in sub groups can be found, since otherwise part of the groups would  compromise the other group and hide the underlaying bias towards that subgroup \autocite{Mehrabi_2021}
+				\rawcitationusedstart
 				\item Popular machine-learning datasets that serve as a base for most of the developed algorithms and tools can also be biased—which can be harmful to the downstream applications that are based on these datasets. ... In [142], researchers showed that these datasets suffer from representation bias and advocate for the need to incorporate geographic diversity and inclusion while creating such datasets. \autocite{Mehrabi_2021}
+				\rawcitationusedend
 				\item Examples of Data Bias in Medical Applications. These data biases can be more dangerous in other sensitive applications. For example, in medical domains there are many instances in which the data studied and used are skewed toward certain populations—which can have dangerous consequences for the underrepresented communities. [98] showed how exclusion of African-Americans resulted in their misclassification in clinical studies, so they became advocates for sequencing the genomes of diverse populations in the data to prevent harm to underrepresented populations \autocite{Mehrabi_2021} \todo{What does sequencing data mean?, is it relevant}
-				\item Other such studies were conducted in [54] which states that UK Biobank, a large and widely used genetic dataset, may not represent the sampling population. Researchers found evidence of a “healthy volunteer” selection bias. [150] has other examples of studies on existing biases in the data used in the medical domain. [157] also looks at machine-learning algorithms and data utilized in medical fields, and writes about how artificial intelligence in health care has not impacted all patients equally.\autocite{Mehrabi_2021} --> [150] also provides an ovverview over the impact of social determinants on health, such as Economic stability, neighborhood and physical environment, education, food, community and scial context, access to healthcare and quality
 			\end{itemize}
 			
 			\paragraph{Methods for Fair Machine Learning}
@@ -1099,15 +1308,11 @@
 		\section{Statistical biases}
 			https://data36.com/statistical-bias-types-explained/
 			\begin{itemize}
-				\item Selection bias - wrong sampling method, working on a specific subset of audience; usually by working only with data that is easy to access
-				\item Self-selection bias - when you let the subjects of the analyses select themselves, less proactive people will be excluded \todo{could be an issue as well for PASSION, couldn't it? since the doctors probably ask the clients. One way to go is to default should be to provide access to the data. but is it ethical?}
-				\item Recall bias - respondent doesn't remember things correctly \todo{keep an eye on this when recalling evidences!!}
-				\item Observer bias - projecting expectations onto the research
-				\item Survivorship bias
-				\item Omitted variable bias
-				\item Cause-effect bias
-				\item Funding bias
-				\item Cognitive bias
+				\item Self-selection bias - when you let the subjects of the analyses select themselves, less proactive people will be excluded \todo{could be an issue as well for PASSION, couldn't it? since the doctors probably ask the clients. One way to go is to default should be to provide access to the data. but is it ethical?} \autocites{Mester_2022}{Mester_2017}- statistical bias
+				\item Observer bias - projecting expectations onto the research \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\item Cause-effect bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\item Funding bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\item Cognitive bias \autocites{Mester_2022}{Mester_2017} - statistical bias
 			\end{itemize}	
 	
 		\section{Dermatology Bias}
@@ -1116,15 +1321,12 @@
 				\item Memory or recall bias: This is a type of bias where sufferers of a disease, often termed cases, have a greater tendency to recall a particular habit than non-sufferers, viz controls. This results in an uneven distribution of risk factors between the cases and controls. An example of this would be a case-control study to evaluate the association between dental amalgam use and the development of oral lichen planus. Those with lichen planus are more likely to recall a history of dental amalgam use than those who do not have the disease. This difference in recall between a diseased cohort and control has resulted in difficulties in assessing the association between diet and many dermatological diseases – like milk and chocolate consumption and acne, fatty meals and psoriasis, sugary meals and psoriasis, agricultural exposure to insecticides and pemphigus and so on.3–6 2. \autocite{Chakraborty_2023}
 				\item Berkesonian Bias: Named after Dr. Joseph Berkeson, this bias reflects the variation in rates of hospital admission or clinic attendance for different diseases. For example, if a study is conducted to know the effect of pregnancy on syphilis in an antenatal clinic, we are likely to get biased data since the two conditions, viz pregnancy and syphilis, are both likely to affect clinic attendance and all observations related to the relationship between pregnancy and syphilis.7 3. \autocite{Chakraborty_2023}
 				\item Collider Bias: This is an under-appreciated bias, and often confused with a confounder. This is especially seen in observational studies where it is defined as a distortion produced by the restriction of sampling by a collider variable. A collider variable is defined as one that has an independent effect on the outcome studied apart from the studied variable. In simpler terms, collider bias occurs when exposure and development influence a common third variable. That variable or collider is controlled by study design or in the analysis. An example is the observation that psoriasis patients tend to have more depression and anxiety disorders. Since severe psoriasis patients tend to get hospitalised and also get screened for mental health issues, a spurious association between them could have been obtained due to collider bias. The two variables viz psoriasis and depression converged, i.e., collided, into a single outcome – hospitalization.8,9 4. \autocite{Chakraborty_2023}
-				\item Ascertainment Bias: This bias is commonly encountered in venereology practice. It is defined as a bias due to the tendency of some segments of the target population to get excluded due to cultural and other differences. For example, in most venereology clinics in government setups, studies show that venereal diseases are commoner in lower socioeconomic status. One reason might be that the higher socioeconomic status people tend to go to private practitioners and thereby get excluded from government-run clinics.9,10 Allocation concealment and blinding are good ways to avoid this. 5. \autocite{Chakraborty_2023}
 				\item Popularity Bias: This bias arises when a particular disease is more popular (i.e. either more well-known or more stigmatised) among the participants than the disease with which it is compared. For example, if a study compares clinic attendance rates among various dermatological disorders, one would see vitiligo patients are over-represented over melasma. While melasma is commoner in the normal population, vitiligo, due to its popularity because of media publicity and other factors, tends to present earlier.9 6. \autocite{Chakraborty_2023}
 				\item All is well bias: It is a subjective bias where theories supported by the majority tend to get more easily published than the opposing view supported by the minority. For example, ideas on the origin of endemic pemphigus supporting autoimmunity are more likely to be published than theories exploring an infectious trigger. According to some authors, this bias is very difficult to eliminate and is a variant of publication bias.10-12 7.\autocite{Chakraborty_2023}
 				\item  Apprehension bias: This results from fear and apprehensions related to an impending procedure. The classic example is the false elevation of blood pressure because the person is apprehensive of his or her blood pressure being measured.13 A variant of this is the Hawthorne bias, where subjects modify their behavior, such as regularly taking a prescribed drug or exercising, simply because they know they are being watched, but not due to any apprehensions. Hawthorne bias is practically utilised in many leprosy clinics since regular follow-up has been shown to improve adherence to therapy based on Hawthorne bias. 8. \autocite{Chakraborty_2023}
 				\item Attrition bias: This occurs due to lack of follow-up. This is a common problem in studies evaluating the efficacy of biologics in psoriasis – where many patients are lost to follow-up. A remedy is performing intention to treat analysis.9 A variation of this is non-responder bias, where non-responders to a questionnaire differ significantly from responders.9 9. \autocite{Chakraborty_2023}
-				\item  Availability bias: More emphasis is placed on widely available data than scantily available data. A classic example is the use of antihistamines in pregnancy dermatoses, where nearly all standard books recommend first-generation antihistamine chlorpheniramine because more data is available.9 10. \autocite{Chakraborty_2023}
 				\item Rhetoric bias: A more charismatic piece of writing has a greater influence on the study participants than other available literature. An example is the wider use of sunscreen for polymorphous light eruption over photoprotective strategies like umbrellas, broadbrimmed hats, etc, because the lay press is more vocal about sunscreens.14 11. \autocite{Chakraborty_2023}
 				\item Centripetal bias: Patients tend to go to more reputed physicians and hospitals than others. For example, a famous or better-known cosmetologist with a good reputation tends to see more cases than other cosmetologists. 12.\autocite{Chakraborty_2023}
-				\item  Chronological bias: This occurs in long-term studies where participants recruited earlier face different exposures and treatments than those recruited later. For example, biologics for psoriasis came later, so studies with long-term follow-up of psoriasis patients (say 30 years) will likely have this bias.9 13.\autocite{Chakraborty_2023}
 				\item  Confirmation bias: This bias occurs when study participants have a preconceived notion of their disease that may not be based on facts. For example, we have observed that in North India many tinea patients report an increase in their disease due to taking meat, fish, and other so-called “hot foods”. They may also present information they have collected from the internet which reinforces their beliefs.15 14.\autocite{Chakraborty_2023}
 				\item  Data dredging bias: It is an entirely avoidable bias. This is subdivided into two types – Fishing type and “P-value hacking” type. It involves using multiple statistical methods to get the desired p-value and selecting the statistical model that gives the p-value the author wants. This is “lamentably common” in dermatological research.16 To detect data dredging bias, always perform a “p-curve analysis” while performing a meta-analysis.17,18 Much emphasis is nowadays given to the confidence interval instead of the p-value, which gives an approximate idea of the range in which one can be 95\% (or 90\%, depending on the confidence interval chosen) sure that the result is correct. The confidence interval remains unaffected by p-value dredging. This subject has been reviewed in depth in recent works.18,19 15.\autocite{Chakraborty_2023}
 				\item  Novelty bias: The newer an intervention, the better it appears, and with time, its efficacy seems to decrease. When ligelizumab, an IgE antagonist was first discovered, ligelizumab was believed to be better than omalizumab; however, evidence soon pointed to the contrary. 16.\autocite{Chakraborty_2023}
@@ -1132,18 +1334,17 @@
 				\item  Diagnostic reference test bias: These bias results when all individuals do not receive the same reference test. e.g., direct immunofluorescence studies may not be done for all patients with pemphigus vulgaris some patients may receive only a skin biopsy-based diagnosis. It is a subtype of verification bias. Another variation of this type of bias is partial reference bias, where only some of the study participants receive the index and the reference tests.21\autocite{Chakraborty_2023}
 				\item 
 				Hot stuff bias: Editors of journals may be less critical about topics that are “fashionable” or currently in vogue and consequently end up publishing them more frequently, resulting in publication bias as well as hot stuff bias. It can result in flawed meta-analyses based on these studies. An example is how cutaneous manifestations of COVID-19 were published. Indian Journal of Dermatology Venereology and Leprosy stood out by choosing not to publish anything and everything related to COVID-19, thus reducing hot stuff bias.22,23 19. \autocite{Chakraborty_2023}
-				\item Immortal time bias: This type of bias is commonly encountered in cohort studies where the exposure has occurred, but the outcome cannot happen. Before the participant is assigned to the treatment group, the period between the exposure and the outcome occurrence is considered immortal time. For example, if a cohort study wants to look at relapse rates following successful treatment of psoriatic erythroderma while on methotrexate, one would follow them up from hospital discharge till the first readmission occurs. Once readmission occurs, they are assigned to treatment groups. This time gap when relapse has not occurred and the patient is on methotrexate constitutes immortal time bias.24 20.\autocite{Chakraborty_2023}
 				\item  Incorporation bias: This is principally relevant for diagnostic accuracy studies when the index test forms a part of the reference test, resulting in elevated sensitivity e.g., if one wants to compare the grattage test vs. dermoscopy in psoriasis and does dermoscopy only from areas of grattage positivity, one would get a very high sensitivity for the grattage test because it was incorporated into the reference test, i.e., dermoscopy.25,26 21.\autocite{Chakraborty_2023}
 				\item  Industry sponsorship bias: This has now been reclassified as conflict-of-interest bias. In short, the study deliberately supports the findings expected from it by its sponsors. 22.\autocite{Chakraborty_2023}
-				\item  Informed presence bias: Simply, a person attending a health center is more likely to get screened for other unrelated comorbidities than those not attending a health center e.g., the finding psoriasis is associated with depression has now been criticised because those having psoriasis also have a greater chance to be screened for depression since they are already attending a health center.27 23. \autocite{Chakraborty_2023}
-				\item Language bias: Articles with significant findings tend to get published more often in English (since that is the most common language in medical research) than in other languages. It is crucial in many studies involving dermatological quality of life measurements. 24.\autocite{Chakraborty_2023}
-				\item  Mimicry bias: When an exposure causes a disease that resembles the study disease, mimicry bias can result. For example, certain drugs are known to cause a pityriasis rosea-like reaction, which, although looks like pityriasis rosea, differs from it.28 25.\autocite{Chakraborty_2023}
-				\item  Observer bias: When different observers view the same observation, they report it differently e.g., different observers may give differing descriptions about subtle features in the histopathology report of a skin biopsy.29 26. \autocite{Chakraborty_2023}
-				\item Unacceptable disease bias: This occurs in socially unacceptable diseases like leprosy and STDs, which result in under-reporting.30 27. \autocite{Chakraborty_2023}
+				\item  Informed presence bias: Simply, a person attending a health center is more likely to get screened for other unrelated comorbidities than those not attending a health center e.g., the finding psoriasis is associated with depression has now been criticised because those having psoriasis also have a greater chance to be screened for depression since they are already attending a health center.27 23. \autocite{Chakraborty_2023} - dermatology
+				\item Language bias: Articles with significant findings tend to get published more often in English (since that is the most common language in medical research) than in other languages. It is crucial in many studies involving dermatological quality of life measurements. 24.\autocite{Chakraborty_2023} - dermatology
+				\item  Mimicry bias: When an exposure causes a disease that resembles the study disease, mimicry bias can result. For example, certain drugs are known to cause a pityriasis rosea-like reaction, which, although looks like pityriasis rosea, differs from it.28 25.\autocite{Chakraborty_2023} - dermatology
+				\item  Observer bias: When different observers view the same observation, they report it differently e.g., different observers may give differing descriptions about subtle features in the histopathology report of a skin biopsy.29 26. \autocite{Chakraborty_2023} - dermatology
+				\item Unacceptable disease bias: This occurs in socially unacceptable diseases like leprosy and STDs, which result in under-reporting.30 27. \autocite{Chakraborty_2023} - dermatology
 				\item Hypothetical bias: Many dermatological researches (and some life quality questionnaires like vitiQoL) use hypothetical questions – like “What would you do when some stranger asks you about your lesion?”. The responses to these questions by the study participants often do not tally with what they would do in real life. This is called hypothetical bias and is avoided by adopting the ex-ante approach.31 28.
-				\autocite{Chakraborty_2023}
-				\item  Previous opinion bias: In performing a second diagnostic test, if the result of a previous test is known, it is likely to influence the result. An extension of this is the Greenwald’s law of lupus: the Sontheimer amendment – anything and everything that happens to a lupus erythematosus patient is correctly or incorrectly attributed to lupus.32 29. \autocite{Chakraborty_2023}
-				\item Selection bias: Since it is not possible to work with large populations, for most dermatological studies, samples are chosen that are said to be representative of the original population. In selection bias, the selected subgroups are not representative of their original population. A variation of this is systematic selection bias, where samples chosen differ dramatically from their representative populations. Our experience suggests, such selection bias occurs more commonly in studies conducted in regional referral centers where only the sickest or more severe patients are usually seen. For example, a study compared the efficacy of thalidomide vs. prednisolone in hospitalised patients of erythema nodosum leprosum. It derived that thalidomide was more efficacious than steroids in erythema nodosum leprosum. Such findings cannot be generalised to all erythema nodosum leprosum since patients admitted to a regional referral center will likely have more severe disease.5,6,33 Selection bias is again divided into two types endogenous selection bias and exogenous selection bias. The best example of endogenous selection bias in dermatology is the inclusion of non-response. If a trial tests the efficacy of a particular biologic in psoriasis, the response is usually collected from trial participants via postal services. Certain participants will not respond, although they might have substantially improved. Their exclusion will result in significant differences in efficacy evaluation.33 Exogenous selection bias results when both treatment and outcome result from dependency on an external variable that is not controlled. For example, if sunlight exposure is not controlled, it will influence both the intervention and control groups since psoriasis is a photosensitive (and photoexcerbated) dermatosis.
+				\autocite{Chakraborty_2023} - dermatology
+				\item  Previous opinion bias: In performing a second diagnostic test, if the result of a previous test is known, it is likely to influence the result. An extension of this is the Greenwald’s law of lupus: the Sontheimer amendment – anything and everything that happens to a lupus erythematosus patient is correctly or incorrectly attributed to lupus.32 29. \autocite{Chakraborty_2023} - dermatology
+		
 				
 				\item A recent study reported mean top-1 and top-5 model accuracy of 44.8\% and 78.1\%, respectively, for the classification of 134 diseases (Han et al., 2019b). Most datasets are proprietary, often with minimal description, and datasets collected in dermatology clinics may be skewed toward more complex cases, to those patients with better access to care, or by the choice of camera used in one clinic versus another. Data should be collected from as many diverse sources as possible, including primary care clinics, and robust standards for external validation are needed. \autocite{Young_2020}
 				\item There have been successful efforts to support reproducibility and open access. For example, the study by Han et al. (2018a) details the number and characteristics of images from each data source and makes thumbnails of the images publicly available. Additionally, several studies classifying dermoscopic images use the publicly available International Skin Imaging Collaboration archive (Gutman et al., 2016). By making datasets public, it becomes possible to examine them for bias (Bissoto et al., 2019). Alternatively, reporting a model training database’s patient demographics and disease classes would be helpful in predicting model performance on external populations. \autocite{Young_2020}
