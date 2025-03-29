@@ -567,9 +567,6 @@
 					\begin{itemize}
 						\item Simpson’s Paradox. Simpson’s paradox is a type of aggregation bias that arises in the analysis of heterogeneous data [18]. The paradox arises when an association observed in aggregated data disappears or reverses when the same data is disaggregated into its underlying subgroups (Fig. 2(a)). ... After analyzing graduate school admissions data, it seemed like there was bias toward women, a smaller fraction of whom were being admitted to graduate programs compared to their male counterparts. However, when admissions data was separated and analyzed over the departments, women applicants had equality and in some cases even a small advantage over men. The paradox happened as women tended to apply to departments with lower admission rates for both genders. Simpson’s paradox has been observed in a variety of domains, including biology [37], psychology [81], astronomy [109], and computational social science [91].\autocite{Mehrabi_2021}.
 					\end{itemize}
-					
-					\item Omitted Variable Bias. Omitted variable bias4 occurs when one or more important variables are left out of the model \autocites{M38_Clarke_2005}{M131_Riegg_2008}\autocite{M114_Mustard_2003}. Something that the model was not ready for\autocite{Mehrabi_2021}. did not take into account
-					\item Omitted variable bias \autocites{Mester_2022}{Mester_2017} - statistical bias
 				\end{itemize}
 				%\rawcitationusedend
 				\rawcitationend
@@ -669,21 +666,26 @@
 			\end{itemize}
 			\rawcitationend
 			
-			\paragraph{ Biases \autocite{Chakraborty_2024}}
+			\paragraph{Feature Representation Biases \autocite{Chakraborty_2024}}
 			
 			Some of those biases are:
 			\begin{itemize}
-				\item 
+				\item \textbf{Omitted Variable Bias} arises when variables are not included in the model, which leads to situations for which the model is not ready for \autocites{Mehrabi_2021}{Mester_2022}\autocites{M38_Clarke_2005}{M131_Riegg_2008}\autocite{M114_Mustard_2003}.
+				\item \textbf{Collider Bias} Two variables can influence a common third variable, the collider variable. When sampling is restricted by this collider variable, it could lead to a distortion  \autocite{Chakraborty_2024, c4,c8,c9}.
 			\end{itemize}
 			
 			
 			\subparagraph{Potential Biases in PASSION}
+			The ethnicity is omitted in the PASSION dataset which could lead to issues
+			See the medical section for more specific collider bias, maybe there could be others
 			
 			\rawcitationstart
 			used
 			\begin{itemize}
 				\rawcitationusedstart
-				\item 
+				\item Omitted Variable Bias. Omitted variable bias4 occurs when one or more important variables are left out of the model \autocites{M38_Clarke_2005}{M131_Riegg_2008}\autocite{M114_Mustard_2003}. Something that the model was not ready for\autocite{Mehrabi_2021}. did not take into account \autocite{Mehrabi_2021}
+				\item Omitted variable bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\item Collider Bias: This is an under-appreciated bias, and often confused with a confounder. This is especially seen in observational studies where it is defined as a distortion produced by the restriction of sampling by a collider variable. A collider variable is defined as one that has an independent effect on the outcome studied apart from the studied variable. In simpler terms, collider bias occurs when exposure and development influence a common third variable. That variable or collider is controlled by study design or in the analysis. An example is the observation that psoriasis patients tend to have more depression and anxiety disorders. Since severe psoriasis patients tend to get hospitalised and also get screened for mental health issues, a spurious association between them could have been obtained due to collider bias. The two variables viz psoriasis and depression converged, i.e., collided, into a single outcome – hospitalization.8,9 4. \autocite{Chakraborty_2024} - dermatology
 				\rawcitationusedend
 			\end{itemize}
 			
@@ -698,39 +700,27 @@
 			\end{itemize}
 			\rawcitationend
 			
-			\rawcitationstart
-			others
-			\begin{itemize}
-				\item Collider Bias: This is an under-appreciated bias, and often confused with a confounder. This is especially seen in observational studies where it is defined as a distortion produced by the restriction of sampling by a collider variable. A collider variable is defined as one that has an independent effect on the outcome studied apart from the studied variable. In simpler terms, collider bias occurs when exposure and development influence a common third variable. That variable or collider is controlled by study design or in the analysis. An example is the observation that psoriasis patients tend to have more depression and anxiety disorders. Since severe psoriasis patients tend to get hospitalised and also get screened for mental health issues, a spurious association between them could have been obtained due to collider bias. The two variables viz psoriasis and depression converged, i.e., collided, into a single outcome – hospitalization.8,9 4. \autocite{Chakraborty_2024} - dermatology
-				
-				\item Linking Bias. Linking bias arises when network attributes obtained from user connections, activities, or interactions differ and misrepresent the true behavior of the users \autocite{M120_Olteanu_2019} \autocite{Mehrabi_2021}. --> probably less important since we got individuals? Or could that be an issue with the country of origin feature?
-				
-				
-				
-				Quality biases
-				\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
-			\end{itemize}
-			\rawcitationend
 			
-			
-			\paragraph{ Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
-			
+			\paragraph{Imaging Biases \autocite{Young_2020}}
+			Dealing with images can lead to a whole other set of challenges, which can lead to biases. The challenges are for example technical variations in hardware and software but also differences in how images are gathered or what is in it \autocite{Young_2020}.
+
 			Those biases can be introduced :
 			\begin{itemize}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{Image Quality Bias}. The quality of an image (zoom level, focus, lightning) could be associated with the classification \autocite{Young_2020}
+				\item \textbf{Visual Artifact Bias}. Other artifacts, such as presence of hair or surgical ink markings on dermatology images, can decrease classification performance \autocite{Winkler et al., 2019 & Bisla et al., 2019 (from Young_2020)}
+				\item \textbf{Field of View Bias}. What view is captured in the image can interfere with prediction quality  what is it, consequence \autocite{Mishra et al., 2019 from Young_2020}
 			\end{itemize}
 			
 			
 			\subparagraph{Potential Biases in PASSION}
+			The PASSION model could learn to associate unrelated visual effects, hair, body parts or image quality with a disease.
+			
 			
 			\rawcitationstart
 			used
 			\begin{itemize}		
 				\rawcitationusedstart
-				\item 
+				\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
 				\rawcitationusedend
 			\end{itemize}
 			
@@ -862,6 +852,7 @@
 			
 			\paragraph{Temporal Data Biases}
 			Certain studies require to track temporal data, to learn about behaviour or disease progression over time \autocite{Mehrabi_2021}. For PASSION, temporal biases are currently irrelevant, since PASSION contains images independently of time and is not tracking the disease progression. Therefore, the listed biases in this chapter are not explained in detail, refer to the sources for further information.
+			
 			
 			Examples for temporal data biases are:
 			\begin{itemize}
