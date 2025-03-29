@@ -488,8 +488,6 @@
 					\item \textbf{Ascertainment bias}, tendency to exclude segments from the population due to e.g. cultural differences, such as which patient segment goes to government clinics vs. private clinics (usually influenced by socioeconomic status) \autocite{Chakraborty_2024, c5}
 					\item \textbf{Availability bias}, focus on widely available data instead of most representative data \autocites{Chakraborty_2024, c9, c10}{}
 					\item \textbf{Survivorship bias}, focus only on pre-selected data, ignoring the initial data-points which got filtered out \autocite{Mestner_2022}.
-					
-					\item \textbf{bias}, what is it, consequence \autocite{}
 				\end{itemize}
 				
 				
@@ -553,22 +551,13 @@
 					\rawcitationusedstart
 					\item Representation Bias. Representation bias arises from how we sample from a population during data collection process \autocite{M144_Suresh_2021}. Non-representative samples lack the diversity of the population, with missing subgroups and other anomalies \autocite{Mehrabi_2021}.
 					\item Popular machine-learning datasets that serve as a base for most of the developed algorithms and tools can also be biased—which can be harmful to the downstream applications that are based on these datasets. ... In [142], researchers showed that these datasets suffer from representation bias and advocate for the need to incorporate geographic diversity and inclusion while creating such datasets. \autocite{Mehrabi_2021}
-					\rawcitationusedend
-				\end{itemize}
 				
-				even more extensive
-				\begin{itemize}
-					\item 
-				\end{itemize}
-								
-				not checked yet
-				\begin{itemize}
 					\item Aggregation Bias. Aggregation bias (or ecological fallacy) arises when false conclusions are drawn about individuals from observing the entire population. An example of this type of bias can be seen in clinical aid tools. Consider diabetes patients who have apparent morbidity differences across ethnicities and genders. Specifically, HbA1c levels, that are widely used to diagnose and monitor diabetes, differ in complex ways across genders and ethnicities. Therefore, a model that ignores individual differences will likely not be well-suited for all ethnic and gender groups in the population \autocite{M144_Suresh_2021}. This is true even when they are represented equally in the training data. Any general assumptions about subgroups within the population can result in aggregation bias. \autocite{Mehrabi_2021}. --> could also be important for dermatology issues!!!
 					\begin{itemize}
 						\item Simpson’s Paradox. Simpson’s paradox is a type of aggregation bias that arises in the analysis of heterogeneous data [18]. The paradox arises when an association observed in aggregated data disappears or reverses when the same data is disaggregated into its underlying subgroups (Fig. 2(a)). ... After analyzing graduate school admissions data, it seemed like there was bias toward women, a smaller fraction of whom were being admitted to graduate programs compared to their male counterparts. However, when admissions data was separated and analyzed over the departments, women applicants had equality and in some cases even a small advantage over men. The paradox happened as women tended to apply to departments with lower admission rates for both genders. Simpson’s paradox has been observed in a variety of domains, including biology [37], psychology [81], astronomy [109], and computational social science [91].\autocite{Mehrabi_2021}.
 					\end{itemize}
 				\end{itemize}
-				%\rawcitationusedend
+				\rawcitationusedend
 				\rawcitationend
 			
 			\paragraph{Measurement Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024} \autocite{Montoya_2025}}
@@ -608,16 +597,6 @@
 				
 				\rawcitationusedend
 			\end{itemize}
-			
-			even more extensive
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			
-			not checked yet
-			\begin{itemize}
-				\item 
-			\end{itemize}
 			\rawcitationend
 			
 			\paragraph{Research Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024} \todo{potentially an own category in front of data biases}}
@@ -638,12 +617,6 @@
 			
 			
 			\rawcitationstart
-			not checked yet
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			
-			
 			used
 			\begin{itemize}		
 				\rawcitationusedstart
@@ -658,11 +631,6 @@
 				
 				\item Hypothetical bias: Many dermatological researches (and some life quality questionnaires like vitiQoL) use hypothetical questions – like “What would you do when some stranger asks you about your lesion?”. The responses to these questions by the study participants often do not tally with what they would do in real life. This is called hypothetical bias and is avoided by adopting the ex-ante approach.31 28. \autocite{Chakraborty_2024} - dermatology
 				\rawcitationusedend
-			\end{itemize}
-			
-			even more extensive
-			\begin{itemize}
-				\item 
 			\end{itemize}
 			\rawcitationend
 			
@@ -687,16 +655,6 @@
 				\item Omitted variable bias \autocites{Mester_2022}{Mester_2017} - statistical bias
 				\item Collider Bias: This is an under-appreciated bias, and often confused with a confounder. This is especially seen in observational studies where it is defined as a distortion produced by the restriction of sampling by a collider variable. A collider variable is defined as one that has an independent effect on the outcome studied apart from the studied variable. In simpler terms, collider bias occurs when exposure and development influence a common third variable. That variable or collider is controlled by study design or in the analysis. An example is the observation that psoriasis patients tend to have more depression and anxiety disorders. Since severe psoriasis patients tend to get hospitalised and also get screened for mental health issues, a spurious association between them could have been obtained due to collider bias. The two variables viz psoriasis and depression converged, i.e., collided, into a single outcome – hospitalization.8,9 4. \autocite{Chakraborty_2024} - dermatology
 				\rawcitationusedend
-			\end{itemize}
-			
-			even more extensive
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			
-			not checked yet
-			\begin{itemize}
-				\item 
 			\end{itemize}
 			\rawcitationend
 			
@@ -723,82 +681,7 @@
 				\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
 				\rawcitationusedend
 			\end{itemize}
-			
-			even more extensive
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			
-			not checked yet
-			\begin{itemize}
-				\item 
-			\end{itemize}
 			\rawcitationend
-			
-			\paragraph{ Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
-			
-			Those biases can be introduced :
-			\begin{itemize}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-			\end{itemize}
-			
-			
-			\subparagraph{Potential Biases in PASSION}
-			
-			\rawcitationstart
-			used
-			\begin{itemize}		
-				\rawcitationusedstart
-				\item 
-				\rawcitationusedend
-			\end{itemize}
-			
-			even more extensive
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			
-			not checked yet
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			\rawcitationend
-			
-			\paragraph{ Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
-			
-			Those biases can be introduced :
-			\begin{itemize}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-				\item \textbf{bias}, what is it, consequence \autocite{}
-			\end{itemize}
-			
-			
-			\subparagraph{Potential Biases in PASSION}
-			
-			\rawcitationstart
-			used
-			\begin{itemize}		
-				\rawcitationusedstart
-				\item 
-				\rawcitationusedend
-			\end{itemize}
-			
-			even more extensive
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			
-			not checked yet
-			\begin{itemize}
-				\item 
-			\end{itemize}
-			\rawcitationend
-			
 			
 			\paragraph{Medical Biases \autocite{Chakraborty_2024}}
 			In ML for health care, there are special medical versions of the mentioned biases as well as completely new biases. They require special attention, since they directly influence the diagnosis or treatment of a disease.
@@ -843,16 +726,10 @@
 				\item The healthy volunteer effect is a particular case: when the participants are healthier than the general population. \autocite{Delgado-Rodríguez_2004}
 				\rawcitationusedend
 			\end{itemize}
-			
-			even more extensive
-			\begin{itemize}
-				\item 
-			\end{itemize}
 			\rawcitationend
 			
 			\paragraph{Temporal Data Biases}
 			Certain studies require to track temporal data, to learn about behaviour or disease progression over time \autocite{Mehrabi_2021}. For PASSION, temporal biases are currently irrelevant, since PASSION contains images independently of time and is not tracking the disease progression. Therefore, the listed biases in this chapter are not explained in detail, refer to the sources for further information.
-			
 			
 			Examples for temporal data biases are:
 			\begin{itemize}
