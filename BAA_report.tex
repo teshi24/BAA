@@ -363,34 +363,15 @@
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Data Biases}} \\ 
-						\multicolumn{3}{l}{\bolditalic{Sampling Biases}} \\
-						Sampling Bias        & X\tnote{1} &    \\
-						(Systematic) Selection Bias		 & X\tnote{18} & X\tnote{19,c5,c6,c33,20} \\
-						Ascertainment Bias	 & X\tnote{16} & X\tnote{19,c9,c10}\\
-						Availability bias    &  & X\tnote{19,c9} \\
-						Survivorship Bias    & X\tnote{18} & \\
 						
-						\multicolumn{3}{l}{\bolditalic{Representation Biases}} \\
-						Representation Bias  & X\tnote{1,2,15,20} & X\tnote{21} \\
-						Aggregation Bias     & X\tnote{1,2} &   \\
-									
-						\multicolumn{3}{l}{\bolditalic{Measurement Biases}} \\
-						Measurement Bias     & X\tnote{1,2} &   \\
-						Observer Bias		 & X\tnote{18}& X\tnote{19,c29} \\
-						Annotator Bias & & X\tnote{21} \\
-						Recall Bias			 & X\tnote{18}& X\tnote{19, c3–c6}\\
-						
+						\bolditalic{Sampling Biases} \todo{specify which one of note 18, was selection and survivorship, maybe also add HP\_2022} & X\tnote{1,16,18} & X\tnote{19} \\
+						\bolditalic{Representation Biases} & X\tnote{1,20} & X\tnote{21} \\
+						\bolditalic{Measurement Biases} \todo{only mester 2022 relevant} & X\tnote{1,18} & X\tnote{19,21} \\
 						\bolditalic{Research Biases} \todo{specify which one of note 18, was funding bias} & X\tnote{18} & X\tnote{19} \\
-						
+						\bolditalic{Feature Representation Biases} \todo{only mester 2022 relevant}& X\tnote{1,18} & X\tnote{19} \\
+						\bolditalic{Imaging Biases} & & X\tnote{20} \\
 						\bolditalic{Medical Biases} & X\tnote{14} & X\tnote{19} \\
-						
 						\bolditalic{Temporal Data Biases} & X\tnote{1} & X\tnote{19}\\
-
-						\multicolumn{3}{l}{\bolditalic{Other Biases}} \\
-						Omitted Variable Bias & X\tnote{1,11,13,18} &  \\
-						Image Quality/Visual Artifacts Bias    & &  X\tnote{20,\todo{add those from young}} \\
-						Linking Bias         & X\tnote{1,3} &    \\
-						Collider Bias        &            & X\tnote{19,c8,c9} \\
 						
 						
 						%	\midrule
@@ -477,7 +458,7 @@
 			
 			\subsubsection{Data Biases}
 				
-				\paragraph{Sampling Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}		
+				\paragraph{Sampling Biases}		
 				When gathering data, it's usually not possible to gather the data of a whole population. Instead, the data is gathered by sampling. A sample is a subgroup of individuals from the population. To get unbiased results, this sampling process should represent the true population, with a low sampling error \autocites{HP_2022}. This is often achieved with randomized samples. With non-random sampling processes, sampling bias arises. The consequence is, that the insights of one sampled population may not generalize with insights on another sampled popluation \autocite{Mehrabi_2021}.
 				
 				Those biases can be introduced with a flawed sampling process:
@@ -486,6 +467,7 @@
 					\item \textbf{Selection bias}, working only on specific subset of the population which is not representative \autocites{Mestner_2022}{Chakraborty_2024}
 					\item \textbf{Systematic selection bias}, chosen samples differ dramatically from the representative populations; e.g. in dermatology, when only the most severe patient data gets included \autocite{Chakraborty_2024, c5,c6,c33}
 					\item \textbf{Ascertainment bias}, tendency to exclude segments from the population due to e.g. cultural differences, such as which patient segment goes to government clinics vs. private clinics (usually influenced by socioeconomic status) \autocite{Chakraborty_2024, c5}
+					\todo{check this Mehrabi reference also M98 -> potentially remove ref from table}
 					\item \textbf{Availability bias}, focus on widely available data instead of most representative data \autocites{Chakraborty_2024, c9, c10}{}
 					\item \textbf{Survivorship bias}, focus only on pre-selected data, ignoring the initial data-points which got filtered out \autocite{Mestner_2022}.
 				\end{itemize}
@@ -529,8 +511,8 @@
 					
 				\rawcitationend
 					
-				\paragraph{Representation Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
-				\todo{still figure out whether this is a single category, and whether some of the more relevant selection biases should be considered here} 
+				\paragraph{Representation Biases}
+				\todo{still describe this category} 
 				
 				Those biases can be introduced :
 				\begin{itemize}
@@ -560,7 +542,7 @@
 				\rawcitationusedend
 				\rawcitationend
 			
-			\paragraph{Measurement Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024} \autocite{Montoya_2025}}
+			\paragraph{Measurement Biases}
 			How features are chosen, used and measured can lead to biases \autocites{Mehrabi_2021}{M144_Suresh_2021}.
 			
 			Examples for such biases are:
@@ -599,7 +581,8 @@
 			\end{itemize}
 			\rawcitationend
 			
-			\paragraph{Research Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024} \todo{potentially an own category in front of data biases}}
+			\paragraph{Research Biases}
+			\todo{consider to move at beginning / out of data biases}
 			Researchers and their processes can also be biased in multiple ways:
 			\begin{itemize}
 				\item \textbf{Funding / Sponsorship bias}, when a study is deliberately supporting those findings, which the sponsor expects \autocites{Chakraborty_2024, c22}{Mester_2017}
@@ -634,7 +617,7 @@
 			\end{itemize}
 			\rawcitationend
 			
-			\paragraph{Feature Representation Biases \autocite{Chakraborty_2024}}
+			\paragraph{Feature Representation Biases}
 			
 			Some of those biases are:
 			\begin{itemize}
@@ -659,7 +642,7 @@
 			\rawcitationend
 			
 			
-			\paragraph{Imaging Biases \autocite{Young_2020}}
+			\paragraph{Imaging Biases}
 			Dealing with images can lead to a whole other set of challenges, which can lead to biases. The challenges are for example technical variations in hardware and software but also differences in how images are gathered or what is in it \autocite{Young_2020}.
 
 			Those biases can be introduced :
@@ -683,7 +666,7 @@
 			\end{itemize}
 			\rawcitationend
 			
-			\paragraph{Medical Biases \autocite{Chakraborty_2024}}
+			\paragraph{Medical Biases}
 			In ML for health care, there are special medical versions of the mentioned biases as well as completely new biases. They require special attention, since they directly influence the diagnosis or treatment of a disease.
 			
 			Those biases can be introduced:
