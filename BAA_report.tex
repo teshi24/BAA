@@ -379,24 +379,26 @@
 						
 						\multicolumn{3}{l}{\bolditalic{Data Processing and Measurement Biases}} \\
 						Measurement Bias     & X\tnote{1,2} &   \\
+						Observer Bias		 & X\tnote{18}& X\tnote{19,c29} \\
+						Annotator Bias & & X\tnote{21} \\
+						
 						Linking Bias         & X\tnote{1,3} &    \\
 						Image Quality/Visual Artifacts Bias    & &  X\tnote{20,\todo{add those from young}} \\
-						Annotator Bias & & X\tnote{21} \\
-						Data dredging bias   & & X\tnote{19,c16-c19} \\
 						
 						\bolditalic{Temporal Data Biases} & X\tnote{1} & X\tnote{19}\\
 						
 						\multicolumn{3}{l}{\bolditalic{Clinical and Diagnostic Biases}} \\
 						Berkesonian Bias     &            & X\tnote{19,c7}  \\
-						Collider Bias        &            & X\tnote{19,c8,c9} \\
 						Diagnostic Access Bias & & X\tnote{19,c19,c20,20} \\
 						Diagnostic Reference Test Bias & & X\tnote{19,c21} \\
 						
+						Collider Bias        &            & X\tnote{19,c8,c9} \\
+						
 						\multicolumn{3}{l}{\bolditalic{Funding and Research Biases}} \\
 						Funding / (Industry) Sponsorship Bias    & X\tnote{18} & X\tnote{19} \\
+						Data dredging bias   & & X\tnote{19,c16-c19} \\
 						Hot stuff bias & & X\tnote{19,c22,c23} \\
 						Hypothetical Bias    & & X\tnote{19,c31} \\
-						Observer Bias		 & X\tnote{18}& X\tnote{19,c29} \\
 						
 						\multicolumn{3}{l}{\bolditalic{Availability and Selection Biases}} \\
 						Availability bias    &  & X\tnote{19,c9} \\
@@ -542,7 +544,7 @@
 					
 				\rawcitationend
 					
-				\paragraph{Representation Bias \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+				\paragraph{Representation Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
 				\todo{still figure out whether this is a single category, and whether some of the more relevant selection biases should be considered here} 
 				
 				Those biases can be introduced :
@@ -586,7 +588,7 @@
 				%\rawcitationusedend
 				\rawcitationend
 			
-			\paragraph{Temporal Data Bias}
+			\paragraph{Temporal Data Biases}
 			Certain studies require to track temporal data, to learn about behaviour or disease progression over time \autocite{Mehrabi_2021}. For PASSION, temporal biases are currently irrelevant, since PASSION contains images independently of time and is not tracking the disease progression. Therefore, the listed biases in this chapter are not explained in detail, refer to the sources for further information.
 			
 			Examples for temporal data biases are:
@@ -598,7 +600,7 @@
 			
 			
 			
-			\paragraph{Clinical and Diagnostic Bias \autocite{Chakraborty_2024}}
+			\paragraph{Clinical and Diagnostic Biases \autocite{Chakraborty_2024}}
 			In ML for health care, clinical and diagnostic biases require special attention, since they directly influence the diagnosis of a disease.
 			\todo{describe difference between clinical and diagnostic, eventually split them}
 			
@@ -633,18 +635,23 @@
 			\rawcitationend
 			
 			
-			\paragraph{Measurement and Reporting Bias \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
-			How features are chosen, used, measured and reported can lead to biases \autocites{Mehrabi_2021}{M144_Suresh_2021}.  
+			\paragraph{Measurement Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024} \autocite{Montoya_2025}}
+			How features are chosen, used and measured can lead to biases \autocites{Mehrabi_2021}{M144_Suresh_2021}.
 			
 			Examples for such biases are:
 			\begin{itemize}
 				\item \textbf{Measurement bias} in general, e.g. using mismeasured \glspl{proxyVar} lead to misinterpretations of the outcome \autocite{Mehrabi_2021}
-				\item \textbf{Annotator bias}, what is it, consequence \autocite{}
+				
+				\item \textbf{Observer bias} is a subconscious bias which can occur in different forms. Either, researchers projects their own expectations on the research and influence the testers accordingly \autocite{Mester_2022}. In other cases, different observes report the same observation differently \autocite{Chakraborty_2024, c29, c26}
+
+				\item \textbf{Annotator bias}, the labeling process of human annotators can be influenced by lots of factors (e.g. personal background, social context) and even minor design choices (e.g. scale order, image context). This can introduce inconsistencies when labeling the data \autocite{Montoya_2025}
 			\end{itemize}
 			
 			
 			\subparagraph{Potential Biases in PASSION}
-			Country of Origin in PASSION depending on the interpretation - should not be used for ethnicity, as this is not linked directly to the genes, see example https://medium.com/bcggamma/practice-ai-responsibly-with-proxy-variable-detection-42c2156ad986
+			Measurement Bias (proxy var) - Country of Origin in PASSION depending on the interpretation - should not be used for ethnicity, as this is not linked directly to the genes, see example https://medium.com/bcggamma/practice-ai-responsibly-with-proxy-variable-detection-42c2156ad986
+			
+			Annotator bias regarding skin tone labeling has been investigated in \autocite{Montoya_2025}. PASSION should evaluate its process.
 			
 			
 			\rawcitationstart
@@ -652,13 +659,12 @@
 			\begin{itemize}		
 				\rawcitationusedstart
 				\item Measurement Bias. Measurement, or reporting, bias arises from how we choose, utilize, and measure particular features \autocite{M144_Suresh_2021} (e.g. mismeasured proxy variables) \autocite{Mehrabi_2021}. (= e.g. someone who lives at that postal code probably has this ethnicity ); --> could that be an issue with the country of origin feature?
+			
 				\item This study found that while using skin tone instead of race for fairness evaluations in computer vision seems objective, the annotation process remains biased by human annotators. Untested scales, unclear procedures, and a lack of awareness about annotator backgrounds and social context significantly influence skin tone labeling. This study exposes how even minor design choices in the annotation process, like scale order (dark to light instead of light to dark) or image context (face or no face, skin lesion presence), can sway agreement and introduce uncertainty in skin tone assessments. ... The researchers emphasize the need for greater transparency, standardized procedures, and careful consideration of annotator biases to mitigate these challenges and ensure fairer and more robust evaluations in computer vision. \autocite{Montoya_2025} - demographic dermatology bias
-				
-				Quality bias
-				\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
-				
-				Reporting bias
-				\item  Data dredging bias: It is an entirely avoidable bias. This is subdivided into two types – Fishing type and “P-value hacking” type. It involves using multiple statistical methods to get the desired p-value and selecting the statistical model that gives the p-value the author wants. This is “lamentably common” in dermatological research.16 To detect data dredging bias, always perform a “p-curve analysis” while performing a meta-analysis.17,18 Much emphasis is nowadays given to the confidence interval instead of the p-value, which gives an approximate idea of the range in which one can be 95\% (or 90\%, depending on the confidence interval chosen) sure that the result is correct. The confidence interval remains unaffected by p-value dredging. This subject has been reviewed in depth in recent works.18,19 15.\autocite{Chakraborty_2023}
+			
+				\item Observer bias - projecting expectations onto the research \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\item  Observer bias: When different observers view the same observation, they report it differently e.g., different observers may give differing descriptions about subtle features in the histopathology report of a skin biopsy.29 26. \autocite{Chakraborty_2023} - dermatology
+					
 				\rawcitationusedend
 			\end{itemize}
 			
@@ -684,10 +690,157 @@
 				\item Collider Bias: This is an under-appreciated bias, and often confused with a confounder. This is especially seen in observational studies where it is defined as a distortion produced by the restriction of sampling by a collider variable. A collider variable is defined as one that has an independent effect on the outcome studied apart from the studied variable. In simpler terms, collider bias occurs when exposure and development influence a common third variable. That variable or collider is controlled by study design or in the analysis. An example is the observation that psoriasis patients tend to have more depression and anxiety disorders. Since severe psoriasis patients tend to get hospitalised and also get screened for mental health issues, a spurious association between them could have been obtained due to collider bias. The two variables viz psoriasis and depression converged, i.e., collided, into a single outcome – hospitalization.8,9 4. \autocite{Chakraborty_2023} - dermatology
 				
 				\item Linking Bias. Linking bias arises when network attributes obtained from user connections, activities, or interactions differ and misrepresent the true behavior of the users \autocite{M120_Olteanu_2019} \autocite{Mehrabi_2021}. --> probably less important since we got individuals? Or could that be an issue with the country of origin feature?
+				
+				
+				
+				Quality biases
+				\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
 			\end{itemize}
 			\rawcitationend
 			
-			\paragraph{ Bias \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+			\paragraph{Research Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024} \todo{potentially an own category in front of data biases}}
+			Researchers and their processes can also be biased in multiple ways:
+			\begin{itemize}
+				\item \textbf{Funding / Sponsorship bias}, when a study is deliberately supporting those findings, which the sponsor expects \autocites{Chakraborty_2024, c22}{Mester_2017}
+				
+				\item \textbf{Data dredging bias}. The statistical methods and model are chosen to provide a certain p-value, to improve the probability of the research hypothesis being true. \todo{consider to move this to an own reporting section} \autocite{Chakraborty_2024}
+				
+				\item \textbf{Hot stuff bias} is a subtype of publication bias, where Journals are less critical about trending topics, which lead to more frequent publishing of those topics. This in turn can lead to flawed meta-analyses regarding those topics  \autocite{Chakraborty_2024, c22, c23, c19}.
+
+				\item \textbf{Hypothetical bias}. Hypothetical questions lead to responses that do not reflect, what interviewees would do in real life. \autocite{Chakraborty_2024, c31, c28} \todo{isn't this a user bias instead?}
+			\end{itemize}
+			
+			\subparagraph{Potential Biases in PASSION}
+			Since the PASSION dataset is already published, the research biases might already be introduced. It is not feasible during the duration of this thesis to make an evaluation on those biases. Instead, I would recommend the PASSION team and researcher in general, to check the list above carefully and take measures against them. Maybe, an external evaluation could help to detect and prevent those biases even better.
+			
+			
+			
+			\rawcitationstart
+			not checked yet
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			
+			
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item Funding bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\item  Industry sponsorship bias: This has now been reclassified as conflict-of-interest bias. In short, the study deliberately supports the findings expected from it by its sponsors. 22.\autocite{Chakraborty_2023} - dermatology
+				
+				Reporting biases
+				\item  Data dredging bias: It is an entirely avoidable bias. This is subdivided into two types – Fishing type and “P-value hacking” type. It involves using multiple statistical methods to get the desired p-value and selecting the statistical model that gives the p-value the author wants. This is “lamentably common” in dermatological research.16 To detect data dredging bias, always perform a “p-curve analysis” while performing a meta-analysis.17,18 Much emphasis is nowadays given to the confidence interval instead of the p-value, which gives an approximate idea of the range in which one can be 95\% (or 90\%, depending on the confidence interval chosen) sure that the result is correct. The confidence interval remains unaffected by p-value dredging. This subject has been reviewed in depth in recent works.18,19 15.\autocite{Chakraborty_2023}
+				
+				publication bias 
+				\item Hot stuff bias: Editors of journals may be less critical about topics that are “fashionable” or currently in vogue and consequently end up publishing them more frequently, resulting in publication bias as well as hot stuff bias. It can result in flawed meta-analyses based on these studies. An example is how cutaneous manifestations of COVID-19 were published. Indian Journal of Dermatology Venereology and Leprosy stood out by choosing not to publish anything and everything related to COVID-19, thus reducing hot stuff bias.22,23 19. \autocite{Chakraborty_2023}
+				
+				\item Hypothetical bias: Many dermatological researches (and some life quality questionnaires like vitiQoL) use hypothetical questions – like “What would you do when some stranger asks you about your lesion?”. The responses to these questions by the study participants often do not tally with what they would do in real life. This is called hypothetical bias and is avoided by adopting the ex-ante approach.31 28. \autocite{Chakraborty_2024} - dermatology
+				\rawcitationusedend
+			\end{itemize}
+			
+			even more extensive
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			\rawcitationend
+			
+			\paragraph{ Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item 
+				\rawcitationusedend
+			\end{itemize}
+			
+			even more extensive
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			
+			not checked yet
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			\rawcitationend
+			
+			\paragraph{ Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item 
+				\rawcitationusedend
+			\end{itemize}
+			
+			even more extensive
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			
+			not checked yet
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			\rawcitationend
+			
+			\paragraph{ Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+				\item \textbf{bias}, what is it, consequence \autocite{}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item 
+				\rawcitationusedend
+			\end{itemize}
+			
+			even more extensive
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			
+			not checked yet
+			\begin{itemize}
+				\item 
+			\end{itemize}
+			\rawcitationend
+			
+			\paragraph{ Biases \autocite{Mehrabi_2021} \autocite{Chakraborty_2024}}
 			
 			Those biases can be introduced :
 			\begin{itemize}
@@ -1324,9 +1477,7 @@
 			https://data36.com/statistical-bias-types-explained/
 			\begin{itemize}
 				\item Self-selection bias - when you let the subjects of the analyses select themselves, less proactive people will be excluded \todo{could be an issue as well for PASSION, couldn't it? since the doctors probably ask the clients. One way to go is to default should be to provide access to the data. but is it ethical?} \autocites{Mester_2022}{Mester_2017}- statistical bias
-				\item Observer bias - projecting expectations onto the research \autocites{Mester_2022}{Mester_2017} - statistical bias
 				\item Cause-effect bias \autocites{Mester_2022}{Mester_2017} - statistical bias
-				\item Funding bias \autocites{Mester_2022}{Mester_2017} - statistical bias
 				\item Cognitive bias \autocites{Mester_2022}{Mester_2017} - statistical bias
 			\end{itemize}	
 	
@@ -1341,16 +1492,11 @@
 				\item Centripetal bias: Patients tend to go to more reputed physicians and hospitals than others. For example, a famous or better-known cosmetologist with a good reputation tends to see more cases than other cosmetologists. 12.\autocite{Chakraborty_2023}
 				\item  Confirmation bias: This bias occurs when study participants have a preconceived notion of their disease that may not be based on facts. For example, we have observed that in North India many tinea patients report an increase in their disease due to taking meat, fish, and other so-called “hot foods”. They may also present information they have collected from the internet which reinforces their beliefs.15 14.\autocite{Chakraborty_2023}
 				\item  Novelty bias: The newer an intervention, the better it appears, and with time, its efficacy seems to decrease. When ligelizumab, an IgE antagonist was first discovered, ligelizumab was believed to be better than omalizumab; however, evidence soon pointed to the contrary. 16.\autocite{Chakraborty_2023}
-				\item 
-				Hot stuff bias: Editors of journals may be less critical about topics that are “fashionable” or currently in vogue and consequently end up publishing them more frequently, resulting in publication bias as well as hot stuff bias. It can result in flawed meta-analyses based on these studies. An example is how cutaneous manifestations of COVID-19 were published. Indian Journal of Dermatology Venereology and Leprosy stood out by choosing not to publish anything and everything related to COVID-19, thus reducing hot stuff bias.22,23 19. \autocite{Chakraborty_2023}
 				\item  Incorporation bias: This is principally relevant for diagnostic accuracy studies when the index test forms a part of the reference test, resulting in elevated sensitivity e.g., if one wants to compare the grattage test vs. dermoscopy in psoriasis and does dermoscopy only from areas of grattage positivity, one would get a very high sensitivity for the grattage test because it was incorporated into the reference test, i.e., dermoscopy.25,26 21.\autocite{Chakraborty_2023}
-				\item  Industry sponsorship bias: This has now been reclassified as conflict-of-interest bias. In short, the study deliberately supports the findings expected from it by its sponsors. 22.\autocite{Chakraborty_2023}
 				\item  Informed presence bias: Simply, a person attending a health center is more likely to get screened for other unrelated comorbidities than those not attending a health center e.g., the finding psoriasis is associated with depression has now been criticised because those having psoriasis also have a greater chance to be screened for depression since they are already attending a health center.27 23. \autocite{Chakraborty_2023} - dermatology
 				\item Language bias: Articles with significant findings tend to get published more often in English (since that is the most common language in medical research) than in other languages. It is crucial in many studies involving dermatological quality of life measurements. 24.\autocite{Chakraborty_2023} - dermatology
 				\item  Mimicry bias: When an exposure causes a disease that resembles the study disease, mimicry bias can result. For example, certain drugs are known to cause a pityriasis rosea-like reaction, which, although looks like pityriasis rosea, differs from it.28 25.\autocite{Chakraborty_2023} - dermatology
-				\item  Observer bias: When different observers view the same observation, they report it differently e.g., different observers may give differing descriptions about subtle features in the histopathology report of a skin biopsy.29 26. \autocite{Chakraborty_2023} - dermatology
 				\item Unacceptable disease bias: This occurs in socially unacceptable diseases like leprosy and STDs, which result in under-reporting.30 27. \autocite{Chakraborty_2023} - dermatology
-				\item Hypothetical bias: Many dermatological researches (and some life quality questionnaires like vitiQoL) use hypothetical questions – like “What would you do when some stranger asks you about your lesion?”. The responses to these questions by the study participants often do not tally with what they would do in real life. This is called hypothetical bias and is avoided by adopting the ex-ante approach.31 28.
 				\autocite{Chakraborty_2023} - dermatology
 				\item  Previous opinion bias: In performing a second diagnostic test, if the result of a previous test is known, it is likely to influence the result. An extension of this is the Greenwald’s law of lupus: the Sontheimer amendment – anything and everything that happens to a lupus erythematosus patient is correctly or incorrectly attributed to lupus.32 29. \autocite{Chakraborty_2023} - dermatology
 		
