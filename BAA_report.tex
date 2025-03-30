@@ -376,18 +376,18 @@
 						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Algorithmic Biases}} \\ 
-						\multicolumn{3}{l}{\bolditalic{Biases in Model Training and Learning}} \\
 						Algorithmic Bias     & X\tnote{1,4,5} &   \\
-						Emergent Bias        & X\tnote{1,9} &    \\
-						Evaluation Bias      & X\tnote{1,2,12} &   \\
-						Generalization Issues &  & X\tnote{20,\todo{add those from young}} \\
-						
-						\multicolumn{3}{l}{\bolditalic{Biases in Predictions and User Interaction}} \\
+						\multicolumn{3}{l}{\bolditalic{Biases Stemming from User Interaction with the Algorithm}} \\
 						User Interaction Bias& X\tnote{1,4} &    \\
 						Presentation Bias    & X\tnote{1,4} &    \\
 						Ranking Bias         & X\tnote{1,4,6} &    \\
+						Emergent Bias        & X\tnote{1,9} &    \\
+						
+						\multicolumn{3}{l}{\bolditalic{Biases Stemming from Other External Influence}} \\
 						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9}   \\
 						Incorporation Bias   & & X\tnote{19,c25,c26} \\
+						Evaluation Bias      & X\tnote{1,2,12} &   \\
+						Generalization Issues &  & X\tnote{20,\todo{add those from young}} \\
 						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{User Biases}} \\ 
@@ -721,6 +721,98 @@
 				\item \textbf{Immortal time bias} \autocite{Chakraborty_2024, c24, c20}
 			\end{itemize}
 			
+			\subsection{Algorithmic Biases}
+			 \autocite{Young_2020}.
+			When an algorithm adds biases to unbiased input data one speaks of \textbf{Algorithmic Bias} \autocite{M9_Baeza-Yates_2018}. This could occur due to algorithmic design choices like optimization functions, regularizations and statistically biased estimators \autocite{M44_Danks_2017}.
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item Algorithmic Bias. Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm \autocite{M9_Baeza-Yates_2018}. The algorithmic design choices, such as use of certain optimization functions, regularizations, choices in applying regression models on the data as a whole or considering subgroups, and the general use of statistically biased estimators in algorithms \autocite{M44_Danks_2017}, can all contribute to biased algorithmic decisions that can bias the outcome of the algorithms.\autocite{Mehrabi_2021}.
+				\rawcitationusedend
+			\end{itemize}
+			\rawcitationend
+				
+			\paragraph{Biases Stemming from User Interaction with the Algorithm}
+				\begin{itemize}
+					\item \textbf{User Interaction Bias}. This biases can be triggered by the user interface or the user themselves. The user interface influences the user to behave in a certain way, which could introduce bias in the user behaviour. Users impose this (or their own) biased behavior through interaction on the algorithm \autocite{M9_Baeza-Yates_2018}. \textbf{Presentation bias} and \textbf{Ranking bias} are further subtypes mentioned by \cites{M93_Lerman_2014}{Mehrabi_2021}.
+					\item \textbf{Emergent Bias}. When real users interact with an algorithm, this bias arises some time after the design was completed due to changes in population. It appears more likely in user interfaces \autocite{M53_Friedman_1996}.
+				\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			The user interaction biases, especially the emergent bias could potentially become an issue for PASSION, when the project starts to become publicly available teledermatology. Also, the interface design should be evaluated, so that no presentation or ranking bias gets introduced.
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+			\rawcitationusedstart
+			\item Emergent Bias. Emergent bias occurs as a result of use and interaction with real users. This bias arises as a result of change in population, cultural values, or societal knowledge usually some time after the completion of design \autocite{M53_Friedman_1996}. This type of bias is more likely to be observed in user interfaces, ... This type of bias can itself be divided into more subtypes, as discussed in detail in \autocite{M53_Friedman_1996}. \autocite{Mehrabi_2021}. probably less relevant at the first stage
+			
+			\item User Interaction Bias. User Interaction bias is a type of bias that can not only be observant on the Web but also get triggered from two sources—the user interface and through the user itself by imposing his/her self-selected biased behavior and interaction \autocite{M9_Baeza-Yates_2018}. This type of bias can be influenced by other types and subtypes, such as presentation and ranking biases. \autocite{Mehrabi_2021}. -- more relevant for later, when the application would become bigger
+			\rawcitationusedend
+			\begin{itemize}
+				\item Presentation Bias. Presentation bias is a result of how information is presented \autocite{M9_Baeza-Yates_2018} (can only click on content they see, could be the case that user does not see all info on web) \autocite{Mehrabi_2021}.
+				\item Ranking Bias. The idea that top-ranked results are the most relevant and important will result in attraction of more clicks than others. This bias affects search engines \autocite{M9_Baeza-Yates_2018} and crowdsourcing applications \autocite{M93_Lerman_2014}.\autocite{Mehrabi_2021}.
+			\end{itemize}
+			\end{itemize}
+			\rawcitationend
+						
+			\paragraph{Biases Stemming from Other External Influence}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{Evaluation Bias}. When inappropriate or disproprtionate benchmarks are used in model evaluation, they can introduce the benchmarks biases into the model. \autocites{M144_Suresh_2021}{M24_Buolamwini_2018}
+				
+				\item  \textbf{Incorporation bias}. When index tests in diagnostic accuracy studies are part of the reference tests, this results in elevated sensitivity for the index tests \autocite{Chakraborty_2024, c21, c25, c26}.
+				
+				\item \textbf{Popularity Bias}. More popular items tend to be exposed more. Popularity metrics can be manipulated though or not reflecting good quality, this can lead to bias \autocites{M117_Ciampaglia_2018}{Mehrabi_2021}.
+				
+				\item \textbf{Generalization Issues}.  \autocite{} \todo{add those from young}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			\todo{add}
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+					\item Evaluation Bias. Evaluation bias happens during model evaluation \autocite{M144_Suresh_2021}. This includes the use of inappropriate and disproportionate benchmarks for evaluation of applications such as Adience and IJB-A benchmarks. These benchmarks are used in the evaluation of facial recognition systems that were biased toward skin color and gender \autocite{M24_Buolamwini_2018}, and can serve as examples for this type of bias \autocite{M144_Suresh_2021}. \autocite{Mehrabi_2021}. -- important for this thesis
+					
+					\item  Incorporation bias: This is principally relevant for diagnostic accuracy studies when the index test forms a part of the reference test, resulting in elevated sensitivity e.g., if one wants to compare the grattage test vs. dermoscopy in psoriasis and does dermoscopy only from areas of grattage positivity, one would get a very high sensitivity for the grattage test because it was incorporated into the reference test, i.e., dermoscopy.25,26 21.\autocite{Chakraborty_2024}
+					
+					\item Popularity Bias. Items that are more popular tend to be exposed more. However, popularity metrics are subject to manipulation—for example, by fake reviews or social bots \autocite{M117_Ciampaglia_2018}. ... this presentation may not be a result of good quality; instead, it may be due to other biased factors. \autocite{Mehrabi_2021}.
+				\rawcitationusedend
+			\end{itemize}
+			\rawcitationend
+			
+			
+			\paragraph{ Biases}
+			\autocite{Young_2020}.
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{ Bias}.  \autocite{}
+				\item \textbf{ Bias}.  \autocite{}
+				\item \textbf{ Bias}.  \autocite{}
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item  
+				\rawcitationusedend
+			\end{itemize}
+			\rawcitationend
+			
 			
 			\subsection{Sensitive Features}
 			Research showed sensitive features which are prone to bias. Those led to issues in existing AI applications and their usage should therefore be investigated carefully.
@@ -862,15 +954,7 @@
 			
 			Algorithmic biases (Algorithm to user (A modulates U behaviour, biases in algorithm might lead to introduce biases in user behaviour and affect it as a consequence)) \autocite{Mehrabi_2021}
 			\begin{itemize}
-				\item Algorithmic Bias. Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm \autocite{M9_Baeza-Yates_2018}. The algorithmic design choices, such as use of certain optimization functions, regularizations, choices in applying regression models on the data as a whole or considering subgroups, and the general use of statistically biased estimators in algorithms \autocite{M44_Danks_2017}, can all contribute to biased algorithmic decisions that can bias the outcome of the algorithms.\autocite{Mehrabi_2021}.
-				\item User Interaction Bias. User Interaction bias is a type of bias that can not only be observant on the Web but also get triggered from two sources—the user interface and through the user itself by imposing his/her self-selected biased behavior and interaction \autocite{M9_Baeza-Yates_2018}. This type of bias can be influenced by other types and subtypes, such as presentation and ranking biases. \autocite{Mehrabi_2021}. -- more relevant for later, when the application would become bigger
-				\begin{itemize}
-					\item Presentation Bias. Presentation bias is a result of how information is presented \autocite{M9_Baeza-Yates_2018} (can only click on content they see, could be the case that user does not see all info on web) \autocite{Mehrabi_2021}.
-					\item Ranking Bias. The idea that top-ranked results are the most relevant and important will result in attraction of more clicks than others. This bias affects search engines \autocite{M9_Baeza-Yates_2018} and crowdsourcing applications \autocite{M93_Lerman_2014}.\autocite{Mehrabi_2021}.
-				\end{itemize}
-				\item Popularity Bias. Items that are more popular tend to be exposed more. However, popularity metrics are subject to manipulation—for example, by fake reviews or social bots \autocite{M117_Ciampaglia_2018}. ... this presentation may not be a result of good quality; instead, it may be due to other biased factors. \autocite{Mehrabi_2021}.
-				\item Emergent Bias. Emergent bias occurs as a result of use and interaction with real users. This bias arises as a result of change in population, cultural values, or societal knowledge usually some time after the completion of design \autocite{M53_Friedman_1996}. This type of bias is more likely to be observed in user interfaces, ... This type of bias can itself be divided into more subtypes, as discussed in detail in \autocite{M53_Friedman_1996}. \autocite{Mehrabi_2021}. probably less relevant at the first stage
-				\item Evaluation Bias. Evaluation bias happens during model evaluation \autocite{M144_Suresh_2021}. This includes the use of inappropriate and disproportionate benchmarks for evaluation of applications such as Adience and IJB-A benchmarks. These benchmarks are used in the evaluation of facial recognition systems that were biased toward skin color and gender \autocite{M24_Buolamwini_2018}, and can serve as examples for this type of bias \autocite{M144_Suresh_2021}. \autocite{Mehrabi_2021}. -- important for this thesis
+				\item 
 			\end{itemize}
 			
 			\paragraph{User Biases}
@@ -1341,7 +1425,6 @@
 				\item Centripetal bias: Patients tend to go to more reputed physicians and hospitals than others. For example, a famous or better-known cosmetologist with a good reputation tends to see more cases than other cosmetologists. 12.\autocite{Chakraborty_2024}
 				\item  Confirmation bias: This bias occurs when study participants have a preconceived notion of their disease that may not be based on facts. For example, we have observed that in North India many tinea patients report an increase in their disease due to taking meat, fish, and other so-called “hot foods”. They may also present information they have collected from the internet which reinforces their beliefs.15 14.\autocite{Chakraborty_2024}
 				\item  Novelty bias: The newer an intervention, the better it appears, and with time, its efficacy seems to decrease. When ligelizumab, an IgE antagonist was first discovered, ligelizumab was believed to be better than omalizumab; however, evidence soon pointed to the contrary. 16.\autocite{Chakraborty_2024}
-				\item  Incorporation bias: This is principally relevant for diagnostic accuracy studies when the index test forms a part of the reference test, resulting in elevated sensitivity e.g., if one wants to compare the grattage test vs. dermoscopy in psoriasis and does dermoscopy only from areas of grattage positivity, one would get a very high sensitivity for the grattage test because it was incorporated into the reference test, i.e., dermoscopy.25,26 21.\autocite{Chakraborty_2024}
 				\item Language bias: Articles with significant findings tend to get published more often in English (since that is the most common language in medical research) than in other languages. It is crucial in many studies involving dermatological quality of life measurements. 24.\autocite{Chakraborty_2024} - dermatology
 			
 				\item  Previous opinion bias: In performing a second diagnostic test, if the result of a previous test is known, it is likely to influence the result. An extension of this is the Greenwald’s law of lupus: the Sontheimer amendment – anything and everything that happens to a lupus erythematosus patient is correctly or incorrectly attributed to lupus.32 29. \autocite{Chakraborty_2024} - dermatology
