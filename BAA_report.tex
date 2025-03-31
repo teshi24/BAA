@@ -60,13 +60,20 @@
 
 
 
-
 % Format chapter titles without "Chapter X" prefix
 \titleformat{\chapter}[hang]
 {\normalfont\LARGE\bfseries}  % Style: Large bold text
 {\thechapter}                 % Number format: Just the number
 {1em}                         % Space between number and title
 {}                            % Code before the title (empty)
+
+
+% changed paragraph and subsection appearance
+\setcounter{secnumdepth}{3}
+\renewcommand{\paragraph}[1]{%
+	\subsubsection*{#1}%
+%	\addcontentsline{toc}{subsection}{#1}%
+}
 
 
 % mentioned in header
@@ -83,8 +90,12 @@
 \rawcitationactivefalse % Default: Not inside a raw citation block
 
 % Define color commands with conditional checking
-\newcommand{\rawcitationstart}{\color{purple}\rawcitationactivetrue}
-\newcommand{\rawcitationend}{\color{black}\rawcitationactivefalse}
+\newcommand{\rawcitationstart}{
+	\color{purple}\rawcitationactivetrue
+}
+\newcommand{\rawcitationend}{
+	\color{black}\rawcitationactivefalse
+}
 
 \newcommand{\rawcitationusedstart}{\color{violet}}
 \newcommand{\rawcitationusedend}{%
@@ -193,13 +204,14 @@
 		\baaCriteria{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 	
 		\todo{Formulate statement from those citations}:
+		\rawcitationstart
 		\begin{itemize}
 			\item AI systems can be used in many sensitive environments to make important and life-changing decisions; thus, it is crucial to ensure that these decisions do not reflect discriminatory behavior toward certain groups or populations \autocite{Mehrabi_2021}.
 			\item There are clear benefits to algorithmic decision-making; unlike people, machines do not become tired or bored [45, 119], and can take into account orders of magnitude more factors than people can. However, like people, algorithms are vulnerable to biases that render their decisions “unfair” [6, 121]. In the context of decision-making, fairness is \textit{the absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics}. Thus, an unfair algorithm is one whose decisions are skewed toward a particular group of people. \autocite{Mehrabi_2021}.
 			\item it is important for researchers and engineers to be concerned about the downstream applications and their potential harmful effects when modeling an algorithm or a system \autocite{Mehrabi_2021}.
 			\item We should think responsibly, and recognize that the application of these tools, and their subsequent decisions affect peoples’ lives; therefore, considering fairness constraints is a crucial task while designing and engineering these types of sensitive tools \autocite{Mehrabi_2021}.
 		\end{itemize}
-	
+		\rawcitationend
 	
 		\section{Context}
 			This thesis is part of the PASSION project. The PASSION research team identified that in Africa, dermatology treatment is not accessible. There is less than one dermatologist per one million citizens. In contrast, there is high demand for dermatology treatment, especially among children and adolescents. 80\% of the \gls{pediatric} population is affected. The goal of PASSION is to make dermatology treatment more accessible by using AI supported telemedicine for triage \autocite{Gottfrois2024}.
@@ -352,7 +364,7 @@
 			\subsection{Bias Types}
 			 The \autoref{tab:biases_types} aims to provide an overview over what kind of biases exist according to research. The more detailed categories listed in the table try to capture similar kind of biases. This thesis follows roughly the categorization of \cite{Mehrabi_2021}. Some biases might acctually fit in multiple categories. The definition of the categories including examples of specific biases follows.
 			
-			\todo{check the c citations in the following chapters pls}
+			\todo{check the c citations in the following chapters}
 			
 			\begin{table}[H]
 				\centering
@@ -401,7 +413,7 @@
 						\end{minipage}%
 						\begin{minipage}{0.33\textwidth}\raggedright
 							\item[7] \autocites{Mester_2017}
-							\item[8] \autocite{Delgado-Rodríguez_2004}
+							\item[8] \autocite{Delgado-Rodriguez_2004}
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
@@ -417,12 +429,11 @@
 				Those biases can be introduced with a flawed sampling process:
 				\begin{itemize}
 					\item \textbf{Sampling bias}, due to nonrandom sampling of subgroups, leading to poor generalization \autocite{Mehrabi_2021}
-					\item \textbf{Selection bias}, working only on specific subset of the population which is not representative \autocites{Mestner_2022}{Chakraborty_2024}
+					\item \textbf{Selection bias}, working only on specific subset of the population which is not representative \autocites{Mester_2022}{Chakraborty_2024}
 					\item \textbf{Systematic selection bias}, chosen samples differ dramatically from the representative populations; e.g. in dermatology, when only the most severe patient data gets included \autocite{Chakraborty_2024, c5,c6,c33}
 					\item \textbf{Ascertainment bias}, tendency to exclude segments from the population due to e.g. cultural differences, such as which patient segment goes to government clinics vs. private clinics (usually influenced by socioeconomic status) \autocite{Chakraborty_2024, c5}
-					\todo{check this Mehrabi reference also M98 -> potentially remove ref from table}
 					\item \textbf{Availability bias}, focus on widely available data instead of most representative data \autocites{Chakraborty_2024, c9, c10}{}
-					\item \textbf{Survivorship bias}, focus only on pre-selected data, ignoring the initial data-points which got filtered out \autocite{Mestner_2022}.
+					\item \textbf{Survivorship bias}, focus only on pre-selected data, ignoring the initial data-points which got filtered out \autocite{Mester_2022}.
 				\end{itemize}
 				
 				
@@ -628,7 +639,7 @@
 				\item \textbf{Diagnostic reference test bias} is a \textbf{verification bias}, where not all individuals receive the same reference test for the diagnostic process, potentially leading to different diagnoses. \autocite{Chakraborty_2024, c21}
 				\item \textbf{Mimicry bias}, exposures to treatment options can cause a disease which presents itself similar to the study disease, which potentially creates misleading data \autocite{Chakraborty_2024, c28, c25}
 				\item \textbf{Unacceptable Disease bias}. When a disease is socially unacceptable, it can result in under-reporting of the same disease \autocite{Chakraborty_2024, c30, c27}
-				\item \textbf{Healthy volunteer selection bias}, is a type of self-selection bias where the volunteers are in general healthier than the population due to more interest in health \autocite{Delgado-Rodríguez_2004}
+				\item \textbf{Healthy volunteer selection bias}, is a type of self-selection bias where the volunteers are in general healthier than the population due to more interest in health \autocite{Delgado-Rodriguez_2004}
 			\end{itemize}
 			
 			\subparagraph{Potential Biases in PASSION}
@@ -657,7 +668,7 @@
 				\item Unacceptable disease bias: This occurs in socially unacceptable diseases like leprosy and STDs, which result in under-reporting.30 27. \autocite{Chakraborty_2024} - dermatology
 				
 				\item \todo Other such studies were conducted in [54] which states that UK Biobank, a large and widely used genetic dataset, may not represent the sampling population. Researchers found evidence of a “healthy volunteer” selection bias. [150] has other examples of studies on existing biases in the data used in the medical domain. [157] also looks at machine-learning algorithms and data utilized in medical fields, and writes about how artificial intelligence in health care has not impacted all patients equally.\autocite{Mehrabi_2021} --> [150] also provides an ovverview over the impact of social determinants on health, such as Economic stability, neighborhood and physical environment, education, food, community and scial context, access to healthcare and quality
-				\item The healthy volunteer effect is a particular case: when the participants are healthier than the general population. \autocite{Delgado-Rodríguez_2004}
+				\item The healthy volunteer effect is a particular case: when the participants are healthier than the general population. \autocite{Delgado-Rodriguez_2004}
 				\rawcitationusedend
 			\end{itemize}
 			\rawcitationend
@@ -896,25 +907,25 @@
 				\begin{threeparttable}
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
-						\textbf{Bias sensitive Features} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						\textbf{Bias-Sensitive Features} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%\midrule
-						\multicolumn{3}{l}{\bolditalic{Dermatology Related Features}} \\
-						Skin Type & X\tnote{1,2,7,12} & X\tnote{2,13}\\
+						\multicolumn{3}{l}{\textbf{Dermatology Related Features}} \\
+						Skin Type & X\tnote{1,2,7} & X\tnote{12,13}\\
 						Skin Undertones & & X\tnote{13} \\
 						
-						\multicolumn{3}{l}{\bolditalic{Demographic Features with Direct Relevance for Skin Disease Detection}} \\
+						\multicolumn{3}{l}{\textbf{Demographic Features}} \\						\multicolumn{3}{l}{\bolditalic{Relevant for Skin Disease Detection}} \\
 						Age & X\tnote{7,11} &  X\tnote{13} \\
-						Ethnicity/Race \todo{check definitions} & X\tnote{1,2,4,5,6,7,11,12}&  X\tnote{13} \\
+						Ethnicity/Race \todo{check definitions} & X\tnote{1,2,4,5,6,7,11}&  X\tnote{12,13} \\
 						Gender/Sex & X\tnote{1,2,7,8,9,10,11} & X\tnote{13} \\
 						Gender and Skin Type Subgroups & X\tnote{1,2} & \\
 						
-						\multicolumn{3}{l}{\bolditalic{Demographic Features Potential Relevance for Skin Disease Detection}} \\
+						\multicolumn{3}{l}{\bolditalic{Potentially Relevant for Skin Disease Detection}} \\
 						Geographic Location & X\tnote{1,3} & \\
-						Socio-Economic Status & X\tnote{6,12} & \\
+						Socio-Economic Status & X\tnote{6} & X\tnote{12} \\
 						Disabilities & X\tnote{7,11} & \\
 						
-						\multicolumn{3}{l}{\bolditalic{Demographic Features no Relevance for Skin Disease Detection}} \\
+						\multicolumn{3}{l}{\bolditalic{Not Relevant for Skin Disease Detection}} \\
 						Familial status & X\tnote{7} & \\
 						Marital status & X\tnote{7,11} & \\
 						Nationality/National origin & X\tnote{7,11} & \\
@@ -951,7 +962,78 @@
 			
 			
 		\section{Fairness}
+		As \cite{Mehrabi_2021} states, "in order to be able to fight against discrimination and achieve fairness, one should first define fairness". However, research is no clear agreement for a single definition of fairness. Further, the fairness definitions are also prone to biases since different cultures and preferences influence the perception of fairness. In spite of those challenges, fairness can broadly be defined as absence of bias in decision making. While fairness is very desirable, it "can be surprisingly difficult to achieve in practice" \autocite{Mehrabi_2021}.
+		This chapter summarizes the existing fairness methods, which aim to achieve fairness. The fairness methods were listed by \cite{Mehrabi_2021}.
+		
+		\subsection{Fairness Definitions}
+			\begin{table}[H]
+				\centering
+				\begin{threeparttable}
+					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
+						\toprule
+						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{ML} & \textbf{Dermatology} \\
+						%	\midrule
+						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
+						Conditional Statistical Parity    & X\tnote{1,3,10} &   \\
+						Demographic/Statistical Parity  & X\tnote{1,3,4,5} &   \\
+						Equalized Odds     & X\tnote{1,2,3} &   \\
+						Equal Opportunity& X\tnote{1,2,3} &   \\
+						Treatment Equality & X\tnote{1,7} &   \\
+						Test Fairness         & X\tnote{1,3,8} &   \\
+						%	\midrule
+						\multicolumn{3}{l}{\textbf{Subgroup Fairness}} \\ 
+						Subgroup Fairness    & X\tnote{1,11,12} &   \\
+						%\midrule
+						\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
+						Counterfactual Fairness     & X\tnote{1,5} &   \\
+						Fairness Through Awareness     & X\tnote{1,4,5} &   \\
+						Fairness Through Unawareness        & X\tnote{1,5,6} &   \\
+						%\midrule
+						\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
+						Fairness in Relational Domains& X\tnote{1,9} &   \\
+						\bottomrule
+					\end{tabularx}
+					\begin{tablenotes}
+						\footnotesize
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[1] \autocite{Mehrabi_2021}
+							\item[2] \autocite{M63_Hardt_2016}
+							\item[3] \autocite{M149_Verma_2018}
+							\item[4] \autocite{M48_Dwork_2012}
+						\end{minipage}%
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[5] \autocite{M87_Kusner_2017}
+							\item[6] \autocite{M61_Grgic-Hlaca_2016}
+							\item[7] \autocite{M15_Berk_2017}
+							\item[8] \autocite{M34_Chouldechova_2017}
+						\end{minipage}%
+						\begin{minipage}{0.33\textwidth}\raggedright
+							\item[9] \autocite{M50_Farnadi_2018}
+							\item[10] \autocite{M41_Corbett-Davies_2017}
+							\item[11] \autocite{M79_Kearns_2018}
+							\item[12] \autocite{M80_Kearns_2019} \todo{potential bias in this bc same author of the algorithm tested it}
+						\end{minipage}%
+					\end{tablenotes}
+				\end{threeparttable}
+				\caption{Fairness Definitions - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\label{tab:fairness_definitions}
+			\end{table}
 			
+			As shown in the \autoref{tab:fairness_definitions}, there are mainly three categories for fairness definitions. According to \cite{Mehrabi_2021}, fairness can be achieved on a group level, subgroup level or even for a individual. Group fairness is about treating different groups as equal. Individual fairness tries to achieve similar predictions for similar individuals. Subgroup fairness tries to incorporate the best properties of the other two levels to improve the outcome in larger collections of subgroups \autocite{Mehrabi_2021}. 
+			
+			The specific fairness definitions can be found in \cite{Mehrabi_2021}. In general, they try to get similar probability outcomes for 'unprotected' or 'protected' groups. This list summarizes how they work:
+			\begin{itemize}
+				\item \textbf{Demographic/Statistical Parity} and \textbf{Conditional Statistical Parity}: The parity checks that likelihood of a positive outcome is the same for both protected groups \autocite{Mehrabi_2021}. The conditional version adds legitimate factors before calculating the statistical parity \autocite{M41_Corbett-Davies_2017}.
+				\item \textbf{Equalized Odds}, \textbf{Test Fairness}. and \textbf{Equal Opportunity}: All those methods protected and unprotected groups should have equal rates for a positive outcome when belonging to a positive class, essentially comparing the true positive rates. \textbf{Equalized Odds} is a more restrictive since it also checks for similar false positive rates \autocites{M149_Verma_2018}{Mehrabi_2021}. \todo{add M48 and M87 for demographic parity}
+				\item \textbf{Treatment Equality}: It compares the false negative and false positive rates \autocite{M151_Wang_2014}
+				\item \textbf{Counterfactual Fairness}: This approach is different from the others as it is testing the same individual in both different demographic groups with the intention that the outcome is the same \autocites{M87_Kusner_2017}{Mehrabi_2021}. It differs from to the first group of fairness metrics since it does not compare the likelihoods of the outcomes for any person in a group, but checking how the exact same individual would be treated if it was in the other group.
+				\item \textbf{Fairness Through Awareness}: This method compares similar individuals based on similarity metrics to get a similar outcome \autocite{Mehrabi_2021}
+				\item \textbf{Fairness Through Unawareness}: This measure is ensuring that protected attributes are not explicitly used in desicion-making \autocite{M61_Grgic-Hlaca_2016, M87_Kusner_2017}.
+				\item \textbf{Fairness in Relational Domains}: This notion also takes into consideration relational structures between individuals \autocite{M50_Farnadi_2018}.
+			\end{itemize}
+			
+			\subsection{Challenges of Fairness Definitions}
 			
 			
 		\section{Mitigation Methods}
@@ -974,8 +1056,6 @@
 				\item ML algorithms reflect cognitive biases in humans, which can result in predictions and decisions that are “unfair” [5]. Unfairness in ML decision-making equates to prejudice or favoritism based on inherent or acquired characteristics of an individual or group [6]. Within medical research, the term bias refers to “a feature of the design of a study, or the execution of a study, or the analysis of the data from a study, that makes evidence misleading” [7,8]. \autocite{Montonaya_2025}
 			\end{itemize}
 		
-		
-		\section{General ML biases}
 		
 			\subsection{Bias Introduction}
 			\begin{itemize}
@@ -1040,70 +1120,18 @@
 				
 			\end{itemize}
 			\rawcitationend
-			
-		    \subsection{Fairness Overview}
-			\begin{table}[H]
-				\centering
-				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
-						\toprule
-						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
-						Conditional Statistical Parity    & X\tnote{1,3,10} &   \\
-						Demographic/Statistical Parity  & X\tnote{1,3,4,5} &   \\
-						Equalized Odds     & X\tnote{1,2,3} &   \\
-						Equal Opportunity& X\tnote{1,2,3} &   \\
-						Treatment Equality & X\tnote{1,7} &   \\
-						Test Fairness         & X\tnote{1,3,8} &   \\
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Subgroup Fairness}} \\ 
-						Subgroup Fairness    & X\tnote{1,11,12} &   \\
-						%\midrule
-						\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
-						Counterfactual Fairness     & X\tnote{1,5} &   \\
-						Fairness Through Awareness     & X\tnote{1,4,5} &   \\
-						Fairness Through Unawareness        & X\tnote{1,5,6} &   \\
-						%\midrule
-						\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
-						Fairness in Relational Domains& X\tnote{1,9} &   \\
-						\bottomrule
-					\end{tabularx}
-					\begin{tablenotes}
-						\footnotesize
-						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[1] \autocite{Mehrabi_2021}
-							\item[2] \autocite{M63_Hardt_2016}
-							\item[3] \autocite{M149_Verma_2018}
-							\item[4] \autocite{M48_Dwork_2012}
-						\end{minipage}%
-						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[5] \autocite{M87_Kusner_2017}
-							\item[6] \autocite{M61_Grgic-Hlaca_2016}
-							\item[7] \autocite{M15_Berk_2017}
-							\item[8] \autocite{M34_Chouldechova_2017}
-						\end{minipage}%
-						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[9] \autocite{M50_Farnadi_2018}
-							\item[10] \autocite{M41_Corbett-Davies_2017}
-							\item[11] \autocite{M79_Kearns_2018}
-							\item[12] \autocite{M80_Kearns_2019} \todo{potential bias in this bc same author of the algorithm tested it}
-						\end{minipage}%
-					\end{tablenotes}
-				\end{threeparttable}
-				\caption{Fairness Definitions - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
-				\label{tab:fairness_definitions}
-			\end{table}
-			
+					
 			\rawcitationstart
 			\subsection{Fairness Extensive Sources}
 			\paragraph{Algorithmic Fairness}
 			\begin{itemize}
+				\rawcitationusedstart	
 				\item in order to be able to fight against discrimination and achieve fairness, one should first define fairness. \autocite{Mehrabi_2021}
 				\item The fact that no universal definition of fairness exists shows the difficulty of solving this problem [138]. Different preferences and outlooks in different cultures lend a preference to different ways of looking at fairness, which makes it harder to come up with just a single definition that is acceptable to everyone in a situation. there is still no clear agreement on which constraints are the most appropriate for those problems. \autocite{Mehrabi_2021}
 				\item Broadly, fairness is the absence of any prejudice or favoritism towards an individual or a group based on their intrinsic or acquired traits in the context of decision-making [139]. Even though fairness is an incredibly desirable quality in society, it can be surprisingly difficult to achieve in practice. \autocite{Mehrabi_2021}
+				\rawcitationusedend
 				\item Here we will reiterate and provide some of the most widely used definitions, along with their explanations inspired from \autocite{M149_Verma_2018}.\autocite{Mehrabi_2021}
+				\rawcitationusedstart
 				\item Definitions on page 12, 13, 14 \autocite{Mehrabi_2021}
 				\begin{itemize}
 					\item Equalized Odds (TP and FP rate should be the same for individuals in different sub groups) \autocite{Mehrabi_2021}
@@ -1116,8 +1144,9 @@
 					\item Counterfactual Fairness (same outcome in actual world and counterfactual world where the individual belonged to a different demographic group) \autocite{Mehrabi_2021}
 					\item Fairness in Relational Domains (“A notion of fairness that is able to capture the relational structure in a domain—not only by taking attributes of individuals into consideration but by taking into account the social, organizational, and other connections between individuals” \autocite{M50_Farnadi_2018}) \autocite{Mehrabi_2021} probably not relevant since not relational
 					\item Conditional Statistical Parity (people in both groups have equal possibilities of being assigned to a positive outcome given a set of legitimate factors) \autocite{Mehrabi_2021}
-					\item My text: The survey categorizes those fairness notions in three different groups: Individual Fairness, Group Fairness and Subgroup fairness.  \autocite{Mehrabi_2021}
-					\item Subgroup fairness: Subgroup fairness intends to obtain the best properties of the group and individual notions of fairness. It is different than these notions but uses them in order to obtain better outcomes. It picks a group fairness constraint like equalizing false positive and asks whether this constraint holds over a large collection of subgroups \autocite{M79_Kearns_2018}\autocite{M80_Kearns_2019}\autocite{Mehrabi_2021}
+					\item Subgroup fairness: Subgroup fairness intends to obtain the best properties of the group and individual notions of fairness. It is different than these notions but uses them in order to obtain better outcomes. It picks a group fairness constraint like equalizing false positive and asks whether this constraint holds over a large collection of subgroups
+					\rawcitationusedend
+					\autocite{M79_Kearns_2018}\autocite{M80_Kearns_2019}\autocite{Mehrabi_2021}
 					\item it is impossible to satisfy some of the fairness constraints at once except in highly constrained special cases. In [83], the authors show the inherent incompatibility of two conditions: calibration and balancing the positive and negative classes. These cannot be satisfied simultaneously with each other unless under certain constraints; therefore, it is important to take the context and application in which fairness definitions need to be used into consideration and use them accordingly [141]\autocite{Mehrabi_2021}
 					\item Another important aspect to consider is time and temporal analysis of the impacts that these definitions may have on individuals or groups. In [95] authors show that current fairness definitions are not always helpful and do not promote improvement for sensitive groups—and can actually be harmful when analyzed over time in some cases. They also show that measurement errors can also act in favor of these fairness definitions; therefore, they show how temporal modeling and measurement are important in evaluation of fairness criteria and introduce a new range of trade-offs and challenges toward this direction. It is also important to pay attention to the sources of bias and their types when trying to solve fairness-related questions. \autocite{Mehrabi_2021}
 				\end{itemize}
@@ -1464,13 +1493,13 @@
 					\item The field of algorithmic fairness is a relatively new area of research and work still needs to be done for its improvement. With that being said, there are already papers that propose fair AI algorithms and bias mitigation techniques and compare different mitigation algorithms using different benchmark datasets in the fairness domain. For instance, authors in [65] propose a geometric solution to learn fair representations that removes correlation between protected and unprotected features. The proposed approach can control the trade-off between fairness and accuracy via an adjustable parameter. In this work, authors evaluate the performance of their approach on different benchmark datasets, such as COMPAS, Adult and German, and compare them against various different approaches for fair learning algorithms considering fairness and accuracy measures [65, 72, 158, 159]. In addition, IBM’s AI Fairness 360 (AIF360) toolkit [11] has implemented many of the current fair learning algorithms and has demonstrated some of the results as demos which can be utilized by interested users to compare different methods with regards to different fairness measures. \autocite{Mehrabi_2021}
 				\end{itemize}			
 			
-		\section{Statistical biases}
+		\subsection{Statistical biases}
 			https://data36.com/statistical-bias-types-explained/
 			\begin{itemize}
 				\item 
 			\end{itemize}	
 	
-		\section{Dermatology Bias}
+		\subsection{Dermatology Bias}
 			\begin{itemize}
 				\item https://ijdvl.com/biases-in-dermatology-a-primer/ 29 biases, 4 reasons to know about it, 7 mitigation methods \autocite{Chakraborty_2024} - dermatology
 				
@@ -1479,7 +1508,7 @@
 				\item Metrics of model performance. Standard metrics are needed to assess the performance of different models (Figure 1). Currently, standard performance metrics such as accuracy and area under the receiver operating characteristic and precision recall curves are routinely reported. However, for use in the clinic, studies should additionally describe how well their models deal with uncertainty by reporting (i) the Brier Score, or mean-squared calibration error (Rufibach, 2010), which measures how reliably a model can forecast its accuracy, and (ii) area under the response rate accuracy curve, which measures how capably a model can identify examples it is likely to predict falsely and thus abstain from predicting (Hendrycks et al., 2019) \autocite{Young_2020}
 				\item Model interpretability. Acceptance of AI in clinical decision making hinges on being able to understand the decisionmaking process fundamental to its predictions. DL models are inherently difficult to interpret because they are complex, routinely containing millions of learned parameters; interpretation of DL models’ output is an active field of research (Murdoch et al., 2019). One approach for interpreting model diagnoses is contentbased image retrieval, a method for retrieving training images that are visually similar to a test image (Tschandl et al., 2019a). This method may reassure the physician if all the retrieved training images have the same diagnosis as the predicted diagnosis but is less helpful if the test image looks similar to two or more training images with conflicting diagnoses. A second approach is to highlight pixels in an image most relevant for a model’s prediction, using methods such as saliency mapping (Figure 1). However, it is often the case that highlighted pixels correspond to the entire lesion or visually distinctive features that are already obvious to clinicians without indication as to why these pixels are important to the diagnosis. A third approach is to see through the eyes of a model by plotting an activation atlas (Carter et al., 2019), which shows how subtle changes, in particular visual features, may tip the model over into choosing one diagnosis over another. These activation atlases are experimental and have yet to be applied in dermatology. Understanding a model’s predictions and how the prediction is applicable to the patient at hand is necessary to build trust. As AI exceeds human performance in various tasks, interpreting models may help to advance scientific knowledge by understanding what the machine sees that is relevant to its predications \autocite{Young_2020}
 			\end{itemize}
-		\subsection{Demographic Bias in Dermatology}
+		\subsubsection{Demographic Bias in Dermatology}
 		\paragraph{fairness melanoma detection}
 		\begin{itemize}
 			\item Some biases can be easily detected and countered, such as through appropriate data curation; for example, having a balanced representation across skin tones and genders in training sets. However, in other cases, biases are hidden and untraceable [9]. \autocite{Montoya_2025}
