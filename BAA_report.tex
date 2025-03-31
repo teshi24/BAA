@@ -332,7 +332,7 @@
 			\rawcitationusedend
 			
 			\subsection{Bias Sources}
-			The general ML lifecycle consists of data gathering, training the algorithm and the user interaction with the trained model. Now, while data gathering, biases can arise either through the collection process or it is already inherited in the available data. Further, depending on the algorithm design, during training, the existing bias in the data can be amplified and new bias can be introduced. Lastly, the result of the algorithm can affect the user experience on inference which can lead to further bias amplification. This generates a feedback loop between the biases in each step of the ML lifecycle which can make it hard to identify the original bias source. The feedback loop is illustrated in \ref{fig:bias_definitions_ML_lifecycle}, which also shows first bias definitons, which were categorized according to this feedback loop \autocite{Mehrabi_2021}.
+			The general ML lifecycle consists of data gathering, training the algorithm and the user interaction with the trained model. Now, while data gathering, biases can arise either through the collection process or it is already inherited in the available data. Further, depending on the algorithm design, during training, the existing bias in the data can be amplified and new bias can be introduced. Lastly, the result of the algorithm can affect the user experience on inference which can lead to further bias amplification. This generates a feedback loop between the biases in each step of the ML lifecycle which can make it hard to identify the original bias source. The feedback loop is illustrated in \autoref{fig:bias_definitions_ML_lifecycle}, which also shows first bias definitons, which were categorized according to this feedback loop \autocite{Mehrabi_2021}.
 			
 			\begin{figure}[H]
 				\centering
@@ -352,8 +352,8 @@
 			\subsection{Bias Types}
 			 The \autoref{tab:biases_types} aims to provide an overview over what kind of biases exist according to research. The more detailed categories listed in the table try to capture similar kind of biases. This thesis follows roughly the categorization of \cite{Mehrabi_2021}. Some biases might acctually fit in multiple categories. The definition of the categories including examples of specific biases follows.
 			
-			\todo{check categorization of table ref18, statistical biases}
-			\todo{check the c citations pls}
+			\todo{check the c citations in the following chapters pls}
+			
 			\begin{table}[H]
 				\centering
 				\begin{threeparttable}
@@ -362,93 +362,46 @@
 						\textbf{Bias} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
 						& \textbf{ML} & \textbf{Dermatology} \\
 						%	\midrule
-						\multicolumn{3}{l}{\textbf{Data Biases}} \\ 
+						\multicolumn{3}{l}{\bolditalic{Data Biases}} \\ 
 						
-						\bolditalic{Sampling Biases} \todo{specify which one of note 18, was selection and survivorship, maybe also add HP\_2022} & X\tnote{1,16,18} & X\tnote{19} \\
-						\bolditalic{Representation Biases} & X\tnote{1,20} & X\tnote{21} \\
-						\bolditalic{Measurement Biases} \todo{only mester 2022 relevant} & X\tnote{1,18} & X\tnote{19,21} \\
-						\bolditalic{Research Biases} \todo{specify which one of note 18, was funding bias} & X\tnote{18} & X\tnote{19} \\
-						\bolditalic{Feature Representation Biases} \todo{only mester 2022 relevant}& X\tnote{1,18} & X\tnote{19} \\
-						\bolditalic{Imaging Biases} & & X\tnote{20} \\
-						\bolditalic{Medical Biases} & X\tnote{14} & X\tnote{19} \\
-						\bolditalic{Temporal Data Biases} & X\tnote{1} & X\tnote{19}\\
-						
-						
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Algorithmic Biases}} \\ 
-						Algorithmic Bias     & X\tnote{1,4,5} &   \\
-						\multicolumn{3}{l}{\bolditalic{Biases Stemming from User Interaction with the Algorithm}} \\
-						User Interaction Bias& X\tnote{1,4} &    \\
-						Presentation Bias    & X\tnote{1,4} &    \\
-						Ranking Bias         & X\tnote{1,4,6} &    \\
-						Emergent Bias        & X\tnote{1,9} &    \\
-						
-						\multicolumn{3}{l}{\bolditalic{Biases Stemming from Other External Influence}} \\
-						Popularity Bias      & X\tnote{1,10} & X\tnote{19,c9}   \\
-						Incorporation Bias   & & X\tnote{19,c25,c26} \\
-						Evaluation Bias      & X\tnote{1,2,12} &   \\
-						Generalization Issues &  & X\tnote{20,\todo{add those from young}} \\
+						Sampling Biases & X\tnote{1,2,3} & X\tnote{4} \\
+						Representation Biases & X\tnote{1} & X\tnote{5,6} \\
+						Measurement Biases & X\tnote{1,3} & X\tnote{4,6} \\
+						Research Biases & X\tnote{7} & X\tnote{4} \\
+						Feature Representation Biases & X\tnote{1,3} & X\tnote{4} \\
+						Imaging Biases & & X\tnote{5} \\
+						Medical Biases & X\tnote{8} & X\tnote{4} \\
+						Temporal Data Biases & X\tnote{1} & X\tnote{4}\\
 						
 						%	\midrule
-						\multicolumn{3}{l}{\textbf{User Biases}} \\ 
-						\multicolumn{3}{l}{\bolditalic{Cognitive and Decision-Making Biases}} \\
-						Cognitive Bias    & X\tnote{18} & \\
-						Previous opinion Bias & & X\tnote{19, c32} \\
-						Confirmation bias &   &X\tnote{19,c15} \\
-						Cause-Effect Bias    & X\tnote{18} & \\
-						
-						\multicolumn{3}{l}{\bolditalic{Behavioral and Social Biases}} \\
-						Self-Selection Bias  & X\tnote{1,18,20} &   \\
-						Social Bias          & X\tnote{1,4,7} &     \\
-						Historical Bias      & X\tnote{1,2,17} &  \\
-						Behavioral Bias      & X\tnote{1,3} &    \\
-						Temporal Bias        & X\tnote{1,3} &    \\
-						
-						\multicolumn{3}{l}{\bolditalic{Medical and Publication Biases}} \\
-						Content Production Bias & X\tnote{1,3} &    \\
-						Publication/All is Well Bias     & \todo{add citation} & X\tnote{19,c10-c12} \\
-						Non-Responder bias / Attrition bias      &  & X\tnote{19, c9} \\
-						
-						\multicolumn{3}{l}{\bolditalic{Population and Perception Biases}} \\
-						Population Bias      & X\tnote{1,3,8} &   \\
-						
-						\multicolumn{3}{l}{\bolditalic{Other Biases}} \\
-						Apprehension bias   &  & X\tnote{19,c13} \\
-						Rethoric bias & & X\tnote{19, c14} \\
-						Centripetal bias &  &X\tnote{19} \\
-						Novelty bias & & X\tnote{19} \\
-						Language Bias & & X\tnote{19} \\
-						
+						\multicolumn{3}{l}{\bolditalic{Algorithmic Biases}} \\ 
+						User-Algorithm Interaction Biases & X\tnote{1} & \\
+						External Influence Biases & X\tnote{1} & X\tnote{4} \\
+
+						%	\midrule
+						\multicolumn{3}{l}{\bolditalic{User Biases}} \\
+						Cognitive Biases & X\tnote{1,7} & X\tnote{4} \\
+						Behavioral Biases & X\tnote{1,3} & X\tnote{4,5} \\
+						Publication Biases &  & X\tnote{4} \\
+						Medical Biases & X\tnote{} & X\tnote{4} \\
+		
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
 						\footnotesize
 						\begin{minipage}{0.33\textwidth}\raggedright
 							\item[1] \autocite{Mehrabi_2021}
-							\item[2] \autocite{M144_Suresh_2021}
-							\item[3] \autocite{M120_Olteanu_2019}
-							\item[4] \autocite{M9_Baeza-Yates_2018}
-							\item[5] \autocite{M44_Danks_2017}
+							\item[2] \autocite{HP_2022}
+							\item[3] \autocites{Mester_2022}
 						\end{minipage}%
 						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[6] \autocite{M93_Lerman_2014} 
-							\item[7] \autocite{M151_Wang_2014} 
-							\item[8] \autocite{M64_Hargittai_2007}
-							\item[9] \autocite{M53_Friedman_1996}
-							\item[10] \autocite{M117_Ciampaglia_2018}
+							\item[4] \autocite{Chakraborty_2024}
+							\item[5] \autocite{Young_2020}
+							\item[6] \autocite{Montoya_2025}
 						\end{minipage}%
 						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[11] \autocites{M38_Clarke_2005}{M131_Riegg_2008}
-							\item[12] \autocite{M24_Buolamwini_2018}
-							\item[13] \autocite{M114_Mustard_2003}
-							\item[14] \autocite{Delgado-Rodríguez_2004}
-							\item[15] \autocite{M142_}
-							\item[16] \autocite{M98_}
-							\item[17] \autocite{M150_}
-							\item[18] \autocites{Mester_2022}{Mester_2017}
-							\item[19] \autocite{Chakraborty_2024}
-							\item[20] \autocite{Young_2020}
-							\item[21] \autocite{Montoya_2025}
+							\item[7] \autocites{Mester_2017}
+							\item[8] \autocite{Delgado-Rodríguez_2004}
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
@@ -458,7 +411,7 @@
 			
 			\subsubsection{Data Biases}
 				
-				\paragraph{Sampling Biases}		
+				\paragraph{Sampling Biases}
 				When gathering data, it's usually not possible to gather the data of a whole population. Instead, the data is gathered by sampling. A sample is a subgroup of individuals from the population. To get unbiased results, this sampling process should represent the true population, with a low sampling error \autocites{HP_2022}. This is often achieved with randomized samples. With non-random sampling processes, sampling bias arises. The consequence is, that the insights of one sampled population may not generalize with insights on another sampled popluation \autocite{Mehrabi_2021}.
 				
 				Those biases can be introduced with a flawed sampling process:
@@ -517,6 +470,7 @@
 				Those biases can be introduced :
 				\begin{itemize}
 					\item \textbf{Representation bias}, non-representative sample lead to missing subgroups or other representation anomalies, which can be harmful to downstream applications. Popular ML datasets suffer from representation bias \autocites{Mehrabi_2021}{M142_}
+					\item \textbf{Population Bias}. Population bias arise when statistics, demographics and characteristics in the sample differ from the target population \autocite{M120_Olteanu_2019}. The data it creates is non-representative for the target population \autocite{Mehrabi_2021}.
 					\item \textbf{Aggregation bias} occurs, when "false conclusions are drawn about individuals from observing the entire population". It doesn't matter, whether the subgroups are represented equally in the training set, any generalized assumptions can result in aggregation bias \autocite{Mehrabi_2021}. In medicine, diseases can present themselves differently across genders and ethnicities \autocite{M144_Suresh_2021}. Therefore, diagnostic models need to incorporate those differences to mitigate aggregation bias \autocite{Mehrabi_2021}.
 					\item \textbf{Simpson's Paradox} is a type of aggregation bias, which arises in heterogeneous data analysis. Observed associations disappear or reverses in the subgroup data \autocite{Mehrabi_2021}.
 				\end{itemize}
@@ -533,6 +487,8 @@
 					\rawcitationusedstart
 					\item Representation Bias. Representation bias arises from how we sample from a population during data collection process \autocite{M144_Suresh_2021}. Non-representative samples lack the diversity of the population, with missing subgroups and other anomalies \autocite{Mehrabi_2021}.
 					\item Popular machine-learning datasets that serve as a base for most of the developed algorithms and tools can also be biased—which can be harmful to the downstream applications that are based on these datasets. ... In [142], researchers showed that these datasets suffer from representation bias and advocate for the need to incorporate geographic diversity and inclusion while creating such datasets. \autocite{Mehrabi_2021}
+				
+					\item Population Bias. Population bias arises when statistics, demographics, representatives, and user characteristics are different in the user population of the platform from the original target population \autocite{M120_Olteanu_2019}. Population bias creates non-representative data. ... More such examples and statistics related to social media use among young adults according to gender, race, ethnicity, and parental educational background can be found in \autocite{M64_Hargittai_2007}. \autocite{Mehrabi_2021}
 				
 					\item Aggregation Bias. Aggregation bias (or ecological fallacy) arises when false conclusions are drawn about individuals from observing the entire population. An example of this type of bias can be seen in clinical aid tools. Consider diabetes patients who have apparent morbidity differences across ethnicities and genders. Specifically, HbA1c levels, that are widely used to diagnose and monitor diabetes, differ in complex ways across genders and ethnicities. Therefore, a model that ignores individual differences will likely not be well-suited for all ethnic and gender groups in the population \autocite{M144_Suresh_2021}. This is true even when they are represented equally in the training data. Any general assumptions about subgroups within the population can result in aggregation bias. \autocite{Mehrabi_2021}. --> could also be important for dermatology issues!!!
 					\begin{itemize}
@@ -588,8 +544,6 @@
 				\item \textbf{Funding / Sponsorship bias}, when a study is deliberately supporting those findings, which the sponsor expects \autocites{Chakraborty_2024, c22}{Mester_2017}
 				
 				\item \textbf{Data dredging bias}. The statistical methods and model are chosen to provide a certain p-value, to improve the probability of the research hypothesis being true. \todo{consider to move this to an own reporting section} \autocite{Chakraborty_2024}
-				
-				\item \textbf{Hot stuff bias} is a subtype of publication bias, where Journals are less critical about trending topics, which lead to more frequent publishing of those topics. This in turn can lead to flawed meta-analyses regarding those topics  \autocite{Chakraborty_2024, c22, c23, c19}.
 
 				\item \textbf{Hypothetical bias}. Hypothetical questions lead to responses that do not reflect, what interviewees would do in real life. \autocite{Chakraborty_2024, c31, c28} \todo{isn't this a user bias instead?}
 			\end{itemize}
@@ -608,9 +562,6 @@
 				
 				Reporting biases
 				\item  Data dredging bias: It is an entirely avoidable bias. This is subdivided into two types – Fishing type and “P-value hacking” type. It involves using multiple statistical methods to get the desired p-value and selecting the statistical model that gives the p-value the author wants. This is “lamentably common” in dermatological research.16 To detect data dredging bias, always perform a “p-curve analysis” while performing a meta-analysis.17,18 Much emphasis is nowadays given to the confidence interval instead of the p-value, which gives an approximate idea of the range in which one can be 95\% (or 90\%, depending on the confidence interval chosen) sure that the result is correct. The confidence interval remains unaffected by p-value dredging. This subject has been reviewed in depth in recent works.18,19 15.\autocite{Chakraborty_2024}
-				
-				publication bias 
-				\item Hot stuff bias: Editors of journals may be less critical about topics that are “fashionable” or currently in vogue and consequently end up publishing them more frequently, resulting in publication bias as well as hot stuff bias. It can result in flawed meta-analyses based on these studies. An example is how cutaneous manifestations of COVID-19 were published. Indian Journal of Dermatology Venereology and Leprosy stood out by choosing not to publish anything and everything related to COVID-19, thus reducing hot stuff bias.22,23 19. \autocite{Chakraborty_2024}
 				
 				\item Hypothetical bias: Many dermatological researches (and some life quality questionnaires like vitiQoL) use hypothetical questions – like “What would you do when some stranger asks you about your lesion?”. The responses to these questions by the study participants often do not tally with what they would do in real life. This is called hypothetical bias and is avoided by adopting the ex-ante approach.31 28. \autocite{Chakraborty_2024} - dermatology
 				\rawcitationusedend
@@ -711,8 +662,9 @@
 			\end{itemize}
 			\rawcitationend
 			
-			\paragraph{Temporal Data Biases}
-			Certain studies require to track temporal data, to learn about behaviour or disease progression over time \autocite{Mehrabi_2021}. For PASSION, temporal biases are currently irrelevant, since PASSION contains images independently of time and is not tracking the disease progression. Therefore, the listed biases in this chapter are not explained in detail, refer to the sources for further information.
+			\paragraph{Temporal Biases}
+		    Differences in populations and their behaviour over time can lead to temporal biases \autocite{M120_Olteanu_2019}.
+			Certain studies require to track temporal data, to learn about their behaviour over time. Disease progression is also a factor measured over time \autocite{Mehrabi_2021}. For PASSION, temporal biases are currently irrelevant, since PASSION contains images independently of time and is not tracking the disease progression. Therefore, the listed biases in this chapter are not explained in detail, refer to the sources for further information.
 			
 			Examples for temporal data biases are:
 			\begin{itemize}
@@ -722,7 +674,6 @@
 			\end{itemize}
 			
 			\subsection{Algorithmic Biases}
-			 \autocite{Young_2020}.
 			When an algorithm adds biases to unbiased input data one speaks of \textbf{Algorithmic Bias} \autocite{M9_Baeza-Yates_2018}. This could occur due to algorithmic design choices like optimization functions, regularizations and statistically biased estimators \autocite{M44_Danks_2017}.
 			
 			\rawcitationstart
@@ -734,7 +685,7 @@
 			\end{itemize}
 			\rawcitationend
 				
-			\paragraph{Biases Stemming from User Interaction with the Algorithm}
+			\paragraph{User Algorithm Interaction Biases}
 				\begin{itemize}
 					\item \textbf{User Interaction Bias}. This biases can be triggered by the user interface or the user themselves. The user interface influences the user to behave in a certain way, which could introduce bias in the user behaviour. Users impose this (or their own) biased behavior through interaction on the algorithm \autocite{M9_Baeza-Yates_2018}. \textbf{Presentation bias} and \textbf{Ranking bias} are further subtypes mentioned by \cites{M93_Lerman_2014}{Mehrabi_2021}.
 					\item \textbf{Emergent Bias}. When real users interact with an algorithm, this bias arises some time after the design was completed due to changes in population. It appears more likely in user interfaces \autocite{M53_Friedman_1996}.
@@ -759,13 +710,13 @@
 			\end{itemize}
 			\rawcitationend
 						
-			\paragraph{Biases Stemming from Other External Influence}
+			\paragraph{External Influence Biases}
 			
 			Those biases can be introduced :
 			\begin{itemize}
 				\item \textbf{Evaluation Bias}. When inappropriate or disproprtionate benchmarks are used in model evaluation, they can introduce the benchmarks biases into the model. \autocites{M144_Suresh_2021}{M24_Buolamwini_2018}
 				
-				\item  \textbf{Incorporation bias}. When index tests in diagnostic accuracy studies are part of the reference tests, this results in elevated sensitivity for the index tests \autocite{Chakraborty_2024, c21, c25, c26}.
+				\item  \textbf{Incorporation bias}. When index tests in diagnostic accuracy studies are part of the reference tests, this results in elevated sensitivity for the index tests \autocites{Chakraborty_2024, c21, c25, c26}{Young_2020}.
 				
 				\item \textbf{Popularity Bias}. More popular items tend to be exposed more. Popularity metrics can be manipulated though or not reflecting good quality, this can lead to bias \autocites{M117_Ciampaglia_2018}{Mehrabi_2021}.
 				
@@ -790,25 +741,138 @@
 			\rawcitationend
 			
 			
-			\paragraph{ Biases}
-			\autocite{Young_2020}.
+			\subsection{User Biases}
+			
+			\paragraph{Cognitive Biases}
+			Biases which are related to human perception belong to the category of cognitive biases. They are affecting how data should be presented and interpreted \autocite{Mester_2017}
 			
 			Those biases can be introduced :
 			\begin{itemize}
-				\item \textbf{ Bias}.  \autocite{}
-				\item \textbf{ Bias}.  \autocite{}
-				\item \textbf{ Bias}.  \autocite{}
+				\item \textbf{Confirmation Bias}. When people have pre-conceptions, they will only listen to the part of presented information which reinforce those "facts", regardless whether the facts are true or not \autocite{Mester_2017}. In health-care, this can be observed when patients report increases in diseases due to potentially nonfactual information they found on the internet \autocite{Chakraborty_2024, c15, c14}.
+				\item \textbf{Belief Bias}. A stronger version of the confirmation bias: Someone who is affected by this bias is so sure about their own gut feelings that they will ignore results of a data research project \autocite{Mester_2017}.
+				\item \textbf{Previous Opinion Bias}. When performing multiple tests, the knowledge about the outcome of the previous tests probably influences the results \autocite{Chakraborty_2024}
+				\item \textbf{Cause-Effect Bias}. The famous senctence "correlation does not imply causation" can be used here - when correlation between two variables is misinterpreted as a cause-effect in the wrong direction, this bias applies  \autocite{Mester_2017}
+				\item \textbf{Historical Bias}. Preexisting biases in the world can affect the data generation process \autocite{M144_Suresh_2021}. Even if they reflect the current reality, it is worth to consider whether those biases should affect the algorithms in question \autocite{Mehrabi_2021}.
+				\item \textbf{Content Production Bias}. User generated contents can introduce biases by systematical differences in the production process, stucture and appearance, which might stem from the users background \autocite{M120_Olteanu_2019}.
 			\end{itemize}
 			
-			
 			\subparagraph{Potential Biases in PASSION}
+			For PASSION, confirmation bias could lead to issues in the initial diagnosis and could therefore lead to biased data labeling. Same with the previous opinion bias. The later can be reduced when it is ensured, that the labeling experts are diagnosing the diseases independently of each other, so that they do not know the previous opinions.
+			Cause-Effect bias is lesser an issue for PASSION, since the causes of the diseases are not analyzed. It could more be an inherit problem, that the algorithm learns wrong causes for diseases, such as appearing hair
+			Historical bias can affect PASSIONs process in various ways.
+			In PASSION context, Content Production Bias could have an impact on how the images are taken.
 			
 			
 			\rawcitationstart
 			used
 			\begin{itemize}		
 				\rawcitationusedstart
-				\item  
+				\item  	
+				\item Cognitive bias \autocites{Mester_2017} - statistical bias
+				
+				\item  Previous opinion bias: In performing a second diagnostic test, if the result of a previous test is known, it is likely to influence the result. An extension of this is the Greenwald’s law of lupus: the Sontheimer amendment – anything and everything that happens to a lupus erythematosus patient is correctly or incorrectly attributed to lupus.32 29. \autocite{Chakraborty_2024} - dermatology
+							
+				\item  Confirmation bias: This bias occurs when study participants have a preconceived notion of their disease that may not be based on facts. For example, we have observed that in North India many tinea patients report an increase in their disease due to taking meat, fish, and other so-called “hot foods”. They may also present information they have collected from the internet which reinforces their beliefs.15 14.\autocite{Chakraborty_2024} - dermatology
+			
+				\item Cause-effect bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+			
+			
+				\item Historical Bias. Historical bias is the already existing bias and socio-technical issues in the world and can seep into from the data generation process even given a perfect sampling and feature selection \autocite{M144_Suresh_2021}. ... search results were of course reflecting the reality, but whether or not the search algorithms should reflect this reality is an issue worth considering \autocite{Mehrabi_2021} - maybe relevant
+				
+				\item Content Production Bias. Content Production bias arises from structural, lexical, semantic, and syntactic differences in the contents generated by users \autocite{M120_Olteanu_2019}. \autocite{Mehrabi_2021} -- could the quality of the pictures been related to this as well?	
+				\rawcitationusedend
+			\end{itemize}
+			\rawcitationend
+			
+			\paragraph{Behavioral Biases}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{Behavioral Bias}. User behaviour can differ depending on the platforms, contexts, cultures, or datasets \autocite{M120_Olteanu_2019}.
+				\item \textbf{Self-Selection Bias}. This subtype of selection bias occurs when study participants can select themselves. Less proactive people, people with less time or interest will be excluded or underrepresented \autocites{Mester_2022}{Mehrabi_2021}. \textbf{Non-Responder bias} is a subtype, where part of the population is not responding e.g. to fill out a survey or post-study responses queried by postal services \autocite{Chakraborty_2024}. \todo{maybe categorize this in the data biases or the healthy volunteer bias here}
+				\item \textbf{Social Bias}. When the actions of others affect our judgment, it is called social bias. For example ratings in juries can be affected by this \autocite{M9_Baeza-Yates_2018}.
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			For PASSION the behavioral biases can affect who is going to the dermatologists for what reasons. Therefore, the approach to use data from different countries may be benefitial, since potentially the cultural differences could differ.
+			Self-selection is an issue, since only those patients can be included in the database which go to the hospitals.
+			
+			
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item Self-Selection Bias. Self-selection bias4 is a subtype of the selection or sampling bias in which subjects of the research select themselves. \autocite{Mehrabi_2021}
+				\item Self-selection bias - when you let the subjects of the analyses select themselves, less proactive people will be excluded \todo{could be an issue as well for PASSION, couldn't it? since the doctors probably ask the clients. One way to go is to default should be to provide access to the data. but is it ethical?} \autocites{Mester_2022}{Mester_2017}- statistical bias
+				A variation of this is non-responder bias, where non-responders to a questionnaire differ significantly from responders.9 9. \autocite{Chakraborty_2024} - dermatology
+			
+				\item Social Bias. Social bias happens when others’ actions affect our judgment \autocite{M9_Baeza-Yates_2018}. (case where we want to rate or review an item with a low score, but when influenced by other high ratings, we change our scoring thinking that perhaps we are being too harsh [\autocite{M9_Baeza-Yates_2018}, \autocite{M151_Wang_2014}.) \autocite{Mehrabi_2021}
+
+				\item Behavioral Bias. Behavioral bias arises from different user behavior across platforms, contexts, or different datasets \autocite{M120_Olteanu_2019}. \autocite{Mehrabi_2021} maybe, people from different countries go to the dermatologist for different diseases, based on cultural differences?
+				\rawcitationusedend
+				
+			\end{itemize}
+			\rawcitationend
+			
+			\paragraph{Publication Biases}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{Publication Bias}
+				\item \textbf{Hot stuff bias} is a subtype of publication bias, where Journals are less critical about trending topics, which lead to more frequent publishing of those topics. This in turn can lead to flawed meta-analyses regarding those topics  \autocite{Chakraborty_2024, c22, c23, c19}.
+				\item \textbf{All is Well Bias}. This bias is a different view on the hot stuff bias. Theories which align with the view of the majority are more likely to be pubhlished than an opposing view \autocite{Chakraborty_2024, c7,c10-12}.
+				\item \textbf{Rethoric Bias}. Charismatic writing or when the press is more vocal about findings can lead to greater influence over individuals than other available facts \autocite{Chakraborty_2024}.
+				\item \textbf{Novelty Bias}. Newer interventions appear to be better. Over time, this effect decreases \autocite{Chakraborty_2024}.
+			\end{itemize}
+			
+			\subparagraph{Potential Biases in PASSION}
+			These biases are relevant for all researchers. They should kept in mind when interpreting, publishing and peer-reviewing papers.
+			
+			
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item Hot stuff bias: Editors of journals may be less critical about topics that are “fashionable” or currently in vogue and consequently end up publishing them more frequently, resulting in publication bias as well as hot stuff bias. It can result in flawed meta-analyses based on these studies. An example is how cutaneous manifestations of COVID-19 were published. Indian Journal of Dermatology Venereology and Leprosy stood out by choosing not to publish anything and everything related to COVID-19, thus reducing hot stuff bias.22,23 19. \autocite{Chakraborty_2024}
+				\item All is well bias: It is a subjective bias where theories supported by the majority tend to get more easily published than the opposing view supported by the minority. For example, ideas on the origin of endemic pemphigus supporting autoimmunity are more likely to be published than theories exploring an infectious trigger. According to some authors, this bias is very difficult to eliminate and is a variant of publication bias.10-12 7.\autocite{Chakraborty_2024} - dermatology
+				
+				\item Rhetoric bias: A more charismatic piece of writing has a greater influence on the study participants than other available literature. An example is the wider use of sunscreen for polymorphous light eruption over photoprotective strategies like umbrellas, broadbrimmed hats, etc, because the lay press is more vocal about sunscreens.14 11. \autocite{Chakraborty_2024} - dermatology
+
+				\item  Novelty bias: The newer an intervention, the better it appears, and with time, its efficacy seems to decrease. When ligelizumab, an IgE antagonist was first discovered, ligelizumab was believed to be better than omalizumab; however, evidence soon pointed to the contrary. 16.\autocite{Chakraborty_2024} - dermatology			
+				\rawcitationusedend
+			\end{itemize}
+			\rawcitationend
+			
+			
+			\paragraph{Medical Biases}
+			
+			Those biases can be introduced :
+			\begin{itemize}
+				\item \textbf{Popularity Bias}. In medicine, when more popular diseases (usually well-known or stigmatized ones) get compared with less popular diseases, clinic rates can show a distorted view. The more popular diseases appear to be over-represented over more commoner ones \autocite{Chakraborty_2024, c9, c6}.
+				\item \textbf{Apprehension Bias}. Fear related to an upcoming procedure can lead to false evaluations, e.g. when measuring blood pressure \autocite{Chakraborty_2024, c13}.
+				\item \textbf{Hawthrone bias}. Subjects might modify their behaviour when they know they are being watched. This bias can be practically utilized by introducing regular follow-ups \autocite{Chakraborty_2024, c8}.
+				\item \textbf{Centripetal Bias}. Better reputations affect to which physicians or hospitals patients tend to go to. Famous specialists probably see more cases in regards of their specialty than others \autocite{Chakraborty_2024, c12}.
+			\end{itemize}
+			
+			
+			\subparagraph{Potential Biases in PASSION}
+			PASSION must be careful in interpreting the metadata. Since the data is from hospitals, they could be biased towards more popular diseases.
+			PASSION can potentially use Hawthrone bias to improve the work of the annotators.
+			Centripetal bias can also be used when selecting the partners to work with.
+			
+			
+			\rawcitationstart
+			used
+			\begin{itemize}		
+				\rawcitationusedstart
+				\item Popularity Bias: This bias arises when a particular disease is more popular (i.e. either more well-known or more stigmatised) among the participants than the disease with which it is compared. For example, if a study compares clinic attendance rates among various dermatological disorders, one would see vitiligo patients are over-represented over melasma. While melasma is commoner in the normal population, vitiligo, due to its popularity because of media publicity and other factors, tends to present earlier.9 6. \autocite{Chakraborty_2024} - dermatology
+				
+				\item  Apprehension bias: This results from fear and apprehensions related to an impending procedure. The classic example is the false elevation of blood pressure because the person is apprehensive of his or her blood pressure being measured.13 A variant of this is the Hawthorne bias, where subjects modify their behavior, such as regularly taking a prescribed drug or exercising, simply because they know they are being watched, but not due to any apprehensions. Hawthorne bias is practically utilised in many leprosy clinics since regular follow-up has been shown to improve adherence to therapy based on Hawthorne bias. 8. \autocite{Chakraborty_2024} - dermatology
+				
+				\item Centripetal bias: Patients tend to go to more reputed physicians and hospitals than others. For example, a famous or better-known cosmetologist with a good reputation tends to see more cases than other cosmetologists. 12.\autocite{Chakraborty_2024}  - dermatology
 				\rawcitationusedend
 			\end{itemize}
 			\rawcitationend
@@ -817,11 +881,11 @@
 			\subsection{Sensitive Features}
 			Research showed sensitive features which are prone to bias. Those led to issues in existing AI applications and their usage should therefore be investigated carefully.
 			
-			\ref{tab:biases_features} summarizes mentioned features. Since PASSION tries to improve the classification of skin diseases with photographs alone, those features which directly influence the appearance of a disease on the skin are most important. Skin type including undertone are affecting the diseases appearance, but also genetic factors, gender and the age \todo{doublecheck impact of age} of a patient can influence how the diseases manifest themselves. Therefore, they are directly relevant for skin detection and must be considered in the dataset.
+			\autoref{tab:biases_features} summarizes mentioned features. Since PASSION tries to improve the classification of skin diseases with photographs alone, those features which directly influence the appearance of a disease on the skin are most important. Skin type including undertone are affecting the diseases appearance, but also genetic factors, gender and the age \todo{doublecheck impact of age} of a patient can influence how the diseases manifest themselves. Therefore, they are directly relevant for skin detection and must be considered in the dataset.
 			
 			Other demographic factors can have an impact on the progression of skin diseases or increase the prevalence of skin conditions (e.g. tropical vs dry climates) \todo{add source}. While this information could support the diagnostic process, it is not visible in the images. Therefore, they could potentially be relevant and enhance the diagnostic process when included into the PASSION dataset. However, the linkage is weak and could introduce further biases.
 			
-			For completeness, \ref{tab:biases_features} shows further sensitive demographic features which seem not to be linked to dermatology according to research.
+			For completeness, \autoref{tab:biases_features} shows further sensitive demographic features which seem not to be linked to dermatology according to research.
 			
 			
 			\todo{check what to do with those additional features:}
@@ -961,13 +1025,7 @@
 			
 			User to Data (user-generated data, inherent biases in users could be reflected in the data they generate; biases in last section might introduce further bias in this process) \autocite{Mehrabi_2021}
 			\begin{itemize}
-				\item Historical Bias. Historical bias is the already existing bias and socio-technical issues in the world and can seep into from the data generation process even given a perfect sampling and feature selection \autocite{M144_Suresh_2021}. ... search results were of course reflecting the reality, but whether or not the search algorithms should reflect this reality is an issue worth considering \autocite{Mehrabi_2021} - maybe relevant
-				\item Population Bias. Population bias arises when statistics, demographics, representatives, and user characteristics are different in the user population of the platform from the original target population \autocite{M120_Olteanu_2019}. Population bias creates non-representative data. ... More such examples and statistics related to social media use among young adults according to gender, race, ethnicity, and parental educational background can be found in \autocite{M64_Hargittai_2007}. \autocite{Mehrabi_2021}
-				\item Self-Selection Bias. Self-selection bias4 is a subtype of the selection or sampling bias in which subjects of the research select themselves. \autocite{Mehrabi_2021}
-				\item Social Bias. Social bias happens when others’ actions affect our judgment \autocite{M9_Baeza-Yates_2018}. (case where we want to rate or review an item with a low score, but when influenced by other high ratings, we change our scoring thinking that perhaps we are being too harsh [\autocite{M9_Baeza-Yates_2018}, \autocite{M151_Wang_2014}.) \autocite{Mehrabi_2021}
-				\item Behavioral Bias. Behavioral bias arises from different user behavior across platforms, contexts, or different datasets \autocite{M120_Olteanu_2019}. \autocite{Mehrabi_2021} maybe, people from different countries go to the dermatologist for different diseases, based on cultural differences?
-				\item Temporal Bias. Temporal bias arises from differences in populations and behaviors over time \autocite{M120_Olteanu_2019}. \autocite{Mehrabi_2021} -- could this also be differences in the year, when people go to dermatologists? over which timeline has the PASSION data been captured? 
-				\item Content Production Bias. Content Production bias arises from structural, lexical, semantic, and syntactic differences in the contents generated by users \autocite{M120_Olteanu_2019}. \autocite{Mehrabi_2021} -- could the quality of the pictures been related to this as well?
+				\item
 			\end{itemize}
 		
 			\paragraph{Dermatology Biases}
@@ -1409,26 +1467,12 @@
 		\section{Statistical biases}
 			https://data36.com/statistical-bias-types-explained/
 			\begin{itemize}
-				\item Self-selection bias - when you let the subjects of the analyses select themselves, less proactive people will be excluded \todo{could be an issue as well for PASSION, couldn't it? since the doctors probably ask the clients. One way to go is to default should be to provide access to the data. but is it ethical?} \autocites{Mester_2022}{Mester_2017}- statistical bias
-				\item Cause-effect bias \autocites{Mester_2022}{Mester_2017} - statistical bias
-				\item Cognitive bias \autocites{Mester_2022}{Mester_2017} - statistical bias
+				\item 
 			\end{itemize}	
 	
 		\section{Dermatology Bias}
 			\begin{itemize}
-				\item https://ijdvl.com/biases-in-dermatology-a-primer/ 29 biases, 4 reasons to know about it, 7 mitigation methods \autocite{Chakraborty_2024}
-				\item Popularity Bias: This bias arises when a particular disease is more popular (i.e. either more well-known or more stigmatised) among the participants than the disease with which it is compared. For example, if a study compares clinic attendance rates among various dermatological disorders, one would see vitiligo patients are over-represented over melasma. While melasma is commoner in the normal population, vitiligo, due to its popularity because of media publicity and other factors, tends to present earlier.9 6. \autocite{Chakraborty_2024}
-				\item All is well bias: It is a subjective bias where theories supported by the majority tend to get more easily published than the opposing view supported by the minority. For example, ideas on the origin of endemic pemphigus supporting autoimmunity are more likely to be published than theories exploring an infectious trigger. According to some authors, this bias is very difficult to eliminate and is a variant of publication bias.10-12 7.\autocite{Chakraborty_2024}
-				\item  Apprehension bias: This results from fear and apprehensions related to an impending procedure. The classic example is the false elevation of blood pressure because the person is apprehensive of his or her blood pressure being measured.13 A variant of this is the Hawthorne bias, where subjects modify their behavior, such as regularly taking a prescribed drug or exercising, simply because they know they are being watched, but not due to any apprehensions. Hawthorne bias is practically utilised in many leprosy clinics since regular follow-up has been shown to improve adherence to therapy based on Hawthorne bias. 8. \autocite{Chakraborty_2024}
-				\item Attrition bias: This occurs due to lack of follow-up. This is a common problem in studies evaluating the efficacy of biologics in psoriasis – where many patients are lost to follow-up. A remedy is performing intention to treat analysis.9 A variation of this is non-responder bias, where non-responders to a questionnaire differ significantly from responders.9 9. \autocite{Chakraborty_2024}
-				\item Rhetoric bias: A more charismatic piece of writing has a greater influence on the study participants than other available literature. An example is the wider use of sunscreen for polymorphous light eruption over photoprotective strategies like umbrellas, broadbrimmed hats, etc, because the lay press is more vocal about sunscreens.14 11. \autocite{Chakraborty_2024}
-				\item Centripetal bias: Patients tend to go to more reputed physicians and hospitals than others. For example, a famous or better-known cosmetologist with a good reputation tends to see more cases than other cosmetologists. 12.\autocite{Chakraborty_2024}
-				\item  Confirmation bias: This bias occurs when study participants have a preconceived notion of their disease that may not be based on facts. For example, we have observed that in North India many tinea patients report an increase in their disease due to taking meat, fish, and other so-called “hot foods”. They may also present information they have collected from the internet which reinforces their beliefs.15 14.\autocite{Chakraborty_2024}
-				\item  Novelty bias: The newer an intervention, the better it appears, and with time, its efficacy seems to decrease. When ligelizumab, an IgE antagonist was first discovered, ligelizumab was believed to be better than omalizumab; however, evidence soon pointed to the contrary. 16.\autocite{Chakraborty_2024}
-				\item Language bias: Articles with significant findings tend to get published more often in English (since that is the most common language in medical research) than in other languages. It is crucial in many studies involving dermatological quality of life measurements. 24.\autocite{Chakraborty_2024} - dermatology
-			
-				\item  Previous opinion bias: In performing a second diagnostic test, if the result of a previous test is known, it is likely to influence the result. An extension of this is the Greenwald’s law of lupus: the Sontheimer amendment – anything and everything that happens to a lupus erythematosus patient is correctly or incorrectly attributed to lupus.32 29. \autocite{Chakraborty_2024} - dermatology
-		
+				\item https://ijdvl.com/biases-in-dermatology-a-primer/ 29 biases, 4 reasons to know about it, 7 mitigation methods \autocite{Chakraborty_2024} - dermatology
 				
 				\item A recent study reported mean top-1 and top-5 model accuracy of 44.8\% and 78.1\%, respectively, for the classification of 134 diseases (Han et al., 2019b). Most datasets are proprietary, often with minimal description, and datasets collected in dermatology clinics may be skewed toward more complex cases, to those patients with better access to care, or by the choice of camera used in one clinic versus another. Data should be collected from as many diverse sources as possible, including primary care clinics, and robust standards for external validation are needed. \autocite{Young_2020}
 				\item There have been successful efforts to support reproducibility and open access. For example, the study by Han et al. (2018a) details the number and characteristics of images from each data source and makes thumbnails of the images publicly available. Additionally, several studies classifying dermoscopic images use the publicly available International Skin Imaging Collaboration archive (Gutman et al., 2016). By making datasets public, it becomes possible to examine them for bias (Bissoto et al., 2019). Alternatively, reporting a model training database’s patient demographics and disease classes would be helpful in predicting model performance on external populations. \autocite{Young_2020}
