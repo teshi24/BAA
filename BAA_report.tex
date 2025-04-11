@@ -191,7 +191,7 @@
 	% print list of acronyms and glossary
 	\printnoidxglossaries
 	
-	
+	\todo{fix citations in glossary}
 	
 	%----------------------------------------------------------------------------------------
 	%	MAIN CONTENT
@@ -203,13 +203,13 @@
 	\chapter{Problem Statement}
 		\baaCriteria{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 		
-		In Sub-Saharan Africa, dermatology treatment is inaccessible. There are fewer than one dermatologist available per one million people. On the other hand, up to 80\% of the children and adolescents in the area are affected by skin conditions. AI-based teledermatology promises to close this gap of specialists per case, for example by serving as a triage option. Potential patients could upload pictures to diagnostic dermatology AIs which can indicate whether the person should indeed visit a dermatologist or promote other treatment options. However, the current dermatology AIs have a tendency to fail to deliver accurate results for patients with highly pigmented skin tones. This is mainly due to demographic biases in existing AI models. The models are trained on established datasets which mainly feature low-pigmented skin. Therefore, the datasets lack representation of highly-pigmented skin, leading to AI models which do not generalize to the population in Sub-Saharan Africa  \autocite{Gottfrois2024}.
+		In Sub-Saharan Africa, dermatology treatment is inaccessible. There are fewer than one dermatologist available per one million people. On the other hand, up to 80\% of the children and adolescents in the area are affected by skin conditions. AI-based \gls{teledermatology} promises to close this gap of specialists per case, for example by serving as a triage option. Potential patients could upload pictures to diagnostic dermatology AIs which can indicate whether the person should indeed visit a dermatologist or promote other treatment options. However, the current dermatology AIs have a tendency to fail to deliver accurate results for patients with highly pigmented skin tones. This is mainly due to demographic biases in existing AI models. The models are trained on established datasets which mainly feature low-pigmented skin. Therefore, the datasets lack representation of highly-pigmented skin, leading to AI models which do not generalize to the population in Sub-Saharan Africa  \autocite{Gottfrois2024}.
 		
 		These biases result in unequal access to treatment and especially affect underrepresented groups. Such biased results must be avoided, especially in AI models which impact life-changing decisions \autocite{Mehrabi_2021}.
 		
 		Demographic biases are especially important in dermatology. Demographic differences in patients influence the appearance of dermatological conditions. The differences in appearance can be developed depending on genetic factors, such as skin tone, age, sex \autocite{Diaz2022}. Research showed, that in patients with lower socio-economic status the disease progression is more advanced at time of diagnosis, which in turn can lead to different appearances for the same disease \autocite{BAD2021}. Since the AI models use pictures as the inputs and can only learn to diagnose diseases according to their appearances in the data, the factors which affects the disease appearances must be considered when creating an inclusive dataset.
 		
-		In order to overcome these issues, the PASSION research team founded the PASSION project. The projects vision is to make dermatology treatment accessible in Africa by enabling the AI-supported teledermatology for triage by reducing the demographic biases in the dermatology AI models. For this bias mitigation, the researcher collected a dataset in Sub-Saharan Africa, focusing on patients with highly pigmented skin and the most common regional \gls{pediatric} skin conditions. The PASSION dataset is complementary to existing datasets and improves their diversity. Further, the PASSION team trained an ResNet50 model with the dataset which is refered to as PASSION model in this thesis. This model should serve as a benchmark model to assess other dermatology models in regards of fairness \autocite{Gottfrois2024}. \todo{check sources, maybe, for the last sentence, the midterm protocol must be cited instead}
+		In order to overcome these issues, the PASSION research team founded the PASSION project. The projects vision is to make dermatology treatment accessible in Africa by enabling the AI-supported \gls{teledermatology} for triage by reducing the demographic biases in the dermatology AI models. For this bias mitigation, the researcher collected a dataset in Sub-Saharan Africa, focusing on patients with highly pigmented skin and the most common regional \gls{pediatric} skin conditions. The PASSION dataset is complementary to existing datasets and improves their diversity. Further, the PASSION team trained an ResNet50 model with the dataset which is refered to as PASSION model in this thesis. This model should serve as a benchmark model to assess other dermatology models in regards of fairness \autocite{Gottfrois2024}. \todo{check sources, maybe, for the last sentence, the midterm protocol must be cited instead}
 		
 		So that the PASSION model can become an unbiased benchmark model, potential demographic biases in it must be reduced as far as possible. To reach this goal, demographic biases in the model as well as the limitation of the gathered dataset must be identified and mitigated. This thesis supports the PASSION team in this process. The main objective of the thesis is to assess the effectiveness of mitigation strategies to reduce demographic biases in context of PASSION.
 		
@@ -270,16 +270,18 @@
 		\baaCriteria{Bezogen auf die eigenen Zielsetzungen und Fragestellungen soll aufgezeigt werden, wie andere dieses oder ähnliche Probleme gelöst haben. Worauf können Sie aufbauen, was müssen Sie neu angehen?	Wodurch unterscheidet sich Ihre Lösung von anderen Lösungen? Für wissenschaftlich orientierte Arbeiten sei hier explizit auf (Balzert, S. 66 ff) verwiesen.}
 		\baaCriteria{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
 		
+		\todo{is this more method description? what else would be expected to be written as the chapter description?}
+		Bias mitigation in AI has already been investigated by different researchers, who crafted fiting mitigation methods \todo{citation?}. This thesis aims to assess those existing methods in the context of PASSION. Therefore, this chapter focuses first on getting an overview over the PASSION project based on the PASSION paper and dataset. Then, the general knowledge about existing biases, fairness metrics and mitigation methods is gathered via a literature review. The review process was split between the general ML context and specific dermatology ML context, so that the technical and dermatological perspective can be taken into account, when the knowledge is applied to PASSION. The tables in this chapter will indicate, which points where found in which context. This is important, because what may be an issue in general might not be relevant for a specific usecase or vise versa. For example, in theory, all ages should be represented in datasets to cover demographic insights. However, for car insurance, the age representation is not imporant, because the age does not affect how well a driver can drive \todo{either cite this example from the expert or find another example related to dermatology}.
+		
+		During the literature review, lots of biases and mitigation methods where found, which might have a relation to the PASSION project. Since it is not feasible to assess all of them during the duration of this thesis, the thesis focus on those which are related to skin type, age and gender. The other items are passed as a list to the PASSION research team for further investigation. The list can be found in the appendix \todo{add link}.
+		
 		
 		\section{PASSION for Dermatology}
-			The PASSION research team provides a dataset including three analysis scripts and an AI model. For this thesis, it is important to understand which labels the dataset provides, so that the applicable bias mitigation methodologies can be chosen.
-			
-			The provided analysis scripts show a first insight into the demographic distribution in the dataset, such as Fitzpatrick skin type and cases per country distribution. The results of those analyses reveal first biases.
-			
-			There are also dermatology specific analysis scripts in regards of body localization by condition or impetigo cases. Those results 
+			With their paper, the PASSION research team provides the PASSION dataset including data analysis scripts as well as the PASSION model. For this thesis, it is important to understand which labels the dataset provides, what architecture the model has and which mitigation methods were already applied. The available data can influence which biases could arise in the model or rather which ones can be measured. Further, the labels which should be predicted and the model architecture give insight into the ML task. All this information affects which mitigation methods are feasible to be used for the project. \todo{add sources}
 			
 			\subsection{PASSION Dataset}
-				The PASSION dataset contains data from patients from four African countries. It contains 4901 images of dermatology cases and the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images. The images are linked with the record by filename, which contains the subject\_id of the row entry. Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
+				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images which are linked to the record through the filename. The images are taken with mobile phones, in order to train the models on a \gls{teledermatology}-like setup regarding image quality. 
+				Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
 				
 				\begin{table}[H]
 					\centering
@@ -287,7 +289,7 @@
 						\toprule
 						\textbf{Label}       & \textbf{Data Type} & \textbf{Description}       \\ \midrule
 						subject\_id          & string & Participant's unique identifier        \\
-						country              & string & Country of origin of the participant   \\
+						country              & string & Country of data origin \\
 						age                  & integer & Age of the participant in years       \\
 						sex                  & m/f/o & Gender of the participant               \\
 						fitzpatrick          & integer & \gls{FST}                \\
@@ -299,9 +301,16 @@
 					\caption{PASSION dataset - labels and descriptions \autocite{Gottfrois2024}}
 					\label{tab:PASSION_labels}
 				\end{table}
+				
+				For this thesis, the labels \textit{fitzpatrick}, \textit{sex} and \textit{age} are relevant, as they cover relevant demographic information from the patients. The skin type is directly relevant because it can affect disease presentation and therefore the model's learning process to detect the condition \todo{add citation, also from mail}. According to Philippe Gottfrois, the main author of the PASSION paper, the same condition looks similar regardless of a patient's age and sex. However, the prevalence of conditions varies based on these factors \todo{add citation, also from mail}. Therefore, the data distribution of age and sex is relevant for an inclusive AI model, because these demographic factors influence the likelihood of a condition being represented in the dataset.
+				
+				The label \textit{country} seems to be another demographic factor. Since it is the country where the data collection took place \todo{cite mail}, the only demographic information it could indicate is the geographic location where the patient was at diagnosis. This could potentially be used as \gls{proxyVar} for where the patient lives, which could be relevant for disease prevalance \todo{cite this}. However, this could lead to false conclusions which is why this label will not be used in this thesis. The PASSION team should investigate the need for this label and possible enhancement. Also, they should state the meaning of the label clearer in the dataset description. \todo{add this to PASSION investigation list}
+				
+				The labels \textit{impetig} and \textit{conditions\_PASSION} are the ones which the PASSION model must predict. They can appear independently of each other. Therefore, the ML task for PASSION it is a multiclassification task.
 			
-			\subsection{PASSION Analysis Scripts}
-				With the Dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} with a description and an indicator, how relevant the scripts are for this thesis.
+			\subsection{PASSION Data Analysis Scripts}
+				With the Dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and data analysis scripts. The scripts are listed in \autoref{tab:PASSION_scripts} with an indicator, how relevant the scripts are for this thesis. Relevant are the scripts which are related to demographic distributions of the chosen labels since they can indicate whether the data distribution might be a issue which leads to biases. \todo{somehow write it so that it is clear that it could LEAD to biases while it not necesserily MUST lead to biases.}. Somewhat relevant are the scripts which lay foundations for further data analysis scripts. Not relevant for this thesis are all other scripts.
+				
 				\begin{table}[H]
 					\centering
 					\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
@@ -309,52 +318,55 @@
 						\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
 						Linking CSV Data with Image Files & 
 						Creates mapping between the data records and images. It further counts the cases by country  &
-						\textbf{High} - Basis for other analysis's, potentially provides dermatological info        \\
+						\textbf{Medium} - Basis for other analysis's \\
 						\hline
 						Extracting and Comparing Subject IDs &
 						Checks the dataset complecity and accurracy in regards of linking records and images &
-						\textbf{Low} - Checks loaded data for completeness, but is not providing more insight   \\
+						\textbf{Low} - Not providing more insight in regards of demographic distribution \\
 						\hline
 						Regrouping Malawi and Tanzania to EAS &
 						data aggregation due to dataset size and geographical proximity &
-						\textbf{Low} - Might be relevant to understand the dataset and for interpreting the results of the following scripts correctly  \\
+						\textbf{Low} - Only relevant to understand the dataset and for interpreting the results of the following scripts correctly  \\
 						\hline
 						Conditions by Country &
 						Relationship between clinical conditions and country &
-						\textbf{Medium} - Currently unsure whether this information is relevant for this thesis \todo{research relevance between country vs. clinical conditions in regards of demographic bias} \\
+						\textbf{Low} - Currenty not relevant since the \textit{country} label is out of the scope of this thesis \\
 						\hline
 						Body Localizations by Conditions &
-						Shows correlation between the condition and primarily affected body parts; does not use all affected body parts listed in the data \todo{check with Philippe why this was done} &
-						\textbf{Low} - While the correlation can be interesting for other research, it is not relevant for demographic biases. \\
+						Shows correlation between the condition and primarily affected body parts; does not use all affected body parts listed in the data &
+						\textbf{Low} - Not relevant for analyzing demographic distributions. \\
 						\hline
 						Impetigo Cases            &
 						Counts total number of impetigo cases as well as proportion to all cases &
-						\textbf{Medium} - Currently unsure whether this information is relevant for this thesis \todo{research relevance between impedigo and demographic bias} \\
+						\textbf{Low} - Not relevant for analyzing demographic distribution, but potentialy relevant for dermatology distribution  \todo{check this hypothesis: research relevance between impedigo and demographic bias} \\
 						\hline
-						Distribution of Fitzpatrick Skin Types &
+						Distribution of \glspl{FST} &
 						Counts and visualizes the skin type distribution  &
-						\textbf{High} - \gls{FST} is a demographic information   \\
+						\textbf{High} - Analysis of a demographic distribution\\
 						\bottomrule
 					\end{tabularx}
 					\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024} \todo{decide on a table style}}
 					\label{tab:PASSION_scripts}
-				\end{table}	
-				
+				\end{table}
+			\subsection{PASSION Model}
+			
+			
 			\subsection{PASSION Experiments}
 				see https://github.com/Digital-Dermatology/PASSION-Evaluation
 		
 		
+			\begin{comment}
+				\todo{probably remove this}
 		
-			\subsection{Telemedicine}
-				The images where captured using mobile phones, so that the AI models will be trained directly on the image quality one can expect to phase in teledermatology
+			\subsection{Telemedicine \todo{is this chapter needed?}}
 				\rawcitationstart
 				\begin{itemize}
 					\item Teledermatology. Telemedicine may be one of the first fields to embrace AI, driven by demand for services, the necessity of collecting fit-for-purpose high-quality images, and the availability of existing technology (Xiong et al., 2019). Face-to-face diagnostic accuracy exceeds that of teledermatology (Finnane et al., 2017); however, inequalities surrounding access to dermatological care persist. Teledermatology has the potential to increase access by facilitating referrals and offering convenience and decreased wait times (Finnane et al., 2017), as well as providing diagnostic support at the time of case review. For teledermatology cases, the accuracy of a DL classifier (0.67) matched dermatologists’ (0.63) and was higher than primary care physicians’ (0.45) for 26 skin conditions (Liu et al., 2019b). AI may be integrated into smartphone apps to photograph skin lesions, collect relevant clinical information, and generate a referral if appropriate. Many smartphones already support on-device DL with Google’s TensorFlow Lite (TensorFlow, 2020) or Apple’s CoreML (Apple Inc, 2020), preserving privacy by keeping health information on the device. A systematic review found nine studies that evaluated six algorithm-based smartphone apps and concluded that evidence of diagnostic accuracy was poor and does not support current implementation, despite two apps having obtained the CE marking; no apps are Food and Drug Administration approved (Freeman et al., 2020). AI may also assist in automatic tracking and monitoring of skin lesions; although preliminary results are promising, existing studies used small datasets with little description, and there is no established standard metric of change (Navarro et al., 2019). Further study hinges on the prospective collection of large datasets. \autocite{Young_2020}
 					\item \autocite{Tsetsi_2017} on smartphone / internet access divide between populations
 					\item https://www.tandfonline.com/doi/full/10.1080/08870446.2019.1579330 on how open people are to use AI
-					\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020}
 				\end{itemize}
 				\rawcitationend
+			\end{comment}
 		
 		
 		\section{Bias}
@@ -742,7 +754,7 @@
 			
 			
 			\subparagraph{Potential Biases in PASSION}
-			The user interaction biases, especially the emergent bias could potentially become an issue for PASSION, when the project starts to become publicly available teledermatology. Also, the interface design should be evaluated, so that no presentation or ranking bias gets introduced.
+			The user interaction biases, especially the emergent bias could potentially become an issue for PASSION, when the project starts to become publicly available \gls{teledermatology}. Also, the interface design should be evaluated, so that no presentation or ranking bias gets introduced.
 			
 			\rawcitationstart
 			used
