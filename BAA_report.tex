@@ -309,42 +309,49 @@
 				The labels \textit{impetig} and \textit{conditions\_PASSION} are the ones which the PASSION model must predict. They can appear independently of each other. Therefore, the ML task for PASSION it is a multiclassification task.
 			
 			\subsection{PASSION Data Analysis Scripts}
-				With the Dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and data analysis scripts. The scripts are listed in \autoref{tab:PASSION_scripts} with an indicator, how relevant the scripts are for this thesis. Relevant are the scripts which are related to demographic distributions of the chosen labels since they can indicate whether the data distribution might be a issue which leads to biases. \todo{somehow write it so that it is clear that it could LEAD to biases while it not necesserily MUST lead to biases.}. Somewhat relevant are the scripts which lay foundations for further data analysis scripts. Not relevant for this thesis are all other scripts.
+				With the dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and data analysis scripts. The scripts are listed in \autoref{tab:PASSION_scripts} with an indicator, how relevant the scripts are for this thesis. Relevant are the scripts related to demographic distributions of the chosen labels. When the model output is biased, these scripts can help determine whether the bias is potentially caused by imbalance in the data distribution. Somewhat relevant are the scripts which lay foundations for further data analysis scripts. Not relevant for this thesis are all other scripts.
 				
 				\begin{table}[H]
 					\centering
+					\begin{threeparttable}
 					\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
 						\toprule
 						\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
 						Linking CSV Data with Image Files & 
-						Creates mapping between the data records and images. It further counts the cases by country  &
-						\textbf{Medium} - Basis for other analysis's \\
+						Mapping between data records and images. &
+						\textbf{Medium} - Basis for other analyses \\
 						\hline
 						Extracting and Comparing Subject IDs &
-						Checks the dataset complecity and accurracy in regards of linking records and images &
-						\textbf{Low} - Not providing more insight in regards of demographic distribution \\
+						Dataset verification regarding completeness &
+						\textbf{Low} - No insight in regards of demographic distribution \\
 						\hline
 						Regrouping Malawi and Tanzania to EAS &
-						data aggregation due to dataset size and geographical proximity &
-						\textbf{Low} - Only relevant to understand the dataset and for interpreting the results of the following scripts correctly  \\
+						Data aggregation due to dataset size and geographical proximity &
+						\textbf{Medium} - Might impact interpretation of the results of the following scripts \\
 						\hline
 						Conditions by Country &
-						Relationship between clinical conditions and country &
-						\textbf{Low} - Currenty not relevant since the \textit{country} label is out of the scope of this thesis \\
+						Correlation between clinical conditions and country &
+						\textbf{Low} - The label \textit{country} is out of scope of this thesis \\
 						\hline
 						Body Localizations by Conditions &
-						Shows correlation between the condition and primarily affected body parts; does not use all affected body parts listed in the data &
-						\textbf{Low} - Not relevant for analyzing demographic distributions. \\
+						Correlation between the condition and primarily affected body parts &
+						\textbf{Low} - No insight in regards of demographic distribution \\
 						\hline
-						Impetigo Cases            &
-						Counts total number of impetigo cases as well as proportion to all cases &
-						\textbf{Low} - Not relevant for analyzing demographic distribution, but potentialy relevant for dermatology distribution  \todo{check this hypothesis: research relevance between impedigo and demographic bias} \\
+						Impetigo Cases &
+						Total count of impetigo cases and proportion to all cases &
+						\textbf{Low} - No insight in regards of demographic distribution\tnote{*} \\
 						\hline
 						Distribution of \glspl{FST} &
 						Counts and visualizes the skin type distribution  &
-						\textbf{High} - Analysis of a demographic distribution\\
+						\textbf{High} - Insight into demographic distributions \\
 						\bottomrule
 					\end{tabularx}
+						\begin{tablenotes}
+							\footnotesize
+							\item[*] Research is divided which demographic factors play into the prevalence of impetigo \autocites{Romani_2017}{Aleid_2024}.
+						\end{tablenotes}
+					\end{threeparttable}
+					
 					\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024} \todo{decide on a table style}}
 					\label{tab:PASSION_scripts}
 				\end{table}
