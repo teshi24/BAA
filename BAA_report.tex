@@ -209,7 +209,7 @@
 		
 		Demographic biases are especially important in dermatology. Demographic differences in patients influence the appearance of dermatological conditions. The differences in appearance can be developed depending on genetic factors, such as skin tone, age, sex \autocite{Diaz2022}. Research showed, that in patients with lower socio-economic status the disease progression is more advanced at time of diagnosis, which in turn can lead to different appearances for the same disease \autocite{BAD2021}. Since the AI models use pictures as the inputs and can only learn to diagnose diseases according to their appearances in the data, the factors which affects the disease appearances must be considered when creating an inclusive dataset.
 		
-		In order to overcome these issues, the PASSION research team founded the PASSION project. The projects vision is to make dermatology treatment accessible in Africa by enabling the AI-supported \gls{teledermatology} for triage by reducing the demographic biases in the dermatology AI models. For this bias mitigation, the researcher collected a dataset in Sub-Saharan Africa, focusing on patients with highly pigmented skin and the most common regional \gls{pediatric} skin conditions. The PASSION dataset is complementary to existing datasets and improves their diversity. Further, the PASSION team trained an ResNet50 model with the dataset which is refered to as PASSION model in this thesis. This model should serve as a benchmark model to assess other dermatology models in regards of fairness \autocite{Gottfrois2024}. \todo{check sources, maybe, for the last sentence, the midterm protocol must be cited instead}
+		In order to overcome these issues, the PASSION research team founded the PASSION project. The projects vision is to make dermatology treatment accessible in Africa by enabling the AI-supported \gls{teledermatology} for triage by reducing the demographic biases in the dermatology AI models. For this bias mitigation, the researcher collected a dataset in Sub-Saharan Africa, focusing on patients with highly pigmented skin and the most common regional \gls{pediatric} skin conditions. The PASSION dataset is complementary to existing datasets and improves their diversity. Further, the PASSION team trained an ResNet-50 model with the dataset which is refered to as PASSION model in this thesis. This model should serve as a benchmark model to assess other dermatology models in regards of fairness \autocite{Gottfrois2024}. \todo{check sources, maybe, for the last sentence, the midterm protocol must be cited instead}
 		
 		So that the PASSION model can become an unbiased benchmark model, potential demographic biases in it must be reduced as far as possible. To reach this goal, demographic biases in the model as well as the limitation of the gathered dataset must be identified and mitigated. This thesis supports the PASSION team in this process. The main objective of the thesis is to assess the effectiveness of mitigation strategies to reduce demographic biases in context of PASSION.
 		
@@ -280,7 +280,10 @@
 			With their paper, the PASSION research team provides the PASSION dataset including data analysis scripts as well as the PASSION model. For this thesis, it is important to understand which labels the dataset provides, what architecture the model has and which mitigation methods were already applied. The available data can influence which biases could arise in the model or rather which ones can be measured. Further, the labels which should be predicted and the model architecture give insight into the ML task. All this information affects which mitigation methods are feasible to be used for the project. \todo{add sources}
 			
 			\subsection{PASSION Dataset}
-				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images which are linked to the record through the filename. The images are taken with mobile phones, in order to train the models on a \gls{teledermatology}-like setup regarding image quality. 
+				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images which are linked to the record through the filename. The images are taken with mobile phones, in order to train the models on a \gls{teledermatology}-like setup regarding image quality \autocite{Gottfrois2024}.
+				
+			    The datasplit is a predefined 80/20 stratified development-test split at patient level. This ensures reproducibility, fair comparison, while preventing information leaking \autocite{Gottfrois2024}. Stratified splitting is a method to split imbalanced datasets without changing the original class distribution within the subset. This is important to maintaining the representativeness of the data, especially for minority classes \autocite{Balde_2023}. \todo{add better source for the stratified datasplit (and the other stuff where medium was used)}.
+			    
 				Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
 				
 				\begin{table}[H]
@@ -356,11 +359,21 @@
 					\label{tab:PASSION_scripts}
 				\end{table}
 			\subsection{PASSION Model}
-			
-			
+			  The model architecture is a ResNet-50 model which is pretrained on ImageNet. The model was finetuned by replacing the last fully connected classification layer by a dropout layer with a 0.3 dropout rate followed by batch normalization. The class activation is done by a single linear layer. To minimize the weighted cross-entropy loss, Adam optimization is used. For improved generalization and to avoid overfitting, data augmentations were applied. The used methods were random resizing, cropping, flipping and rotating \cite{Gottfrois2024}. \todo{add individual citations for ResNet-50, ImageNet, Adam optimization, weighted cross-entropy loss}.
+			  			
 			\subsection{PASSION Experiments}
-				see https://github.com/Digital-Dermatology/PASSION-Evaluation
-		
+			  The PASSION team conducted various experiments to evaluate the classifiers on the test set with the following schemes \autocite{Gottfrois2024}:
+			  \begin{itemize}
+			  	\item Performance for skin condition prediction
+			  	\item Performance for impetigo detection
+			  	\item Generalization from two centers to a wider population (test set contains data from the known centers and one unknown center)
+			  	\item Generalization from different age groups (test set contains data from the known age groups and one unknown)
+			  	\item Subject level analysis over the predictions of multiple pictures, using majority voting
+			  \end{itemize}
+			  These experiments can serve as a starting point, since reproducing the results help to setup works the same on my side. Also, they can be used as examples for further experiments.
+			  			  
+			  The paper indicates a lower performance when evaluating on a subject level versus on a sample level. The authors highlight the importance to evaluate a classifier's performance on both levels for completeness \autocite{Gottfrois2024}. Therefore, the subject level performance should also be considered during this thesis.
+			  
 		
 			\begin{comment}
 				\todo{probably remove this}
@@ -377,7 +390,8 @@
 		
 		
 		\section{Bias}
-		The usage of AI with its algorithmic decisions affect peoples' lives. Due to that, tools in healthcare, like the PASSION project which should make triage and potentially diagnosis easier \autocite{Gottfrois2024}, are sensitive tools. AI application decisions proved to be biased. Therefore, AI engineers should aim to address and mitigate those biases. To do so, it is crucial for AI engineers to know what bias is, what types of biases exist and where they are coming from. Further, AI engineers need to know what prevention methods are available \autocite{Mehrabi_2021}.
+		The algorithmic decisions of AI affect peoples' lives. Due to that, healthcare AI applications, like PASSION, are sensitive tools. However, decisions from AI applications proved to be biased, which can harm underrepresented groups. Therefore, AI engineers should aim to address and mitigate those biases. To do so, it is crucial to know what bias is, what types of biases exist and where they are coming from \autocite{Mehrabi_2021}.
+		This chapter provides therefore an overview over biases and related features which were mentioned in ML- and dermatology-related research.
 			
 		\rawcitationusedstart
 		\begin{itemize}
@@ -386,9 +400,12 @@
 		\end{itemize}
 		\rawcitationusedend
 		
-		This chapter provides an overview over biases and related features which were mentioned in ML and dermatology related research.
+		\subsection{Introduction to Bias in AI}
+		    In ML, bias can be defined as \textit{a systematic error that causes a model or estimator to consistently deviate from the true value or relationship} \autocite{Delgado-Rodriguez_2004, Taylor_2023}.
+		    
+		    \todo{continue here}
 		
-			\subsection{Introduction to Bias in AI}
+		
 			According to the Cambridge English dictionary, bias can be defined as "the fact of preferring a particular subject or thing" or even as "the action of supporting or opposing a particular person or thing in an unfair way, because of allowing personal opinions to influence your judgment" \autocite{Cambridge_2025}. While an AI does not hold personal opinions, the judgment of an AI algorithm is influenced by the underlying data and how the algorithm uses this data. The data and even the algorithm itself can hold biases, which affects the final outcome and potential lead to unfair decisions. In decision-making, fairness means "absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics" - or in other terms, a fair algorithms decisions are not scewed toward a group of people \autocite{Mehrabi_2021}. 
 			\todo{Do I need to say more about this? If so, add infos from section Discrimination vs. Biases}
 
@@ -1184,7 +1201,7 @@
 			
 			
 		\section{Mitigation Methods}
-			
+			 see text from bias chapter - Further, AI engineers need to know what prevention methods are available to reduce the biases \autocite{Mehrabi_2021}.
 			
 			
 		\section{Extensive Sources}
