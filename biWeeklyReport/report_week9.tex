@@ -28,57 +28,64 @@
 \begin{document}
 	
 	\renewcommand{\arraystretch}{1.5}
-	\begin{longtable}{|p{3.5cm}|p{12cm}|}
+	\begin{longtable}{|p{3.5cm}|>{\vspace{-\baselineskip}}p{12cm}|}
 		\hline
 		\textbf{Section} & \textbf{Details} \\
 		\hline
-		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}
-			\item[\done] Good
-			\item[\ongoing] Ongoing
+		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}[topsep=6pt]
+			\item[\done] Problem Statement
+			\item[\ongoing] Finalizing documentation of Literature Review
+			\item[\ongoing] Reproducing PASSION results
 			\begin{itemize}
-				\item Reason
+				\item had to fix issues in current evaluation package
+				\item to reproduce an experiment on GPUHub takes 32.5h (6.5h x 5 folds) - and there are 4 experiments
 			\end{itemize}
-			\item[\notstarted] Not started
+			\item[\notstarted] evaluate baseline with fairness metrics
 			\begin{itemize}
-				\item Reason
+				\item Reproduction is not yet done
 			\end{itemize}
 		\end{itemize} \\
 		\hline
-		Accomplishments & \begin{itemize}
-			\item[\done] 
-			\item[\done] 
-			\item[\done] 
+		Accomplishments & \begin{itemize}[topsep=6pt]
+			\item[\done] Categorization of the methods
+			\item[\done] Got the evaluation running
+			\item[\done] Progress on the report
 		\end{itemize} \\
 		\hline
-		Risks and Measures & 
-		Risk
+		Risks and Measures &
+		
+		Issues with interpreting the results
 		\begin{itemize}
-			\item Measure
+			\item Clarifying the open questions
+		\end{itemize}
+		 
+		The fine-tuning-experiments takes to long
+		\begin{itemize}
+			\item Improve checkpoint handling
+			\item Use another machine (afraid to lose information and canceled runs due to getting disconnected from GPUHub)
 		\end{itemize}
 		
-	    Risk
+	    Focus loss bc of tendency to want to fix / improve systems
 		\begin{itemize}
-			\item Measure
-		\end{itemize}
-		
-		Risk
-		\begin{itemize}
-			\item Measure
-		\end{itemize} \\
+			\item Setting clear boundaries for myself: only do what must be fixed to enable running the mitigation experiments efficiently
+		\end{itemize}\\
 		
 		\hline
-		Next Steps & \begin{itemize}
-			\item Task
+		Next Steps & \begin{itemize}[topsep=6pt]
+			\item Get checkpoints for each experiment
+			\item Evaluate the fairness for each subgroup on the experiment checkpoints
 		\end{itemize} \\
 		\hline
-		Discussion Points / Questions & \begin{itemize}
-			\item How is the correct naming for the attributes in the PASSION dataset? Features, Labels, ...?
+		Discussion Points / Questions & \begin{itemize}[topsep=6pt]
+			\item Have I understood the experiment result csv correctly? \textit{(- Details in presentation)}
+			\item Do you have any tips on how to work efficiently on the GPU Hub?
+			\item How is the correct naming for the attributes in the PASSION dataset? Maybe I misunderstood the terms Features and Labels 
 		\end{itemize} \\
 		\hline
-		Additional Notes & - \\
+		Additional Notes & I was sick for roughly 4 days. \\
 		\hline
-		Attachments  & \begin{itemize}
-			\item 
+		Attachments  & \begin{itemize}[topsep=6pt]
+			\item experiment\_standard\_split\_conditions\_passion.csv 
 		\end{itemize} \\
 		\hline
 		Protocol  & 
