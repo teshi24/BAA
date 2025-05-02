@@ -12,10 +12,11 @@ from sklearn.metrics import (
     f1_score,
     precision_score,
     recall_score,
+    confusion_matrix,
 )
 
-is_test_5 = False
-is_test_6 = True
+is_test_5 = True
+is_test_6 = False
 
 passion_exp = 'experiment_standard_split_conditions_passion'
 if is_test_5:
@@ -25,7 +26,7 @@ if is_test_6:
 #input_file = 'reformed_%s__%s.csv' % (passion_exp, code_state)
 input_file = '%s__%s.csv' % (passion_exp, code_state)
 output_file = 'analysis_%s__%s_img_lvl.csv' % (passion_exp, code_state)
-create_data = True
+create_data = False
 
 
 if create_data:
@@ -89,7 +90,25 @@ if is_test_5:
 if is_test_6:
     labels = [1, 2, 3, 0]
 target_names = ['Eczema', 'Fungal', 'Others', 'Scabies']
+print_details = True
 def print_eval_scores(y_true: np.ndarray, y_pred: np.ndarray):
+    if print_details:
+        cm = confusion_matrix(y_true, y_pred, labels=labels)
+        print("Confusion Matrix:")
+        print(cm)
+
+        def get_tp_fp_fn_tn(cm, class_index):
+            total_classifications = cm.sum()
+            tp = cm[class_index, class_index]
+            fp = cm[:, class_index].sum() - tp
+            fn = cm[class_index, :].sum() - tp
+            tn = total_classifications - (tp + fp + fn)
+            return tp, fp, fn, tn
+
+        for i, name in enumerate(target_names):
+            tp, fp, fn, tn = get_tp_fp_fn_tn(cm, i)
+            print(f"{name} — TP: {tp}, FP: {fp}, FN: {fn}, TN: {tn}")
+
     print(
         classification_report(
             y_true=y_true,
@@ -105,6 +124,49 @@ def print_eval_scores(y_true: np.ndarray, y_pred: np.ndarray):
     )
     print(f"Balanced Acc: {b_acc}")
 
+def print_grouped_result(eval_df, group_by: str):
+    group_types = sorted(eval_df[group_by].unique())
+    group_name = group_by.capitalize()
+    for group_value in group_types:
+        _df = eval_df[eval_df[group_by] == group_value]
+        print(
+            "~" * 20
+            + f" {group_name}: {group_value}, Support: {_df.shape[0]} "
+            + "~" * 20
+        )
+        print_eval_scores(
+            y_true=eval_df["targets"][_df.index.values],
+            y_pred=eval_df["predictions"][_df.index.values],
+        )
+    return group_types
+
+def print_subgroup_results(eval_df, group_by: list[str]):
+    def to_pascal_case(s: str) -> str:
+        return "".join(word.capitalize() for word in s.split("_"))
+
+    # Get all unique combinations of the group attributes
+    grouped = sorted(eval_df.groupby(group_by))
+
+    for group_values, _df in grouped:
+        if isinstance(group_values, str):
+            group_values = (group_values,)  # Make it always a tuple
+
+        if _df.shape[0] == 0:
+            continue  # Skip empty groups
+
+        # Build header text
+        group_info = ", ".join(
+            f"{to_pascal_case(attr)}: {val}"
+            for attr, val in zip(group_by, group_values)
+        )
+
+        print("~" * 20 + f" {group_info}, Support: {_df.shape[0]} " + "~" * 20)
+        print_eval_scores(
+            y_true=eval_df["targets"][_df.index.values],
+            y_pred=eval_df["predictions"][_df.index.values],
+        )
+
+
 def do_calculations(data):
     # Detailed evaluation
     print("*" * 20 + f" overall " + "*" * 20)
@@ -112,31 +174,43 @@ def do_calculations(data):
         y_true=data["targets"],
         y_pred=data["predictions"],
     )
-    # Detailed evaluation per demographic
-    fst_types = sorted(data["fitzpatrick"].unique())
-    for fst in fst_types:
-        _df = data[data["fitzpatrick"] == fst]
-        print(
-            "~" * 20
-            + f" Fitzpatrick: {fst}, Support: {_df.shape[0]} "
-            + "~" * 20
-        )
-        print_eval_scores(
-            y_true=data["targets"][_df.index.values],
-            y_pred=data["predictions"][_df.index.values],
-        )
-    gender_types = sorted(data["sex"].unique())
-    for gender in gender_types:
-        _df = data[data["sex"] == gender]
-        print(
-            "~" * 20 + f" Gender: {gender}, Support: {_df.shape[0]} " + "~" * 20
-        )
-        print_eval_scores(
-            y_true=data["targets"][_df.index.values],
-            y_pred=data["predictions"][_df.index.values],
-        )
+    # # Detailed evaluation per demographic
+    # fst_types = sorted(data["fitzpatrick"].unique())
+    # for fst in fst_types:
+    #     _df = data[data["fitzpatrick"] == fst]
+    #     print(
+    #         "~" * 20
+    #         + f" Fitzpatrick: {fst}, Support: {_df.shape[0]} "
+    #         + "~" * 20
+    #     )
+    #     print_eval_scores(
+    #         y_true=data["targets"][_df.index.values],
+    #         y_pred=data["predictions"][_df.index.values],
+    #     )
+    # gender_types = sorted(data["sex"].unique())
+    # for gender in gender_types:
+    #     _df = data[data["sex"] == gender]
+    #     print(
+    #         "~" * 20 + f" Gender: {gender}, Support: {_df.shape[0]} " + "~" * 20
+    #     )
+    #     print_eval_scores(
+    #         y_true=data["targets"][_df.index.values],
+    #         y_pred=data["predictions"][_df.index.values],
+    #     )
 
-    print('=' * 20 + ' now more dynamic ' + '=' * 20)
+    print('=' * 20 + ' now more dynamic (grouped) ' + '=' * 20)
+    print_grouped_result(data, group_by="fitzpatrick")
+    print_grouped_result(data, group_by="sex")
+
+    print("=" * 20 + " grouped output per case using subgroup " + "~=" * 20)
+    print_subgroup_results(data, group_by=["fitzpatrick"])
+    print_subgroup_results(data, group_by=["sex"])
+    # todo: add bins for age
+    # self.print_subgroup_results(data, group_by=["age"])
+    print_subgroup_results(data, group_by=["fitzpatrick", "sex"])
+    # print_subgroup_results( data, group_by=["fitzpatrick", "age"] )
+    # print_subgroup_results(data, group_by=["sex", "age"])
+    # print_subgroup_results( data, group_by=["fitzpatrick", "sex", "age"] )
 
     # # TODO: also evaluate this
     # # Aggregate predictions per sample

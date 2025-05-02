@@ -32,17 +32,62 @@ F1 = 2 / ((1/P) + (1/R)) = 2 / (1.47826 + 1.521739) = 2/2.999999 = 0.67
 weighted avg       0.68      0.68      0.68       986 corr
 
 Balanced Acc: 0.6736688038266766
-~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[69  5  5 13]
+ [ 9 22  9 13]
+ [ 7  7 46 10]
+ [14  1  8 65]]
+Eczema — TP: 69, FP: 30, FN: 23, TN: 181
+Fungal — TP: 22, FP: 13, FN: 31, TN: 237
+Others — TP: 46, FP: 22, FN: 24, TN: 211
+Scabies — TP: 65, FP: 36, FN: 23, TN: 179
               precision    recall  f1-score   support
 
-      Others       0.73      0.75      0.74        51 wrong
-     Scabies       0.66      0.66      0.66        88 wrong
-      Eczema       0.59      0.69      0.64        52 wrong
-      Fungal       0.75      0.63      0.69        63 wrong
+      Eczema       0.70      0.75      0.72        92
+      Fungal       0.63      0.42      0.50        53
+      Others       0.68      0.66      0.67        70
+     Scabies       0.64      0.74      0.69        88
 
-    accuracy                           0.68       254 corr
-   macro avg       0.68      0.68      0.68       254
-weighted avg       0.68      0.68      0.68       254
+    accuracy                           0.67       303
+   macro avg       0.66      0.64      0.64       303
+weighted avg       0.66      0.67      0.66       303
+
+
+
+
+fitzpatrick skin type 5, sex m = 234; Others - 46
+TP 43 (targets = 0; true)
+FP 20 (targets != 0; predictions 0)
+FN 3 (targets = 0; false)
+TN 168 (targets != 0; predictions !=0)
+Precision = TP / (TP + FP) = 43 / (43+20) = 43 / 63 = 0.68
+Recall = TP / (TP + FN) = 43 / (43 + 3) = 43 / 46  =  0.93
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.47 + 1.08) = 2/2.55 = 0.78
+
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Sex: m, Support: 234 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[25  3  1 18]
+ [ 3 35  0  6]
+ [ 2  1 43  0]
+ [ 6  1 19 71]]
+Eczema — TP: 25, FP: 11, FN: 22, TN: 176
+Fungal — TP: 35, FP: 5, FN: 9, TN: 185
+Others — TP: 43, FP: 20, FN: 3, TN: 168
+Scabies — TP: 71, FP: 24, FN: 26, TN: 113
+              precision    recall  f1-score   support
+
+      Eczema       0.69      0.53      0.60        47
+      Fungal       0.88      0.80      0.83        44
+      Others       0.68      0.93      0.79        46
+     Scabies       0.75      0.73      0.74        97
+
+    accuracy                           0.74       234
+   macro avg       0.75      0.75      0.74       234
+weighted avg       0.75      0.74      0.74       234
+
+
+
 
 
 
@@ -104,5 +149,28 @@ TN 206 (targets != 3; predictions !=3)
 Precision = TP / (TP + FP) = 49 / (49 + 27) = 49 / 76 = 0.645
 Recall = TP / (TP + FN) =    49 / (49 + 21) = 49 / 70  = 0.7
 F1 = 2 / ((1/P) + (1/R)) = 2 / (1.55 + 1.43) = 2/2.98 = 0.67
+
+
+Subgroup
+Fitzpatrick 3, sex f - 156
+Scabies 0 - 56
+TP 45 (targets = 0; true)
+FP 14 (predictions 0; false)
+FN 11 (targets = 0; false)
+TN 86 (targets != 0; predictions !=0)
+
+Precision = TP / (TP + FP) = 45 / (45 + 14) = 45 / 59 = 0.763
+Recall = TP / (TP + FN) =    45 / (45 + 11) = 45 / 56  = 0.804
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.311 + 1.244) = 2/2.555 = 0.783
+
+Eczema 1 - 47
+TP 30 (targets = 0; true)
+FP 12 (predictions 0; false)
+FN 17 (targets = 0; false)
+TN 97 (targets != 0; predictions !=0)
+
+Precision = TP / (TP + FP) = 30 / (30 + 12) = 30 / 42 = 0.714
+Recall = TP / (TP + FN) =    30 / (30 + 17) = 30 / 47  = 0.638
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.401 + 1.567) = 2/2.968 = 0.674
 
 
