@@ -1,0 +1,987 @@
+correct,image_path,index,targets,predictions,subject_id,country,age,sex,fitzpatrick,body_loc,impetig,conditions_PASSION
+True,"""data/PASSION/images/AA00972035_3.jpg""",2126,2,2,AA00972035,Malawi,13,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00971212_13.jpg""",3334,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971381_1.jpg""",2002,2,2,AA00971381,Madagascar,0,m,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971499_2.jpg""",4755,1,1,AA00971499,Madagascar,25,m,5,torso; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971617_3.jpg""",2705,3,3,AA00971617,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971757_10.jpg""",2139,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971781_3.jpg""",1634,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971623_11.jpg""",2547,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970753_1.jpg""",4174,3,3,AA00970753,Madagascar,13,f,3,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971350_10.jpg""",4802,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971582_1.jpg""",4790,3,3,AA00971582,Malawi,7,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00970832_2.jpg""",4692,1,1,AA00970832,Madagascar,33,m,5,hand,0.0,Scabies
+False,"""data/PASSION/images/AA00971570_1.jpg""",2191,3,1,AA00971570,Madagascar,36,f,3,,0.0,Fungal
+True,"""data/PASSION/images/AA00970734_7.jpg""",552,1,1,AA00970734,Madagascar,1,m,4,back; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970967_1.jpg""",613,3,3,AA00970967,Guinea,7,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970174_5.jpg""",380,2,1,AA00970174,Madagascar,7,m,4,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971945_4.jpg""",2624,1,1,AA00971945,Madagascar,5,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971284_5.jpg""",1484,0,3,AA00971284,Malawi,3,m,3,hair,1.0,Others
+False,"""data/PASSION/images/AA00970853_2.jpg""",2189,2,1,AA00970853,Madagascar,0,m,5,foot; hand; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971290_4.jpg""",2338,3,3,AA00971290,Malawi,1,m,3,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00970232_1.jpg""",983,2,3,AA00970232,Guinea,36,m,6,foot,0.0,Eczema
+True,"""data/PASSION/images/AA00971623_1.jpg""",871,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971619_9.jpg""",4627,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971619_7.jpg""",1077,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970663_2.jpg""",28,2,1,AA00970663,Madagascar,55,f,5,foot,0.0,Eczema
+True,"""data/PASSION/images/AA00971388_2.jpg""",208,0,0,AA00971388,Malawi,3,f,3,torso; face; arm,1.0,Others
+True,"""data/PASSION/images/AA00971338_5.jpg""",1974,2,2,AA00971338,Malawi,0,m,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00972055_1.jpg""",2188,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00971615_3.jpg""",236,3,3,AA00971615,Malawi,3,f,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00970198_1.jpg""",1060,3,3,AA00970198,Guinea,46,m,6,hand,0.0,Fungal
+True,"""data/PASSION/images/AA00971590_2.jpg""",2315,2,2,AA00971590,Madagascar,1,f,3,pelvic; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971121_1.jpg""",2875,2,2,AA00971121,Madagascar,8,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971764_12.jpg""",1535,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971349_5.jpg""",2211,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971891_1.jpg""",3227,2,2,AA00971891,Madagascar,25,f,5,torso; back,0.0,Eczema
+False,"""data/PASSION/images/AA00972034_4.jpg""",363,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971679_2.jpg""",333,1,1,AA00971679,Madagascar,13,f,3,hand; pelvic; arm,0.0,Scabies
+False,"""data/PASSION/images/AA00970266_1.jpg""",680,0,1,AA00970266,Guinea,27,f,6,leg,0.0,Others
+True,"""data/PASSION/images/AA00970759_1.jpg""",420,1,1,AA00970759,Madagascar,35,m,4,pelvic; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971371_3.jpg""",1958,3,3,AA00971371,Malawi,13,m,4,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00970738_2.jpg""",2859,1,1,AA00970738,Madagascar,24,f,5,hand; pelvic; arm,0.0,Scabies
+False,"""data/PASSION/images/AA00971216_4.jpg""",872,3,0,AA00971216,Malawi,7,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971713_1.jpg""",3790,1,1,AA00971713,Madagascar,32,f,4,hand; pelvic; back; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970127_2.jpg""",4388,2,3,AA00970127,Madagascar,26,f,4,face; arm,0.0,Eczema
+True,"""data/PASSION/images/AA00971237_8.jpg""",4292,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+True,"""data/PASSION/images/AA00971757_3.jpg""",3318,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970107_1.jpg""",72,3,1,AA00970107,Guinea,4,m,6,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971052_1.jpg""",739,3,3,AA00971052,Guinea,33,f,6,arm,0.0,Fungal
+False,"""data/PASSION/images/AA00972034_15.jpg""",1996,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971782_4.jpg""",1648,0,0,AA00971782,Malawi,4,m,5,face,1.0,Others
+False,"""data/PASSION/images/AA00970435_1.jpg""",1477,1,3,AA00970435,Madagascar,21,m,4,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971212_4.jpg""",3896,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971768_5.jpg""",4565,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+True,"""data/PASSION/images/AA00971095_1.jpg""",2538,3,3,AA00971095,Guinea,26,f,6,torso,0.0,Fungal
+False,"""data/PASSION/images/AA00971887_2.jpg""",776,2,1,AA00971887,Madagascar,7,f,5,pelvic; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971378_3.jpg""",4667,1,0,AA00971378,Madagascar,20,f,4,hand; arm,0.0,Scabies
+False,"""data/PASSION/images/AA00970793_5.jpg""",4542,2,1,AA00970793,Tanzania,1,m,5,back; face; arm; foot; hand; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971220_7.jpg""",3252,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00972034_13.jpg""",3010,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00972102_1.jpg""",385,1,1,AA00972102,Madagascar,30,f,5,leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970603_3.jpg""",1084,2,2,AA00970603,Madagascar,13,m,3,torso; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00971477_1.jpg""",531,3,2,AA00971477,Madagascar,40,f,3,leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971344_3.jpg""",1889,0,0,AA00971344,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971349_3.jpg""",433,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971436_2.jpg""",1083,3,1,AA00971436,Madagascar,58,m,3,arm; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971831_4.jpg""",4643,1,1,AA00971831,Madagascar,10,m,5,torso; hand; pelvic,1.0,Scabies
+True,"""data/PASSION/images/AA00971922_1.jpg""",3554,2,2,AA00971922,Madagascar,27,m,4,face,0.0,Eczema
+False,"""data/PASSION/images/AA00971043_1.jpg""",47,3,2,AA00971043,Guinea,2,m,6,leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971225_5.jpg""",4121,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+False,"""data/PASSION/images/AA00971772_6.jpg""",3306,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971237_10.jpg""",149,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+False,"""data/PASSION/images/AA00971301_4.jpg""",2262,3,0,AA00971301,Malawi,6,f,3,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971350_6.jpg""",1869,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971770_3.jpg""",4544,0,0,AA00971770,Malawi,3,m,5,torso; leg,1.0,Others
+False,"""data/PASSION/images/AA00971203_4.jpg""",1688,0,1,AA00971203,Malawi,6,f,3,face; leg,1.0,Others
+True,"""data/PASSION/images/AA00971255_5.jpg""",4629,0,0,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970397_2.jpg""",356,2,2,AA00970397,Madagascar,4,f,3,torso; arm; leg,1.0,Eczema
+False,"""data/PASSION/images/AA00971987_1.jpg""",2300,1,2,AA00971987,Madagascar,33,m,4,leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970214_1.jpg""",1365,1,1,AA00970214,Guinea,35,m,6,leg,0.0,Scabies
+True,"""data/PASSION/images/AA00972023_9.jpg""",2544,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971711_2.jpg""",738,1,3,AA00971711,Madagascar,44,f,4,torso,0.0,Scabies
+True,"""data/PASSION/images/AA00970982_3.jpg""",2165,1,1,AA00970982,Madagascar,28,m,4,,0.0,Scabies
+True,"""data/PASSION/images/AA00971423_2.jpg""",4883,1,1,AA00971423,Madagascar,54,f,3,torso; pelvic; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971532_1.jpg""",167,1,1,AA00971532,Madagascar,25,f,4,back; pelvic; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971739_4.jpg""",1461,1,1,AA00971739,Madagascar,1,m,5,back; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970645_1.jpg""",2917,1,1,AA00970645,Madagascar,30,m,4,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00971464_1.jpg""",1867,3,3,AA00971464,Madagascar,19,m,4,pelvic; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971186_2.jpg""",905,1,1,AA00971186,Madagascar,25,f,5,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971699_1.jpg""",1805,1,1,AA00971699,Madagascar,55,f,4,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00972034_1.jpg""",3475,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00970040_1.jpg""",4520,1,2,AA00970040,Madagascar,7,m,4,arm; foot; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971768_6.jpg""",4480,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+True,"""data/PASSION/images/AA00970762_1.jpg""",521,3,3,AA00970762,Madagascar,11,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970308_1.jpg""",1726,2,1,AA00970308,Guinea,48,f,6,pelvic,0.0,Eczema
+True,"""data/PASSION/images/AA00972016_7.jpg""",1103,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971270_5.jpg""",4745,3,3,AA00971270,Malawi,8,m,3,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971804_1.jpg""",1029,3,1,AA00971804,Madagascar,26,m,5,torso; back,0.0,Fungal
+False,"""data/PASSION/images/AA00972045_2.jpg""",3137,3,1,AA00972045,Madagascar,24,m,5,back; pelvic; arm; torso; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971393_1.jpg""",4300,0,0,AA00971393,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970729_3.jpg""",3823,1,1,AA00970729,Madagascar,18,m,5,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00970530_3.jpg""",3999,2,2,AA00970530,Madagascar,30,m,5,leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970132_1.jpg""",1091,3,3,AA00970132,Madagascar,26,m,4,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971488_1.jpg""",3671,1,1,AA00971488,Madagascar,29,m,5,torso; arm,0.0,Scabies
+False,"""data/PASSION/images/AA00970174_1.jpg""",3663,2,1,AA00970174,Madagascar,7,m,4,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971270_4.jpg""",4229,3,3,AA00971270,Malawi,8,m,3,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00970645_4.jpg""",3192,1,1,AA00970645,Madagascar,30,m,4,hand,0.0,Scabies
+False,"""data/PASSION/images/AA00971980_1.jpg""",3236,3,1,AA00971980,Madagascar,43,f,5,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971582_6.jpg""",2214,3,3,AA00971582,Malawi,7,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971936_2.jpg""",4379,0,3,AA00971936,Madagascar,1,m,5,face,1.0,Others
+True,"""data/PASSION/images/AA00970577_2.jpg""",2000,2,2,AA00970577,Madagascar,3,m,4,,0.0,Eczema
+False,"""data/PASSION/images/AA00970220_1.jpg""",881,2,3,AA00970220,Madagascar,1,f,4,face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971176_1.jpg""",679,2,2,AA00971176,Madagascar,29,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971635_10.jpg""",3049,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971588_3.jpg""",3341,1,2,AA00971588,Madagascar,1,m,3,back; face; arm; pelvic; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971920_1.jpg""",3270,3,3,AA00971920,Madagascar,30,f,4,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00972055_3.jpg""",4813,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00971885_3.jpg""",708,2,2,AA00971885,Madagascar,2,m,3,leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971618_1.jpg""",2460,1,0,AA00971618,Malawi,3,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971150_2.jpg""",2959,1,2,AA00971150,Madagascar,28,f,4,hand; pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00972067_1.jpg""",4218,2,2,AA00972067,Madagascar,3,m,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00971494_5.jpg""",4265,1,1,AA00971494,Madagascar,32,m,4,torso; hand; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971635_5.jpg""",1359,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971263_9.jpg""",3469,2,2,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971284_6.jpg""",1350,0,3,AA00971284,Malawi,3,m,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00971804_2.jpg""",1160,3,3,AA00971804,Madagascar,26,m,5,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971225_4.jpg""",4066,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+True,"""data/PASSION/images/AA00970170_1.jpg""",4423,2,2,AA00970170,Madagascar,65,f,4,arm,0.0,Eczema
+True,"""data/PASSION/images/AA00971772_13.jpg""",1198,1,1,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971619_14.jpg""",190,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971635_11.jpg""",3325,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971713_2.jpg""",2257,1,1,AA00971713,Madagascar,32,f,4,hand; pelvic; back; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971234_4.jpg""",545,0,0,AA00971234,Malawi,4,m,3,face,1.0,Others
+True,"""data/PASSION/images/AA00970696_4.jpg""",4884,2,2,AA00970696,Tanzania,1,m,5,pelvic; face; arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00970829_3.jpg""",1533,2,1,AA00970829,Tanzania,15,m,5,arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971745_2.jpg""",59,1,1,AA00971745,Madagascar,32,f,6,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971381_2.jpg""",1987,2,2,AA00971381,Madagascar,0,m,3,face,0.0,Eczema
+False,"""data/PASSION/images/AA00971371_4.jpg""",2476,3,0,AA00971371,Malawi,13,m,4,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971220_8.jpg""",2397,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971525_1.jpg""",4261,1,1,AA00971525,Madagascar,25,f,4,torso; hand; pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971635_7.jpg""",2956,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971619_4.jpg""",1040,1,0,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971688_1.jpg""",770,1,1,AA00971688,Madagascar,1,f,3,torso; hand; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971571_1.jpg""",3564,3,2,AA00971571,Madagascar,32,f,3,torso; arm,0.0,Fungal
+True,"""data/PASSION/images/AA00971782_3.jpg""",4868,0,0,AA00971782,Malawi,4,m,5,face,1.0,Others
+False,"""data/PASSION/images/AA00971587_2.jpg""",4611,3,2,AA00971587,Madagascar,30,m,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00970591_4.jpg""",1965,2,2,AA00970591,Madagascar,47,f,3,,0.0,Eczema
+False,"""data/PASSION/images/AA00970853_1.jpg""",4602,2,1,AA00970853,Madagascar,0,m,5,foot; hand; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971962_3.jpg""",202,3,3,AA00971962,Madagascar,53,f,4,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00971980_2.jpg""",291,3,1,AA00971980,Madagascar,43,f,5,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971349_2.jpg""",129,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971665_1.jpg""",85,2,2,AA00971665,Madagascar,13,f,3,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971635_8.jpg""",2556,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971764_2.jpg""",3527,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971063_1.jpg""",710,3,3,AA00971063,Guinea,4,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971241_3.jpg""",4454,1,3,AA00971241,Madagascar,56,f,4,back; hair; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971241_2.jpg""",1523,1,2,AA00971241,Madagascar,56,f,4,back; hair; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971359_4.jpg""",4693,3,1,AA00971359,Madagascar,39,m,4,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971225_6.jpg""",3533,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+True,"""data/PASSION/images/AA00970611_1.jpg""",1800,2,2,AA00970611,Madagascar,1,f,3,torso; face; back,0.0,Eczema
+False,"""data/PASSION/images/AA00971936_1.jpg""",1605,0,2,AA00971936,Madagascar,1,m,5,face,1.0,Others
+True,"""data/PASSION/images/AA00971849_1.jpg""",4615,3,3,AA00971849,Madagascar,28,f,3,leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971772_11.jpg""",3886,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971237_9.jpg""",2066,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+True,"""data/PASSION/images/AA00970973_3.jpg""",3455,1,1,AA00970973,Madagascar,19,m,5,,0.0,Scabies
+False,"""data/PASSION/images/AA00971254_3.jpg""",155,1,0,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971225_8.jpg""",4548,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+True,"""data/PASSION/images/AA00972023_10.jpg""",4776,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00972006_1.jpg""",3876,3,2,AA00972006,Madagascar,25,f,4,back,0.0,Fungal
+True,"""data/PASSION/images/AA00971290_2.jpg""",3256,3,3,AA00971290,Malawi,1,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971366_1.jpg""",3589,0,0,AA00971366,Malawi,9,f,5,back; hair; face; arm; pelvic; foot; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971605_2.jpg""",4753,1,1,AA00971605,Madagascar,56,f,4,hand; pelvic; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971220_11.jpg""",4733,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971829_1.jpg""",3686,1,1,AA00971829,Madagascar,31,f,3,hand; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971225_7.jpg""",622,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+False,"""data/PASSION/images/AA00971788_1.jpg""",454,3,2,AA00971788,Madagascar,53,f,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00970875_1.jpg""",2955,1,1,AA00970875,Madagascar,15,m,5,pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971350_3.jpg""",1246,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971739_5.jpg""",1549,1,2,AA00971739,Madagascar,1,m,5,back; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971679_1.jpg""",3605,1,1,AA00971679,Madagascar,13,f,3,hand; pelvic; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00970136_2.jpg""",3181,2,2,AA00970136,Madagascar,12,f,4,face; leg,1.0,Eczema
+True,"""data/PASSION/images/AA00971626_3.jpg""",874,0,0,AA00971626,Malawi,3,m,5,face,1.0,Others
+True,"""data/PASSION/images/AA00970251_1.jpg""",3048,3,3,AA00970251,Guinea,29,m,6,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971349_4.jpg""",4420,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00970127_1.jpg""",3551,2,3,AA00970127,Madagascar,26,f,4,face; arm,0.0,Eczema
+True,"""data/PASSION/images/AA00971533_1.jpg""",3501,1,1,AA00971533,Madagascar,36,m,5,hand; pelvic; back; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971635_9.jpg""",2491,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971582_5.jpg""",4321,3,3,AA00971582,Malawi,7,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971488_2.jpg""",3029,1,1,AA00971488,Madagascar,29,m,5,torso; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971012_1.jpg""",616,3,3,AA00971012,Guinea,5,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971623_10.jpg""",2569,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00972034_12.jpg""",4508,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971212_14.jpg""",1439,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971623_5.jpg""",3132,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971646_1.jpg""",3342,1,1,AA00971646,Madagascar,12,m,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00972045_4.jpg""",2714,3,2,AA00972045,Madagascar,24,m,5,back; pelvic; arm; torso; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00970761_1.jpg""",1210,0,0,AA00970761,Madagascar,6,f,3,face,1.0,Others
+True,"""data/PASSION/images/AA00971761_7.jpg""",2018,2,2,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00972034_5.jpg""",3211,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00972007_1.jpg""",537,3,1,AA00972007,Madagascar,3,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971349_9.jpg""",1299,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971635_6.jpg""",2040,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970760_1.jpg""",676,2,2,AA00970760,Madagascar,3,m,3,leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971350_4.jpg""",956,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971770_6.jpg""",3846,0,0,AA00971770,Malawi,3,m,5,torso; leg,1.0,Others
+True,"""data/PASSION/images/AA00971103_1.jpg""",2852,3,3,AA00971103,Guinea,5,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971237_3.jpg""",2147,0,2,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+True,"""data/PASSION/images/AA00972035_5.jpg""",1730,2,2,AA00972035,Malawi,13,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00970245_1.jpg""",995,1,1,AA00970245,Guinea,28,m,6,,0.0,Scabies
+False,"""data/PASSION/images/AA00971166_5.jpg""",1418,0,1,AA00971166,Madagascar,35,f,3,torso; arm; back,0.0,Others
+True,"""data/PASSION/images/AA00971761_12.jpg""",2834,2,2,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00970169_1.jpg""",4045,3,2,AA00970169,Madagascar,60,f,4,face,0.0,Fungal
+True,"""data/PASSION/images/AA00972023_4.jpg""",4277,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970558_2.jpg""",2751,2,1,AA00970558,Madagascar,7,f,3,hand,0.0,Eczema
+False,"""data/PASSION/images/AA00970048_1.jpg""",365,1,2,AA00970048,Madagascar,2,f,4,hand; foot; leg; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971254_6.jpg""",4840,1,1,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970591_1.jpg""",516,2,2,AA00970591,Madagascar,47,f,3,,0.0,Eczema
+False,"""data/PASSION/images/AA00970066_1.jpg""",1815,2,3,AA00970066,Guinea,7,m,6,,0.0,Eczema
+False,"""data/PASSION/images/AA00970696_2.jpg""",4506,2,1,AA00970696,Tanzania,1,m,5,pelvic; face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971757_9.jpg""",1691,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971770_5.jpg""",3090,0,2,AA00971770,Malawi,3,m,5,torso; leg,1.0,Others
+False,"""data/PASSION/images/AA00970025_1.jpg""",2151,0,2,AA00970025,Madagascar,3,m,3,torso,0.0,Others
+False,"""data/PASSION/images/AA00970135_1.jpg""",4343,2,3,AA00970135,Madagascar,4,f,5,face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971045_1.jpg""",3920,3,3,AA00971045,Guinea,1,m,6,foot; leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971436_3.jpg""",2007,3,1,AA00971436,Madagascar,58,m,3,arm; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971371_1.jpg""",2022,3,3,AA00971371,Malawi,13,m,4,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971885_2.jpg""",2429,2,2,AA00971885,Madagascar,2,m,3,leg,0.0,Eczema
+False,"""data/PASSION/images/AA00970535_3.jpg""",4498,1,2,AA00970535,Madagascar,11,m,4,torso; foot; hand,1.0,Scabies
+True,"""data/PASSION/images/AA00971721_5.jpg""",3149,3,3,AA00971721,Madagascar,63,f,4,back; face; arm; pelvic; torso; leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971284_9.jpg""",3394,0,3,AA00971284,Malawi,3,m,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00971255_4.jpg""",1809,0,0,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00970137_2.jpg""",2058,2,3,AA00970137,Madagascar,1,f,4,torso; face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971764_4.jpg""",1241,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971721_2.jpg""",1047,3,3,AA00971721,Madagascar,63,f,4,back; face; arm; pelvic; torso; leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971035_2.jpg""",650,1,3,AA00971035,Guinea,1,m,6,foot; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971768_1.jpg""",486,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+True,"""data/PASSION/images/AA00971225_9.jpg""",1715,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+True,"""data/PASSION/images/AA00971532_3.jpg""",1641,1,1,AA00971532,Madagascar,25,f,4,back; pelvic; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971423_5.jpg""",117,1,1,AA00971423,Madagascar,54,f,3,torso; pelvic; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00972016_3.jpg""",3506,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971080_1.jpg""",3476,3,1,AA00971080,Guinea,4,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00970181_3.jpg""",1225,3,3,AA00970181,Madagascar,29,m,4,,0.0,Fungal
+True,"""data/PASSION/images/AA00971344_5.jpg""",4452,0,0,AA00971344,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970634_2.jpg""",894,2,2,AA00970634,Madagascar,55,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00971317_4.jpg""",1827,1,1,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970200_1.jpg""",105,3,3,AA00970200,Guinea,43,m,6,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00971194_1.jpg""",3975,0,3,AA00971194,Malawi,6,f,4,hair,1.0,Others
+False,"""data/PASSION/images/AA00970742_1.jpg""",441,1,2,AA00970742,Madagascar,50,f,5,back; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971206_2.jpg""",3885,0,0,AA00971206,Malawi,7,f,3,hair,1.0,Others
+False,"""data/PASSION/images/AA00971814_2.jpg""",12,3,2,AA00971814,Madagascar,24,f,4,face,0.0,Fungal
+False,"""data/PASSION/images/AA00970306_1.jpg""",1363,3,1,AA00970306,Guinea,36,m,6,foot,1.0,Fungal
+True,"""data/PASSION/images/AA00971494_6.jpg""",3331,1,1,AA00971494,Madagascar,32,m,4,torso; hand; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971378_4.jpg""",1135,1,1,AA00971378,Madagascar,20,f,4,hand; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971623_12.jpg""",766,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970933_1.jpg""",3803,3,3,AA00970933,Guinea,46,f,6,torso,0.0,Fungal
+False,"""data/PASSION/images/AA00971222_4.jpg""",1172,0,2,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+False,"""data/PASSION/images/AA00971574_1.jpg""",194,3,1,AA00971574,Madagascar,22,f,4,torso; back,0.0,Fungal
+False,"""data/PASSION/images/AA00971659_1.jpg""",4333,3,1,AA00971659,Madagascar,28,m,4,torso; arm,0.0,Fungal
+True,"""data/PASSION/images/AA00970738_1.jpg""",3662,1,1,AA00970738,Madagascar,24,f,5,hand; pelvic; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971203_3.jpg""",578,0,0,AA00971203,Malawi,6,f,3,face; leg,1.0,Others
+False,"""data/PASSION/images/AA00972027_4.jpg""",597,0,3,AA00972027,Malawi,4,f,5,hair,1.0,Others
+True,"""data/PASSION/images/AA00972023_5.jpg""",1219,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971617_2.jpg""",1387,3,3,AA00971617,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971349_11.jpg""",4661,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00970696_5.jpg""",4283,2,3,AA00970696,Tanzania,1,m,5,pelvic; face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971156_2.jpg""",4546,3,3,AA00971156,Madagascar,25,m,3,,0.0,Fungal
+False,"""data/PASSION/images/AA00971317_2.jpg""",4037,1,2,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971151_2.jpg""",4681,1,2,AA00971151,Madagascar,4,m,5,pelvic; arm; foot; hand; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971551_2.jpg""",3357,1,1,AA00971551,Madagascar,15,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971194_3.jpg""",2499,0,3,AA00971194,Malawi,6,f,4,hair,1.0,Others
+True,"""data/PASSION/images/AA00971757_6.jpg""",864,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971908_2.jpg""",2474,1,1,AA00971908,Madagascar,54,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970048_2.jpg""",4049,1,1,AA00970048,Madagascar,2,f,4,hand; foot; leg; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971490_1.jpg""",2621,1,1,AA00971490,Madagascar,54,m,4,torso; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971349_12.jpg""",4352,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971686_1.jpg""",1318,2,2,AA00971686,Madagascar,28,m,4,,1.0,Eczema
+False,"""data/PASSION/images/AA00971175_2.jpg""",495,1,2,AA00971175,Madagascar,22,m,3,hand; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971757_7.jpg""",2137,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00972004_1.jpg""",3575,2,1,AA00972004,Madagascar,8,m,5,hair; torso; arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00972027_3.jpg""",370,0,1,AA00972027,Malawi,4,f,5,hair,1.0,Others
+False,"""data/PASSION/images/AA00971904_1.jpg""",13,1,3,AA00971904,Madagascar,12,m,5,pelvic; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00972007_2.jpg""",997,3,3,AA00972007,Madagascar,3,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00972045_1.jpg""",61,3,3,AA00972045,Madagascar,24,m,5,back; pelvic; arm; torso; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971234_1.jpg""",3017,0,0,AA00971234,Malawi,4,m,3,face,1.0,Others
+False,"""data/PASSION/images/AA00971726_1.jpg""",589,3,2,AA00971726,Madagascar,30,m,5,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971186_3.jpg""",3263,1,1,AA00971186,Madagascar,25,f,5,torso; hand; arm; back,0.0,Scabies
+False,"""data/PASSION/images/AA00971212_9.jpg""",1503,1,0,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971220_5.jpg""",3350,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971255_8.jpg""",3986,0,1,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971100_1.jpg""",1514,3,3,AA00971100,Guinea,7,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971483_2.jpg""",110,3,3,AA00971483,Madagascar,3,m,3,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971366_3.jpg""",4307,0,0,AA00971366,Malawi,9,f,5,back; hair; face; arm; pelvic; foot; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970311_1.jpg""",665,3,3,AA00970311,Guinea,9,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971225_1.jpg""",2626,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+True,"""data/PASSION/images/AA00971637_2.jpg""",4348,0,0,AA00971637,Malawi,4,m,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00971772_8.jpg""",855,1,1,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971764_10.jpg""",2210,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971284_1.jpg""",239,0,0,AA00971284,Malawi,3,m,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00971618_4.jpg""",4865,1,1,AA00971618,Malawi,3,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971344_6.jpg""",3213,0,0,AA00971344,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971510_1.jpg""",3173,1,3,AA00971510,Madagascar,27,m,3,hand; pelvic; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971781_1.jpg""",991,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971768_7.jpg""",4824,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+False,"""data/PASSION/images/AA00971811_2.jpg""",1919,3,1,AA00971811,Madagascar,51,f,3,pelvic,0.0,Fungal
+False,"""data/PASSION/images/AA00971931_1.jpg""",23,3,2,AA00971931,Madagascar,30,m,4,torso; face; back,0.0,Fungal
+True,"""data/PASSION/images/AA00970174_3.jpg""",4214,2,2,AA00970174,Madagascar,7,m,4,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971714_1.jpg""",2813,1,1,AA00971714,Madagascar,29,f,4,hand; pelvic; back,0.0,Scabies
+False,"""data/PASSION/images/AA00970793_3.jpg""",2835,2,1,AA00970793,Tanzania,1,m,5,back; face; arm; foot; hand; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970583_1.jpg""",1163,2,2,AA00970583,Madagascar,15,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971302_2.jpg""",1402,1,1,AA00971302,Malawi,9,m,3,back; pelvic; arm; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971222_5.jpg""",3574,0,1,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00971302_4.jpg""",1197,1,1,AA00971302,Malawi,9,m,3,back; pelvic; arm; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971781_8.jpg""",4881,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00971263_6.jpg""",2592,2,1,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971350_8.jpg""",2134,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971284_4.jpg""",3096,0,0,AA00971284,Malawi,3,m,3,hair,1.0,Others
+False,"""data/PASSION/images/AA00970793_6.jpg""",4849,2,0,AA00970793,Tanzania,1,m,5,back; face; arm; foot; hand; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00970143_1.jpg""",2946,0,1,AA00970143,Madagascar,34,f,4,leg,0.0,Others
+False,"""data/PASSION/images/AA00971359_5.jpg""",793,3,1,AA00971359,Madagascar,39,m,4,face,0.0,Fungal
+False,"""data/PASSION/images/AA00971371_6.jpg""",1357,3,0,AA00971371,Malawi,13,m,4,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971423_1.jpg""",343,1,1,AA00971423,Madagascar,54,f,3,torso; pelvic; arm; back,0.0,Scabies
+False,"""data/PASSION/images/AA00970543_1.jpg""",3105,2,3,AA00970543,Madagascar,41,m,4,,0.0,Eczema
+True,"""data/PASSION/images/AA00971317_3.jpg""",4540,1,1,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971212_3.jpg""",2833,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971618_5.jpg""",606,1,1,AA00971618,Malawi,3,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970174_4.jpg""",4205,2,1,AA00970174,Madagascar,7,m,4,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971350_2.jpg""",4436,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970734_5.jpg""",2865,1,1,AA00970734,Madagascar,1,m,4,back; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971601_1.jpg""",604,1,1,AA00971601,Madagascar,19,m,5,pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971284_2.jpg""",1753,0,0,AA00971284,Malawi,3,m,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00971565_1.jpg""",4647,1,1,AA00971565,Madagascar,34,f,5,torso; pelvic; back; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971381_3.jpg""",3167,2,2,AA00971381,Madagascar,0,m,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971203_1.jpg""",1769,0,0,AA00971203,Malawi,6,f,3,face; leg,1.0,Others
+False,"""data/PASSION/images/AA00970941_1.jpg""",869,1,3,AA00970941,Guinea,12,f,6,pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971317_1.jpg""",4625,1,1,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971899_4.jpg""",4814,1,1,AA00971899,Madagascar,31,m,4,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00972016_5.jpg""",3537,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971764_9.jpg""",4817,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971350_9.jpg""",4877,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970227_2.jpg""",279,2,2,AA00970227,Guinea,36,f,6,face,0.0,Eczema
+True,"""data/PASSION/images/AA00972023_2.jpg""",4266,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971179_1.jpg""",1955,1,1,AA00971179,Madagascar,2,m,3,,0.0,Scabies
+True,"""data/PASSION/images/AA00971393_5.jpg""",4855,0,0,AA00971393,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971565_2.jpg""",391,1,1,AA00971565,Madagascar,34,f,5,torso; pelvic; back; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970761_2.jpg""",1966,0,2,AA00970761,Madagascar,6,f,3,face,1.0,Others
+True,"""data/PASSION/images/AA00971989_1.jpg""",3867,3,3,AA00971989,Madagascar,50,f,5,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971615_1.jpg""",386,3,3,AA00971615,Malawi,3,f,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971034_1.jpg""",3689,1,2,AA00971034,Guinea,1,f,6,torso; foot,0.0,Scabies
+False,"""data/PASSION/images/AA00971255_9.jpg""",1044,0,1,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971588_1.jpg""",3021,1,2,AA00971588,Madagascar,1,m,3,back; face; arm; pelvic; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971619_2.jpg""",2931,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970793_1.jpg""",963,2,2,AA00970793,Tanzania,1,m,5,back; face; arm; foot; hand; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971212_2.jpg""",2434,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970973_2.jpg""",3529,1,1,AA00970973,Madagascar,19,m,5,,0.0,Scabies
+True,"""data/PASSION/images/AA00971099_1.jpg""",3419,3,3,AA00971099,Guinea,5,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970246_1.jpg""",2754,1,2,AA00970246,Guinea,13,m,6,pelvic; back,0.0,Scabies
+False,"""data/PASSION/images/AA00971772_1.jpg""",3269,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971263_8.jpg""",3866,2,1,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970788_2.jpg""",4463,1,1,AA00970788,Madagascar,6,m,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971035_1.jpg""",219,1,1,AA00971035,Guinea,1,m,6,foot; arm,0.0,Scabies
+False,"""data/PASSION/images/AA00970552_1.jpg""",1011,0,3,AA00970552,Madagascar,4,m,4,torso; back,0.0,Others
+True,"""data/PASSION/images/AA00970865_1.jpg""",2072,2,2,AA00970865,Madagascar,0,f,3,face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971788_2.jpg""",510,3,3,AA00971788,Madagascar,53,f,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971757_5.jpg""",2774,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971317_6.jpg""",4700,1,1,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971366_2.jpg""",2236,0,0,AA00971366,Malawi,9,f,5,back; hair; face; arm; pelvic; foot; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00970829_2.jpg""",1953,2,1,AA00970829,Tanzania,15,m,5,arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971317_9.jpg""",3571,1,2,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971873_2.jpg""",3774,3,3,AA00971873,Madagascar,28,m,5,leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971216_5.jpg""",507,3,0,AA00971216,Malawi,7,m,3,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00971338_6.jpg""",1687,2,0,AA00971338,Malawi,0,m,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971186_1.jpg""",340,1,1,AA00971186,Madagascar,25,f,5,torso; hand; arm; back,0.0,Scabies
+False,"""data/PASSION/images/AA00971068_1.jpg""",2277,3,1,AA00971068,Guinea,36,f,6,arm,1.0,Fungal
+False,"""data/PASSION/images/AA00971409_8.jpg""",2863,2,0,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971532_2.jpg""",731,1,1,AA00971532,Madagascar,25,f,4,back; pelvic; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971781_5.jpg""",1478,3,0,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00971781_10.jpg""",721,3,0,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00970574_1.jpg""",4342,2,2,AA00970574,Madagascar,5,f,4,,0.0,Eczema
+True,"""data/PASSION/images/AA00970875_2.jpg""",3915,1,1,AA00970875,Madagascar,15,m,5,pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971338_2.jpg""",4443,2,2,AA00971338,Malawi,0,m,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00970591_3.jpg""",1181,2,2,AA00970591,Madagascar,47,f,3,,0.0,Eczema
+False,"""data/PASSION/images/AA00971721_1.jpg""",4512,3,1,AA00971721,Madagascar,63,f,4,back; face; arm; pelvic; torso; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971623_6.jpg""",1257,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971764_14.jpg""",2314,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971393_6.jpg""",893,0,0,AA00971393,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00972023_7.jpg""",1259,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971254_8.jpg""",2564,1,0,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971490_3.jpg""",3749,1,1,AA00971490,Madagascar,54,m,4,torso; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971615_5.jpg""",1909,3,3,AA00971615,Malawi,3,f,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971112_1.jpg""",389,2,3,AA00971112,Madagascar,46,m,3,foot,0.0,Eczema
+False,"""data/PASSION/images/AA00971317_10.jpg""",2555,1,2,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970749_1.jpg""",2882,2,1,AA00970749,Madagascar,0,m,3,face,0.0,Eczema
+False,"""data/PASSION/images/AA00971255_6.jpg""",1662,0,2,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971270_1.jpg""",1569,3,3,AA00971270,Malawi,8,m,3,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971590_1.jpg""",2248,2,2,AA00971590,Madagascar,1,f,3,pelvic; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971138_1.jpg""",1885,2,2,AA00971138,Madagascar,2,f,4,torso; back; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00972016_11.jpg""",2984,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970793_4.jpg""",3313,2,1,AA00970793,Tanzania,1,m,5,back; face; arm; foot; hand; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971967_2.jpg""",2642,2,1,AA00971967,Madagascar,54,f,3,torso; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00970852_2.jpg""",1191,2,1,AA00970852,Madagascar,4,m,4,face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971409_4.jpg""",437,2,2,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00972016_12.jpg""",2320,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971533_3.jpg""",2411,1,1,AA00971533,Madagascar,36,m,5,hand; pelvic; back; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971378_2.jpg""",1421,1,0,AA00971378,Madagascar,20,f,4,hand; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971768_2.jpg""",1335,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+False,"""data/PASSION/images/AA00970543_2.jpg""",4852,2,3,AA00970543,Madagascar,41,m,4,,0.0,Eczema
+True,"""data/PASSION/images/AA00970734_4.jpg""",405,1,1,AA00970734,Madagascar,1,m,4,back; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970658_4.jpg""",1190,2,2,AA00970658,Tanzania,0,f,4,hair; face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970658_3.jpg""",4662,2,2,AA00970658,Tanzania,0,f,4,hair; face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971271_1.jpg""",4858,0,0,AA00971271,Guinea,36,f,6,arm,0.0,Others
+False,"""data/PASSION/images/AA00971814_3.jpg""",4038,3,2,AA00971814,Madagascar,24,f,4,face,0.0,Fungal
+False,"""data/PASSION/images/AA00971290_6.jpg""",3291,3,0,AA00971290,Malawi,1,m,3,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00972055_7.jpg""",4250,0,3,AA00972055,Malawi,6,f,5,leg,1.0,Others
+False,"""data/PASSION/images/AA00971177_1.jpg""",3563,2,1,AA00971177,Madagascar,22,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971216_6.jpg""",3762,3,3,AA00971216,Malawi,7,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971237_11.jpg""",411,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+True,"""data/PASSION/images/AA00970696_1.jpg""",1819,2,2,AA00970696,Tanzania,1,m,5,pelvic; face; arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971359_2.jpg""",2968,3,2,AA00971359,Madagascar,39,m,4,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971757_1.jpg""",2017,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970716_1.jpg""",2838,3,2,AA00970716,Guinea,32,m,6,foot,0.0,Fungal
+True,"""data/PASSION/images/AA00970603_1.jpg""",2768,2,2,AA00970603,Madagascar,13,m,3,torso; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971768_8.jpg""",1701,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+True,"""data/PASSION/images/AA00971709_1.jpg""",4362,1,1,AA00971709,Madagascar,21,f,5,torso,0.0,Scabies
+True,"""data/PASSION/images/AA00970435_2.jpg""",2187,1,1,AA00970435,Madagascar,21,m,4,torso; hand; arm; back,0.0,Scabies
+False,"""data/PASSION/images/AA00970398_2.jpg""",2916,1,3,AA00970398,Madagascar,30,f,4,hand,0.0,Scabies
+False,"""data/PASSION/images/AA00971222_6.jpg""",497,0,1,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00971626_4.jpg""",1393,0,0,AA00971626,Malawi,3,m,5,face,1.0,Others
+False,"""data/PASSION/images/AA00971761_4.jpg""",1631,2,1,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00971794_1.jpg""",4211,3,2,AA00971794,Madagascar,24,f,4,back,0.0,Fungal
+True,"""data/PASSION/images/AA00971768_9.jpg""",2100,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+True,"""data/PASSION/images/AA00971768_3.jpg""",4248,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+False,"""data/PASSION/images/AA00970558_1.jpg""",1390,2,1,AA00970558,Madagascar,7,f,3,hand,0.0,Eczema
+False,"""data/PASSION/images/AA00971571_2.jpg""",4784,3,1,AA00971571,Madagascar,32,f,3,torso; arm,0.0,Fungal
+True,"""data/PASSION/images/AA00972035_2.jpg""",573,2,2,AA00972035,Malawi,13,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00971222_1.jpg""",1767,0,0,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00972016_2.jpg""",3340,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971388_4.jpg""",1059,0,0,AA00971388,Malawi,3,f,3,torso; face; arm,1.0,Others
+True,"""data/PASSION/images/AA00971350_13.jpg""",3217,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970299_4.jpg""",1787,1,1,AA00970299,Madagascar,28,f,3,torso; pelvic; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00972055_8.jpg""",2366,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00971255_1.jpg""",2454,0,0,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970790_1.jpg""",4704,1,1,AA00970790,Madagascar,25,f,4,back; pelvic; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970135_2.jpg""",4671,2,3,AA00970135,Madagascar,4,f,5,face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970220_2.jpg""",4460,2,2,AA00970220,Madagascar,1,f,4,face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971388_3.jpg""",3965,0,0,AA00971388,Malawi,3,f,3,torso; face; arm,1.0,Others
+True,"""data/PASSION/images/AA00970627_1.jpg""",326,2,2,AA00970627,Madagascar,12,m,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00972023_11.jpg""",3783,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971588_2.jpg""",727,1,1,AA00971588,Madagascar,1,m,3,back; face; arm; pelvic; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971225_2.jpg""",3851,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+False,"""data/PASSION/images/AA00971922_2.jpg""",3950,2,1,AA00971922,Madagascar,27,m,4,face,0.0,Eczema
+False,"""data/PASSION/images/AA00971952_2.jpg""",2065,3,1,AA00971952,Madagascar,26,f,3,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00971222_9.jpg""",269,0,1,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00971772_14.jpg""",103,1,1,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00970865_2.jpg""",3633,2,2,AA00970865,Madagascar,0,f,3,face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971349_1.jpg""",3184,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971781_11.jpg""",1609,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00970921_1.jpg""",2104,2,2,AA00970921,Guinea,28,m,6,foot,0.0,Eczema
+True,"""data/PASSION/images/AA00971409_7.jpg""",1633,2,2,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00972016_9.jpg""",2590,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971350_5.jpg""",4272,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971511_3.jpg""",2015,1,3,AA00971511,Madagascar,27,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970129_2.jpg""",78,2,1,AA00970129,Madagascar,41,f,5,torso; face,0.0,Eczema
+True,"""data/PASSION/images/AA00971950_3.jpg""",1031,2,2,AA00971950,Madagascar,13,m,5,foot; leg,1.0,Eczema
+False,"""data/PASSION/images/AA00970542_2.jpg""",26,2,3,AA00970542,Madagascar,26,f,4,arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971617_1.jpg""",1879,3,3,AA00971617,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971101_1.jpg""",4287,3,3,AA00971101,Guinea,7,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971761_3.jpg""",980,2,1,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971237_5.jpg""",2335,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+True,"""data/PASSION/images/AA00971831_1.jpg""",964,1,1,AA00971831,Madagascar,10,m,5,torso; hand; pelvic,1.0,Scabies
+False,"""data/PASSION/images/AA00971409_6.jpg""",3348,2,1,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971761_8.jpg""",2886,2,1,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971317_7.jpg""",1361,1,1,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970399_2.jpg""",3027,1,1,AA00970399,Madagascar,24,m,5,torso; hand; pelvic; back,0.0,Scabies
+True,"""data/PASSION/images/AA00970187_3.jpg""",3411,3,3,AA00970187,Madagascar,39,f,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00970538_1.jpg""",1772,2,2,AA00970538,Madagascar,2,m,5,face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970737_2.jpg""",1457,1,1,AA00970737,Madagascar,20,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971290_3.jpg""",3906,3,3,AA00971290,Malawi,1,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971237_7.jpg""",3314,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+False,"""data/PASSION/images/AA00970852_1.jpg""",3941,2,3,AA00970852,Madagascar,4,m,4,face; arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971891_2.jpg""",3648,2,1,AA00971891,Madagascar,25,f,5,torso; back,0.0,Eczema
+False,"""data/PASSION/images/AA00971150_3.jpg""",163,1,2,AA00971150,Madagascar,28,f,4,hand; pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00970964_1.jpg""",4225,3,3,AA00970964,Guinea,7,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971423_6.jpg""",697,1,0,AA00971423,Madagascar,54,f,3,torso; pelvic; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971126_1.jpg""",1685,2,2,AA00971126,Madagascar,52,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971772_9.jpg""",182,1,1,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971619_6.jpg""",4380,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971619_3.jpg""",1990,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971761_9.jpg""",1149,2,2,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971764_8.jpg""",4710,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970397_1.jpg""",4198,2,3,AA00970397,Madagascar,4,f,3,torso; arm; leg,1.0,Eczema
+True,"""data/PASSION/images/AA00972034_2.jpg""",3802,1,1,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00970174_2.jpg""",1237,2,1,AA00970174,Madagascar,7,m,4,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971865_2.jpg""",1015,3,3,AA00971865,Madagascar,34,m,5,,0.0,Fungal
+True,"""data/PASSION/images/AA00971237_6.jpg""",2888,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+True,"""data/PASSION/images/AA00970263_1.jpg""",612,0,0,AA00970263,Guinea,5,m,6,face,0.0,Others
+False,"""data/PASSION/images/AA00971166_1.jpg""",2401,0,1,AA00971166,Madagascar,35,f,3,torso; arm; back,0.0,Others
+True,"""data/PASSION/images/AA00972034_3.jpg""",885,1,1,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971931_2.jpg""",2803,3,1,AA00971931,Madagascar,30,m,4,torso; face; back,0.0,Fungal
+False,"""data/PASSION/images/AA00971245_1.jpg""",3931,3,2,AA00971245,Madagascar,8,m,4,face,0.0,Fungal
+False,"""data/PASSION/images/AA00971222_2.jpg""",2828,0,1,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00970737_1.jpg""",1344,1,1,AA00970737,Madagascar,20,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971366_5.jpg""",303,0,0,AA00971366,Malawi,9,f,5,back; hair; face; arm; pelvic; foot; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00972004_2.jpg""",1775,2,2,AA00972004,Madagascar,8,m,5,hair; torso; arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00970435_3.jpg""",3446,1,2,AA00970435,Madagascar,21,m,4,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00970627_2.jpg""",2420,2,2,AA00970627,Madagascar,12,m,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971618_3.jpg""",628,1,1,AA00971618,Malawi,3,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971782_1.jpg""",2816,0,0,AA00971782,Malawi,4,m,5,face,1.0,Others
+True,"""data/PASSION/images/AA00971317_8.jpg""",902,1,1,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971670_1.jpg""",2461,2,2,AA00971670,Madagascar,30,f,4,leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971582_2.jpg""",4320,3,3,AA00971582,Malawi,7,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971781_6.jpg""",2989,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971263_7.jpg""",2770,2,2,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00972035_1.jpg""",329,2,2,AA00972035,Malawi,13,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00971617_5.jpg""",2795,3,3,AA00971617,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971739_1.jpg""",3630,1,1,AA00971739,Madagascar,1,m,5,back; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970762_2.jpg""",769,3,3,AA00970762,Madagascar,11,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970907_1.jpg""",1151,0,1,AA00970907,Guinea,17,m,6,leg,1.0,Others
+True,"""data/PASSION/images/AA00971176_2.jpg""",3614,2,2,AA00971176,Madagascar,29,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00970617_1.jpg""",3138,2,2,AA00970617,Madagascar,3,f,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971623_16.jpg""",3540,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971745_1.jpg""",1336,1,1,AA00971745,Madagascar,32,f,6,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971241_4.jpg""",760,1,2,AA00971241,Madagascar,56,f,4,back; hair; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971237_2.jpg""",3496,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+False,"""data/PASSION/images/AA00971587_1.jpg""",2923,3,2,AA00971587,Madagascar,30,m,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00970919_1.jpg""",2475,3,3,AA00970919,Guinea,6,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971770_4.jpg""",2858,0,0,AA00971770,Malawi,3,m,5,torso; leg,1.0,Others
+True,"""data/PASSION/images/AA00971102_1.jpg""",1276,3,3,AA00971102,Guinea,6,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971764_11.jpg""",351,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971254_7.jpg""",2527,1,1,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971203_5.jpg""",4769,0,1,AA00971203,Malawi,6,f,3,face; leg,1.0,Others
+True,"""data/PASSION/images/AA00970299_1.jpg""",1941,1,1,AA00970299,Madagascar,28,f,3,torso; pelvic; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971885_1.jpg""",4730,2,3,AA00971885,Madagascar,2,m,3,leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971635_2.jpg""",63,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971670_2.jpg""",1105,2,2,AA00971670,Madagascar,30,f,4,leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971619_11.jpg""",4295,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970640_2.jpg""",3626,3,3,AA00970640,Madagascar,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971220_2.jpg""",1686,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970408_1.jpg""",3890,3,3,AA00970408,Madagascar,19,f,4,arm,0.0,Fungal
+True,"""data/PASSION/images/AA00971054_1.jpg""",1994,3,3,AA00971054,Guinea,6,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970658_2.jpg""",3415,2,1,AA00970658,Tanzania,0,f,4,hair; face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970903_1.jpg""",1509,3,3,AA00970903,Guinea,8,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971049_1.jpg""",3400,2,3,AA00971049,Guinea,4,f,6,foot,0.0,Eczema
+True,"""data/PASSION/images/AA00971270_6.jpg""",3945,3,3,AA00971270,Malawi,8,m,3,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00970227_1.jpg""",1538,2,1,AA00970227,Guinea,36,f,6,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971665_3.jpg""",274,2,2,AA00971665,Madagascar,13,f,3,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971782_2.jpg""",2484,0,0,AA00971782,Malawi,4,m,5,face,1.0,Others
+True,"""data/PASSION/images/AA00971270_2.jpg""",3925,3,3,AA00971270,Malawi,8,m,3,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971687_1.jpg""",4331,1,1,AA00971687,Madagascar,28,m,4,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00971615_2.jpg""",4102,3,3,AA00971615,Malawi,3,f,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971225_10.jpg""",1332,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+False,"""data/PASSION/images/AA00971772_5.jpg""",1346,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971254_1.jpg""",3585,1,0,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971764_1.jpg""",4896,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971206_1.jpg""",142,0,2,AA00971206,Malawi,7,f,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00972007_3.jpg""",451,3,3,AA00972007,Madagascar,3,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971484_1.jpg""",265,1,1,AA00971484,Madagascar,23,m,4,hand; pelvic; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971764_7.jpg""",2492,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970183_1.jpg""",2160,3,3,AA00970183,Madagascar,44,f,5,,0.0,Fungal
+True,"""data/PASSION/images/AA00971772_12.jpg""",2355,1,1,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00970603_4.jpg""",4575,2,1,AA00970603,Madagascar,13,m,3,torso; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971781_9.jpg""",2842,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00972034_14.jpg""",1505,1,1,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971770_2.jpg""",501,0,0,AA00971770,Malawi,3,m,5,torso; leg,1.0,Others
+False,"""data/PASSION/images/AA00971723_1.jpg""",4827,3,1,AA00971723,Madagascar,43,m,3,torso; face; arm; back,0.0,Fungal
+False,"""data/PASSION/images/AA00971930_1.jpg""",3471,3,2,AA00971930,Madagascar,21,f,3,back,0.0,Fungal
+True,"""data/PASSION/images/AA00970169_2.jpg""",1215,3,3,AA00970169,Madagascar,60,f,4,face,0.0,Fungal
+False,"""data/PASSION/images/AA00971290_1.jpg""",2216,3,0,AA00971290,Malawi,1,m,3,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00972034_10.jpg""",2568,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971225_11.jpg""",1853,2,1,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+True,"""data/PASSION/images/AA00972055_9.jpg""",227,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00971150_1.jpg""",1596,1,1,AA00971150,Madagascar,28,f,4,hand; pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971029_1.jpg""",2233,3,3,AA00971029,Guinea,6,f,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00972004_3.jpg""",2279,2,3,AA00972004,Madagascar,8,m,5,hair; torso; arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971263_5.jpg""",2996,2,0,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971533_2.jpg""",866,1,1,AA00971533,Madagascar,36,m,5,hand; pelvic; back; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971212_10.jpg""",4888,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971237_1.jpg""",3109,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+False,"""data/PASSION/images/AA00971194_2.jpg""",1700,0,3,AA00971194,Malawi,6,f,4,hair,1.0,Others
+False,"""data/PASSION/images/AA00971761_1.jpg""",3679,2,1,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00970398_1.jpg""",1201,1,1,AA00970398,Madagascar,30,f,4,hand,0.0,Scabies
+False,"""data/PASSION/images/AA00971646_3.jpg""",58,1,2,AA00971646,Madagascar,12,m,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970565_1.jpg""",546,2,2,AA00970565,Madagascar,34,m,5,face,0.0,Eczema
+False,"""data/PASSION/images/AA00971166_3.jpg""",3847,0,1,AA00971166,Madagascar,35,f,3,torso; arm; back,0.0,Others
+True,"""data/PASSION/images/AA00970982_1.jpg""",2848,1,1,AA00970982,Madagascar,28,m,4,,0.0,Scabies
+True,"""data/PASSION/images/AA00971635_3.jpg""",1603,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971284_3.jpg""",2472,0,0,AA00971284,Malawi,3,m,3,hair,1.0,Others
+False,"""data/PASSION/images/AA00971574_3.jpg""",2259,3,1,AA00971574,Madagascar,22,f,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00970832_1.jpg""",2293,1,1,AA00970832,Madagascar,33,m,5,hand,0.0,Scabies
+False,"""data/PASSION/images/AA00971494_4.jpg""",3792,1,3,AA00971494,Madagascar,32,m,4,torso; hand; arm; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971772_2.jpg""",4119,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971962_2.jpg""",398,3,3,AA00971962,Madagascar,53,f,4,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00972061_1.jpg""",102,2,1,AA00972061,Madagascar,27,f,3,hand,0.0,Eczema
+True,"""data/PASSION/images/AA00971122_1.jpg""",188,3,3,AA00971122,Madagascar,40,m,3,,0.0,Fungal
+False,"""data/PASSION/images/AA00971301_2.jpg""",1801,3,2,AA00971301,Malawi,6,f,3,face,0.0,Fungal
+True,"""data/PASSION/images/AA00970972_1.jpg""",2295,2,2,AA00970972,Madagascar,7,m,4,,0.0,Eczema
+True,"""data/PASSION/images/AA00971623_9.jpg""",3841,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970749_2.jpg""",1992,2,2,AA00970749,Madagascar,0,m,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971126_3.jpg""",882,2,2,AA00971126,Madagascar,52,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971349_7.jpg""",2580,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971843_1.jpg""",3078,2,2,AA00971843,Madagascar,19,f,5,,1.0,Eczema
+True,"""data/PASSION/images/AA00971623_3.jpg""",1918,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971220_1.jpg""",3297,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971619_10.jpg""",3934,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971212_12.jpg""",41,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971344_2.jpg""",3189,0,0,AA00971344,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970645_2.jpg""",4469,1,1,AA00970645,Madagascar,30,m,4,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00971623_15.jpg""",54,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971913_1.jpg""",1469,3,1,AA00971913,Madagascar,54,f,4,back,0.0,Fungal
+True,"""data/PASSION/images/AA00972034_9.jpg""",3215,1,1,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971623_8.jpg""",27,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00970181_2.jpg""",1262,3,1,AA00970181,Madagascar,29,m,4,,0.0,Fungal
+True,"""data/PASSION/images/AA00971393_7.jpg""",1232,0,0,AA00971393,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970577_1.jpg""",2799,2,2,AA00970577,Madagascar,3,m,4,,0.0,Eczema
+False,"""data/PASSION/images/AA00971484_2.jpg""",889,1,3,AA00971484,Madagascar,23,m,4,hand; pelvic; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00970137_1.jpg""",2640,2,2,AA00970137,Madagascar,1,f,4,torso; face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971222_8.jpg""",749,0,0,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00970924_1.jpg""",4079,3,3,AA00970924,Guinea,13,f,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971617_4.jpg""",4176,3,3,AA00971617,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971349_6.jpg""",3416,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971772_7.jpg""",3674,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971263_2.jpg""",2242,2,0,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971770_1.jpg""",4101,0,0,AA00971770,Malawi,3,m,5,torso; leg,1.0,Others
+False,"""data/PASSION/images/AA00972034_7.jpg""",1593,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971494_2.jpg""",508,1,1,AA00971494,Madagascar,32,m,4,torso; hand; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971156_1.jpg""",2815,3,3,AA00971156,Madagascar,25,m,3,,0.0,Fungal
+False,"""data/PASSION/images/AA00970129_1.jpg""",2620,2,3,AA00970129,Madagascar,41,f,5,torso; face,0.0,Eczema
+False,"""data/PASSION/images/AA00970634_4.jpg""",1281,2,1,AA00970634,Madagascar,55,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00971409_2.jpg""",3022,2,2,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971739_3.jpg""",2638,1,1,AA00971739,Madagascar,1,m,5,back; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971263_4.jpg""",3706,2,2,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971764_3.jpg""",4200,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970666_1.jpg""",147,2,3,AA00970666,Madagascar,1,m,4,face,0.0,Eczema
+False,"""data/PASSION/images/AA00971551_3.jpg""",2184,1,2,AA00971551,Madagascar,15,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971812_1.jpg""",2685,2,2,AA00971812,Madagascar,13,f,5,arm,0.0,Eczema
+True,"""data/PASSION/images/AA00971619_8.jpg""",1032,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970306_2.jpg""",215,3,1,AA00970306,Guinea,36,m,6,foot,1.0,Fungal
+True,"""data/PASSION/images/AA00971302_6.jpg""",3984,1,1,AA00971302,Malawi,9,m,3,back; pelvic; arm; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971350_1.jpg""",1984,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971770_7.jpg""",1516,0,0,AA00971770,Malawi,3,m,5,torso; leg,1.0,Others
+False,"""data/PASSION/images/AA00970696_3.jpg""",684,2,1,AA00970696,Tanzania,1,m,5,pelvic; face; arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971751_1.jpg""",2192,1,3,AA00971751,Madagascar,63,f,4,torso; hand; pelvic; back,0.0,Scabies
+True,"""data/PASSION/images/AA00970737_3.jpg""",2935,1,1,AA00970737,Madagascar,20,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970187_1.jpg""",3503,3,3,AA00970187,Madagascar,39,f,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971222_3.jpg""",2068,0,0,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00971494_3.jpg""",3374,1,1,AA00971494,Madagascar,32,m,4,torso; hand; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971772_4.jpg""",1203,1,1,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971034_2.jpg""",2661,1,3,AA00971034,Guinea,1,f,6,torso; foot,0.0,Scabies
+True,"""data/PASSION/images/AA00970397_3.jpg""",1522,2,2,AA00970397,Madagascar,4,f,3,torso; arm; leg,1.0,Eczema
+False,"""data/PASSION/images/AA00971409_1.jpg""",1123,2,1,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00970793_2.jpg""",4787,2,1,AA00970793,Tanzania,1,m,5,back; face; arm; foot; hand; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970187_2.jpg""",1337,3,3,AA00970187,Madagascar,39,f,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971637_1.jpg""",4397,0,0,AA00971637,Malawi,4,m,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00970520_2.jpg""",2543,3,3,AA00970520,Madagascar,29,m,5,hand,0.0,Fungal
+True,"""data/PASSION/images/AA00971898_1.jpg""",331,1,1,AA00971898,Madagascar,15,m,4,torso; hand; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00972011_1.jpg""",4204,3,3,AA00972011,Madagascar,50,f,4,torso,0.0,Fungal
+True,"""data/PASSION/images/AA00971046_1.jpg""",2583,3,3,AA00971046,Guinea,26,f,6,arm,0.0,Fungal
+True,"""data/PASSION/images/AA00971499_1.jpg""",2529,1,1,AA00971499,Madagascar,25,m,5,torso; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971270_3.jpg""",4721,3,3,AA00971270,Malawi,8,m,3,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971255_2.jpg""",4048,0,1,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971772_10.jpg""",2120,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971721_6.jpg""",2403,3,2,AA00971721,Madagascar,63,f,4,back; face; arm; pelvic; torso; leg,0.0,Fungal
+False,"""data/PASSION/images/AA00970759_3.jpg""",2333,1,2,AA00970759,Madagascar,35,m,4,pelvic; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00972055_6.jpg""",4531,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+False,"""data/PASSION/images/AA00971764_5.jpg""",929,1,0,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971393_2.jpg""",1115,0,0,AA00971393,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970855_1.jpg""",1657,3,3,AA00970855,Madagascar,11,f,5,back,0.0,Fungal
+True,"""data/PASSION/images/AA00971349_10.jpg""",0,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00972027_2.jpg""",1424,0,3,AA00972027,Malawi,4,f,5,hair,1.0,Others
+True,"""data/PASSION/images/AA00971241_1.jpg""",3815,1,1,AA00971241,Madagascar,56,f,4,back; hair; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971525_3.jpg""",3326,1,1,AA00971525,Madagascar,25,f,4,torso; hand; pelvic,0.0,Scabies
+False,"""data/PASSION/images/AA00971284_8.jpg""",539,0,3,AA00971284,Malawi,3,m,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00971721_4.jpg""",242,3,3,AA00971721,Madagascar,63,f,4,back; face; arm; pelvic; torso; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00970574_2.jpg""",2209,2,2,AA00970574,Madagascar,5,f,4,,0.0,Eczema
+True,"""data/PASSION/images/AA00971635_1.jpg""",2110,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00972000_1.jpg""",3580,1,3,AA00972000,Madagascar,23,m,4,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00970542_1.jpg""",1635,2,2,AA00970542,Madagascar,26,f,4,arm; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971908_1.jpg""",4386,1,2,AA00971908,Madagascar,54,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970829_1.jpg""",1636,2,1,AA00970829,Tanzania,15,m,5,arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971003_1.jpg""",2416,3,3,AA00971003,Guinea,5,f,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971436_1.jpg""",4623,3,1,AA00971436,Madagascar,58,m,3,arm; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971757_4.jpg""",2683,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971041_1.jpg""",2351,3,3,AA00971041,Guinea,7,f,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00972079_1.jpg""",1952,3,1,AA00972079,Madagascar,18,m,5,,0.0,Fungal
+True,"""data/PASSION/images/AA00971005_1.jpg""",2389,3,3,AA00971005,Guinea,6,f,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971761_6.jpg""",1377,2,2,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971757_2.jpg""",2263,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971350_11.jpg""",3704,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971714_2.jpg""",3451,1,1,AA00971714,Madagascar,29,f,4,hand; pelvic; back,0.0,Scabies
+True,"""data/PASSION/images/AA00970304_1.jpg""",2786,3,3,AA00970304,Guinea,45,m,3,foot,0.0,Fungal
+True,"""data/PASSION/images/AA00971908_3.jpg""",267,1,1,AA00971908,Madagascar,54,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971366_7.jpg""",4703,0,0,AA00971366,Malawi,9,f,5,back; hair; face; arm; pelvic; foot; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970120_1.jpg""",1504,3,3,AA00970120,Guinea,8,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971623_14.jpg""",3004,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971659_2.jpg""",1347,3,1,AA00971659,Madagascar,28,m,4,torso; arm,0.0,Fungal
+False,"""data/PASSION/images/AA00972034_8.jpg""",33,1,2,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00970281_1.jpg""",2800,0,0,AA00970281,Guinea,29,f,6,back,0.0,Others
+False,"""data/PASSION/images/AA00970143_2.jpg""",4649,0,1,AA00970143,Madagascar,34,f,4,leg,0.0,Others
+True,"""data/PASSION/images/AA00971220_4.jpg""",914,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00972045_5.jpg""",2200,3,2,AA00972045,Madagascar,24,m,5,back; pelvic; arm; torso; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971899_3.jpg""",4276,1,1,AA00971899,Madagascar,31,m,4,torso; hand; arm; back,0.0,Scabies
+False,"""data/PASSION/images/AA00971125_1.jpg""",2662,1,2,AA00971125,Madagascar,13,m,3,,0.0,Scabies
+False,"""data/PASSION/images/AA00971919_1.jpg""",4340,3,2,AA00971919,Madagascar,41,f,5,leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971290_7.jpg""",159,3,0,AA00971290,Malawi,1,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00970520_1.jpg""",101,3,3,AA00970520,Madagascar,29,m,5,hand,0.0,Fungal
+True,"""data/PASSION/images/AA00971623_13.jpg""",4578,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00970110_2.jpg""",3488,1,2,AA00970110,Guinea,3,m,6,pelvic,0.0,Scabies
+False,"""data/PASSION/images/AA00971511_1.jpg""",1196,1,3,AA00971511,Madagascar,27,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970535_1.jpg""",1247,1,2,AA00970535,Madagascar,11,m,4,torso; foot; hand,1.0,Scabies
+False,"""data/PASSION/images/AA00972045_3.jpg""",2074,3,1,AA00972045,Madagascar,24,m,5,back; pelvic; arm; torso; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971186_4.jpg""",3780,1,1,AA00971186,Madagascar,25,f,5,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971699_2.jpg""",3607,1,1,AA00971699,Madagascar,55,f,4,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970552_2.jpg""",2480,0,3,AA00970552,Madagascar,4,m,4,torso; back,0.0,Others
+True,"""data/PASSION/images/AA00971388_6.jpg""",3333,0,0,AA00971388,Malawi,3,f,3,torso; face; arm,1.0,Others
+False,"""data/PASSION/images/AA00970958_1.jpg""",1600,2,1,AA00970958,Guinea,8,m,6,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971757_8.jpg""",3486,3,3,AA00971757,Malawi,6,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971301_1.jpg""",1917,3,2,AA00971301,Malawi,6,f,3,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971126_2.jpg""",2518,2,2,AA00971126,Madagascar,52,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971582_4.jpg""",4653,3,3,AA00971582,Malawi,7,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971237_4.jpg""",483,0,0,AA00971237,Malawi,4,m,3,pelvic; face,1.0,Others
+False,"""data/PASSION/images/AA00971255_7.jpg""",4528,0,1,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00972016_8.jpg""",432,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971761_11.jpg""",3437,2,2,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00971359_3.jpg""",2205,3,1,AA00971359,Madagascar,39,m,4,face,0.0,Fungal
+True,"""data/PASSION/images/AA00970435_4.jpg""",2658,1,1,AA00970435,Madagascar,21,m,4,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971533_4.jpg""",2772,1,1,AA00971533,Madagascar,36,m,5,hand; pelvic; back; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970591_2.jpg""",1989,2,3,AA00970591,Madagascar,47,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971302_3.jpg""",4826,1,1,AA00971302,Malawi,9,m,3,back; pelvic; arm; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971873_1.jpg""",1993,3,3,AA00971873,Madagascar,28,m,5,leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971166_2.jpg""",2478,0,2,AA00971166,Madagascar,35,f,3,torso; arm; back,0.0,Others
+False,"""data/PASSION/images/AA00971665_2.jpg""",218,2,3,AA00971665,Madagascar,13,f,3,torso; face; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00970742_3.jpg""",4795,1,2,AA00970742,Madagascar,50,f,5,back; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971705_1.jpg""",3056,1,1,AA00971705,Madagascar,29,m,5,leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970535_4.jpg""",528,1,1,AA00970535,Madagascar,11,m,4,torso; foot; hand,1.0,Scabies
+True,"""data/PASSION/images/AA00971225_3.jpg""",569,2,2,AA00971225,Malawi,1,m,3,hair; face,0.0,Eczema
+False,"""data/PASSION/images/AA00971216_1.jpg""",2144,3,0,AA00971216,Malawi,7,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971302_7.jpg""",1073,1,1,AA00971302,Malawi,9,m,3,back; pelvic; arm; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971511_2.jpg""",141,1,1,AA00971511,Madagascar,27,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971366_6.jpg""",1079,0,0,AA00971366,Malawi,9,f,5,back; hair; face; arm; pelvic; foot; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971814_1.jpg""",2709,3,2,AA00971814,Madagascar,24,f,4,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971917_2.jpg""",1725,3,3,AA00971917,Madagascar,31,f,5,leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971194_6.jpg""",831,0,3,AA00971194,Malawi,6,f,4,hair,1.0,Others
+True,"""data/PASSION/images/AA00970067_1.jpg""",1034,2,2,AA00970067,Guinea,27,f,6,torso,0.0,Eczema
+True,"""data/PASSION/images/AA00972035_6.jpg""",2083,2,2,AA00972035,Malawi,13,f,5,,0.0,Eczema
+False,"""data/PASSION/images/AA00971570_2.jpg""",695,3,1,AA00971570,Madagascar,36,f,3,,0.0,Fungal
+True,"""data/PASSION/images/AA00971317_5.jpg""",120,1,1,AA00971317,Malawi,2,f,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971950_2.jpg""",2084,2,2,AA00971950,Madagascar,13,m,5,foot; leg,1.0,Eczema
+False,"""data/PASSION/images/AA00970865_3.jpg""",2019,2,0,AA00970865,Madagascar,0,f,3,face; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971263_3.jpg""",3616,2,0,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971574_2.jpg""",2344,3,1,AA00971574,Madagascar,22,f,4,torso; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971831_2.jpg""",4405,1,1,AA00971831,Madagascar,10,m,5,torso; hand; pelvic,1.0,Scabies
+True,"""data/PASSION/images/AA00971619_13.jpg""",2925,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970139_1.jpg""",4323,3,3,AA00970139,Madagascar,32,f,4,torso,0.0,Fungal
+False,"""data/PASSION/images/AA00971166_4.jpg""",1580,0,2,AA00971166,Madagascar,35,f,3,torso; arm; back,0.0,Others
+True,"""data/PASSION/images/AA00971371_5.jpg""",3578,3,3,AA00971371,Malawi,13,m,4,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00972023_6.jpg""",2424,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970634_3.jpg""",3937,2,2,AA00970634,Madagascar,55,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00970729_1.jpg""",2400,1,1,AA00970729,Madagascar,18,m,5,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00971008_1.jpg""",1744,3,3,AA00971008,Guinea,7,f,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971206_3.jpg""",2817,0,3,AA00971206,Malawi,7,f,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00972004_5.jpg""",3235,2,2,AA00972004,Madagascar,8,m,5,hair; torso; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971338_1.jpg""",4525,2,2,AA00971338,Malawi,0,m,3,face,0.0,Eczema
+False,"""data/PASSION/images/AA00971899_1.jpg""",3995,1,2,AA00971899,Madagascar,31,m,4,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971615_4.jpg""",705,3,3,AA00971615,Malawi,3,f,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00970260_1.jpg""",3097,2,2,AA00970260,Guinea,11,m,3,arm,0.0,Eczema
+False,"""data/PASSION/images/AA00971160_1.jpg""",3819,3,1,AA00971160,Madagascar,25,m,6,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00971761_2.jpg""",1253,2,1,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971366_4.jpg""",4786,0,0,AA00971366,Malawi,9,f,5,back; hair; face; arm; pelvic; foot; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971216_3.jpg""",2452,3,0,AA00971216,Malawi,7,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971212_5.jpg""",4449,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971525_2.jpg""",285,1,1,AA00971525,Madagascar,25,f,4,torso; hand; pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971434_1.jpg""",4547,2,2,AA00971434,Madagascar,8,f,3,torso; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971462_1.jpg""",965,3,3,AA00971462,Madagascar,8,m,4,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971490_2.jpg""",313,1,2,AA00971490,Madagascar,54,m,4,torso; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00971764_13.jpg""",2775,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971212_7.jpg""",1837,1,2,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970399_3.jpg""",2843,1,1,AA00970399,Madagascar,24,m,5,torso; hand; pelvic; back,0.0,Scabies
+False,"""data/PASSION/images/AA00971423_3.jpg""",4268,1,2,AA00971423,Madagascar,54,f,3,torso; pelvic; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971619_1.jpg""",1431,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971952_1.jpg""",4432,3,3,AA00971952,Madagascar,26,f,3,hand,0.0,Fungal
+True,"""data/PASSION/images/AA00971212_6.jpg""",2939,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970242_1.jpg""",2738,3,3,AA00970242,Guinea,45,m,6,foot; hand,0.0,Fungal
+True,"""data/PASSION/images/AA00972054_1.jpg""",2481,0,0,AA00972054,Malawi,0,f,5,face,1.0,Others
+True,"""data/PASSION/images/AA00970982_2.jpg""",2381,1,1,AA00970982,Madagascar,28,m,4,,0.0,Scabies
+False,"""data/PASSION/images/AA00971151_1.jpg""",502,1,2,AA00971151,Madagascar,4,m,5,pelvic; arm; foot; hand; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971186_5.jpg""",3158,1,0,AA00971186,Madagascar,25,f,5,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971533_5.jpg""",2880,1,1,AA00971533,Madagascar,36,m,5,hand; pelvic; back; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971423_4.jpg""",2041,1,1,AA00971423,Madagascar,54,f,3,torso; pelvic; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971212_1.jpg""",1571,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971967_3.jpg""",2119,2,1,AA00971967,Madagascar,54,f,3,torso; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971234_2.jpg""",4228,0,0,AA00971234,Malawi,4,m,3,face,1.0,Others
+False,"""data/PASSION/images/AA00970915_1.jpg""",3377,3,1,AA00970915,Guinea,42,f,6,pelvic,0.0,Fungal
+True,"""data/PASSION/images/AA00971945_2.jpg""",259,1,1,AA00971945,Madagascar,5,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970279_1.jpg""",958,1,2,AA00970279,Guinea,8,m,6,pelvic,0.0,Scabies
+False,"""data/PASSION/images/AA00972034_11.jpg""",3613,1,0,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971415_2.jpg""",60,2,1,AA00971415,Madagascar,32,m,5,torso,0.0,Eczema
+True,"""data/PASSION/images/AA00970096_1.jpg""",1394,3,3,AA00970096,Guinea,32,m,6,foot,0.0,Fungal
+True,"""data/PASSION/images/AA00971344_1.jpg""",1629,0,0,AA00971344,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971203_2.jpg""",533,0,0,AA00971203,Malawi,6,f,3,face; leg,1.0,Others
+True,"""data/PASSION/images/AA00971097_1.jpg""",1542,3,3,AA00971097,Guinea,27,f,6,torso,0.0,Fungal
+False,"""data/PASSION/images/AA00971216_2.jpg""",273,3,0,AA00971216,Malawi,7,m,3,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00971618_6.jpg""",1396,1,2,AA00971618,Malawi,3,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971378_1.jpg""",3979,1,1,AA00971378,Madagascar,20,f,4,hand; arm,0.0,Scabies
+False,"""data/PASSION/images/AA00971284_7.jpg""",4536,0,3,AA00971284,Malawi,3,m,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00971945_1.jpg""",1017,1,1,AA00971945,Madagascar,5,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971772_3.jpg""",2032,1,0,AA00971772,Malawi,7,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00970920_1.jpg""",2127,3,3,AA00970920,Guinea,6,f,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971220_10.jpg""",2757,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971723_2.jpg""",3436,3,1,AA00971723,Madagascar,43,m,3,torso; face; arm; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971494_1.jpg""",1695,1,1,AA00971494,Madagascar,32,m,4,torso; hand; arm; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970238_1.jpg""",4612,0,0,AA00970238,Guinea,14,m,6,back,0.0,Others
+True,"""data/PASSION/images/AA00971768_4.jpg""",4871,0,0,AA00971768,Malawi,2,m,5,pelvic; leg,1.0,Others
+True,"""data/PASSION/images/AA00970056_1.jpg""",3535,1,1,AA00970056,Guinea,4,m,6,foot; hand; pelvic,1.0,Scabies
+True,"""data/PASSION/images/AA00971635_4.jpg""",2891,0,0,AA00971635,Malawi,4,f,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00972023_8.jpg""",1425,1,0,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970821_1.jpg""",3495,0,3,AA00970821,Guinea,37,m,6,hair,0.0,Others
+True,"""data/PASSION/images/AA00971393_3.jpg""",641,0,0,AA00971393,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00972027_1.jpg""",1006,0,3,AA00972027,Malawi,4,f,5,hair,1.0,Others
+True,"""data/PASSION/images/AA00971179_2.jpg""",848,1,1,AA00971179,Madagascar,2,m,3,,0.0,Scabies
+True,"""data/PASSION/images/AA00972023_12.jpg""",44,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970965_1.jpg""",4393,3,3,AA00970965,Guinea,7,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00970841_1.jpg""",1703,3,3,AA00970841,Madagascar,26,m,3,arm; leg,0.0,Fungal
+False,"""data/PASSION/images/AA00970236_1.jpg""",1069,0,2,AA00970236,Guinea,32,f,6,back,0.0,Others
+True,"""data/PASSION/images/AA00971917_1.jpg""",4418,3,3,AA00971917,Madagascar,31,f,5,leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971623_4.jpg""",2601,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971220_3.jpg""",3207,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00971781_4.jpg""",600,3,0,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00971359_1.jpg""",3143,3,2,AA00971359,Madagascar,39,m,4,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971812_2.jpg""",1971,2,2,AA00971812,Madagascar,13,f,5,arm,0.0,Eczema
+True,"""data/PASSION/images/AA00971623_7.jpg""",1465,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971255_3.jpg""",935,0,0,AA00971255,Malawi,3,f,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00970208_2.jpg""",1501,3,2,AA00970208,Guinea,36,m,6,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00971254_2.jpg""",3424,1,0,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971349_8.jpg""",2332,0,0,AA00971349,Malawi,5,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971464_2.jpg""",4409,3,3,AA00971464,Madagascar,19,m,4,pelvic; back,0.0,Fungal
+True,"""data/PASSION/images/AA00972035_4.jpg""",119,2,2,AA00972035,Malawi,13,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00971897_1.jpg""",2373,2,2,AA00971897,Madagascar,26,m,5,foot; arm,0.0,Eczema
+True,"""data/PASSION/images/AA00971290_5.jpg""",3182,3,3,AA00971290,Malawi,1,m,3,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00970729_2.jpg""",2571,1,1,AA00970729,Madagascar,18,m,5,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00971764_6.jpg""",3785,1,1,AA00971764,Malawi,3,m,5,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971887_1.jpg""",1763,2,3,AA00971887,Madagascar,7,f,5,pelvic; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971409_5.jpg""",4057,2,2,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00972004_4.jpg""",3381,2,2,AA00972004,Madagascar,8,m,5,hair; torso; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971605_1.jpg""",1970,1,1,AA00971605,Madagascar,56,f,4,hand; pelvic; arm,0.0,Scabies
+True,"""data/PASSION/images/AA00970973_1.jpg""",547,1,1,AA00970973,Madagascar,19,m,5,,0.0,Scabies
+True,"""data/PASSION/images/AA00971697_2.jpg""",1447,1,1,AA00971697,Madagascar,35,f,4,hand; pelvic; back,0.0,Scabies
+True,"""data/PASSION/images/AA00970136_1.jpg""",1557,2,2,AA00970136,Madagascar,12,f,4,face; leg,1.0,Eczema
+True,"""data/PASSION/images/AA00970399_1.jpg""",3481,1,1,AA00970399,Madagascar,24,m,5,torso; hand; pelvic; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971127_1.jpg""",4799,2,2,AA00971127,Madagascar,11,f,3,,0.0,Eczema
+True,"""data/PASSION/images/AA00971623_2.jpg""",1940,0,0,AA00971623,Malawi,6,m,5,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970120_2.jpg""",3100,3,3,AA00970120,Guinea,8,m,6,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971865_1.jpg""",4758,3,3,AA00971865,Madagascar,34,m,5,,0.0,Fungal
+False,"""data/PASSION/images/AA00970062_1.jpg""",1862,2,1,AA00970062,Guinea,18,m,6,arm; back,1.0,Eczema
+True,"""data/PASSION/images/AA00970696_6.jpg""",3390,2,2,AA00970696,Tanzania,1,m,5,pelvic; face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971409_9.jpg""",4477,2,2,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970640_1.jpg""",4807,3,3,AA00970640,Madagascar,6,m,5,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971899_2.jpg""",1817,1,1,AA00971899,Madagascar,31,m,4,torso; hand; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971739_2.jpg""",169,1,1,AA00971739,Madagascar,1,m,5,back; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971646_2.jpg""",3570,1,1,AA00971646,Madagascar,12,m,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971350_7.jpg""",3959,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971429_1.jpg""",3050,2,2,AA00971429,Madagascar,7,m,3,arm,0.0,Eczema
+False,"""data/PASSION/images/AA00971825_1.jpg""",2560,3,2,AA00971825,Madagascar,22,f,5,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971175_1.jpg""",2943,1,1,AA00971175,Madagascar,22,m,3,hand; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971697_1.jpg""",658,1,1,AA00971697,Madagascar,35,f,4,hand; pelvic; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971234_3.jpg""",4620,0,0,AA00971234,Malawi,4,m,3,face,1.0,Others
+True,"""data/PASSION/images/AA00970742_2.jpg""",2890,1,1,AA00970742,Madagascar,50,f,5,back; arm; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971570_3.jpg""",3863,3,1,AA00971570,Madagascar,36,f,3,,0.0,Fungal
+True,"""data/PASSION/images/AA00971791_1.jpg""",2229,3,3,AA00971791,Madagascar,23,m,4,back,0.0,Fungal
+True,"""data/PASSION/images/AA00972016_10.jpg""",992,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970240_1.jpg""",2253,1,1,AA00970240,Guinea,19,f,6,leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971254_5.jpg""",1950,1,1,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971064_1.jpg""",2199,3,3,AA00971064,Guinea,5,m,6,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971263_1.jpg""",1828,2,1,AA00971263,Malawi,6,m,3,back; face; arm; pelvic; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971338_4.jpg""",3106,2,2,AA00971338,Malawi,0,m,3,face,0.0,Eczema
+True,"""data/PASSION/images/AA00971234_5.jpg""",1852,0,0,AA00971234,Malawi,4,m,3,face,1.0,Others
+True,"""data/PASSION/images/AA00971831_3.jpg""",3987,1,1,AA00971831,Madagascar,10,m,5,torso; hand; pelvic,1.0,Scabies
+True,"""data/PASSION/images/AA00971761_5.jpg""",2869,2,2,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971603_2.jpg""",1911,1,1,AA00971603,Madagascar,10,m,4,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971409_3.jpg""",3112,2,2,AA00971409,Malawi,2,m,4,back; hair; face; arm; pelvic; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00970107_2.jpg""",853,3,1,AA00970107,Guinea,4,m,6,torso,0.0,Fungal
+False,"""data/PASSION/images/AA00970181_1.jpg""",1397,3,2,AA00970181,Madagascar,29,m,4,,0.0,Fungal
+True,"""data/PASSION/images/AA00970268_1.jpg""",3055,3,3,AA00970268,Guinea,48,m,6,foot,1.0,Fungal
+False,"""data/PASSION/images/AA00971897_2.jpg""",4843,2,3,AA00971897,Madagascar,26,m,5,foot; arm,0.0,Eczema
+True,"""data/PASSION/images/AA00971302_5.jpg""",3993,1,1,AA00971302,Malawi,9,m,3,back; pelvic; arm; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00970250_1.jpg""",2183,1,1,AA00970250,Guinea,21,m,6,,0.0,Scabies
+True,"""data/PASSION/images/AA00971220_9.jpg""",4654,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+False,"""data/PASSION/images/AA00970972_2.jpg""",2769,2,3,AA00970972,Madagascar,7,m,4,,0.0,Eczema
+False,"""data/PASSION/images/AA00971194_5.jpg""",4064,0,3,AA00971194,Malawi,6,f,4,hair,1.0,Others
+True,"""data/PASSION/images/AA00972000_2.jpg""",2094,1,1,AA00972000,Madagascar,23,m,4,hand,0.0,Scabies
+False,"""data/PASSION/images/AA00972034_6.jpg""",685,1,2,AA00972034,Malawi,5,m,5,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00970759_2.jpg""",3311,1,1,AA00970759,Madagascar,35,m,4,pelvic; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971483_1.jpg""",3625,3,2,AA00971483,Madagascar,3,m,3,hair,0.0,Fungal
+True,"""data/PASSION/images/AA00971721_3.jpg""",4783,3,3,AA00971721,Madagascar,63,f,4,back; face; arm; pelvic; torso; leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971301_3.jpg""",2287,3,2,AA00971301,Malawi,6,f,3,face,0.0,Fungal
+True,"""data/PASSION/images/AA00970603_2.jpg""",3345,2,2,AA00970603,Madagascar,13,m,3,torso; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00970208_1.jpg""",2836,3,2,AA00970208,Guinea,36,m,6,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00970110_1.jpg""",720,1,0,AA00970110,Guinea,3,m,6,pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00971723_3.jpg""",4473,3,3,AA00971723,Madagascar,43,m,3,torso; face; arm; back,0.0,Fungal
+True,"""data/PASSION/images/AA00970734_3.jpg""",3380,1,1,AA00970734,Madagascar,1,m,4,back; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971687_2.jpg""",1429,1,1,AA00971687,Madagascar,28,m,4,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00971761_10.jpg""",459,2,2,AA00971761,Malawi,3,m,5,torso; face; arm; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971393_4.jpg""",3371,0,0,AA00971393,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+False,"""data/PASSION/images/AA00971603_4.jpg""",452,1,0,AA00971603,Madagascar,10,m,4,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971967_1.jpg""",3505,2,1,AA00971967,Madagascar,54,f,3,torso; arm; back,0.0,Eczema
+False,"""data/PASSION/images/AA00970663_1.jpg""",3773,2,3,AA00970663,Madagascar,55,f,5,foot,0.0,Eczema
+True,"""data/PASSION/images/AA00971603_3.jpg""",868,1,1,AA00971603,Madagascar,10,m,4,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971436_4.jpg""",1442,3,2,AA00971436,Madagascar,58,m,3,arm; leg,0.0,Fungal
+False,"""data/PASSION/images/AA00971811_1.jpg""",4419,3,1,AA00971811,Madagascar,51,f,3,pelvic,0.0,Fungal
+False,"""data/PASSION/images/AA00972016_1.jpg""",4149,1,0,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970299_2.jpg""",3068,1,2,AA00970299,Madagascar,28,f,3,torso; pelvic; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970611_2.jpg""",2245,2,2,AA00970611,Madagascar,1,f,3,torso; face; back,0.0,Eczema
+True,"""data/PASSION/images/AA00972055_2.jpg""",4530,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00971619_12.jpg""",1493,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971594_1.jpg""",3370,1,1,AA00971594,Madagascar,36,m,5,pelvic,0.0,Scabies
+True,"""data/PASSION/images/AA00972055_5.jpg""",1087,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+False,"""data/PASSION/images/AA00971206_4.jpg""",3125,0,3,AA00971206,Malawi,7,f,3,hair,1.0,Others
+True,"""data/PASSION/images/AA00972023_13.jpg""",1286,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971732_1.jpg""",591,3,1,AA00971732,Madagascar,24,f,4,back,0.0,Fungal
+True,"""data/PASSION/images/AA00971901_2.jpg""",1934,1,1,AA00971901,Madagascar,27,f,4,pelvic; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971175_3.jpg""",2985,1,1,AA00971175,Madagascar,22,m,3,hand; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971212_11.jpg""",2129,1,1,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970530_1.jpg""",3919,2,2,AA00970530,Madagascar,30,m,5,leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971603_1.jpg""",255,1,1,AA00971603,Madagascar,10,m,4,back; pelvic; arm; hand; torso; leg,1.0,Scabies
+False,"""data/PASSION/images/AA00971618_7.jpg""",171,1,2,AA00971618,Malawi,3,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970135_3.jpg""",2734,2,3,AA00970135,Madagascar,4,f,5,face; arm; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00972023_1.jpg""",1670,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971499_3.jpg""",3264,1,1,AA00971499,Madagascar,25,m,5,torso; arm; back,0.0,Scabies
+True,"""data/PASSION/images/AA00971637_3.jpg""",1898,0,0,AA00971637,Malawi,4,m,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00970535_2.jpg""",3150,1,1,AA00970535,Madagascar,11,m,4,torso; foot; hand,1.0,Scabies
+True,"""data/PASSION/images/AA00971933_1.jpg""",3933,2,2,AA00971933,Madagascar,1,m,3,,1.0,Eczema
+False,"""data/PASSION/images/AA00971194_4.jpg""",3272,0,3,AA00971194,Malawi,6,f,4,hair,1.0,Others
+True,"""data/PASSION/images/AA00970658_1.jpg""",1146,2,2,AA00970658,Tanzania,0,f,4,hair; face; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00970634_1.jpg""",2732,2,2,AA00970634,Madagascar,55,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00970248_1.jpg""",4567,1,1,AA00970248,Guinea,27,m,6,torso,0.0,Scabies
+True,"""data/PASSION/images/AA00971619_5.jpg""",2109,1,1,AA00971619,Malawi,3,m,3,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971388_1.jpg""",3903,0,0,AA00971388,Malawi,3,f,3,torso; face; arm,1.0,Others
+True,"""data/PASSION/images/AA00971626_2.jpg""",4060,0,0,AA00971626,Malawi,3,m,5,face,1.0,Others
+False,"""data/PASSION/images/AA00970277_1.jpg""",888,2,0,AA00970277,Guinea,30,f,6,back,0.0,Eczema
+False,"""data/PASSION/images/AA00970931_1.jpg""",3660,3,2,AA00970931,Guinea,36,f,6,leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971371_2.jpg""",3289,3,3,AA00971371,Malawi,13,m,4,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00972055_4.jpg""",1306,0,0,AA00972055,Malawi,6,f,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00970170_2.jpg""",209,2,2,AA00970170,Madagascar,65,f,4,arm,0.0,Eczema
+False,"""data/PASSION/images/AA00971588_4.jpg""",2897,1,2,AA00971588,Madagascar,1,m,3,back; face; arm; pelvic; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971254_4.jpg""",2294,1,1,AA00971254,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971781_7.jpg""",1808,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00971618_2.jpg""",1026,1,1,AA00971618,Malawi,3,f,3,back; pelvic; arm; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00970841_2.jpg""",3502,3,2,AA00970841,Madagascar,26,m,3,arm; leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971781_2.jpg""",4551,3,3,AA00971781,Malawi,3,f,5,hair,1.0,Fungal
+True,"""data/PASSION/images/AA00970645_3.jpg""",827,1,1,AA00970645,Madagascar,30,m,4,hand,0.0,Scabies
+True,"""data/PASSION/images/AA00970553_1.jpg""",780,3,3,AA00970553,Madagascar,54,m,4,hand,0.0,Fungal
+False,"""data/PASSION/images/AA00971222_7.jpg""",3019,0,1,AA00971222,Malawi,0,m,3,back; hair; face; arm; pelvic; hand; torso; arm; leg,0.0,Others
+True,"""data/PASSION/images/AA00971344_4.jpg""",4767,0,0,AA00971344,Malawi,8,f,3,back; hair; face; arm; pelvic; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00971637_4.jpg""",764,0,0,AA00971637,Malawi,4,m,5,leg,1.0,Others
+True,"""data/PASSION/images/AA00971582_3.jpg""",166,3,3,AA00971582,Malawi,7,m,5,hair,0.0,Fungal
+False,"""data/PASSION/images/AA00971723_4.jpg""",181,3,1,AA00971723,Madagascar,43,m,3,torso; face; arm; back,0.0,Fungal
+True,"""data/PASSION/images/AA00971415_1.jpg""",2750,2,2,AA00971415,Madagascar,32,m,5,torso,0.0,Eczema
+False,"""data/PASSION/images/AA00971966_1.jpg""",2003,3,1,AA00971966,Madagascar,21,m,5,torso; back,0.0,Fungal
+False,"""data/PASSION/images/AA00970734_6.jpg""",1415,1,2,AA00970734,Madagascar,1,m,4,back; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970040_2.jpg""",816,1,1,AA00970040,Madagascar,7,m,4,arm; foot; hand; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00971551_1.jpg""",157,1,1,AA00971551,Madagascar,15,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971388_5.jpg""",1485,0,0,AA00971388,Malawi,3,f,3,torso; face; arm,1.0,Others
+True,"""data/PASSION/images/AA00971338_3.jpg""",3968,2,2,AA00971338,Malawi,0,m,3,face,0.0,Eczema
+False,"""data/PASSION/images/AA00970268_2.jpg""",4067,3,2,AA00970268,Guinea,48,m,6,foot,1.0,Fungal
+True,"""data/PASSION/images/AA00971962_1.jpg""",2915,3,3,AA00971962,Madagascar,53,f,4,hand,0.0,Fungal
+True,"""data/PASSION/images/AA00972035_7.jpg""",1759,2,2,AA00972035,Malawi,13,f,5,,0.0,Eczema
+True,"""data/PASSION/images/AA00970734_1.jpg""",1016,1,1,AA00970734,Madagascar,1,m,4,back; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971477_2.jpg""",2414,3,3,AA00971477,Madagascar,40,f,3,leg,0.0,Fungal
+True,"""data/PASSION/images/AA00971711_1.jpg""",4524,1,1,AA00971711,Madagascar,44,f,4,torso,0.0,Scabies
+True,"""data/PASSION/images/AA00971220_6.jpg""",38,2,2,AA00971220,Malawi,1,f,3,back; pelvic; arm; torso; leg,0.0,Eczema
+True,"""data/PASSION/images/AA00972023_3.jpg""",2296,1,1,AA00972023,Malawi,4,m,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971945_3.jpg""",2054,1,1,AA00971945,Madagascar,5,f,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00972016_6.jpg""",1435,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00972016_4.jpg""",706,1,1,AA00972016,Malawi,13,f,5,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970734_2.jpg""",484,1,1,AA00970734,Madagascar,1,m,4,back; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970076_1.jpg""",2586,3,3,AA00970076,Guinea,61,f,6,foot,0.0,Fungal
+True,"""data/PASSION/images/AA00970788_1.jpg""",1049,1,1,AA00970788,Madagascar,6,m,4,back; pelvic; arm; hand; torso; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00971626_1.jpg""",17,0,0,AA00971626,Malawi,3,m,5,face,1.0,Others
+True,"""data/PASSION/images/AA00971302_1.jpg""",2055,1,1,AA00971302,Malawi,9,m,3,back; pelvic; arm; torso; leg,1.0,Scabies
+True,"""data/PASSION/images/AA00970299_3.jpg""",4887,1,1,AA00970299,Madagascar,28,f,3,torso; pelvic; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971371_7.jpg""",2818,3,2,AA00971371,Malawi,13,m,4,hair,1.0,Fungal
+False,"""data/PASSION/images/AA00971212_8.jpg""",94,1,2,AA00971212,Malawi,0,f,3,back; pelvic; arm; hand; foot; torso; leg,0.0,Scabies
+False,"""data/PASSION/images/AA00971983_1.jpg""",2514,3,2,AA00971983,Madagascar,16,f,4,face,0.0,Fungal
+True,"""data/PASSION/images/AA00971350_12.jpg""",4800,0,0,AA00971350,Malawi,4,f,4,back; hair; pelvic; arm; torso; leg,0.0,Others
+True,"""data/PASSION/images/AA00970611_3.jpg""",1055,2,2,AA00970611,Madagascar,1,f,3,torso; face; back,0.0,Eczema
+True,"""data/PASSION/images/AA00970530_2.jpg""",2719,2,2,AA00970530,Madagascar,30,m,5,leg,0.0,Eczema
+True,"""data/PASSION/images/AA00971901_1.jpg""",1453,1,1,AA00971901,Madagascar,27,f,4,pelvic; leg,0.0,Scabies
+True,"""data/PASSION/images/AA00970611_4.jpg""",4789,2,2,AA00970611,Madagascar,1,f,3,torso; face; back,0.0,Eczema
+True,"""data/PASSION/images/AA00971950_1.jpg""",4050,2,2,AA00971950,Madagascar,13,m,5,foot; leg,1.0,Eczema

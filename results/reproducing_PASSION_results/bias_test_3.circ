@@ -1,0 +1,581 @@
+[34m[1mwandb[0m: [33mWARNING[0m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+[32m2025-04-28 09:18:26.598[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36m_run_evaluation_on_range[0m:[36m285[0m - [34m[1mloading saved dict[0m
+[32m2025-04-28 09:18:26.602[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36mparse_targets[0m:[36m528[0m - [34m[1mparse result: [0, 2, 1, 3, 0, 1, 0, 1, 3, 2, 3, 1, 1, 0, 3, 2, 2, 1, 0, 3, 2, 2, 0, 3, 3, 3, 2, 0, 2, 2, 2, 3, 1, 1, 2, 0, 1, 0, 2, 2, 1, 3, 0, 0, 3, 3, 3, 0, 0, 0, 3, 0, 2, 3, 2, 1, 0, 2, 3, 2, 1, 0, 2, 0, 2, 1, 2, 2, 3, 3, 0, 0, 0, 2, 0, 3, 2, 0, 2, 1, 2, 1, 2, 2, 3, 3, 2, 0, 2, 1, 3, 2, 2, 1, 2, 2, 3, 3, 1, 2, 0, 3, 3, 0, 2, 0, 3, 2, 2, 2, 1, 3, 1, 2, 1, 0, 1, 1, 3, 3, 2, 3, 0, 1, 1, 0, 3, 1, 0, 0, 2, 2, 3, 2, 2, 3, 0, 2, 2, 1, 1, 1, 1, 1, 2, 1, 3, 0, 2, 0, 3, 1, 3, 2, 2, 2, 3, 3, 3, 2, 0, 1, 3, 2, 2, 1, 1, 1, 1, 2, 2, 2, 3, 0, 0, 2, 2, 1, 1, 3, 2, 3, 0, 3, 1, 3, 0, 1, 1, 1, 2, 1, 0, 2, 3, 3, 2, 0, 3, 2, 3, 0, 0, 1, 1, 2, 2, 3, 2, 1, 2, 0, 3, 3, 3, 3, 1, 2, 2, 0, 1, 3, 0, 0, 1, 2, 1, 2, 3, 2, 0, 2, 3, 0, 0, 1, 2, 2, 2, 2, 0, 2, 0, 0, 0, 3, 3, 1, 3, 0, 0, 0, 3, 0, 3, 0, 3, 1, 2, 1, 1, 1, 0, 2, 2, 1, 1, 3, 0, 0, 2, 3, 2, 3, 1, 1, 2, 3, 0, 1, 1, 2, 2, 3, 1, 1, 3, 2, 0, 2, 2, 2, 1, 0, 1, 1, 3, 2, 2, 2, 2, 1, 3, 1, 3, 2, 0, 2, 0, 1, 2, 2, 2, 2, 2, 2, 1, 3, 2, 2, 3, 1, 1, 1, 1, 2, 3, 3, 3, 2, 2, 0, 2, 1, 3, 0, 2, 3, 0, 0, 1, 1, 1, 3, 1, 1, 0, 2, 2, 1, 1, 2, 3, 2, 2, 3, 2, 0, 3, 2, 3, 2, 1, 3, 1, 2, 3, 3, 0, 0, 3, 2, 1, 2, 0, 0, 2, 3, 2, 1, 1, 3, 2, 2, 2, 1, 3, 0, 3, 1, 2, 3, 2, 3, 0, 0, 2, 0, 0, 2, 1, 2, 2, 3, 2, 1, 1, 1, 2, 3, 2, 0, 3, 0, 2, 2, 0, 2, 0, 1, 2, 2, 2, 1, 3, 0, 3, 3, 2, 3, 0, 2, 1, 2, 3, 1, 2, 1, 2, 1, 1, 0, 1, 0, 0, 1, 2, 2, 0, 2, 0, 2, 3, 1, 1, 2, 2, 2, 0, 0, 3, 3, 2, 2, 2, 0, 2, 1, 1, 0, 2, 2, 0, 2, 1, 3, 2, 3, 2, 1, 2, 3, 2, 0, 2, 1, 2, 0, 1, 1, 2, 2, 0, 2, 2, 3, 0, 0, 2, 3, 1, 3, 0, 2, 0, 3, 2, 0, 0, 2, 3, 2, 0, 3, 2, 3, 3, 2, 1, 3, 3, 1, 1, 0, 3, 0, 0, 2, 1, 0, 1, 3, 0, 3, 0, 2, 2, 0, 3, 3, 0, 3, 0, 3, 0, 1, 2, 0, 1, 1, 2, 3, 3, 2, 1, 0, 1, 3, 1, 3, 3, 3, 0, 1, 3, 2, 0, 0, 3, 2, 2, 2, 2, 2, 0, 0, 3, 2, 2, 0, 2, 3, 2, 3, 0, 3, 2, 0, 2, 2, 0, 3, 3, 3, 2, 2, 1, 2, 3, 2, 0, 3, 1, 2, 2, 3, 0, 3, 3, 2, 2, 2, 2, 2, 0, 1, 3, 1, 2, 3, 1, 2, 2, 1, 0, 3, 2, 0, 2, 2, 3, 3, 2, 1, 2, 2, 0, 0, 1, 2, 2, 2, 0, 1, 2, 2, 3, 0, 3, 2, 3, 0, 2, 2, 3, 3, 2, 1, 2, 3, 2, 2, 2, 3, 2, 3, 0, 1, 2, 0, 2, 0, 2, 3, 3, 1, 3, 1, 1, 0, 0, 3, 0, 3, 2, 1, 0, 2, 0, 3, 3, 1, 1, 3, 2, 0, 3, 1, 1, 1, 3, 0, 1, 2, 2, 0, 3, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 3, 2, 2, 1, 2, 2, 0, 3, 2, 2, 1, 1, 3, 3, 3, 3, 2, 2, 1, 2, 0, 2, 1, 2, 2, 2, 0, 2, 1, 3, 3, 2, 3, 2, 2, 2, 0, 3, 3, 3, 2, 0, 0, 2, 3, 0, 2, 0, 1, 3, 1, 3, 3, 1, 2, 0, 2, 1, 0, 2, 1, 0, 1, 2, 2, 0, 3, 1, 0, 3, 3, 0, 2, 1, 0, 1, 0, 3, 1, 2, 2, 3, 0, 3, 0, 1, 1, 3, 3, 0, 2, 3, 2, 1, 0, 1, 3, 0, 1, 2, 1, 3, 2, 2, 0, 0, 2, 3, 0, 2, 2, 2, 1, 2, 0, 2, 0, 2, 1, 0, 3, 2, 1, 3, 0, 2, 0, 0, 2, 1, 2, 2, 0, 2, 1, 0, 2, 0, 1, 3, 2, 2, 2, 0, 3, 0, 2, 0, 2, 1, 3, 2, 2, 1, 0, 3, 2, 0, 3, 1, 3, 0, 1, 2, 1, 3, 0, 2, 1, 2, 3, 0, 0, 0, 3, 1, 2, 3, 2, 2, 1, 0, 2, 1, 2, 0, 0, 0, 1, 3, 2, 3, 0, 3, 1, 3, 0, 3, 3, 0, 0, 2, 2, 1, 3, 1, 1, 2, 2, 2, 2, 1, 1, 0, 3, 2, 2, 1, 1, 3, 3, 0, 2, 2, 2, 2, 3, 0, 0, 1, 3, 3, 1, 0, 2, 2, 0, 3, 3, 3, 2, 2, 2, 3, 1, 0, 1, 3, 0, 2, 0, 0, 2, 2, 1, 2, 3, 0, 1, 0, 2, 2, 3, 3, 0, 2, 0, 3][0m
+[32m2025-04-28 09:18:26.603[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36mparse_targets[0m:[36m528[0m - [34m[1mparse result: [0, 2, 1, 3, 3, 1, 0, 1, 3, 3, 3, 1, 1, 3, 3, 2, 2, 2, 0, 3, 2, 2, 0, 3, 0, 3, 2, 1, 1, 2, 2, 3, 1, 1, 2, 0, 1, 3, 2, 2, 1, 3, 0, 2, 0, 3, 1, 2, 0, 0, 3, 0, 2, 0, 2, 1, 0, 2, 3, 2, 3, 3, 2, 0, 2, 3, 2, 2, 3, 3, 0, 0, 0, 2, 0, 3, 2, 3, 2, 3, 2, 1, 2, 2, 3, 3, 2, 0, 1, 1, 3, 2, 2, 1, 0, 2, 2, 3, 1, 2, 2, 2, 2, 0, 2, 0, 3, 2, 2, 2, 3, 3, 1, 2, 1, 0, 0, 1, 3, 3, 2, 2, 0, 1, 0, 0, 3, 1, 1, 0, 2, 2, 2, 2, 3, 0, 0, 2, 1, 1, 1, 2, 1, 1, 1, 1, 3, 0, 2, 2, 3, 1, 3, 2, 2, 2, 1, 3, 3, 2, 0, 1, 1, 0, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 2, 2, 1, 1, 3, 3, 2, 2, 1, 1, 3, 0, 1, 3, 1, 2, 2, 0, 2, 0, 3, 2, 1, 2, 2, 3, 0, 0, 1, 3, 2, 2, 3, 2, 1, 2, 0, 2, 2, 1, 3, 3, 3, 2, 0, 1, 3, 0, 0, 1, 1, 2, 2, 3, 2, 0, 0, 0, 0, 0, 3, 2, 2, 2, 2, 0, 1, 0, 0, 1, 3, 2, 2, 2, 0, 1, 2, 3, 0, 0, 0, 3, 1, 2, 1, 1, 1, 0, 2, 1, 1, 1, 3, 0, 2, 2, 3, 2, 3, 0, 0, 2, 3, 0, 1, 1, 2, 2, 1, 1, 1, 0, 2, 1, 2, 2, 2, 1, 0, 1, 1, 2, 3, 2, 2, 2, 1, 3, 1, 3, 2, 3, 2, 0, 1, 2, 2, 1, 0, 2, 2, 1, 2, 2, 2, 3, 2, 1, 1, 1, 2, 1, 1, 1, 2, 2, 3, 2, 1, 3, 0, 1, 3, 0, 0, 1, 1, 1, 1, 1, 1, 0, 2, 1, 1, 3, 2, 3, 2, 2, 0, 1, 0, 3, 3, 3, 2, 1, 3, 1, 2, 3, 3, 0, 2, 3, 2, 2, 2, 1, 0, 2, 3, 2, 1, 3, 3, 2, 2, 2, 1, 3, 0, 3, 1, 2, 3, 2, 3, 0, 2, 0, 0, 3, 2, 1, 2, 2, 2, 2, 3, 1, 1, 2, 2, 2, 0, 2, 0, 2, 2, 1, 0, 0, 3, 2, 2, 2, 1, 3, 0, 2, 3, 2, 2, 2, 2, 2, 2, 0, 1, 2, 3, 2, 2, 1, 0, 1, 0, 0, 0, 0, 2, 0, 2, 2, 2, 3, 1, 1, 2, 0, 2, 0, 0, 3, 2, 2, 2, 2, 0, 2, 1, 1, 0, 2, 2, 0, 1, 1, 3, 2, 2, 2, 1, 1, 0, 0, 0, 2, 1, 2, 0, 1, 1, 2, 2, 0, 2, 2, 3, 0, 0, 2, 2, 1, 3, 2, 3, 1, 0, 1, 0, 0, 2, 3, 2, 3, 3, 2, 2, 3, 0, 1, 0, 3, 0, 1, 0, 0, 3, 3, 2, 1, 2, 1, 3, 2, 2, 0, 2, 2, 0, 3, 3, 2, 0, 0, 0, 1, 1, 2, 0, 1, 1, 2, 3, 3, 2, 2, 0, 1, 3, 0, 0, 3, 2, 0, 1, 3, 2, 0, 0, 2, 1, 2, 2, 2, 2, 0, 0, 3, 2, 0, 2, 2, 3, 0, 3, 0, 3, 2, 0, 2, 0, 3, 3, 0, 3, 2, 1, 1, 2, 3, 1, 0, 2, 3, 2, 2, 3, 0, 3, 0, 2, 1, 2, 2, 1, 1, 1, 2, 1, 2, 2, 0, 1, 2, 1, 0, 0, 0, 2, 2, 2, 1, 3, 1, 1, 1, 2, 0, 2, 0, 3, 2, 2, 0, 1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 1, 1, 3, 1, 0, 2, 3, 2, 3, 0, 1, 2, 2, 2, 0, 1, 3, 2, 0, 3, 1, 1, 0, 0, 2, 2, 3, 1, 3, 0, 2, 0, 2, 3, 1, 1, 3, 3, 0, 0, 1, 1, 3, 3, 2, 1, 1, 0, 2, 2, 0, 0, 2, 0, 2, 2, 2, 2, 1, 3, 1, 2, 1, 2, 3, 1, 2, 0, 3, 2, 2, 0, 0, 3, 3, 3, 3, 2, 2, 1, 1, 1, 2, 1, 2, 2, 0, 0, 2, 1, 3, 3, 2, 3, 2, 2, 2, 2, 3, 3, 1, 2, 2, 0, 2, 3, 0, 2, 2, 0, 0, 1, 2, 3, 2, 2, 3, 2, 1, 0, 2, 2, 0, 1, 1, 2, 0, 0, 1, 2, 2, 3, 0, 1, 0, 0, 1, 2, 3, 1, 2, 2, 3, 0, 3, 3, 1, 1, 3, 2, 0, 2, 3, 2, 1, 0, 2, 3, 0, 1, 2, 1, 3, 2, 2, 0, 0, 2, 2, 0, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 0, 2, 2, 3, 2, 0, 2, 0, 0, 2, 0, 2, 2, 3, 1, 1, 0, 2, 0, 1, 0, 2, 2, 2, 0, 0, 0, 0, 1, 2, 1, 3, 2, 0, 3, 0, 3, 1, 0, 0, 1, 0, 0, 2, 2, 1, 0, 0, 2, 1, 2, 2, 0, 0, 0, 3, 0, 2, 0, 2, 1, 1, 2, 1, 1, 2, 2, 0, 0, 1, 0, 1, 0, 3, 3, 1, 2, 0, 3, 0, 0, 0, 2, 2, 1, 3, 1, 3, 1, 1, 2, 1, 1, 1, 0, 3, 3, 2, 0, 1, 3, 3, 0, 2, 2, 1, 2, 3, 0, 0, 1, 0, 3, 1, 0, 1, 2, 2, 2, 3, 3, 2, 2, 2, 3, 1, 2, 3, 0, 0, 1, 0, 0, 1, 2, 1, 2, 3, 0, 1, 3, 1, 2, 3, 2, 2, 2, 0, 3][0m
+******************** biasEvaluation ********************
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.69      0.68       222
+     Scabies       0.66      0.73      0.69       200
+      Others       0.72      0.76      0.74       332
+      Eczema       0.74      0.59      0.66       232
+
+    accuracy                           0.70       986
+   macro avg       0.70      0.69      0.69       986
+weighted avg       0.70      0.70      0.70       986
+
+Balanced Acc: 0.6940162420417926
+[32m2025-04-28 09:18:26.618[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36m_run_evaluation_on_range[0m:[36m294[0m - [34m[1meval_df copy:                                   img_path      img_name  subject_id     country  age  ...                                           body_loc            impetig conditions_PASSION Split lbl_conditions_PASSION
+0     data/PASSION/images/AA00971574_2.jpg  AA00971574_2  AA00971574  Madagascar   22  ...                                        torso; back  not impetiginized             Fungal  TEST                      0
+2     data/PASSION/images/AA00971920_1.jpg  AA00971920_1  AA00971920  Madagascar   30  ...                                              torso  not impetiginized             Fungal  TEST                      0
+8     data/PASSION/images/AA00971290_5.jpg  AA00971290_5  AA00971290      Malawi    1  ...                                               hair      impetiginized             Fungal  TEST                      0
+9     data/PASSION/images/AA00970435_2.jpg  AA00970435_2  AA00970435  Madagascar   21  ...                             torso; hand; arm; back  not impetiginized            Scabies  TEST                      1
+15    data/PASSION/images/AA00971222_2.jpg  AA00971222_2  AA00971222      Malawi    0  ...  back; hair; face; arm; pelvic; hand; torso; ar...  not impetiginized             Others  TEST                      2
+...                                    ...           ...         ...         ...  ...  ...                                                ...                ...                ...   ...                    ...
+4875  data/PASSION/images/AA00971635_6.jpg  AA00971635_6  AA00971635      Malawi    4  ...          back; hair; face; arm; pelvic; torso; leg  not impetiginized             Others  TEST                      2
+4876  data/PASSION/images/AA00971723_2.jpg  AA00971723_2  AA00971723  Madagascar   43  ...                             torso; face; arm; back  not impetiginized             Fungal  TEST                      0
+4878  data/PASSION/images/AA00971825_1.jpg  AA00971825_1  AA00971825  Madagascar   22  ...                                               face  not impetiginized             Fungal  TEST                      0
+4882  data/PASSION/images/AA00971222_5.jpg  AA00971222_5  AA00971222      Malawi    0  ...  back; hair; face; arm; pelvic; hand; torso; ar...  not impetiginized             Others  TEST                      2
+4896  data/PASSION/images/AA00972016_8.jpg  AA00972016_8  AA00972016      Malawi   13  ...                back; pelvic; arm; hand; torso; leg  not impetiginized            Scabies  TEST                      1
+
+[986 rows x 12 columns][0m
+[32m2025-04-28 09:18:26.626[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36m_run_evaluation_on_range[0m:[36m300[0m - [34m[1meval_df:                                  img_path      img_name  subject_id     country  age sex  ...            impetig conditions_PASSION Split lbl_conditions_PASSION targets  predictions
+0    data/PASSION/images/AA00971574_2.jpg  AA00971574_2  AA00971574  Madagascar   22   f  ...  not impetiginized             Fungal  TEST                      0       0            0
+1    data/PASSION/images/AA00971920_1.jpg  AA00971920_1  AA00971920  Madagascar   30   f  ...  not impetiginized             Fungal  TEST                      0       2            2
+2    data/PASSION/images/AA00971290_5.jpg  AA00971290_5  AA00971290      Malawi    1   m  ...      impetiginized             Fungal  TEST                      0       1            1
+3    data/PASSION/images/AA00970435_2.jpg  AA00970435_2  AA00970435  Madagascar   21   m  ...  not impetiginized            Scabies  TEST                      1       3            3
+4    data/PASSION/images/AA00971222_2.jpg  AA00971222_2  AA00971222      Malawi    0   m  ...  not impetiginized             Others  TEST                      2       0            3
+..                                    ...           ...         ...         ...  ...  ..  ...                ...                ...   ...                    ...     ...          ...
+981  data/PASSION/images/AA00971635_6.jpg  AA00971635_6  AA00971635      Malawi    4   f  ...  not impetiginized             Others  TEST                      2       3            2
+982  data/PASSION/images/AA00971723_2.jpg  AA00971723_2  AA00971723  Madagascar   43   m  ...  not impetiginized             Fungal  TEST                      0       0            2
+983  data/PASSION/images/AA00971825_1.jpg  AA00971825_1  AA00971825  Madagascar   22   f  ...  not impetiginized             Fungal  TEST                      0       2            2
+984  data/PASSION/images/AA00971222_5.jpg  AA00971222_5  AA00971222      Malawi    0   m  ...  not impetiginized             Others  TEST                      2       0            0
+985  data/PASSION/images/AA00972016_8.jpg  AA00972016_8  AA00972016      Malawi   13   f  ...  not impetiginized            Scabies  TEST                      1       3            3
+
+[986 rows x 14 columns][0m
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.76      0.71        59
+     Scabies       0.56      0.73      0.63        48
+      Others       0.70      0.67      0.69        88
+      Eczema       0.77      0.51      0.61        59
+
+    accuracy                           0.67       254
+   macro avg       0.67      0.67      0.66       254
+weighted avg       0.68      0.67      0.66       254
+
+Balanced Acc: 0.6677019131997946
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.72      0.64      0.68        66
+     Scabies       0.69      0.77      0.73        66
+      Others       0.73      0.83      0.77        99
+      Eczema       0.72      0.58      0.65        72
+
+    accuracy                           0.72       303
+   macro avg       0.72      0.71      0.71       303
+weighted avg       0.72      0.72      0.71       303
+
+Balanced Acc: 0.7051767676767677
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Support: 87 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.57      0.62        23
+     Scabies       0.68      0.72      0.70        18
+      Others       0.72      0.82      0.77        28
+      Eczema       0.65      0.61      0.63        18
+
+    accuracy                           0.69        87
+   macro avg       0.68      0.68      0.68        87
+weighted avg       0.69      0.69      0.69        87
+
+Balanced Acc: 0.6799948240165631
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Support: 342 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.72      0.69        74
+     Scabies       0.71      0.69      0.70        68
+      Others       0.72      0.76      0.74       117
+      Eczema       0.75      0.66      0.71        83
+
+    accuracy                           0.71       342
+   macro avg       0.71      0.71      0.71       342
+weighted avg       0.72      0.71      0.71       342
+
+Balanced Acc: 0.7076817624744627
+~~~~~~~~~~~~~~~~~~~~ Gender: f, Support: 425 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.72      0.70        93
+     Scabies       0.71      0.75      0.73        97
+      Others       0.68      0.79      0.73       135
+      Eczema       0.79      0.53      0.63       100
+
+    accuracy                           0.70       425
+   macro avg       0.71      0.70      0.70       425
+weighted avg       0.71      0.70      0.70       425
+
+Balanced Acc: 0.697048153074924
+~~~~~~~~~~~~~~~~~~~~ Gender: m, Support: 561 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.67      0.67       129
+     Scabies       0.61      0.71      0.66       103
+      Others       0.75      0.75      0.75       197
+      Eczema       0.71      0.64      0.67       132
+
+    accuracy                           0.70       561
+   macro avg       0.69      0.69      0.69       561
+weighted avg       0.70      0.70      0.70       561
+
+Balanced Acc: 0.6913842045211864
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Gender: f, Support: 129 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.67      0.86      0.75        28
+     Scabies       0.65      0.67      0.66        30
+      Others       0.64      0.68      0.66        41
+      Eczema       0.78      0.47      0.58        30
+
+    accuracy                           0.67       129
+   macro avg       0.68      0.67      0.66       129
+weighted avg       0.68      0.67      0.66       129
+
+Balanced Acc: 0.6683507549361208
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Gender: m, Support: 125 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.68      0.67        31
+     Scabies       0.47      0.83      0.60        18
+      Others       0.78      0.66      0.71        47
+      Eczema       0.76      0.55      0.64        29
+
+    accuracy                           0.66       125
+   macro avg       0.67      0.68      0.65       125
+weighted avg       0.70      0.66      0.67       125
+
+Balanced Acc: 0.6805128235470459
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Gender: f, Support: 156 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.72      0.64      0.68        33
+     Scabies       0.74      0.85      0.79        40
+      Others       0.72      0.83      0.77        52
+      Eczema       0.76      0.52      0.62        31
+
+    accuracy                           0.73       156
+   macro avg       0.74      0.71      0.71       156
+weighted avg       0.73      0.73      0.72       156
+
+Balanced Acc: 0.7073539363861944
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Gender: m, Support: 147 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.72      0.64      0.68        33
+     Scabies       0.61      0.65      0.63        26
+      Others       0.74      0.83      0.78        47
+      Eczema       0.70      0.63      0.67        41
+
+    accuracy                           0.70       147
+   macro avg       0.69      0.69      0.69       147
+weighted avg       0.70      0.70      0.70       147
+
+Balanced Acc: 0.6885358414289395
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Gender: f, Support: 32 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.75      0.43      0.55         7
+     Scabies       0.86      0.67      0.75         9
+      Others       0.69      1.00      0.82         9
+      Eczema       0.62      0.71      0.67         7
+
+    accuracy                           0.72        32
+   macro avg       0.73      0.70      0.70        32
+weighted avg       0.74      0.72      0.71        32
+
+Balanced Acc: 0.7023809523809523
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Gender: m, Support: 55 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.67      0.62      0.65        16
+     Scabies       0.58      0.78      0.67         9
+      Others       0.74      0.74      0.74        19
+      Eczema       0.67      0.55      0.60        11
+
+    accuracy                           0.67        55
+   macro avg       0.66      0.67      0.66        55
+weighted avg       0.68      0.67      0.67        55
+
+Balanced Acc: 0.6712686071238703
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Gender: f, Support: 108 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.63      0.76      0.69        25
+     Scabies       0.68      0.72      0.70        18
+      Others       0.67      0.79      0.72        33
+      Eczema       0.90      0.56      0.69        32
+
+    accuracy                           0.70       108
+   macro avg       0.72      0.71      0.70       108
+weighted avg       0.73      0.70      0.70       108
+
+Balanced Acc: 0.7081502525252525
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Gender: m, Support: 234 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.69      0.69        49
+     Scabies       0.72      0.68      0.70        50
+      Others       0.75      0.75      0.75        84
+      Eczema       0.70      0.73      0.71        51
+
+    accuracy                           0.72       234
+   macro avg       0.71      0.71      0.71       234
+weighted avg       0.72      0.72      0.72       234
+
+Balanced Acc: 0.7123419367747099
+[32m2025-04-28 09:18:26.729[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36m_run_evaluation_on_range[0m:[36m321[0m - [34m[1meval_df_aggregated:                                 targets                  predictions
+subject_id
+AA00970025                          [2]                          [2]
+AA00970040                       [1, 1]                       [1, 1]
+AA00970048                       [3, 2]                       [3, 2]
+AA00970056                          [2]                          [1]
+AA00970062                          [0]                          [3]
+...                                 ...                          ...
+AA00972055  [0, 1, 1, 2, 1, 0, 0, 3, 3]  [0, 1, 1, 2, 1, 0, 0, 1, 3]
+AA00972061                          [1]                          [1]
+AA00972067                          [3]                          [3]
+AA00972079                          [2]                          [2]
+AA00972102                          [0]                          [2]
+
+[330 rows x 2 columns][0m
+[32m2025-04-28 09:18:26.730[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36m_run_evaluation_on_range[0m:[36m322[0m - [34m[1mcase_targets: [2 1 2 2 0 2 0 2 2 2 0 1 0 2 2 1 2 3 0 2 0 1 0 0 2 1 0 2 3 2 2 1 2 1 2 1 1
+ 0 0 2 1 3 2 0 3 0 3 0 1 2 3 0 3 2 0 2 2 3 3 2 2 2 2 1 2 0 3 1 2 0 0 3 3 0
+ 2 2 1 1 1 2 0 1 1 1 2 1 3 1 0 0 0 0 0 3 2 0 0 3 1 3 1 0 1 2 0 3 2 0 3 1 2
+ 0 3 1 0 1 3 0 0 3 2 2 2 2 0 2 2 0 1 3 2 0 1 3 1 0 1 0 2 2 0 3 2 2 1 0 3 0
+ 1 2 1 0 3 3 2 2 3 0 3 0 1 0 0 1 2 2 2 2 3 1 1 2 2 0 2 2 3 1 0 0 2 3 2 2 3
+ 2 2 3 1 2 1 3 2 0 2 1 1 0 1 0 2 0 2 3 3 3 0 0 0 0 2 2 2 0 2 1 1 1 2 2 1 1
+ 1 2 1 1 0 0 1 3 1 0 3 1 2 1 0 0 2 2 3 1 0 0 0 2 2 0 2 0 2 2 2 0 0 0 2 0 0
+ 1 1 0 1 2 2 3 2 0 1 0 2 3 3 0 0 3 1 0 2 1 0 2 2 1 0 1 2 0 0 3 2 2 2 3 2 2
+ 3 2 0 0 1 3 2 0 0 0 2 0 1 3 3 3 3 2 1 1 0 1 3 0 3 0 3 2 3 0 1 3 2 0][0m
+[32m2025-04-28 09:18:26.730[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36m_run_evaluation_on_range[0m:[36m323[0m - [34m[1mcase_predictions: [2 1 2 1 3 2 0 2 2 0 0 1 0 2 1 1 2 0 0 1 0 1 0 0 2 0 3 2 3 2 0 1 2 2 2 1 1
+ 0 2 1 1 3 2 0 3 0 3 1 1 1 3 2 2 2 0 1 1 2 1 3 2 0 3 1 2 0 0 1 1 0 0 3 3 0
+ 2 2 2 0 1 2 0 2 1 1 0 0 1 1 0 2 2 0 2 3 1 0 0 3 1 0 2 0 0 0 0 3 2 0 2 3 2
+ 0 2 1 0 1 3 2 0 1 2 2 1 2 0 2 2 0 1 3 2 0 3 3 1 3 1 1 2 0 0 3 2 2 1 0 3 0
+ 1 2 3 0 3 3 2 2 2 3 0 0 0 1 0 0 2 2 2 2 2 1 1 2 0 0 2 2 1 3 0 0 2 2 3 2 0
+ 1 2 2 1 2 2 1 1 3 2 0 2 0 1 2 2 0 1 2 2 2 1 0 1 0 2 1 1 0 2 1 1 1 2 2 1 1
+ 1 2 0 1 2 0 1 3 1 0 0 0 1 2 1 3 2 2 3 1 0 0 0 2 2 0 2 0 1 2 0 0 0 0 2 2 0
+ 2 2 0 1 2 2 3 0 1 2 0 2 2 3 0 0 0 2 0 2 1 0 1 2 1 0 1 2 0 0 2 2 2 2 2 0 2
+ 0 2 0 0 1 3 0 0 0 1 2 0 0 0 3 2 3 2 1 0 0 3 0 2 2 2 0 3 2 1 1 3 2 2][0m
+[32m2025-04-28 09:18:26.733[0m | [34m[1mDEBUG   [0m | [36msrc.trainers.bias_evaluation_trainer[0m:[36m_run_evaluation_on_range[0m:[36m327[0m - [34m[1meval_df_aggregated - majority voted:             targets  predictions
+subject_id
+AA00970025        2            2
+AA00970040        1            1
+AA00970048        2            2
+AA00970056        2            1
+AA00970062        0            3
+...             ...          ...
+AA00972055        0            1
+AA00972061        1            1
+AA00972067        3            3
+AA00972079        2            2
+AA00972102        0            2
+
+[330 rows x 2 columns][0m
+******************** biasEvaluation -> Case Agg. ********************
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.72      0.70        96
+     Scabies       0.58      0.62      0.60        71
+      Others       0.64      0.69      0.66       105
+      Eczema       0.62      0.43      0.51        58
+
+    accuracy                           0.64       330
+   macro avg       0.63      0.61      0.62       330
+weighted avg       0.64      0.64      0.63       330
+
+Balanced Acc: 0.6138042695830154
+==================== grouped output ~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+~~~~~~~~~~~~~~~~~~~~ Sex: f, Support: 425 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.72      0.70        93
+     Scabies       0.71      0.75      0.73        97
+      Others       0.68      0.79      0.73       135
+      Eczema       0.79      0.53      0.63       100
+
+    accuracy                           0.70       425
+   macro avg       0.71      0.70      0.70       425
+weighted avg       0.71      0.70      0.70       425
+
+Balanced Acc: 0.697048153074924
+~~~~~~~~~~~~~~~~~~~~ Sex: m, Support: 561 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.67      0.67       129
+     Scabies       0.61      0.71      0.66       103
+      Others       0.75      0.75      0.75       197
+      Eczema       0.71      0.64      0.67       132
+
+    accuracy                           0.70       561
+   macro avg       0.69      0.69      0.69       561
+weighted avg       0.70      0.70      0.70       561
+
+Balanced Acc: 0.6913842045211864
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.76      0.71        59
+     Scabies       0.56      0.73      0.63        48
+      Others       0.70      0.67      0.69        88
+      Eczema       0.77      0.51      0.61        59
+
+    accuracy                           0.67       254
+   macro avg       0.67      0.67      0.66       254
+weighted avg       0.68      0.67      0.66       254
+
+Balanced Acc: 0.6677019131997946
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.72      0.64      0.68        66
+     Scabies       0.69      0.77      0.73        66
+      Others       0.73      0.83      0.77        99
+      Eczema       0.72      0.58      0.65        72
+
+    accuracy                           0.72       303
+   macro avg       0.72      0.71      0.71       303
+weighted avg       0.72      0.72      0.71       303
+
+Balanced Acc: 0.7051767676767677
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Support: 87 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.57      0.62        23
+     Scabies       0.68      0.72      0.70        18
+      Others       0.72      0.82      0.77        28
+      Eczema       0.65      0.61      0.63        18
+
+    accuracy                           0.69        87
+   macro avg       0.68      0.68      0.68        87
+weighted avg       0.69      0.69      0.69        87
+
+Balanced Acc: 0.6799948240165631
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Support: 342 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.72      0.69        74
+     Scabies       0.71      0.69      0.70        68
+      Others       0.72      0.76      0.74       117
+      Eczema       0.75      0.66      0.71        83
+
+    accuracy                           0.71       342
+   macro avg       0.71      0.71      0.71       342
+weighted avg       0.72      0.71      0.71       342
+
+Balanced Acc: 0.7076817624744627
+==================== grouped output per case using subgroup ~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.72      0.64      0.68        66
+     Scabies       0.69      0.77      0.73        66
+      Others       0.73      0.83      0.77        99
+      Eczema       0.72      0.58      0.65        72
+
+    accuracy                           0.72       303
+   macro avg       0.72      0.71      0.71       303
+weighted avg       0.72      0.72      0.71       303
+
+Balanced Acc: 0.7051767676767677
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.76      0.71        59
+     Scabies       0.56      0.73      0.63        48
+      Others       0.70      0.67      0.69        88
+      Eczema       0.77      0.51      0.61        59
+
+    accuracy                           0.67       254
+   macro avg       0.67      0.67      0.66       254
+weighted avg       0.68      0.67      0.66       254
+
+Balanced Acc: 0.6677019131997946
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Support: 342 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.72      0.69        74
+     Scabies       0.71      0.69      0.70        68
+      Others       0.72      0.76      0.74       117
+      Eczema       0.75      0.66      0.71        83
+
+    accuracy                           0.71       342
+   macro avg       0.71      0.71      0.71       342
+weighted avg       0.72      0.71      0.71       342
+
+Balanced Acc: 0.7076817624744627
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Support: 87 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.57      0.62        23
+     Scabies       0.68      0.72      0.70        18
+      Others       0.72      0.82      0.77        28
+      Eczema       0.65      0.61      0.63        18
+
+    accuracy                           0.69        87
+   macro avg       0.68      0.68      0.68        87
+weighted avg       0.69      0.69      0.69        87
+
+Balanced Acc: 0.6799948240165631
+~~~~~~~~~~~~~~~~~~~~ Sex: f, Support: 425 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.72      0.70        93
+     Scabies       0.71      0.75      0.73        97
+      Others       0.68      0.79      0.73       135
+      Eczema       0.79      0.53      0.63       100
+
+    accuracy                           0.70       425
+   macro avg       0.71      0.70      0.70       425
+weighted avg       0.71      0.70      0.70       425
+
+Balanced Acc: 0.697048153074924
+~~~~~~~~~~~~~~~~~~~~ Sex: m, Support: 561 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.67      0.67       129
+     Scabies       0.61      0.71      0.66       103
+      Others       0.75      0.75      0.75       197
+      Eczema       0.71      0.64      0.67       132
+
+    accuracy                           0.70       561
+   macro avg       0.69      0.69      0.69       561
+weighted avg       0.70      0.70      0.70       561
+
+Balanced Acc: 0.6913842045211864
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Sex: f, Support: 156 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.72      0.64      0.68        33
+     Scabies       0.74      0.85      0.79        40
+      Others       0.72      0.83      0.77        52
+      Eczema       0.76      0.52      0.62        31
+
+    accuracy                           0.73       156
+   macro avg       0.74      0.71      0.71       156
+weighted avg       0.73      0.73      0.72       156
+
+Balanced Acc: 0.7073539363861944
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Sex: m, Support: 147 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.72      0.64      0.68        33
+     Scabies       0.61      0.65      0.63        26
+      Others       0.74      0.83      0.78        47
+      Eczema       0.70      0.63      0.67        41
+
+    accuracy                           0.70       147
+   macro avg       0.69      0.69      0.69       147
+weighted avg       0.70      0.70      0.70       147
+
+Balanced Acc: 0.6885358414289395
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Sex: f, Support: 129 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.67      0.86      0.75        28
+     Scabies       0.65      0.67      0.66        30
+      Others       0.64      0.68      0.66        41
+      Eczema       0.78      0.47      0.58        30
+
+    accuracy                           0.67       129
+   macro avg       0.68      0.67      0.66       129
+weighted avg       0.68      0.67      0.66       129
+
+Balanced Acc: 0.6683507549361208
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Sex: m, Support: 125 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.66      0.68      0.67        31
+     Scabies       0.47      0.83      0.60        18
+      Others       0.78      0.66      0.71        47
+      Eczema       0.76      0.55      0.64        29
+
+    accuracy                           0.66       125
+   macro avg       0.67      0.68      0.65       125
+weighted avg       0.70      0.66      0.67       125
+
+Balanced Acc: 0.6805128235470459
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Sex: f, Support: 108 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.63      0.76      0.69        25
+     Scabies       0.68      0.72      0.70        18
+      Others       0.67      0.79      0.72        33
+      Eczema       0.90      0.56      0.69        32
+
+    accuracy                           0.70       108
+   macro avg       0.72      0.71      0.70       108
+weighted avg       0.73      0.70      0.70       108
+
+Balanced Acc: 0.7081502525252525
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Sex: m, Support: 234 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.68      0.69      0.69        49
+     Scabies       0.72      0.68      0.70        50
+      Others       0.75      0.75      0.75        84
+      Eczema       0.70      0.73      0.71        51
+
+    accuracy                           0.72       234
+   macro avg       0.71      0.71      0.71       234
+weighted avg       0.72      0.72      0.72       234
+
+Balanced Acc: 0.7123419367747099
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Sex: f, Support: 32 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.75      0.43      0.55         7
+     Scabies       0.86      0.67      0.75         9
+      Others       0.69      1.00      0.82         9
+      Eczema       0.62      0.71      0.67         7
+
+    accuracy                           0.72        32
+   macro avg       0.73      0.70      0.70        32
+weighted avg       0.74      0.72      0.71        32
+
+Balanced Acc: 0.7023809523809523
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Sex: m, Support: 55 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Fungal       0.67      0.62      0.65        16
+     Scabies       0.58      0.78      0.67         9
+      Others       0.74      0.74      0.74        19
+      Eczema       0.67      0.55      0.60        11
+
+    accuracy                           0.67        55
+   macro avg       0.66      0.67      0.66        55
+weighted avg       0.68      0.67      0.67        55
+
+Balanced Acc: 0.6712686071238703
+==================== grouped output per case - majority voted~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/jovyan/PASSION-Bias-Evaluation/src/evaluate_bias_experiments.py", line 70, in <module>
+    trainer.evaluate()
+  File "/home/jovyan/PASSION-Bias-Evaluation/src/trainers/bias_evaluation_trainer.py", line 228, in evaluate
+    self._run_evaluation_on_range(
+  File "/home/jovyan/PASSION-Bias-Evaluation/src/trainers/bias_evaluation_trainer.py", line 356, in _run_evaluation_on_range
+    self.print_grouped_result(eval_df_aggregated, group_by="sex")
+  File "/home/jovyan/PASSION-Bias-Evaluation/src/trainers/bias_evaluation_trainer.py", line 442, in print_grouped_result
+    group_types = eval_df[group_by].unique()
+                  ~~~~~~~^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/pandas/core/frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'sex'

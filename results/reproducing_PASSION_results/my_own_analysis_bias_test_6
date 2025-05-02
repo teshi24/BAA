@@ -1,0 +1,108 @@
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Scripts\python.exe C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\reform_data_script.py
+330
+******************** overall ********************
+              precision    recall  f1-score   support
+
+      Eczema       0.64      0.55      0.59       222
+      Fungal       0.71      0.67      0.69       232
+      Others       0.67      0.77      0.72       200
+     Scabies       0.71      0.75      0.73       332
+
+    accuracy                           0.69       986
+   macro avg       0.68      0.68      0.68       986
+weighted avg       0.69      0.69      0.69       986
+
+Balanced Acc: 0.6842408356632496
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Eczema       0.72      0.63      0.67        92
+      Fungal       0.51      0.45      0.48        53
+      Others       0.64      0.70      0.67        70
+     Scabies       0.70      0.78      0.74        88
+
+    accuracy                           0.66       303
+   macro avg       0.64      0.64      0.64       303
+weighted avg       0.66      0.66      0.66       303
+
+Balanced Acc: 0.6418389700947125
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Eczema       0.50      0.51      0.51        47
+      Fungal       0.62      0.56      0.59        59
+      Others       0.77      0.68      0.72        44
+     Scabies       0.75      0.82      0.78       104
+
+    accuracy                           0.68       254
+   macro avg       0.66      0.64      0.65       254
+weighted avg       0.68      0.68      0.67       254
+
+Balanced Acc: 0.6422715514741298
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Support: 342 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Eczema       0.71      0.50      0.59        72
+      Fungal       0.81      0.81      0.81        69
+      Others       0.68      0.88      0.77        78
+     Scabies       0.72      0.71      0.72       123
+
+    accuracy                           0.73       342
+   macro avg       0.73      0.73      0.72       342
+weighted avg       0.73      0.73      0.72       342
+
+Balanced Acc: 0.7258816651711667
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Support: 87 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Eczema       0.40      0.36      0.38        11
+      Fungal       0.86      0.84      0.85        51
+      Others       0.50      0.62      0.56         8
+     Scabies       0.47      0.47      0.47        17
+
+    accuracy                           0.69        87
+   macro avg       0.56      0.58      0.56        87
+weighted avg       0.69      0.69      0.69        87
+
+Balanced Acc: 0.5755904634581105
+~~~~~~~~~~~~~~~~~~~~ Gender: f, Support: 425 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Eczema       0.64      0.59      0.61        99
+      Fungal       0.66      0.66      0.66        90
+      Others       0.80      0.72      0.76       101
+     Scabies       0.72      0.82      0.77       135
+
+    accuracy                           0.71       425
+   macro avg       0.71      0.70      0.70       425
+weighted avg       0.71      0.71      0.71       425
+
+Balanced Acc: 0.6966021602160215
+~~~~~~~~~~~~~~~~~~~~ Gender: m, Support: 561 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Eczema       0.64      0.52      0.57       123
+      Fungal       0.75      0.68      0.71       142
+      Others       0.59      0.81      0.68        99
+     Scabies       0.71      0.70      0.70       197
+
+    accuracy                           0.68       561
+   macro avg       0.67      0.68      0.67       561
+weighted avg       0.68      0.68      0.67       561
+
+Balanced Acc: 0.6780030542738336
+******************** overall -> Case Agg. ********************
+              precision    recall  f1-score   support
+
+      Eczema       0.66      0.57      0.61        82
+      Fungal       0.81      0.68      0.74       116
+      Others       0.76      0.68      0.72        38
+     Scabies       0.60      0.81      0.69        94
+
+    accuracy                           0.69       330
+   macro avg       0.71      0.69      0.69       330
+weighted avg       0.71      0.69      0.69       330
+
+Balanced Acc: 0.6867315947698999
+
+Process finished with exit code 0

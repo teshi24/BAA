@@ -1,0 +1,108 @@
+total records = 986
+class Others (0) = 200
+TP 149
+FP 55
+FN 51
+TN 731
+
+Precision = TP / (TP + FP) = 149 / (149+55) = 149 / 204 = 0.73039216
+Recall = TP / (TP + FN) = 149 / (149 + 51) = 149 / 200 =  0.745
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.368136 + 1.3422819) = 2/2.7104179 = 0.7378936
+
+
+fitzpatrick skin type 3 = 70
+TP 46 (targets = 0; true)
+FP 22 (targets != 0; predictions 0)
+FN 24 (targets = 0; false)
+TN 211 (targets != 0; predictions !=0)
+Precision = TP / (TP + FP) = 46 / (46+22) = 46 / 68 = 0.6764706
+Recall = TP / (TP + FN) = 46 / (46 + 24) = 46 / 70 =  0.6571429
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.47826 + 1.521739) = 2/2.999999 = 0.67
+
+******************** finetuning ********************
+              precision    recall  f1-score   support
+
+      Others       0.73      0.74      0.74       200 corr
+     Scabies       0.69      0.73      0.71       332 corr
+      Eczema       0.61      0.62      0.61       222 corr
+      Fungal       0.69      0.60      0.64       232 corr
+
+    accuracy                           0.68       986
+   macro avg       0.68      0.67      0.67       986
+weighted avg       0.68      0.68      0.68       986 corr
+
+Balanced Acc: 0.6736688038266766
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+              precision    recall  f1-score   support
+
+      Others       0.73      0.75      0.74        51 wrong
+     Scabies       0.66      0.66      0.66        88 wrong
+      Eczema       0.59      0.69      0.64        52 wrong
+      Fungal       0.75      0.63      0.69        63 wrong
+
+    accuracy                           0.68       254 corr
+   macro avg       0.68      0.68      0.68       254
+weighted avg       0.68      0.68      0.68       254
+
+
+
+test 6
+total records = 986
+class Others (3) = 200
+TP 153 (targets = 3; true)
+FP 74 (predictions 3, false)
+FN 47 (targets = 3; false)
+TN 712 (targets != 3; predictions !=3)
+
+Precision = TP / (TP + FP) = 153 / (153+74) = 153 / 227 = 0.67401
+Recall = TP / (TP + FN) = 153 / (153 + 47) = 153 / 200  = 0.765
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.30719 + 1.48366) = 2/2.79085 = 0.7167
+
+******************** finetuning ********************
+              precision    recall  f1-score   support
+
+     Scabies       0.71      0.75      0.73       332
+      Eczema       0.64      0.55      0.59       222
+      Fungal       0.71      0.67      0.69       232
+      Others       0.67      0.77      0.72       200
+
+    accuracy                           0.69       986
+   macro avg       0.68      0.68      0.68       986
+weighted avg       0.69      0.69      0.69       986
+
+
+
+run 6, output - overall = finetuning
+
+fungal (2) = 232
+TP 156 (targets = 2; true)
+FP 63 (predictions 2; false)
+FN 76 (targets = 2; false)
+TN 691 (targets != 2; predictions !=2)
+
+Precision = TP / (TP + FP) = 156 / (156+63) = 156 / 219 = 0.7123
+Recall = TP / (TP + FN) = 156 / (156 + 76) = 156 / 232  = 0.6724
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.4039 + 1.4872) = 2/2.8911 = 0.69178
+
+Fitzpatrick 3 - 303
+Fungal - 53
+TP 24 (targets = 2; true)
+FP 23 (predictions 2; false)
+FN 29 (targets = 2; false)
+TN 227 (targets != 2; predictions !=2)
+
+Precision = TP / (TP + FP) = 24 / (24+23) = 24 / 47 = 0.5106
+Recall = TP / (TP + FN) = 24 / (24+29)    = 24 / 53  = 0.4528
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.9585 + 2.2084) = 2/4.167 = 0.4797
+
+Others - 70
+TP 49 (targets = 3; true)
+FP 27 (predictions 3; false)
+FN 21 (targets = 3; false)
+TN 206 (targets != 3; predictions !=3)
+
+Precision = TP / (TP + FP) = 49 / (49 + 27) = 49 / 76 = 0.645
+Recall = TP / (TP + FN) =    49 / (49 + 21) = 49 / 70  = 0.7
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.55 + 1.43) = 2/2.98 = 0.67
+
+
