@@ -174,3 +174,42 @@ Recall = TP / (TP + FN) =    30 / (30 + 17) = 30 / 47  = 0.638
 F1 = 2 / ((1/P) + (1/R)) = 2 / (1.401 + 1.567) = 2/2.968 = 0.674
 
 
+
+
+
+
+
+test 7
+total records = 986
+total records age group 0-4 = 361
+
+class Others (3) = 110
+TP 84 (targets = 3; true)
+FP 32 (predictions 3, false)
+FN 26 (targets = 3; false)
+TN 219 (targets != 3; predictions !=3)
+
+Precision = TP / (TP + FP) = 84 / (84+32) = 84 / 116 = 0.724
+Recall = TP / (TP + FN) = 84 / (84 + 26) = 84 / 110  = 0.764
+F1 = 2 / ((1/P) + (1/R)) = 2 / (1.381 + 1.309) = 2/2.69 = 0.743
+
+
+
+
+run with the evaluation but with paralell dataloader, only 1 fold, mini imgnet
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/1sk409vo?nw=nwusernadjastadi
+again same run but with printing model:
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/jzalqel2/logs
+
+
+fold 0 for large dataset
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/wsvr8xd4
+
+
+train n test 1 for small dataset
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/1sk409vo
+
+
+TODO TOMORROW: FIND OUT WHAT MITIGATION METHODS TO TRY!!
+Calc Equalized odds
+

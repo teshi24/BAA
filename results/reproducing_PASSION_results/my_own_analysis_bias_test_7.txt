@@ -1,0 +1,468 @@
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Scripts\python.exe C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\reform_data_script.py
+330
+******************** overall ********************
+Confusion Matrix:
+[[144  18  14  46]
+ [ 47 135  14  36]
+ [ 15  16 155  14]
+ [ 35   6  40 251]]
+Eczema — TP: 144, FP: 97, FN: 78, TN: 667
+Fungal — TP: 135, FP: 40, FN: 97, TN: 714
+Others — TP: 155, FP: 68, FN: 45, TN: 718
+Scabies — TP: 251, FP: 96, FN: 81, TN: 558
+              precision    recall  f1-score   support
+
+      Eczema       0.60      0.65      0.62       222
+      Fungal       0.77      0.58      0.66       232
+      Others       0.70      0.78      0.73       200
+     Scabies       0.72      0.76      0.74       332
+
+    accuracy                           0.69       986
+   macro avg       0.70      0.69      0.69       986
+weighted avg       0.70      0.69      0.69       986
+
+Balanced Acc: 0.6903923241895822
+==================== now more dynamic (grouped) ====================
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[68  5  9 10]
+ [11 17 13 12]
+ [ 9  5 51  5]
+ [11  2 10 65]]
+Eczema — TP: 68, FP: 31, FN: 24, TN: 180
+Fungal — TP: 17, FP: 12, FN: 36, TN: 238
+Others — TP: 51, FP: 32, FN: 19, TN: 201
+Scabies — TP: 65, FP: 27, FN: 23, TN: 188
+              precision    recall  f1-score   support
+
+      Eczema       0.69      0.74      0.71        92
+      Fungal       0.59      0.32      0.41        53
+      Others       0.61      0.73      0.67        70
+     Scabies       0.71      0.74      0.72        88
+
+    accuracy                           0.66       303
+   macro avg       0.65      0.63      0.63       303
+weighted avg       0.66      0.66      0.65       303
+
+Balanced Acc: 0.6317732359928833
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[26  8  3 10]
+ [18 29  0 12]
+ [ 3  6 31  4]
+ [ 9  4  5 86]]
+Eczema — TP: 26, FP: 30, FN: 21, TN: 177
+Fungal — TP: 29, FP: 18, FN: 30, TN: 177
+Others — TP: 31, FP: 8, FN: 13, TN: 202
+Scabies — TP: 86, FP: 26, FN: 18, TN: 124
+              precision    recall  f1-score   support
+
+      Eczema       0.46      0.55      0.50        47
+      Fungal       0.62      0.49      0.55        59
+      Others       0.79      0.70      0.75        44
+     Scabies       0.77      0.83      0.80       104
+
+    accuracy                           0.68       254
+   macro avg       0.66      0.64      0.65       254
+weighted avg       0.68      0.68      0.68       254
+
+Balanced Acc: 0.6440463611397618
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Support: 342 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[45  4  2 21]
+ [10 52  1  6]
+ [ 3  3 69  3]
+ [12  0 23 88]]
+Eczema — TP: 45, FP: 25, FN: 27, TN: 245
+Fungal — TP: 52, FP: 7, FN: 17, TN: 266
+Others — TP: 69, FP: 26, FN: 9, TN: 238
+Scabies — TP: 88, FP: 30, FN: 35, TN: 189
+              precision    recall  f1-score   support
+
+      Eczema       0.64      0.62      0.63        72
+      Fungal       0.88      0.75      0.81        69
+      Others       0.73      0.88      0.80        78
+     Scabies       0.75      0.72      0.73       123
+
+    accuracy                           0.74       342
+   macro avg       0.75      0.74      0.74       342
+weighted avg       0.75      0.74      0.74       342
+
+Balanced Acc: 0.7446714318731816
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Support: 87 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 5  1  0  5]
+ [ 8 37  0  6]
+ [ 0  2  4  2]
+ [ 3  0  2 12]]
+Eczema — TP: 5, FP: 11, FN: 6, TN: 65
+Fungal — TP: 37, FP: 3, FN: 14, TN: 33
+Others — TP: 4, FP: 2, FN: 4, TN: 77
+Scabies — TP: 12, FP: 13, FN: 5, TN: 57
+              precision    recall  f1-score   support
+
+      Eczema       0.31      0.45      0.37        11
+      Fungal       0.93      0.73      0.81        51
+      Others       0.67      0.50      0.57         8
+     Scabies       0.48      0.71      0.57        17
+
+    accuracy                           0.67        87
+   macro avg       0.60      0.60      0.58        87
+weighted avg       0.74      0.67      0.69        87
+
+Balanced Acc: 0.5964795008912656
+~~~~~~~~~~~~~~~~~~~~ Sex: f, Support: 425 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 68   8   4  19]
+ [ 19  52   2  17]
+ [  7   9  75  10]
+ [ 14   2  13 106]]
+Eczema — TP: 68, FP: 40, FN: 31, TN: 286
+Fungal — TP: 52, FP: 19, FN: 38, TN: 316
+Others — TP: 75, FP: 19, FN: 26, TN: 305
+Scabies — TP: 106, FP: 46, FN: 29, TN: 244
+              precision    recall  f1-score   support
+
+      Eczema       0.63      0.69      0.66        99
+      Fungal       0.73      0.58      0.65        90
+      Others       0.80      0.74      0.77       101
+     Scabies       0.70      0.79      0.74       135
+
+    accuracy                           0.71       425
+   macro avg       0.71      0.70      0.70       425
+weighted avg       0.71      0.71      0.71       425
+
+Balanced Acc: 0.6981014768143481
+~~~~~~~~~~~~~~~~~~~~ Sex: m, Support: 561 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 76  10  10  27]
+ [ 28  83  12  19]
+ [  8   7  80   4]
+ [ 21   4  27 145]]
+Eczema — TP: 76, FP: 57, FN: 47, TN: 381
+Fungal — TP: 83, FP: 21, FN: 59, TN: 398
+Others — TP: 80, FP: 49, FN: 19, TN: 413
+Scabies — TP: 145, FP: 50, FN: 52, TN: 314
+              precision    recall  f1-score   support
+
+      Eczema       0.57      0.62      0.59       123
+      Fungal       0.80      0.58      0.67       142
+      Others       0.62      0.81      0.70        99
+     Scabies       0.74      0.74      0.74       197
+
+    accuracy                           0.68       561
+   macro avg       0.68      0.69      0.68       561
+weighted avg       0.70      0.68      0.68       561
+
+Balanced Acc: 0.6866286595832934
+==================== grouped output per case using subgroup ~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[68  5  9 10]
+ [11 17 13 12]
+ [ 9  5 51  5]
+ [11  2 10 65]]
+Eczema — TP: 68, FP: 31, FN: 24, TN: 180
+Fungal — TP: 17, FP: 12, FN: 36, TN: 238
+Others — TP: 51, FP: 32, FN: 19, TN: 201
+Scabies — TP: 65, FP: 27, FN: 23, TN: 188
+              precision    recall  f1-score   support
+
+      Eczema       0.69      0.74      0.71        92
+      Fungal       0.59      0.32      0.41        53
+      Others       0.61      0.73      0.67        70
+     Scabies       0.71      0.74      0.72        88
+
+    accuracy                           0.66       303
+   macro avg       0.65      0.63      0.63       303
+weighted avg       0.66      0.66      0.65       303
+
+Balanced Acc: 0.6317732359928833
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Support: 254 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[26  8  3 10]
+ [18 29  0 12]
+ [ 3  6 31  4]
+ [ 9  4  5 86]]
+Eczema — TP: 26, FP: 30, FN: 21, TN: 177
+Fungal — TP: 29, FP: 18, FN: 30, TN: 177
+Others — TP: 31, FP: 8, FN: 13, TN: 202
+Scabies — TP: 86, FP: 26, FN: 18, TN: 124
+              precision    recall  f1-score   support
+
+      Eczema       0.46      0.55      0.50        47
+      Fungal       0.62      0.49      0.55        59
+      Others       0.79      0.70      0.75        44
+     Scabies       0.77      0.83      0.80       104
+
+    accuracy                           0.68       254
+   macro avg       0.66      0.64      0.65       254
+weighted avg       0.68      0.68      0.68       254
+
+Balanced Acc: 0.6440463611397618
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Support: 342 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[45  4  2 21]
+ [10 52  1  6]
+ [ 3  3 69  3]
+ [12  0 23 88]]
+Eczema — TP: 45, FP: 25, FN: 27, TN: 245
+Fungal — TP: 52, FP: 7, FN: 17, TN: 266
+Others — TP: 69, FP: 26, FN: 9, TN: 238
+Scabies — TP: 88, FP: 30, FN: 35, TN: 189
+              precision    recall  f1-score   support
+
+      Eczema       0.64      0.62      0.63        72
+      Fungal       0.88      0.75      0.81        69
+      Others       0.73      0.88      0.80        78
+     Scabies       0.75      0.72      0.73       123
+
+    accuracy                           0.74       342
+   macro avg       0.75      0.74      0.74       342
+weighted avg       0.75      0.74      0.74       342
+
+Balanced Acc: 0.7446714318731816
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Support: 87 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 5  1  0  5]
+ [ 8 37  0  6]
+ [ 0  2  4  2]
+ [ 3  0  2 12]]
+Eczema — TP: 5, FP: 11, FN: 6, TN: 65
+Fungal — TP: 37, FP: 3, FN: 14, TN: 33
+Others — TP: 4, FP: 2, FN: 4, TN: 77
+Scabies — TP: 12, FP: 13, FN: 5, TN: 57
+              precision    recall  f1-score   support
+
+      Eczema       0.31      0.45      0.37        11
+      Fungal       0.93      0.73      0.81        51
+      Others       0.67      0.50      0.57         8
+     Scabies       0.48      0.71      0.57        17
+
+    accuracy                           0.67        87
+   macro avg       0.60      0.60      0.58        87
+weighted avg       0.74      0.67      0.69        87
+
+Balanced Acc: 0.5964795008912656
+~~~~~~~~~~~~~~~~~~~~ Sex: f, Support: 425 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 68   8   4  19]
+ [ 19  52   2  17]
+ [  7   9  75  10]
+ [ 14   2  13 106]]
+Eczema — TP: 68, FP: 40, FN: 31, TN: 286
+Fungal — TP: 52, FP: 19, FN: 38, TN: 316
+Others — TP: 75, FP: 19, FN: 26, TN: 305
+Scabies — TP: 106, FP: 46, FN: 29, TN: 244
+              precision    recall  f1-score   support
+
+      Eczema       0.63      0.69      0.66        99
+      Fungal       0.73      0.58      0.65        90
+      Others       0.80      0.74      0.77       101
+     Scabies       0.70      0.79      0.74       135
+
+    accuracy                           0.71       425
+   macro avg       0.71      0.70      0.70       425
+weighted avg       0.71      0.71      0.71       425
+
+Balanced Acc: 0.6981014768143481
+~~~~~~~~~~~~~~~~~~~~ Sex: m, Support: 561 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 76  10  10  27]
+ [ 28  83  12  19]
+ [  8   7  80   4]
+ [ 21   4  27 145]]
+Eczema — TP: 76, FP: 57, FN: 47, TN: 381
+Fungal — TP: 83, FP: 21, FN: 59, TN: 398
+Others — TP: 80, FP: 49, FN: 19, TN: 413
+Scabies — TP: 145, FP: 50, FN: 52, TN: 314
+              precision    recall  f1-score   support
+
+      Eczema       0.57      0.62      0.59       123
+      Fungal       0.80      0.58      0.67       142
+      Others       0.62      0.81      0.70        99
+     Scabies       0.74      0.74      0.74       197
+
+    accuracy                           0.68       561
+   macro avg       0.68      0.69      0.68       561
+weighted avg       0.70      0.68      0.68       561
+
+Balanced Acc: 0.6866286595832934
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Sex: f, Support: 156 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[34  3  4  6]
+ [ 5  5  1  7]
+ [ 3  1 28  3]
+ [ 6  0  8 42]]
+Eczema — TP: 34, FP: 14, FN: 13, TN: 95
+Fungal — TP: 5, FP: 4, FN: 13, TN: 134
+Others — TP: 28, FP: 13, FN: 7, TN: 108
+Scabies — TP: 42, FP: 16, FN: 14, TN: 84
+              precision    recall  f1-score   support
+
+      Eczema       0.71      0.72      0.72        47
+      Fungal       0.56      0.28      0.37        18
+      Others       0.68      0.80      0.74        35
+     Scabies       0.72      0.75      0.74        56
+
+    accuracy                           0.70       156
+   macro avg       0.67      0.64      0.64       156
+weighted avg       0.69      0.70      0.69       156
+
+Balanced Acc: 0.6377955082742317
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Sex: m, Support: 147 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[34  2  5  4]
+ [ 6 12 12  5]
+ [ 6  4 23  2]
+ [ 5  2  2 23]]
+Eczema — TP: 34, FP: 17, FN: 11, TN: 85
+Fungal — TP: 12, FP: 8, FN: 23, TN: 104
+Others — TP: 23, FP: 19, FN: 12, TN: 93
+Scabies — TP: 23, FP: 11, FN: 9, TN: 104
+              precision    recall  f1-score   support
+
+      Eczema       0.67      0.76      0.71        45
+      Fungal       0.60      0.34      0.44        35
+      Others       0.55      0.66      0.60        35
+     Scabies       0.68      0.72      0.70        32
+
+    accuracy                           0.63       147
+   macro avg       0.62      0.62      0.61       147
+weighted avg       0.62      0.63      0.61       147
+
+Balanced Acc: 0.6185763888888889
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Sex: f, Support: 129 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[14  3  0  4]
+ [ 9 15  0  7]
+ [ 2  6 19  3]
+ [ 4  2  3 38]]
+Eczema — TP: 14, FP: 15, FN: 7, TN: 93
+Fungal — TP: 15, FP: 11, FN: 16, TN: 87
+Others — TP: 19, FP: 3, FN: 11, TN: 96
+Scabies — TP: 38, FP: 14, FN: 9, TN: 68
+              precision    recall  f1-score   support
+
+      Eczema       0.48      0.67      0.56        21
+      Fungal       0.58      0.48      0.53        31
+      Others       0.86      0.63      0.73        30
+     Scabies       0.73      0.81      0.77        47
+
+    accuracy                           0.67       129
+   macro avg       0.66      0.65      0.65       129
+weighted avg       0.68      0.67      0.67       129
+
+Balanced Acc: 0.6480954015099519
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 4, Sex: m, Support: 125 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[12  5  3  6]
+ [ 9 14  0  5]
+ [ 1  0 12  1]
+ [ 5  2  2 48]]
+Eczema — TP: 12, FP: 15, FN: 14, TN: 84
+Fungal — TP: 14, FP: 7, FN: 14, TN: 90
+Others — TP: 12, FP: 5, FN: 2, TN: 106
+Scabies — TP: 48, FP: 12, FN: 9, TN: 56
+              precision    recall  f1-score   support
+
+      Eczema       0.44      0.46      0.45        26
+      Fungal       0.67      0.50      0.57        28
+      Others       0.71      0.86      0.77        14
+     Scabies       0.80      0.84      0.82        57
+
+    accuracy                           0.69       125
+   macro avg       0.65      0.67      0.65       125
+weighted avg       0.69      0.69      0.68       125
+
+Balanced Acc: 0.6651966454598033
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Sex: f, Support: 108 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[18  1  0  6]
+ [ 3 19  1  2]
+ [ 2  1 26  3]
+ [ 3  0  1 22]]
+Eczema — TP: 18, FP: 8, FN: 7, TN: 75
+Fungal — TP: 19, FP: 2, FN: 6, TN: 81
+Others — TP: 26, FP: 2, FN: 6, TN: 74
+Scabies — TP: 22, FP: 11, FN: 4, TN: 71
+              precision    recall  f1-score   support
+
+      Eczema       0.69      0.72      0.71        25
+      Fungal       0.90      0.76      0.83        25
+      Others       0.93      0.81      0.87        32
+     Scabies       0.67      0.85      0.75        26
+
+    accuracy                           0.79       108
+   macro avg       0.80      0.78      0.79       108
+weighted avg       0.81      0.79      0.79       108
+
+Balanced Acc: 0.7846634615384616
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 5, Sex: m, Support: 234 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[27  3  2 15]
+ [ 7 33  0  4]
+ [ 1  2 43  0]
+ [ 9  0 22 66]]
+Eczema — TP: 27, FP: 17, FN: 20, TN: 170
+Fungal — TP: 33, FP: 5, FN: 11, TN: 185
+Others — TP: 43, FP: 24, FN: 3, TN: 164
+Scabies — TP: 66, FP: 19, FN: 31, TN: 118
+              precision    recall  f1-score   support
+
+      Eczema       0.61      0.57      0.59        47
+      Fungal       0.87      0.75      0.80        44
+      Others       0.64      0.93      0.76        46
+     Scabies       0.78      0.68      0.73        97
+
+    accuracy                           0.72       234
+   macro avg       0.73      0.73      0.72       234
+weighted avg       0.73      0.72      0.72       234
+
+Balanced Acc: 0.734915766234014
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Sex: f, Support: 32 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 2  1  0  3]
+ [ 2 13  0  1]
+ [ 0  1  2  1]
+ [ 1  0  1  4]]
+Eczema — TP: 2, FP: 3, FN: 4, TN: 23
+Fungal — TP: 13, FP: 2, FN: 3, TN: 14
+Others — TP: 2, FP: 1, FN: 2, TN: 27
+Scabies — TP: 4, FP: 5, FN: 2, TN: 21
+              precision    recall  f1-score   support
+
+      Eczema       0.40      0.33      0.36         6
+      Fungal       0.87      0.81      0.84        16
+      Others       0.67      0.50      0.57         4
+     Scabies       0.44      0.67      0.53         6
+
+    accuracy                           0.66        32
+   macro avg       0.59      0.58      0.58        32
+weighted avg       0.68      0.66      0.66        32
+
+Balanced Acc: 0.578125
+~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Sex: m, Support: 55 ~~~~~~~~~~~~~~~~~~~~
+Confusion Matrix:
+[[ 3  0  0  2]
+ [ 6 24  0  5]
+ [ 0  1  2  1]
+ [ 2  0  1  8]]
+Eczema — TP: 3, FP: 8, FN: 2, TN: 42
+Fungal — TP: 24, FP: 1, FN: 11, TN: 19
+Others — TP: 2, FP: 1, FN: 2, TN: 50
+Scabies — TP: 8, FP: 8, FN: 3, TN: 36
+              precision    recall  f1-score   support
+
+      Eczema       0.27      0.60      0.38         5
+      Fungal       0.96      0.69      0.80        35
+      Others       0.67      0.50      0.57         4
+     Scabies       0.50      0.73      0.59        11
+
+    accuracy                           0.67        55
+   macro avg       0.60      0.63      0.58        55
+weighted avg       0.78      0.67      0.70        55
+
+Balanced Acc: 0.6282467532467533
+
+Process finished with exit code 0
