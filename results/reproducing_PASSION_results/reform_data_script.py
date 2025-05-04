@@ -191,88 +191,6 @@ def print_detailed_bias_eval_scores(y_true: np.ndarray, y_pred: np.ndarray):
     return rates
 
 
-def print_grouped_result(eval_df, group_by: str):
-    group_types = sorted(eval_df[group_by].unique())
-    group_name = group_by.capitalize()
-    rates_eq_odds = {
-        'macro-tpr': [],
-        'macro-fpr': [],
-        'micro-tpr': [],
-        'micro-fpr': [],
-    }
-    for group_value in group_types:
-        _df = eval_df[eval_df[group_by] == group_value]
-        print(
-            "~" * 20
-            + f" {group_name}: {group_value}, Support: {_df.shape[0]} "
-            + "~" * 20
-        )
-        rates = print_detailed_bias_eval_scores(
-            y_true=eval_df["targets"][_df.index.values],
-            y_pred=eval_df["predictions"][_df.index.values],
-        )
-        rates_eq_odds['macro-tpr'].append(rates['macro-tpr'])
-        rates_eq_odds['macro-fpr'].append(rates['macro-fpr'])
-        rates_eq_odds['micro-tpr'].append(rates['micro-tpr'])
-        rates_eq_odds['micro-fpr'].append(rates['micro-fpr'])
-
-    print(rates_eq_odds)
-
-    def values_close(vals): #, rtol=1e-05, atol=1e-08):
-        return np.allclose(vals, [vals[0]] * len(vals)) #, rtol=rtol, atol=atol)
-
-    print('macro_eq_odds: ' + str(values_close(rates_eq_odds['macro-tpr']) and values_close(rates_eq_odds['macro-fpr'])))
-    print('micro_eq_odds: ' + str(values_close(rates_eq_odds['micro-tpr']) and values_close(rates_eq_odds['micro-fpr'])))
-
-    return group_types
-
-def print_subgroup_results(eval_df, group_by: list[str]):
-    def to_pascal_case(s: str) -> str:
-        return "".join(word.capitalize() for word in s.split("_"))
-
-    # Get all unique combinations of the group attributes
-    grouped = sorted(eval_df.groupby(group_by))
-
-    rates_eq_odds = {
-        'macro-tpr': [],
-        'macro-fpr': [],
-        'micro-tpr': [],
-        'micro-fpr': [],
-    }
-    for group_values, _df in grouped:
-        if isinstance(group_values, str):
-            group_values = (group_values,)  # Make it always a tuple
-
-        if _df.shape[0] == 0:
-            print(f'no support: group_by: {group_by}, group_values: {group_values}')
-            continue  # Skip empty groups
-
-        group_info = ", ".join(
-            f"{to_pascal_case(attr)}: {val}"
-            for attr, val in zip(group_by, group_values)
-        )
-
-        print("~" * 20 + f" {group_info}, Support: {_df.shape[0]} " + "~" * 20)
-        y_true = eval_df["targets"][_df.index.values]
-        y_pred = eval_df["predictions"][_df.index.values]
-        rates = print_detailed_bias_eval_scores(
-            y_true=y_true,
-            y_pred=y_pred,
-        )
-        # todo: must filter out 0 probably, or not?
-        rates_eq_odds['macro-tpr'].append(rates['macro-tpr'])
-        rates_eq_odds['macro-fpr'].append(rates['macro-fpr'])
-        rates_eq_odds['micro-tpr'].append(rates['micro-tpr'])
-        rates_eq_odds['micro-fpr'].append(rates['micro-fpr'])
-
-    print(rates_eq_odds)
-
-    def values_close(vals): #, rtol=1e-05, atol=1e-08):
-        return np.allclose(vals, [vals[0]] * len(vals)) #, rtol=rtol, atol=atol)
-
-    print('macro_eq_odds: ' + str(values_close(rates_eq_odds['macro-tpr']) and values_close(rates_eq_odds['macro-fpr'])))
-    print('micro_eq_odds: ' + str(values_close(rates_eq_odds['micro-tpr']) and values_close(rates_eq_odds['micro-fpr'])))
-
 def print_aif360_results(y, y_true: np.ndarray, y_pred: np.ndarray):
     protected_attrs = ['sex', 'fitzpatrick']
     label_column = 'targets'
@@ -413,9 +331,9 @@ def do_calculations(data):
         y_pred=data["predictions"],
     )
 
-    print('=' * 20 + ' now more dynamic (grouped) ' + '=' * 20)
-    print_grouped_result(data, group_by="fitzpatrick")
-    print_grouped_result(data, group_by="sex")
+    # print('=' * 20 + ' now more dynamic (grouped) ' + '=' * 20)
+    # print_grouped_result(data, group_by="fitzpatrick")
+    # print_grouped_result(data, group_by="sex")
 
     print("=" * 20 + " grouped output per case using subgroup " + "=" * 20)
     print('dataset')
@@ -424,13 +342,13 @@ def do_calculations(data):
     data['ageGroup'] = pd.cut(data['age'], bins=bins, labels=labels, right=False)
     print(data)
 
-    print_subgroup_results(data, group_by=["fitzpatrick"])
-    print_subgroup_results(data, group_by=["sex"])
-    print_subgroup_results(data, group_by=["ageGroup"])
-    print_subgroup_results(data, group_by=["fitzpatrick", "sex"])
-    print_subgroup_results( data, group_by=["fitzpatrick", "ageGroup"] )
-    print_subgroup_results(data, group_by=["sex", "ageGroup"])
-    print_subgroup_results( data, group_by=["fitzpatrick", "sex", "ageGroup"] )
+    # print_subgroup_results(data, group_by=["fitzpatrick"])
+    # print_subgroup_results(data, group_by=["sex"])
+    # print_subgroup_results(data, group_by=["ageGroup"])
+    # print_subgroup_results(data, group_by=["fitzpatrick", "sex"])
+    # print_subgroup_results( data, group_by=["fitzpatrick", "ageGroup"] )
+    # print_subgroup_results(data, group_by=["sex", "ageGroup"])
+    # print_subgroup_results( data, group_by=["fitzpatrick", "sex", "ageGroup"] )
 
     dfs = []
     group_by_key = "GroupBy"
