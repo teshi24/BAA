@@ -204,6 +204,23 @@ https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/jzal
 
 fold 0 for large dataset
 https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/wsvr8xd4
+fold 1 for large dataset
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/a0zjjuvi
+fold 2 for large dataset
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/c653o70k
+fold 3 for large dataset
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/fvh3hpb3
+
+Test
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/js59cjhl
+
+
+
+
+
+trying with same config on checkpoint of fold1 verify_passion
+https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/w0zotzi7
+
 
 
 train n test 1 for small dataset

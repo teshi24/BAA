@@ -19,6 +19,8 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 
+import gerryfair
+
 is_test_5 = False
 is_test_6 = False
 
@@ -29,7 +31,8 @@ elif is_test_6:
     code_state = 'bias_test_6-reproduce_test_5'
 else:
     #code_state = 'bias_test_7-labels_consistency'
-    code_state = 'bias_test_x-PASSION_checkpoint_running_results'
+    #code_state = 'bias_test_x-PASSION_checkpoint_running_results'
+    code_state = 'big_model_test'
 #input_file = 'reformed_%s__%s.csv' % (passion_exp, code_state)
 input_file = '%s__%s.csv' % (passion_exp, code_state)
 output_file = 'analysis_%s__%s_img_lvl.csv' % (passion_exp, code_state)
@@ -64,14 +67,14 @@ if create_data:
     df_results['EvalPredictions'] = df_results['EvalPredictions'].apply(parse_numpy_array)
 
     # Flatten the DataFrame into one row per image path
-    rows = []
     unique_subject_ids = []
+    ouput = []
     for _, row in df_results.iterrows():
         for img_name, idx, lbl, pred in zip(row['FileNames'], row['Indices'], row['EvalTargets'], row['EvalPredictions']):
             subject_id = extract_subject_id(img_name)
             labels = df_labels[df_labels['subject_id'] == subject_id].iloc[0]
             split = df_split[df_split['subject_id'] == subject_id].iloc[0]
-            rows.append({
+            ouput.append({
                 'correct': lbl == pred,
                 'image_path': img_name,
                 'index': idx,
@@ -86,7 +89,7 @@ if create_data:
     print(len(unique_subject_ids))
 
     # Create new DataFrame and save
-    output_df = pd.DataFrame(rows)
+    output_df = pd.DataFrame(ouput)
     output_df.to_csv(output_file, index=False)
 else:
     output_df = pd.read_csv(output_file)
@@ -188,7 +191,7 @@ def print_detailed_bias_eval_scores(y_true: np.ndarray, y_pred: np.ndarray):
         y_pred=y_pred,
     )
     print(f"Balanced Acc: {b_acc}")
-    return rates
+    return {**rates, 'balancedAcc': b_acc}
 
 
 def print_aif360_results(y, y_true: np.ndarray, y_pred: np.ndarray):
@@ -303,6 +306,7 @@ def collect_subgroup_results(eval_df, group_by: list[str]):
             "FP": rates['cumulated']['FP'],
             "FN": rates['cumulated']['FN'],
             "TN": rates['cumulated']['TN'],
+            "balancedAcc": rates['balancedAcc']
         }
         if not result_keys:
             result_keys = list(result.keys())
@@ -338,7 +342,7 @@ def do_calculations(data):
     print("=" * 20 + " grouped output per case using subgroup " + "=" * 20)
     print('dataset')
     bins = list(range(0, 100, 5))
-    labels = [f'{i}-{i + 4}' for i in bins[:-1]]
+    labels = [f'{i:02}-{i + 4:02}' for i in bins[:-1]]
     data['ageGroup'] = pd.cut(data['age'], bins=bins, labels=labels, right=False)
     print(data)
 
@@ -359,20 +363,194 @@ def do_calculations(data):
     for r in range(1, len(grouping_columns) + 1):
         group_combinations.extend([list(comb) for comb in itertools.combinations(grouping_columns, r)])
 
+    report = {}
+
     result_keys = None
     for group in group_combinations:
         subgroup_df, result_keys = collect_subgroup_results(data, group_by=group)
         subgroup_df[group_by_key] = ", ".join(group)  # Optional: keep track of grouping
         dfs.append(subgroup_df)
 
+        # compute privilege report
+        # Compute average TPR and FPR for comparison
+        macro_tpr_avg = subgroup_df["Macro-TPR"].mean()
+        macro_fpr_avg = subgroup_df["Macro-FPR"].mean()
+
+        privileged = []
+        underprivileged = []
+        avgprivileged = []
+
+        threshold = 0.015  # or any value you consider "roughly equal"
+
+        for _, row in subgroup_df.iterrows():
+            reasons = []
+            macro_tpr = row["Macro-TPR"]
+            macro_fpr = row['Macro-FPR']
+
+            # Compare TPR
+            tpr_diff = macro_tpr - macro_tpr_avg
+            if abs(tpr_diff) <= threshold:
+                reasons.append(f"TPR ~ ({macro_tpr:.2f})")
+            elif tpr_diff > 0:
+                reasons.append(f"TPR ↑ ({macro_tpr:.2f})")
+            else:
+                reasons.append(f"TPR ↓ ({macro_tpr:.2f})")
+
+            # Compare FPR
+            fpr_diff = macro_fpr - macro_fpr_avg
+            if abs(fpr_diff) <= threshold:
+                reasons.append(f"FPR ~ ({macro_fpr :.2f})")
+            elif fpr_diff > 0:
+                reasons.append(f"FPR ↑ ({macro_fpr :.2f})")
+            else:
+                reasons.append(f"FPR ↓ ({macro_fpr :.2f})")
+
+            label = ", ".join(str(row[col]) for col in group)
+
+            if ("TPR ↑" in " ".join(reasons) or "FPR ↓" in " ".join(reasons)):
+                privileged.append((label, reasons))
+            elif ("TPR ↓" in " ".join(reasons) or "FPR ↑" in " ".join(reasons)):
+                underprivileged.append((label, reasons))
+            else:
+                avgprivileged.append((label,reasons))
+
+        report_key = ", ".join(group)
+        report[report_key] = {
+            "macro_tpr_avg": macro_tpr_avg,
+            "macro_fpr_avg": macro_fpr_avg,
+            "privileged": privileged,
+            "underprivileged": underprivileged,
+            "avgprivileged": avgprivileged
+        }
+
     final_df = pd.concat(dfs, ignore_index=True)
     all_other_cols = list(set(final_df.columns) - set(result_keys) - {group_by_key})
     all_other_cols.sort()
     ordered_cols = [group_by_key, *result_keys, *all_other_cols]
-    final_df.to_csv("subgroup_bias_results.csv", columns=ordered_cols, index=False)
+    final_df.to_csv("subgroup_bias_results__" + code_state + ".csv", columns=ordered_cols, index=False)
+
+    # Print privilege report
+    for group_key, group_report in report.items():
+        print(f"\n=== Grouping: {group_key} ===")
+        print(f"macro-TPR avg: {group_report['macro_tpr_avg']}; macro-FPR avg: {group_report['macro_fpr_avg']}")
+
+        if group_report["privileged"]:
+            print("privileged:")
+            for label, reasons in group_report["privileged"]:
+                print(f"  {label} - Reasons: {', '.join(reasons)}")
+        if group_report["underprivileged"]:
+            print("Underprivileged:")
+            for label, reasons in group_report["underprivileged"]:
+                print(f"  {label} - Reasons: {', '.join(reasons)}")
+        if group_report["avgprivileged"]:
+            print("Average:")
+            for label, reasons in group_report["avgprivileged"]:
+                print(f"  {label} - Reasons: {', '.join(reasons)}")
+
+    # todo: fix this
+    # print('test gerryfair')
+    # y_true = data["targets"]
+    # y_pred = data["predictions"]
+    # protected_attrs = ['sex', 'fitzpatrick']
+    #
+    # X_prime_test = pd.get_dummies(data[protected_attrs], drop_first=False)
+    #
+    # auditor = gerryfair.model.Auditor(X_prime_test, y_true, 'FP')
+    # [violated_group, fairness_violation] = auditor.audit(y_pred)
+    # print(violated_group)
+    # print(fairness_violation)
 
     # todo: introduce equalized odds
 
+    # todo: add to report
+    _ = '''
+     possible mitigation methods:
+        unbiasing data:
+        - preferential sampling (or is this eq to oversampling which should be avoided?)
+        - balanced representation accross skin types and genders
+        - disparate impact removal
+        
+        fair classification:
+        - satisfy fairness definition of equalized odds, also for subgroups
+          (subgroup fairness impl. code is not easily usable, therefore using this method for now)
+        - fairness and stability under distribution shift?
+        - price of fairness which measures accuracy for the groups
+        
+        fair representation learning:
+        - Disentaglement - prob not possible since attributes anyway already not introduced
+        - geometric solution?
+        - heavy color jitter? - was disabled in the code bc it hinders performance, but maybe better for fairness?
+        
+        already implemented in passion
+        - not using features in training
+        - disentaglement?
+        - stratifiedKFold
+        - img conversion with 
+        - balanced accuracy and macro f1
+        
+        converting imgs to grayscale??
+
+
+Feature Selection Bias: In image tasks, avoid hand-selecting features that inadvertently correlate with sensitive attributes. If using any metadata (age, sex, country), carefully consider whether to include it. A common practice is to exclude sensitive features from the input (so the model cannot directly “see” them), but that alone can still leave proxies. As a remedy, apply adversarial feature removal: for example, add a branch on the ResNet features that tries to predict Fitzpatrick/sex, and use a gradient-reversal layer (as in adversarial debiasing) so that the backbone learns representations invariant to those attributes aif360.readthedocs.io
+. Alternatively, transform images to remove cues: e.g. randomly converting images to grayscale (transforms.RandomGrayscale()) or heavy color jitter can reduce the model’s reliance on skin tone/color. (Some research even uses style-transfer to normalize skin tones, though that is complex.) In any case, ensure that chosen “features” (or transformations) do not systematically exclude or distort data from a subgroup.
+Another approach is fairness-constrained optimization: use Fairlearn’s Exponentiated Gradient or GridSearch algorithms to enforce equalized odds or demographic parity across groups (these methods reweight training examples so that error rates become similar across Fitzpatrick types or sexes). In practice, one can implement a custom loss that adds a penalty for disparities in true-positive or false-positive rates between groups. For class imbalance, use class-balanced cross-entropy or Focal Loss (PyTorch’s CrossEntropyLoss(weight=...) or FocalLoss from torchvision) to focus learning on minority classes or groups. In essence, train the model to minimize both accuracy loss and a fairness loss (e.g. difference in TPR between skin-tone groups).
+Evaluation Bias: Beyond overall accuracy, compute fairness-aware metrics. Use balanced accuracy or macro-averaged F1 (sklearn: balanced_accuracy_score, f1_score(average='macro')) so that minority classes are not overwhelmed
+scikit-learn.org
+. Use Fairlearn’s MetricFrame or dashboard to compute metrics (accuracy, TPR, FPR) for each group
+fairlearn.org
+. Report differences (e.g. TPR_dark–TPR_fair) and metrics like equalized odds or opportunity gaps. Evaluate calibration per group (reliability curves). Tools: fairlearn.metrics.demographic_parity_difference, equalized_odds_difference, etc. Report confusion matrices by skin tone/sex.
+Predictive Bias: Adjust the final predictions to equalize outcomes. This may include calibrating probabilities or adjusting thresholds per group. For calibration, apply sklearn’s CalibratedClassifierCV (with “sigmoid” or “isotonic” methods) to the trained model’s outputs
+scikit-learn.org
+, possibly fitting separate calibrators on each sensitive group. Alternatively, use temperature scaling (a lightweight PyTorch module that rescales logits) on a held-out set per group. For classification decisions, apply post-hoc fairness optimization: e.g., AIF360’s CalibratedEqualizedOdds or Fairlearn’s ThresholdOptimizer (for multiclass, one can solve one-vs-rest thresholds to equalize TPR/FPR across groups). This ensures that, say, a dark-skinned and a fair-skinned patient with the same lesion type have equal probability predictions. In summary, use calibration and thresholding to remove any residual group-dependent skew in predictions
+scikit-learn.org
+.
+Implementation pointers: All the above can be done in PyTorch and scikit-learn. For example, use torch.utils.data.WeightedRandomSampler
+pytorch.org
+ and torchvision.transforms for pre-processing; use sklearn.model_selection.StratifiedKFold for balanced splits
+scikit-learn.org
+; use Fairlearn (pypi fairlearn) or AIF360 (pypi aif360) for in-processing debiasing and metrics
+aif360.readthedocs.io
+aif360.readthedocs.io
+; and use sklearn.calibration.CalibratedClassifierCV
+scikit-learn.org
+ to recalibrate the final model. Throughout, monitor group-wise accuracy and fairness metrics to guide tuning.
+ Bias Type	Pre-processing	In-processing	Post-processing
+Aggregation bias	Oversample or augment minority subgroups (PyTorch WeightedRandomSampler
+pytorch.org
+; mixup/CutMix targeted at underrepresented skin types
+papers.miccai.org
+); class/group weighting (AIF360 Reweighing
+aif360.readthedocs.io
+).	Multi-head or group-specific models (if feasible); multi-task heads for each Fitzpatrick group.	N/A (addressed earlier).
+Missing-data bias	Impute missing metadata (sklearn.impute.SimpleImputer); encode “unknown” category; ensure imputers are fit by subgroup.	Use models robust to missingness (masking); omit features with many missing values.	N/A (accounted in pre).
+Feature-selection bias	Avoid using sensitive attributes as inputs (or, if used, encode carefully). Convert images to grayscale or apply heavy color jitter to avoid color cues.	Adversarial removal of proxies (e.g. train a Fitzpatrick-prediction adversary to force invariant features
+aif360.readthedocs.io
+).	Check feature importance explanations (saliency) per group to ensure no proxy leakage.
+Algorithmic bias	Balance training distribution as above (mixup augmentation
+papers.miccai.org
+; weighted sampling); color/channel transforms.	Fairness-aware training: add regularizers for demographic parity/equalized odds; adversarial debiasing (HolisticAI/AIF360)
+aif360.readthedocs.io
+; Fairlearn’s ExponentiatedGradient to enforce group constraints. Use class-balanced or focal loss for rare classes.	Group-aware evaluation (below).
+Validation bias	Use stratified or group cross-validation (StratifiedKFold
+scikit-learn.org
+, GroupKFold) so all groups are represented. Ensure each split has all Fitzpatrick types.	Optionally, include fairness metric as part of model selection criterion (choose model with low group-disparity).	Compute fairness metrics (diff of TPR/FPR) on validation set; use Fairlearn Dashboard for analysis
+fairlearn.org
+.
+Evaluation bias	-	-	Use balanced accuracy and macro-F1 (sklearn.metrics) to avoid imbalance. Calculate per-group accuracy and errors. Use Fairlearn metrics/MetricFrame to report disparities
+fairlearn.org
+. Create calibration plots by group.
+Predictive bias	-	-	Calibrate probabilities per group (sklearn.calibration.CalibratedClassifierCV
+scikit-learn.org
+ or temperature scaling). Adjust decision thresholds to equalize group TPR/FPR (AIF360’s CalibratedEqOdds or Fairlearn threshold optimizers). Perform final check that error rates/prediction distributions are comparable across all skin types, sexes, ages, countries.
+
+Summary: A combination of data-level balancing (sampling, augmentation), fairness-aware training (losses, adversarial networks), and careful evaluation/calibration can mitigate each bias. The table above summarizes key techniques and tools (PyTorch, torchvision transforms, sklearn’s sampling and calibration, Fairlearn/AIF360) appropriate for each bias and pipeline stage.
+
+
+https://chatgpt.com/s/dr_681794173f7c819195985b70ccfbe206
+
+
+
+    '''
 
     # # TODO: also evaluate this
     # # Aggregate predictions per sample

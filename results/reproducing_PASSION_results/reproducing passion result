@@ -1,0 +1,43 @@
+test exp1:
+        bal acc prec    sens
+all     0.7     0.7     0.7     was 0.7 --> using weighted avg
+F3      0.67    0.68    0.67    was 0.72, 0.71, 0.72
+--> looks like F3 and F4 got mixed up; output is not ordered, could be a result of this
+F4      0.72    0.74    0.72    was 0.66, 0.66, 0.66
+F5      0.69    0.69    0.69    was 0.7, 0.69, 0.7
+F6      0.72    0.74    0.72   was 0.73,0.74,0.73
+f       0.72    0.72    0.72   true
+m       0.68    0.69    0.68   true
+
+
+ test bias 1
+         bal acc prec    sens
+all     0.7     0.7     0.7     was 0.7 --> using weighted avg
+F3      0.7     0.7     0.7    was 0.72, 0.71, 0.72
+F4      0.72    0.72    0.72    was 0.66, 0.66, 0.66
+F5      0.69    0.69    0.69    was 0.7, 0.69, 0.7
+F6      0.69    0.68    0.68   was 0.73,0.74,0.73
+f 425   0.69    0.69    0.69   was 0.72    0.72    0.72
+m 561   0.71    0.71    0.71   was 0.68    0.69    0.68
+
+
+
+ test reproducing after code refactoring biases - original code refactored
+         bal acc prec    sens
+all     0.71     0.71     0.71    was 0.7 --> using weighted avg
+F3      0.69     0.69     0.68    was 0.72, 0.71, 0.72
+F4      0.73     0.73     0.73    was 0.66, 0.66, 0.66
+F5      0.72     0.72     0.72    was 0.7, 0.69, 0.7 --> suddenly better
+F6      0.74     0.74     0.74    was 0.73,0.74,0.73
+f 425   0.72     0.72     0.72    was 0.72    0.72    0.72
+m 561   0.71     0.71     0.71    was 0.68    0.69    0.68
+
+and with the grouping strategy -> check rounding
+         bal acc prec    sens
+all     0.70     0.71     0.71    was 0.7 --> using weighted avg
+F3      0.69     0.70     0.70    was 0.72, 0.71, 0.72
+F4      0.70     0.73     0.72    was 0.66, 0.66, 0.66
+F5      0.73     0.73     0.73    was 0.7, 0.69, 0.7 --> suddenly better
+F6      0.57     0.68     0.66    was 0.73,0.74,0.73
+f 425   0.73     0.74     0.73    was 0.72    0.72    0.72
+m 561   0.70     0.69     0.69    was 0.68    0.69    0.68
