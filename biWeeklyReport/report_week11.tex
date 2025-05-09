@@ -1,0 +1,119 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{amssymb}  % for checkmarks and crosses
+\usepackage{xcolor}   % for coloring the symbols
+\usepackage{pifont}   % for coloring the symbols
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+
+\newcommand{\done}{\textcolor{green}{\ding{52}}}
+\newcommand{\ongoing}{\textcolor{orange}{\ding{45}}}
+\newcommand{\notstarted}{\textcolor{red}{\ding{56}}}
+
+
+\raggedright
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Bachelor Thesis Update}
+\chead{Nadja Stadelmann}
+\rhead{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+	
+	\renewcommand{\arraystretch}{1.5}
+	\begin{longtable}{|p{3.5cm}|>{\vspace{-\baselineskip}}p{12cm}|}
+		\hline
+		\textbf{Section} & \textbf{Details} \\
+		\hline
+		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}[topsep=6pt]
+			\item[\done] Reproducing PASSION results
+			\item[\done] Get pipeline to calculate the required values to compute the fairness metrics
+			\item[\ongoing] Reproducing PASSION results with the new pipeline
+			\begin{itemize}
+				\item results on group level are not reproducible anymore: either I used wrong checkpoint, messed up the training code OR the initial calculations on group level did not take into account the correct labels
+			\end{itemize}
+			\item[\ongoing] Deciding which mitigation methods to evaluate
+			\begin{itemize}
+				\item PASSION already uses lots of the suggested mitigation methods
+				\item Code bases of aif360 and fairlearn are require adaptions of the datasets on runtime which are not straightforward to me
+			\end{itemize}
+			\item[\notstarted] writing report
+			\begin{itemize}
+				\item was important to get some results
+			\end{itemize}
+		\end{itemize} \\
+		\hline
+		Accomplishments & \begin{itemize}[topsep=6pt]
+			\item[\done] PASSION results reproduced
+			\item[\done] Fairness metrics calculable
+			\item[\done] Runtime issues successfully mitigated
+		\end{itemize} \\
+		\hline
+		Risks and Measures &
+		
+		Loss of trust in experimental integrity
+		\begin{itemize}
+			\item Rerunning the adapted code with initial PASSION configuration and compare result again to the PASSION paper
+			\item Carefully testing the evaluation by hand
+			\item When issues persist: get a code review 
+		\end{itemize}
+		 
+		Delays in evaluation of mitigation methods due to unclear integration steps of aif306 / fairlearn
+		\begin{itemize}
+			\item check if the AAI-Team has worked with any of the libs
+			\item focus on other mitigation methods
+		\end{itemize}
+		
+	    Reduced impact / novelty of the analysis due to already implemented mitigation strategies
+		\begin{itemize}
+			\item potentially using post-processing methods as they are not yet used in passion
+			\item use data augmentation / preferential sampling as simulation of different sampling processes
+			\item include center evaluation in the bias analysis and try to apply mitigation methods for img quality issues
+		\end{itemize}
+		
+		Neglecting the report, resulting in pressure at the end of the thesis
+		\begin{itemize}
+		\item Set clear timeframes for ONLY writing on the report
+		\end{itemize}\\
+		
+		\hline
+		Next Steps & \begin{itemize}[topsep=6pt]
+			\item Resolve reproducibility issues
+			\item Introduce first mitigation metric
+			\item Write report
+		\end{itemize} \\
+		\hline
+		Discussion Points / Questions & \begin{itemize}[topsep=6pt]
+			\item most feasible approach for the mitigation methods
+		\end{itemize} \\
+		\hline
+		Additional Notes & - \\
+		\hline
+		Attachments  & \begin{itemize}[topsep=6pt]
+			\item Fork of PASSION-Evaluation:
+			
+			 https://github.com/teshi24/PASSION-Bias-Evaluation/tree/compute\_fairness\_metrics 
+		\end{itemize} \\
+		\hline
+		Protocol  & 
+		Topic
+		\begin{itemize}
+			\item 
+		\end{itemize}
+		
+		Topic
+		\begin{itemize}
+			\item 
+		\end{itemize}
+		\\
+		\hline
+	\end{longtable}
+	
+\end{document}

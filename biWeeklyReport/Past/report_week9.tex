@@ -1,0 +1,130 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{amssymb}  % for checkmarks and crosses
+\usepackage{xcolor}   % for coloring the symbols
+\usepackage{pifont}   % for coloring the symbols
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+
+\newcommand{\done}{\textcolor{green}{\ding{52}}}
+\newcommand{\ongoing}{\textcolor{orange}{\ding{45}}}
+\newcommand{\notstarted}{\textcolor{red}{\ding{56}}}
+
+
+\raggedright
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Bachelor Thesis Update}
+\chead{Nadja Stadelmann}
+\rhead{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+	
+	\renewcommand{\arraystretch}{1.5}
+	\begin{longtable}{|p{3.5cm}|>{\vspace{-\baselineskip}}p{12cm}|}
+		\hline
+		\textbf{Section} & \textbf{Details} \\
+		\hline
+		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}[topsep=6pt]
+			\item[\done] Problem Statement
+			\item[\ongoing] Finalizing documentation of Literature Review
+			\item[\ongoing] Reproducing PASSION results
+			\begin{itemize}
+				\item had to fix issues in current evaluation package
+				\item to reproduce an experiment on GPUHub takes 32.5h (6.5h x 5 folds) - and there are 4 experiments
+			\end{itemize}
+			\item[\notstarted] evaluate baseline with fairness metrics
+			\begin{itemize}
+				\item Reproduction is not yet done
+			\end{itemize}
+		\end{itemize} \\
+		\hline
+		Accomplishments & \begin{itemize}[topsep=6pt]
+			\item[\done] Categorization of the methods
+			\item[\done] Got the evaluation running
+			\item[\done] Progress on the report
+		\end{itemize} \\
+		\hline
+		Risks and Measures &
+		
+		Issues with interpreting the results
+		\begin{itemize}
+			\item Clarifying the open questions
+		\end{itemize}
+		 
+		The fine-tuning-experiments take to long
+		\begin{itemize}
+			\item Improve checkpoint handling
+			\item Use another machine (afraid to lose information and canceled runs due to getting disconnected from GPUHub)
+		\end{itemize}
+		
+	    Focus loss bc of tendency to want to fix / improve systems
+		\begin{itemize}
+			\item Setting clear boundaries for myself: only do what must be fixed to enable running the mitigation experiments efficiently
+		\end{itemize}\\
+		
+		\hline
+		Next Steps & \begin{itemize}[topsep=6pt]
+			\item Get checkpoints for the relevant experiments
+			\item Evaluate the fairness for each subgroup on the experiment checkpoints
+		\end{itemize} \\
+		\hline
+		Discussion Points / Questions & \begin{itemize}[topsep=6pt]
+			\item Have I understood the experiment result csv correctly? \textit{(- Details in presentation)}
+			\item Do you have any tips on how to work efficiently on the GPU Hub?
+			\item How is the correct naming for the attributes in the PASSION dataset? Maybe I misunderstood the terms Features and Labels 
+		\end{itemize} \\
+		\hline
+		Additional Notes & I was sick for roughly 4 days. \\
+		\hline
+		Attachments  & \begin{itemize}[topsep=6pt]
+			\item experiment\_standard\_split\_conditions\_passion.csv 
+		\end{itemize} \\
+		\hline
+		Protocol  & 
+		Expected to be shown next time
+		\begin{itemize}
+			\item Have the fairness metrics ready
+			\item Know
+			\begin{itemize}
+				\item which biases should be targeted
+				\item which mitigation measures will be tackled
+			\end{itemize}
+		\end{itemize}
+		
+		
+		Performance improvement for training
+		\begin{itemize}
+			\item Adjust parameters: Smaller model (Resnet18 / 34 should be sufficient, img size 256 or even smaller, ignoring folds/cross validation at the beginning)
+			\item GPUHub turned out to be not too much of a problem, since wanDB is used. Check if ssh connection is possible to get better editor support. Worst case: ask Jakob if there is a machine from the lab which can be used.
+		\end{itemize}
+		
+		Tips for evaluation
+		\begin{itemize}
+			\item The values in evalTargets and evalPredictions should be in the same order like in the fold. However, since the fold is shuffled, it might be required to change the dataloader (code that creates the dataframe) to also keep track of which record is used OR the subject ID directly
+			\item Its also ok to rewrite the code from scratch using the dataloader classes.
+			\item In general, store all artefacts on wanDB and reload from there again.
+		\end{itemize}
+		
+		Scope Biases
+		\begin{itemize}
+			\item Centers are not the focus of the thesis bc it is not a demographic bias. It might still be useful to run some experiments on it, as it could cause major biases due to image quality.
+		\end{itemize}
+		
+		Naming clarification
+		\begin{itemize}
+			\item Features are the inputs for the model
+			\item Target labels are those which get predicted
+			\item The rest are attributes of the metadata
+		\end{itemize} \\
+		\hline
+	\end{longtable}
+	
+\end{document}
