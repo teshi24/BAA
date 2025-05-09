@@ -50,6 +50,8 @@
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 
+\newcommand{\linkchap}[1]{\hyperref[#1]{chapter~\ref{#1}~\nameref{#1}}}
+
 \usepackage[acronym]{glossaries}         				% package for glossary
 
 \setcounter{tocdepth}{1}                        % hide subsections from TOC
@@ -145,6 +147,7 @@
 	Simone Lionetti - deputy Ludovic
 	Pascal Baumann - LaTeX
 	Philippe Gottfrois - information and work on PASSION project
+	Proofreaders \todo{do you want to be mentioned with name or not?}
 }
 
 
@@ -177,6 +180,10 @@
 	
 	\todo{remove all \textbackslash rawcitationstart \textbackslash rawcitationend  \textbackslash baaCriteria}
 	
+	\todo{fix the weird line breaks}
+	
+	\todo{ensure fine-tuning ResNet-50, ...}
+	
 	
 	\baaCriteria{Alle Fakten (fundiertes Wissen Dritter) sind korrekt zitiert. Es werden verschiedene Zitierweisen verwendet und teilweise mehrere Interpretationen gegenübergestellt. Der gemeinsam definierte Zitierstil im Text, in Abbildungen und Tabellen sowie im Literaturverzeichnis wird korrekt und durchgängig angewendet. Eigene Leistungen (sowie Bewertungen) und Fremdquellen sowie Recherchen sind klar unterscheidbar.} 
 	
@@ -203,24 +210,15 @@
 	\chapter{Problem Statement}
 		\baaCriteria{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 		
-		In Sub-Saharan Africa, dermatology treatment is inaccessible. There are fewer than one dermatologist available per one million people. On the other hand, up to 80\% of the children and adolescents in the area are affected by skin conditions. AI-based \gls{teledermatology} promises to close this gap of specialists per case, for example by serving as a triage option. Potential patients could upload pictures to diagnostic dermatology AIs which can indicate whether the person should indeed visit a dermatologist or promote other treatment options. However, the current dermatology AIs have a tendency to fail to deliver accurate results for patients with highly pigmented skin tones. This is mainly due to demographic biases in existing AI models. The models are trained on established datasets which mainly feature low-pigmented skin. Therefore, the datasets lack representation of highly-pigmented skin, leading to AI models which do not generalize to the population in Sub-Saharan Africa  \autocite{Gottfrois2024}.
+		In Sub-Saharan Africa dermatology treatment is inaccessible according to \textcite{Gottfrois2024}. There are fewer than one dermatologist available per one million people. Despite this, up to 80\% of the children and adolescents in the area are affected by skin conditions. AI-based \gls{teledermatology} promises to close this gap of specialists per case, for example by serving as a triage option. Potential patients could upload pictures to diagnostic dermatology AIs which can indicate whether the person should indeed visit a dermatologist or promote other treatment options. However, current dermatology AIs tend to fail to deliver accurate results for patients with highly pigmented skin tones. This is mainly due to demographic biases in existing AI models. The models are trained on established datasets which mainly feature low-pigmented skin. Therefore, the datasets lack representation of highly-pigmented skin, leading to AI models which do not generalize to the population in Sub-Saharan Africa \autocite{Gottfrois2024}.
 		
 		These biases result in unequal access to treatment and especially affect underrepresented groups. Such biased results must be avoided, especially in AI models which impact life-changing decisions \autocite{Mehrabi_2021}.
 		
-		Demographic biases are especially important in dermatology. Demographic differences in patients influence the appearance of dermatological conditions. The differences in appearance can be developed depending on genetic factors, such as skin tone, age, sex \autocite{Diaz2022}. Research showed, that in patients with lower socio-economic status the disease progression is more advanced at time of diagnosis, which in turn can lead to different appearances for the same disease \autocite{BAD2021}. Since the AI models use pictures as the inputs and can only learn to diagnose diseases according to their appearances in the data, the factors which affects the disease appearances must be considered when creating an inclusive dataset.
+		According to \textcite{Diaz2022}, demographic biases are especially important in dermatology. Demographic differences in patients influence the appearance of dermatological conditions. The differences in appearance can be developed depending on genetic factors, such as skin tone, age and sex \autocite{Diaz2022}. Research showed, that in patients with lower socio-economic status the disease progression is more advanced at time of diagnosis, which in turn can lead to different appearances for the same disease \autocite{BAD2021}. Since the AI models use pictures as the inputs and can only learn to diagnose diseases according to their appearances in the data, the factors which affects the disease appearances must be considered when creating an inclusive dataset.
 		
 		In order to overcome these issues, the PASSION research team founded the PASSION project. The projects vision is to make dermatology treatment accessible in Africa by enabling the AI-supported \gls{teledermatology} for triage by reducing the demographic biases in the dermatology AI models. For this bias mitigation, the researcher collected a dataset in Sub-Saharan Africa, focusing on patients with highly pigmented skin and the most common regional \gls{pediatric} skin conditions. The PASSION dataset is complementary to existing datasets and improves their diversity. Further, the PASSION team trained an ResNet-50 model with the dataset which is refered to as PASSION model in this thesis. This model should serve as a benchmark model to assess other dermatology models in regards of fairness \autocite{Gottfrois2024}. \todo{check sources, maybe, for the last sentence, the midterm protocol must be cited instead}
 		
 		So that the PASSION model can become an unbiased benchmark model, potential demographic biases in it must be reduced as far as possible. To reach this goal, demographic biases in the model as well as the limitation of the gathered dataset must be identified and mitigated. This thesis supports the PASSION team in this process. The main objective of the thesis is to assess the effectiveness of mitigation strategies to reduce demographic biases in context of PASSION.
-		
-		
-		\todo{should this already be stated here or in the methodology section? --> in any case rewrite needed}
-		First, I need to gain an overview over what biases, fairness metrics and mitigation strategies are known in general.
-		Then, I must scope the found information, to find what is relevant for PASSION and what is feasible to achieve within the timeconstraints of this thesis.
-		Before starting an assessment, a baseline needs to established by computing chosen fairness metrics.
-		Afterwards, the mitigation methods can be applied and the performance can be compared to the baseline, to find out whether the methods are indeed mitigating the biases.
-		
-		
 		
 		
 		\begin{comment}
@@ -270,19 +268,24 @@
 		\baaCriteria{Bezogen auf die eigenen Zielsetzungen und Fragestellungen soll aufgezeigt werden, wie andere dieses oder ähnliche Probleme gelöst haben. Worauf können Sie aufbauen, was müssen Sie neu angehen?	Wodurch unterscheidet sich Ihre Lösung von anderen Lösungen? Für wissenschaftlich orientierte Arbeiten sei hier explizit auf (Balzert, S. 66 ff) verwiesen.}
 		\baaCriteria{Relevante, aktuelle und fundierte Fachliteratur wurde identifiziert, kritisch geprüft und verwendet. Die Begriffe der Fragestellung sind definiert und referenziert. Der gesamte Kontext ist verknüpft und eine Abgrenzung wurde vorgenommen. All dies ist in einer leicht verständlichen Struktur formuliert und überprüft.}
 		
-		\todo{is this more method description? what else would be expected to be written as the chapter description?}
-		Bias mitigation in AI has already been investigated by different researchers, who crafted fiting mitigation methods \todo{citation?}. This thesis aims to assess those existing methods in the context of PASSION. Therefore, this chapter focuses first on getting an overview over the PASSION project based on the PASSION paper and dataset. Then, the general knowledge about existing biases, fairness metrics and mitigation methods is gathered via a literature review. The review process was split between the general ML context and specific dermatology ML context, so that the technical and dermatological perspective can be taken into account, when the knowledge is applied to PASSION. The tables in this chapter will indicate, which points where found in which context. This is important, because what may be an issue in general might not be relevant for a specific usecase or vise versa. For example, in theory, all ages should be represented in datasets to cover demographic insights. However, for car insurance, the age representation is not imporant, because the age does not affect how well a driver can drive \todo{either cite this example from the expert or find another example related to dermatology}.
+		In this chapter a review over the existing work in the field of bias mitigation in \gls{AI}. The main focus lies on a literature review of existing papers from other researchers in this area, highlighting the key findings which are connected to this thesis. Bias mitigation in \gls{AI} has already been investigated by different researchers, who crafted fitting mitigation methods \todo{citation?}. This thesis aims to assess those existing methods in the context of PASSION.
 		
-		During the literature review, lots of biases and mitigation methods where found, which might have a relation to the PASSION project. Since it is not feasible to assess all of them during the duration of this thesis, the thesis focus on those which are related to skin type, age and gender. The other items are passed as a list to the PASSION research team for further investigation. The list can be found in the appendix \todo{add link}.
+		Therefore, this chapter first presents an overview over the PASSION project based on the PASSION paper and dataset. Then, the general knowledge in the literature about existing biases, fairness metrics and mitigation methods is summarized. The review process was divided in two main contexts: \gls{ML} in general and \gls{ML} in dermatology. This approach ensures that the technical and dermatological perspectives are considered when applying the knowledge to PASSION. The tables in this chapter indicate which points where found in which context. This is important, since what may be an issue in general might not be relevant for a specific use case or vice versa. For example, in theory, all age groups should be represented in datasets to account for demographic diversity. However, for car insurance, the age representation is not important, because age does not affect how well a driver can drive \todo{either cite this example from the expert or find another example related to dermatology}.
+		
+		The various studies present different bias sources and suggest diverse methods to mitigate them. During the literature review, several biases and mitigation methods were identified that may be relevant to the PASSION project. Since it is not feasible to assess all of them during the duration of this thesis, the thesis focuses on those which are related to skin type, age and gender. The chosen methods are explained in \linkchap{chap:methodology}. The other items are passed to the PASSION research team as a list for further investigation. The list can be found in the appendix \todo{add link}.
 		
 		
 		\section{PASSION for Dermatology}
-			With their paper, the PASSION research team provides the PASSION dataset including data analysis scripts as well as the PASSION model. For this thesis, it is important to understand which labels the dataset provides, what architecture the model has and which mitigation methods were already applied. The available data can influence which biases could arise in the model or rather which ones can be measured. Further, the labels which should be predicted and the model architecture give insight into the ML task. All this information affects which mitigation methods are feasible to be used for the project. \todo{add sources}
+			This section provides an overview of to the PASSION project regarding its medical scope and technical components.
+			
+			While the overall goal remains to improve the accessibility of dermatological care by building fair and inclusive AI systems, PASSION specifically addresses common \gls{pediatric} skin conditions in Sub-Saharan Africa. To create a dataset which represents patients with highly pigmented skin, they collected data from patients with \glspl{FST} III to VI. Based on this dataset, the PASSION team fine-tuned a ResNet-50 model using transfer learning. With the dataset and trained model, the researchers published data analysis scripts and initial insights on the model performance in a MICCAI \todo{add to glossary} publication \autocite{Gottfrois2024}.
+			
+			For the purpose of this thesis, it is essential to understand the dataset's metadata, the architecture and fine-tuning process of the PASSION model and which bias mitigation methods have already been applied. The dataset can influence which biases could arise in the model or rather which ones can be measured. The labels which should be predicted and the model architecture give insight into the \gls{ML} task. All this information affect which mitigation methods are feasible to be used for the project. \todo{add sources}
 			
 			\subsection{PASSION Dataset}
-				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical information, see \autoref{tab:PASSION_labels}. There is one record per patient and one or more corresponding images which are linked to the record through the filename. The images are taken with mobile phones, in order to train the models on a \gls{teledermatology}-like setup regarding image quality \autocite{Gottfrois2024}.
+				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical information, see \autoref{tab:PASSION_metadata}. There is one record per patient and one or more corresponding images which are linked to the record through the filename. The images are taken with mobile phones, in order to train the models on a \gls{teledermatology}-like setup regarding image quality \autocite{Gottfrois2024}.
 				
-			    The datasplit is a predefined 80/20 stratified development-test split at patient level. This ensures reproducibility, fair comparison, while preventing information leaking \autocite{Gottfrois2024}. Stratified splitting is a method to split imbalanced datasets without changing the original class distribution within the subset. This is important to maintaining the representativeness of the data, especially for minority classes \autocite{Balde_2023}. \todo{add better source for the stratified datasplit (and the other stuff where medium was used)}.
+			    The datasplit is a predefined 80/20 stratified development-test split at patient level. This ensures reproducibility, fair comparison, while preventing information leaking \autocite{Gottfrois2024}. Stratified splitting is a method to split imbalanced datasets without changing the original class distribution within the subset. This is important to maintain the representativeness of the data, especially for minority classes \autocite{Balde_2023}. \todo{add better source for the stratified datasplit (and the other stuff where medium was used)}.
 			    
 				Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
 				
@@ -290,7 +293,7 @@
 					\centering
 					\begin{tabularx}{\textwidth}{>{\hsize=.27\hsize}X>{\hsize=.27\hsize\raggedright}X>{\hsize=.46\hsize}X}
 						\toprule
-						\textbf{Label}       & \textbf{Data Type} & \textbf{Description}       \\ \midrule
+						\textbf{Metadata Attribute}       & \textbf{Data Type} & \textbf{Description}       \\ \midrule
 						subject\_id          & string & Participant's unique identifier        \\
 						country              & string & Country of data origin \\
 						age                  & integer & Age of the participant in years       \\
@@ -301,18 +304,20 @@
 						conditions\_PASSION  & Eczema, Scabies, Fungal, Others & Primary diagnosed skin condition \\
 						\bottomrule
 					\end{tabularx}
-					\caption{PASSION dataset - labels and descriptions \autocite{Gottfrois2024}}
-					\label{tab:PASSION_labels}
+					\caption{PASSION dataset - metadata attributes and descriptions \autocite{Gottfrois2024}}
+					\label{tab:PASSION_metadata}
 				\end{table}
 				
-				For this thesis, the labels \textit{fitzpatrick}, \textit{sex} and \textit{age} are relevant, as they cover relevant demographic information from the patients. The skin type is directly relevant because it can affect disease presentation and therefore the model's learning process to detect the condition \todo{add citation, also from mail}. According to Philippe Gottfrois, the main author of the PASSION paper, the same condition looks similar regardless of a patient's age and sex. However, the prevalence of conditions varies based on these factors \todo{add citation, also from mail}. Therefore, the data distribution of age and sex is relevant for an inclusive AI model, because these demographic factors influence the likelihood of a condition being represented in the dataset.
+				For this thesis, the attributes \textit{fitzpatrick}, \textit{sex} and \textit{age} are relevant, as they cover relevant demographic information from the patients which can be used to identify demographic biases. The skin type is directly relevant because it can affect disease presentation and therefore the model's learning process to detect the condition \todo{add citation, also from mail}. According to Philippe Gottfrois, the main author of the PASSION paper, the same condition looks similar regardless of a patient's age and sex. However, the prevalence of conditions varies based on these factors \todo{add citation, also from mail}. Therefore, the data distribution of age and sex could become relevant for an inclusive \gls{AI} model, because these demographic factors influence the likelihood of a condition being represented in the dataset. In this thesis, the attributes will be used to identify potential biases in the PASSION model. Further, it will be evaluated whether the data distributions for these attributes indeed are relevant for any biases \todo{check in the end if I really did that}.
 				
-				The label \textit{country} seems to be another demographic factor. Since it is the country where the data collection took place \todo{cite mail}, the only demographic information it could indicate is the geographic location where the patient was at diagnosis. This could potentially be used as \gls{proxyVar} for where the patient lives, which could be relevant for disease prevalance \todo{cite this}. However, this could lead to false conclusions which is why this label will not be used in this thesis. The PASSION team should investigate the need for this label and possible enhancement. Also, they should state the meaning of the label clearer in the dataset description. \todo{add this to PASSION investigation list}
+				The attribute \textit{country} seems to be another demographic factor. Since it is the country where the data collection took place \todo{cite mail}, the only demographic information it could indicate is the geographic location where the patient was diagnosed. This could potentially be used as \gls{proxyVar} for where the patient lives, which could be relevant for disease prevalance \todo{cite this}. However, this could lead to false conclusions which is why this label will not be used in this thesis. The PASSION team should investigate the need for this label and possible enhancement. Also, they should state the meaning of the label clearer in the dataset description. \todo{add this to PASSION investigation list}
 				
-				The labels \textit{impetig} and \textit{conditions\_PASSION} are the ones which the PASSION model must predict. They can appear independently of each other. Therefore, the ML task for PASSION it is a multiclassification task.
+				The labels \textit{impetig} and \textit{conditions\_PASSION} are the ones which the PASSION model learns to predict. They can appear independently of each other. Therefore, the \gls{ML} task for PASSION it is a multiclassification task.
 			
 			\subsection{PASSION Data Analysis Scripts}
-				With the dataset, the PASSION research team provides a \gls{JupyterNotebook} with code examples and data analysis scripts. The scripts are listed in \autoref{tab:PASSION_scripts} with an indicator, how relevant the scripts are for this thesis. Relevant are the scripts related to demographic distributions of the chosen labels. When the model output is biased, these scripts can help determine whether the bias is potentially caused by imbalance in the data distribution. Somewhat relevant are the scripts which lay foundations for further data analysis scripts. Not relevant for this thesis are all other scripts.
+				The PASSION team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} together with their relevance to this thesis. The most relevant scripts are those related to demographic distributions of the chosen attributes, since they help identifying potential data imbalances. Scripts that lay the foundation for further analysis are somewhat relevant, while all other scripts are irrelevant for this thesis.
+				
+				\todo{move tbl to appendix}
 				
 				\begin{table}[H]
 					\centering
@@ -320,6 +325,14 @@
 					\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
 						\toprule
 						\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
+						Distribution of \glspl{FST} &
+						Counts and visualizes the skin type distribution  &
+						\textbf{High} - Insight into demographic distributions \\
+						\hline
+						Regrouping Malawi and Tanzania to EAS &
+						Data aggregation due to dataset size and geographical proximity &
+						\textbf{Medium} - Might impact interpretation of the results of the following scripts \\
+						\hline
 						Linking CSV Data with Image Files & 
 						Mapping between data records and images. &
 						\textbf{Medium} - Basis for other analyses \\
@@ -328,13 +341,9 @@
 						Dataset verification regarding completeness &
 						\textbf{Low} - No insight in regards of demographic distribution \\
 						\hline
-						Regrouping Malawi and Tanzania to EAS &
-						Data aggregation due to dataset size and geographical proximity &
-						\textbf{Medium} - Might impact interpretation of the results of the following scripts \\
-						\hline
 						Conditions by Country &
 						Correlation between clinical conditions and country &
-						\textbf{Low} - The label \textit{country} is out of scope of this thesis \\
+						\textbf{Low} - The attribute \textit{country} is out of scope of this thesis \\
 						\hline
 						Body Localizations by Conditions &
 						Correlation between the condition and primarily affected body parts &
@@ -343,10 +352,7 @@
 						Impetigo Cases &
 						Total count of impetigo cases and proportion to all cases &
 						\textbf{Low} - No insight in regards of demographic distribution\tnote{*} \\
-						\hline
-						Distribution of \glspl{FST} &
-						Counts and visualizes the skin type distribution  &
-						\textbf{High} - Insight into demographic distributions \\
+						
 						\bottomrule
 					\end{tabularx}
 						\begin{tablenotes}
@@ -359,7 +365,9 @@
 					\label{tab:PASSION_scripts}
 				\end{table}
 			\subsection{PASSION Model}
-			  The model architecture is a ResNet-50 model which is pretrained on ImageNet. The model was finetuned by replacing the last fully connected classification layer by a dropout layer with a 0.3 dropout rate followed by batch normalization. The class activation is done by a single linear layer. To minimize the weighted cross-entropy loss, Adam optimization is used. For improved generalization and to avoid overfitting, data augmentations were applied. The used methods were random resizing, cropping, flipping and rotating \cite{Gottfrois2024}. \todo{add individual citations for ResNet-50, ImageNet, Adam optimization, weighted cross-entropy loss}.
+			  The model architecture is a ResNet-50 model which is pretrained on ImageNet. The model was fine-tuned by replacing the last fully connected classification layer with a dropout layer with a 0.3 dropout rate followed by batch normalization. The class activation is done by a single linear layer. To minimize the weighted cross-entropy loss, Adam optimization is used. For improved generalization and to avoid overfitting, data augmentations were applied. The methods used were random resizing, cropping, flipping, and rotating \textcite{Gottfrois2024}. \todo{add individual citations for ResNet-50, ImageNet, Adam optimization, weighted cross-entropy loss}.
+			  
+			  \todo{add information regarding how many folds are there, how is the data split, ...}
 			  			
 			\subsection{PASSION Experiments}
 			  The PASSION team conducted various experiments to evaluate the classifiers on the test set with the following schemes \autocite{Gottfrois2024}:
@@ -370,10 +378,15 @@
 			  	\item Generalization from different age groups (test set contains data from the known age groups and one unknown)
 			  	\item Subject level analysis over the predictions of multiple pictures, using majority voting
 			  \end{itemize}
-			  These experiments can serve as a starting point, since reproducing the results help to setup works the same on my side. Also, they can be used as examples for further experiments.
-			  			  
-			  The paper indicates a lower performance when evaluating on a subject level versus on a sample level. The authors highlight the importance to evaluate a classifier's performance on both levels for completeness \autocite{Gottfrois2024}. Therefore, the subject level performance should also be considered during this thesis.
 			  
+			  The code for those experiments is available in the PASSION evaluation GitHub repo. These repo can serve as a starting point, since reproducing the results helps to verify that the provided setup works the same on my side. Also, they can be used as examples for further experiments. \todo{mention which ones I really used why for the thesis and move the others to the appendix}
+			  
+			  The paper indicates lower performance when evaluating the model on a subject level (performance per case/patient) rather than a sample level (performance per image). The authors emphasize the importance of assessing classifier performance on both levels for completeness \autocite{Gottfrois2024}. Therefore, the subject level performance should also be considered during this thesis.
+	
+		\subsection{Limitations}
+				\todo{maybe move to execution phase}
+				\todo{write in more details}
+			   - multiple executions showed inconsistent results for the different group evaluations on the same model checkpoint. It turned out that the metadata linkage did not work consistently. The issue was resolved now by providing the img name in the dataloader and link the metadata directly from the source file instead of using the indexes. prob related to different shufflings between dataloader and metadataloader
 		
 			\begin{comment}
 				\todo{probably remove this}
@@ -381,7 +394,7 @@
 			\subsection{Telemedicine \todo{is this chapter needed?}}
 				\rawcitationstart
 				\begin{itemize}
-					\item Teledermatology. Telemedicine may be one of the first fields to embrace AI, driven by demand for services, the necessity of collecting fit-for-purpose high-quality images, and the availability of existing technology (Xiong et al., 2019). Face-to-face diagnostic accuracy exceeds that of teledermatology (Finnane et al., 2017); however, inequalities surrounding access to dermatological care persist. Teledermatology has the potential to increase access by facilitating referrals and offering convenience and decreased wait times (Finnane et al., 2017), as well as providing diagnostic support at the time of case review. For teledermatology cases, the accuracy of a DL classifier (0.67) matched dermatologists’ (0.63) and was higher than primary care physicians’ (0.45) for 26 skin conditions (Liu et al., 2019b). AI may be integrated into smartphone apps to photograph skin lesions, collect relevant clinical information, and generate a referral if appropriate. Many smartphones already support on-device DL with Google’s TensorFlow Lite (TensorFlow, 2020) or Apple’s CoreML (Apple Inc, 2020), preserving privacy by keeping health information on the device. A systematic review found nine studies that evaluated six algorithm-based smartphone apps and concluded that evidence of diagnostic accuracy was poor and does not support current implementation, despite two apps having obtained the CE marking; no apps are Food and Drug Administration approved (Freeman et al., 2020). AI may also assist in automatic tracking and monitoring of skin lesions; although preliminary results are promising, existing studies used small datasets with little description, and there is no established standard metric of change (Navarro et al., 2019). Further study hinges on the prospective collection of large datasets. \autocite{Young_2020}
+					\item Teledermatology. Telemedicine may be one of the first fields to embrace AI, driven by demand for services, the necessity of collecting fit-for-purpose high-quality images, and the availability of existing technology (Xiong et al., 2019). Face-to-face diagnostic accuracy exceeds that of teledermatology (Finnane et al., 2017); however, inequalities surrounding access to dermatological care persist. Teledermatology has the potential to increase access by facilitating referrals and offering convenience and decreased wait times (Finnane et al., 2017), as well as providing diagnostic support at the time of case review. For teledermatology cases, the accuracy of a DL classifier (0.67) matched dermatologists’ (0.63) and was higher than primary care physicians’ (0.45) for 26 skin conditions (Liu et al., 2019b). AI may be integrated into smartphone apps to photograph skin lesions, collect relevant clinical information, and generate a referral if appropriate. Many smartphones already support on-device DL with Google’s TensorFlow Lite (TensorFlow, 2020) or Apple’s Core\gls{ML} (Apple Inc, 2020), preserving privacy by keeping health information on the device. A systematic review found nine studies that evaluated six algorithm-based smartphone apps and concluded that evidence of diagnostic accuracy was poor and does not support current implementation, despite two apps having obtained the CE marking; no apps are Food and Drug Administration approved (Freeman et al., 2020). AI may also assist in automatic tracking and monitoring of skin lesions; although preliminary results are promising, existing studies used small datasets with little description, and there is no established standard metric of change (Navarro et al., 2019). Further study hinges on the prospective collection of large datasets. \autocite{Young_2020}
 					\item \autocite{Tsetsi_2017} on smartphone / internet access divide between populations
 					\item https://www.tandfonline.com/doi/full/10.1080/08870446.2019.1579330 on how open people are to use AI
 				\end{itemize}
@@ -390,8 +403,8 @@
 		
 		
 		\section{Bias}
-		The algorithmic decisions of AI affect peoples' lives. Due to that, healthcare AI applications, like PASSION, are sensitive tools. However, decisions from AI applications proved to be biased, which can harm underrepresented groups. Therefore, AI engineers should aim to address and mitigate those biases. To do so, it is crucial to know what bias is, what types of biases exist and where they are coming from \autocite{Mehrabi_2021}.
-		This chapter provides therefore an overview over biases and related features which were mentioned in ML- and dermatology-related research.
+		The algorithmic decisions of \gls{AI} affect peoples' lives. Due to that, healthcare \gls{AI} applications, like PASSION, are sensitive tools. However, decisions from \gls{AI} applications proved to be biased, which can harm underrepresented groups. Therefore, \gls{AI} engineers should aim to address and mitigate those biases. To do so, it is crucial to know what bias is, what types of biases exist and where they are coming from \autocite{Mehrabi_2021}.
+		This chapter provides therefore an overview over biases and related features which were mentioned in \gls{ML}- and dermatology-related research.
 			
 		\rawcitationusedstart
 		\begin{itemize}
@@ -400,13 +413,14 @@
 		\end{itemize}
 		\rawcitationusedend
 		
-		\subsection{Introduction to Bias in AI}
-		    In ML, bias can be defined as \textit{a systematic error that causes a model or estimator to consistently deviate from the true value or relationship} \autocite{Delgado-Rodriguez_2004, Taylor_2023}.
-		    
+		\subsection{Introduction to Bias in \gls{AI}}
+		    In \gls{ML}, bias can be defined as \textit{a systematic error that causes a model or estimator to consistently deviate from the true value or relationship} \autocite{Delgado-Rodriguez_2004, Taylor_2023}.
+
+					    
 		    \todo{continue here}
 		
 		
-			According to the Cambridge English dictionary, bias can be defined as "the fact of preferring a particular subject or thing" or even as "the action of supporting or opposing a particular person or thing in an unfair way, because of allowing personal opinions to influence your judgment" \autocite{Cambridge_2025}. While an AI does not hold personal opinions, the judgment of an AI algorithm is influenced by the underlying data and how the algorithm uses this data. The data and even the algorithm itself can hold biases, which affects the final outcome and potential lead to unfair decisions. In decision-making, fairness means "absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics" - or in other terms, a fair algorithms decisions are not scewed toward a group of people \autocite{Mehrabi_2021}. 
+			According to the Cambridge English dictionary, bias can be defined as "the fact of preferring a particular subject or thing" or even as "the action of supporting or opposing a particular person or thing in an unfair way, because of allowing personal opinions to influence your judgment" \autocite{Cambridge_2025}. While an \gls{AI} does not hold personal opinions, the judgment of an \gls{AI} algorithm is influenced by the underlying data and how the algorithm uses this data. The data and even the algorithm itself can hold biases, which affects the final outcome and potential lead to unfair decisions. In decision-making, fairness means "absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics" - or in other terms, a fair algorithms decisions are not scewed toward a group of people \autocite{Mehrabi_2021}. 
 			\todo{Do I need to say more about this? If so, add infos from section Discrimination vs. Biases}
 
 			\rawcitationusedstart
@@ -418,12 +432,12 @@
 			\rawcitationusedend
 			
 			\subsection{Bias Sources}
-			The general ML lifecycle consists of data gathering, training the algorithm and the user interaction with the trained model. Now, while data gathering, biases can arise either through the collection process or it is already inherited in the available data. Further, depending on the algorithm design, during training, the existing bias in the data can be amplified and new bias can be introduced. Lastly, the result of the algorithm can affect the user experience on inference which can lead to further bias amplification. This generates a feedback loop between the biases in each step of the ML lifecycle which can make it hard to identify the original bias source. The feedback loop is illustrated in \autoref{fig:bias_definitions_ML_lifecycle}, which also shows first bias definitons, which were categorized according to this feedback loop \autocite{Mehrabi_2021}.
+			The general \gls{ML} lifecycle consists of data gathering, training the algorithm and the user interaction with the trained model. Now, while data gathering, biases can arise either through the collection process or it is already inherited in the available data. Further, depending on the algorithm design, during training, the existing bias in the data can be amplified and new bias can be introduced. Lastly, the result of the algorithm can affect the user experience on inference which can lead to further bias amplification. This generates a feedback loop between the biases in each step of the \gls{ML} lifecycle which can make it hard to identify the original bias source. The feedback loop is illustrated in \autoref{fig:bias_definitions_ML_lifecycle}, which also shows first bias definitons, which were categorized according to this feedback loop \autocite{Mehrabi_2021}.
 			
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.8\textwidth]{figures/BiasCategoriesInMLLifecycle.png}
-				\caption{Bias definitions in a ML lifecycle \autocite{Mehrabi_2021}.}
+				\caption{Bias definitions in a \gls{ML} lifecycle \autocite{Mehrabi_2021}.}
 				\label{fig:bias_definitions_ML_lifecycle}
 			\end{figure}
 			
@@ -436,7 +450,7 @@
 			
 			
 			\subsection{Bias Types}
-			 The \autoref{tab:biases_types} aims to provide an overview over what kind of biases exist according to research. The more detailed categories listed in the table try to capture similar kind of biases. This thesis follows roughly the categorization of \cite{Mehrabi_2021}. Some biases might acctually fit in multiple categories. The definition of the categories including examples of specific biases follows.
+			 The \autoref{tab:biases_types} aims to provide an overview over what kind of biases exist according to research. The more detailed categories listed in the table try to capture similar kind of biases. This thesis follows roughly the categorization of \textcite{Mehrabi_2021}. Some biases might acctually fit in multiple categories. The definition of the categories including examples of specific biases follows.
 			
 			\todo{check the c citations in the following chapters}
 			
@@ -446,7 +460,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Bias} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\bolditalic{Data Biases}} \\ 
 						
@@ -491,7 +505,7 @@
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
-				\caption{Bias categories - grouped according the ML lifecycle of \cite{Mehrabi_2021}}
+				\caption{Bias categories - grouped according the \gls{ML} lifecycle of \textcite{Mehrabi_2021}}
 				\label{tab:biases_types}
 			\end{table}
 			
@@ -513,7 +527,7 @@
 				
 				\subparagraph{Potential Biases in PASSION}
 				PASSION tries to reduce sampling bias in dermatology against high pigmented skin.
-				PASSION might introduce (systematic) selection bias or Ascertainment bias, if in the dermatology centers only sickest / more severe patients are seen as indicated by \cite{Chakraborty_2024}
+				PASSION might introduce (systematic) selection bias or Ascertainment bias, if in the dermatology centers only sickest / more severe patients are seen as indicated by \textcite{Chakraborty_2024}
 				PASSION inherits availability bias as it is using \gls{FST} scale.
 				Survivorship bias could be relevant for PASSION, if dermatology diseases could be lethal. Further, all patients which are not able to go to one of the dermatology centers which were used in PASSION could be considered to left out by survivorship bias.
 				
@@ -554,7 +568,7 @@
 				
 				Those biases can be introduced :
 				\begin{itemize}
-					\item \textbf{Representation bias}, non-representative sample lead to missing subgroups or other representation anomalies, which can be harmful to downstream applications. Popular ML datasets suffer from representation bias \autocites{Mehrabi_2021}{M142_Shankar_2017}
+					\item \textbf{Representation bias}, non-representative sample lead to missing subgroups or other representation anomalies, which can be harmful to downstream applications. Popular \gls{ML} datasets suffer from representation bias \autocites{Mehrabi_2021}{M142_Shankar_2017}
 					\item \textbf{Population Bias}. Population bias arise when statistics, demographics and characteristics in the sample differ from the target population \autocite{M120_Olteanu_2019}. The data it creates is non-representative for the target population \autocite{Mehrabi_2021}.
 					\item \textbf{Aggregation bias} occurs, when "false conclusions are drawn about individuals from observing the entire population". It doesn't matter, whether the subgroups are represented equally in the training set, any generalized assumptions can result in aggregation bias \autocite{Mehrabi_2021}. In medicine, diseases can present themselves differently across genders and ethnicities \autocite{M144_Suresh_2021}. Therefore, diagnostic models need to incorporate those differences to mitigate aggregation bias \autocite{Mehrabi_2021}.
 					\item \textbf{Simpson's Paradox} is a type of aggregation bias, which arises in heterogeneous data analysis. Observed associations disappear or reverses in the subgroup data \autocite{Mehrabi_2021}.
@@ -697,13 +711,13 @@
 			used
 			\begin{itemize}		
 				\rawcitationusedstart
-				\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
+				\item Image quality. Several barriers to \gls{AI} implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
 				\rawcitationusedend
 			\end{itemize}
 			\rawcitationend
 			
 			\paragraph{Medical Biases}
-			In ML for health care, there are special medical versions of the mentioned biases as well as completely new biases. They require special attention, since they directly influence the diagnosis or treatment of a disease.
+			In \gls{ML} for health care, there are special medical versions of the mentioned biases as well as completely new biases. They require special attention, since they directly influence the diagnosis or treatment of a disease.
 			
 			Those biases can be introduced:
 			\begin{itemize}
@@ -772,7 +786,7 @@
 				
 			\paragraph{User Algorithm Interaction Biases}
 				\begin{itemize}
-					\item \textbf{User Interaction Bias}. This biases can be triggered by the user interface or the user themselves. The user interface influences the user to behave in a certain way, which could introduce bias in the user behaviour. Users impose this (or their own) biased behavior through interaction on the algorithm \autocite{M9_Baeza-Yates_2018}. \textbf{Presentation bias} and \textbf{Ranking bias} are further subtypes mentioned by \cites{M93_Lerman_2014}{Mehrabi_2021}.
+					\item \textbf{User Interaction Bias}. This biases can be triggered by the user interface or the user themselves. The user interface influences the user to behave in a certain way, which could introduce bias in the user behaviour. Users impose this (or their own) biased behavior through interaction on the algorithm \autocite{M9_Baeza-Yates_2018}. \textbf{Presentation bias} and \textbf{Ranking bias} are further subtypes mentioned by \textcites{M93_Lerman_2014}{Mehrabi_2021}.
 					\item \textbf{Emergent Bias}. When real users interact with an algorithm, this bias arises some time after the design was completed due to changes in population. It appears more likely in user interfaces \autocite{M53_Friedman_1996}.
 				\end{itemize}
 			
@@ -964,7 +978,7 @@
 			
 			
 			\subsection{Sensitive Features}
-			Research showed sensitive features which are prone to bias. Those led to issues in existing AI applications and their usage should therefore be investigated carefully.
+			Research showed sensitive features which are prone to bias. Those led to issues in existing \gls{AI} applications and their usage should therefore be investigated carefully.
 			
 			\autoref{tab:biases_features} summarizes mentioned features. Since PASSION tries to improve the classification of skin diseases with photographs alone, those features which directly influence the appearance of a disease on the skin are most important. Skin type including undertone are affecting the diseases appearance, but also genetic factors, gender and the age \todo{doublecheck impact of age} of a patient can influence how the diseases manifest themselves. Therefore, they are directly relevant for skin detection and must be considered in the dataset.
 			
@@ -982,7 +996,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Bias-Sensitive Features} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%\midrule
 						\multicolumn{3}{l}{\textbf{Dermatology Related Features}} \\
 						Skin Type & X\tnote{1,2,7} & X\tnote{12,13}\\
@@ -1042,7 +1056,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Bias-Sensitive Features} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%\midrule
 						\multicolumn{3}{l}{\textbf{Dermatology Related Features}} \\
 						Skin Type & X\tnote{1,3} & X\tnote{5,6}\\
@@ -1089,8 +1103,8 @@
 			
 			
 		\section{Fairness}
-		As \cite{Mehrabi_2021} states, "in order to be able to fight against discrimination and achieve fairness, one should first define fairness". However, research is no clear agreement for a single definition of fairness. Further, the fairness definitions are also prone to biases since different cultures and preferences influence the perception of fairness. In spite of those challenges, fairness can broadly be defined as absence of bias in decision making. While fairness is very desirable, it "can be surprisingly difficult to achieve in practice" \autocite{Mehrabi_2021}.
-		This chapter summarizes the existing fairness methods, which aim to achieve fairness. The fairness methods were listed by \cite{Mehrabi_2021}.
+		As \textcite{Mehrabi_2021} states, "in order to be able to fight against discrimination and achieve fairness, one should first define fairness". However, research is no clear agreement for a single definition of fairness. Further, the fairness definitions are also prone to biases since different cultures and preferences influence the perception of fairness. In spite of those challenges, fairness can broadly be defined as absence of bias in decision making. While fairness is very desirable, it "can be surprisingly difficult to achieve in practice" \autocite{Mehrabi_2021}.
+		This chapter summarizes the existing fairness methods, which aim to achieve fairness. The fairness methods were listed by \textcite{Mehrabi_2021}.
 		
 		\subsection{Fairness Definitions}
 			\begin{table}[H]
@@ -1099,7 +1113,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
 						Conditional Statistical Parity    & X\tnote{1,3,10} &   \\
@@ -1143,7 +1157,7 @@
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
-				\caption{Fairness definitions as stated in \cite{Mehrabi_2021}}
+				\caption{Fairness definitions as stated in \textcite{Mehrabi_2021}}
 				\label{tab:fairness_definitions_extensive sources}
 			\end{table}
 			
@@ -1155,7 +1169,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
 						Conditional Statistical Parity    & X &   \\
@@ -1178,15 +1192,15 @@
 						\bottomrule
 					\end{tabularx}
 				\end{threeparttable}
-				\caption{Fairness definitions as summarized in \cite{Mehrabi_2021}}
+				\caption{Fairness definitions as summarized in \textcite{Mehrabi_2021}}
 				\label{tab:fairness_definitions}
 			\end{table}
 			
 			\todo{potential bias in \autocite{M80_Kearns_2019} in this bc same author of the algorithm tested it}
 			
-			As shown in the \autoref{tab:fairness_definitions}, there are mainly three categories for fairness definitions. According to \cite{Mehrabi_2021}, fairness can be achieved on a group level, subgroup level or even for a individual. Group fairness is about treating different groups as equal. Individual fairness tries to achieve similar predictions for similar individuals. Subgroup fairness tries to incorporate the best properties of the other two levels to improve the outcome in larger collections of subgroups \autocite{Mehrabi_2021}. 
+			As shown in the \autoref{tab:fairness_definitions}, there are mainly three categories for fairness definitions. According to \textcite{Mehrabi_2021}, fairness can be achieved on a group level, subgroup level or even for a individual. Group fairness is about treating different groups as equal. Individual fairness tries to achieve similar predictions for similar individuals. Subgroup fairness tries to incorporate the best properties of the other two levels to improve the outcome in larger collections of subgroups \autocite{Mehrabi_2021}. 
 			
-			The specific fairness definitions can be found in \cite{Mehrabi_2021}. In general, they try to get similar probability outcomes for 'unprotected' or 'protected' groups. This list summarizes how they work:
+			The specific fairness definitions can be found in \textcite{Mehrabi_2021}. In general, they try to get similar probability outcomes for 'unprotected' or 'protected' groups. This list summarizes how they work:
 			\begin{itemize}
 				\item \textbf{Demographic/Statistical Parity} and \textbf{Conditional Statistical Parity}: The parity checks that likelihood of a positive outcome is the same for both protected groups \autocite{Mehrabi_2021}. The conditional version adds legitimate factors before calculating the statistical parity \autocite{M41_Corbett-Davies_2017}.
 				\item \textbf{Equalized Odds}, \textbf{Test Fairness}. and \textbf{Equal Opportunity}: All those methods protected and unprotected groups should have equal rates for a positive outcome when belonging to a positive class, essentially comparing the true positive rates. \textbf{Equalized Odds} is a more restrictive since it also checks for similar false positive rates \autocites{M149_Verma_2018}{Mehrabi_2021}. \todo{add M48 and M87 for demographic parity}
@@ -1201,7 +1215,7 @@
 			
 			
 		\section{Mitigation Methods}
-			 see text from bias chapter - Further, AI engineers need to know what prevention methods are available to reduce the biases \autocite{Mehrabi_2021}.
+			 see text from bias chapter - Further, \gls{AI} engineers need to know what prevention methods are available to reduce the biases \autocite{Mehrabi_2021}.
 			
 			
 		\section{Extensive Sources}
@@ -1217,21 +1231,21 @@
 					\item Indirect Discrimination. In indirect discrimination, individuals appear to be treated based on seemingly neutral and non-protected attributes; however, protected groups, or individuals still get to be treated unjustly as a result of implicit effects from their protected attributes \autocite{Mehrabi_2021}
 				\end{itemize}
 				\item Discrimination can be either direct or indirect. Direct discrimination occurs when decisions are made based on sensitive attributes. Indirect discrimination occurs when decisions are made based on nonsensitive attributes which are strongly correlated with biased sensitive ones \autocite{M62_Hajian_2013}
-				\item ML algorithms reflect cognitive biases in humans, which can result in predictions and decisions that are “unfair” [5]. Unfairness in ML decision-making equates to prejudice or favoritism based on inherent or acquired characteristics of an individual or group [6]. Within medical research, the term bias refers to “a feature of the design of a study, or the execution of a study, or the analysis of the data from a study, that makes evidence misleading” [7,8]. \autocite{Montonaya_2025}
+				\item \gls{ML} algorithms reflect cognitive biases in humans, which can result in predictions and decisions that are “unfair” [5]. Unfairness in \gls{ML} decision-making equates to prejudice or favoritism based on inherent or acquired characteristics of an individual or group [6]. Within medical research, the term bias refers to “a feature of the design of a study, or the execution of a study, or the analysis of the data from a study, that makes evidence misleading” [7,8]. \autocite{Montonaya_2025}
 			\end{itemize}
 		
 		
 			\subsection{Bias Introduction}
 			\begin{itemize}
 				\item compared SAVRY, a tool used in risk assessment frameworks that includes human intervention in its process, with automatic machine learning methods in order to see which one is more accurate and more fair. Conducting these types of studies should be done more frequently, but prior to releasing the tools in order to avoid doing harm \autocite{Mehrabi_2021}.
-				\item \textbf{Assessment Tools} An interesting direction that researchers have taken is introducing tools that can assess the amount of fairness in a tool or system. For example, Aequitas [136] is a toolkit that lets users to test models with regards to several bias and fairness metrics for different population subgroups. Aequitas produces reports from the obtained data that helps data scientists, machine learning researchers, and policymakers to make conscious decisions and avoid harm and damage toward certain populations. AI Fairness 360 (AIF360) is another toolkit developed by IBM in order to help moving fairness research algorithms into an industrial setting and to create a benchmark for fairness algorithms to get evaluated and an environment for fairness researchers to share their ideas [11]. These types of toolkits can be helpful for learners, researchers, and people working in the industry to move towards developing fair machine learning application away from discriminatory behavior \autocite{Mehrabi_2021}.
+				\item \textbf{Assessment Tools} An interesting direction that researchers have taken is introducing tools that can assess the amount of fairness in a tool or system. For example, Aequitas [136] is a toolkit that lets users to test models with regards to several bias and fairness metrics for different population subgroups. Aequitas produces reports from the obtained data that helps data scientists, machine learning researchers, and policymakers to make conscious decisions and avoid harm and damage toward certain populations. \gls{AI} Fairness 360 (AIF360) is another toolkit developed by IBM in order to help moving fairness research algorithms into an industrial setting and to create a benchmark for fairness algorithms to get evaluated and an environment for fairness researchers to share their ideas [11]. These types of toolkits can be helpful for learners, researchers, and people working in the industry to move towards developing fair machine learning application away from discriminatory behavior \autocite{Mehrabi_2021}.
 				\item At first sight, automating decisions may give a sense of fairness: classification rules do not guide themselves by personal preferences. However, at a closer look, one realizes that classification rules are actually learned by the system (e.g., loan granting) from the training data. If the training data are inherently biased for or against a particular community (e.g., foreigners), the learned model may show a discriminatory prejudiced behavior. In other words, the system may infer that just being foreign is a legitimate reason for loan denial. \autocite{M62_Hajian_2013}
 				\item One might think of a straightforward preprocessing approach consisting of just removing the discriminatory attributes from the data set. Although this would solve the direct discrimination problem, it would cause much information loss and in general it would not solve indirect discrimination. \autocite{M62_Hajian_2013}
 				\item Hence, there are two important challenges regarding discrimination prevention: one challenge is to consider both direct and indirect discrimination instead of only direct discrimination; the other challenge is to find a good tradeoff between discrimination removal and the quality of the resulting training data sets and data mining models. \autocite{M62_Hajian_2013}
 			\end{itemize}	
 			
 			\begin{itemize}
-				\item Most AI systems and algorithms are data driven and require data upon which to be trained. Thus, data is tightly coupled to the functionality of these algorithms and systems. In the cases where the underlying training data contains biases, the algorithms trained on them will learn these biases and reflect them into their predictions. As a result, existing biases in data can affect the algorithms using the data, producing biased outcomes. Algorithms can even amplify and perpetuate existing biases in the data.\autocite{Mehrabi_2021}.
+				\item Most \gls{AI} systems and algorithms are data driven and require data upon which to be trained. Thus, data is tightly coupled to the functionality of these algorithms and systems. In the cases where the underlying training data contains biases, the algorithms trained on them will learn these biases and reflect them into their predictions. As a result, existing biases in data can affect the algorithms using the data, producing biased outcomes. Algorithms can even amplify and perpetuate existing biases in the data.\autocite{Mehrabi_2021}.
 				\item In addition, algorithms themselves can display biased behavior due to certain design choices, even if the data itself is not biased. The outcomes of these biased algorithms can then be fed into real-world systems and affect users’ decisions, which will result in more biased data for training future algorithms.\autocite{Mehrabi_2021}.
 				
 				\item Bias can exist in many shapes and forms, some of which can lead to unfairness in different downstream learning tasks. In \autocite{M144_Suresh_2021}, authors talk about sources of bias in machine learning with their categorizations and descriptions in order to motivate future solutions to each of the sources of bias introduced in the paper. In \autocite{M120_Olteanu_2019}, the authors prepare a complete list of different types of biases with their corresponding definitions that exist in different cycles from data origins to its collection and its processing.\autocite{Mehrabi_2021}.
@@ -1274,8 +1288,8 @@
 		
 			\paragraph{Dermatology Biases}
 			\begin{itemize}
-				\item Equity. AI has the potential to worsen health-care disparities, as recognized by the popular media (Khullar, 2019), particularly in dermatology (Adamson and Smith, 2018). The first concern is adequate representation of underserved populations in training data. Existing DL models have been trained on mainly European or East Asian populations, and the relative lack of training on darker skin pigmentation may limit overall diagnostic accuracy. This possibility is demonstrated by the increased error rates in commercial systems, trained on predominantly white datasets, for facial analysis in identifying black individuals (Buolamwini and Gebru, 2018). Second, AI may entrench existing social and economic biases and perpetuate inadvertent discriminatory practices, for example, in recommending less follow-up for black patients than for whites, when health costs are used as a proxy for health needs (Obermeyer et al., 2019). Third, disproportionate adoption by different groups may exacerbate existing inequities. Access to and use of technology differs based on sociodemographics (Tsetsi and Rains, 2017), and more techsavvy users may be more likely to embrace AI for skin screening (Tong and Sopory, 2019). The issue of equity in AI diagnosis needs to be carefully addressed to avoid inadvertent exacerbation of health-care disparities. \autocite{Young_2020} - dermatology
-				\item Model generalizability. Generalizability is a major concern for AI models; studies of computer-assisted diagnosis of melanoma report lower sensitivity for melanoma on independent test sets than on nonindependent test sets (Dick et al., 2019). It is difficult to study generalizability because published DL models are not publicly available, making it impossible to compare performance, unless each study uses a standardized benchmark database, such as the Melanoma Classification Benchmark (Brinker et al., 2019d). Han et al. (2018a) reported excellent metrics of performance and made their model available for image submission; however, the model prediction was not robust when images from an outside clinic were submitted, image magnification or contrast was altered, or images were rotated (NavarreteDechent et al., 2018). On ImageNet, a nonmedical dataset of 1,000 object categories, training on a dataset of 300 ... \autocite{Young_2020}
+				\item Equity. \gls{AI} has the potential to worsen health-care disparities, as recognized by the popular media (Khullar, 2019), particularly in dermatology (Adamson and Smith, 2018). The first concern is adequate representation of underserved populations in training data. Existing DL models have been trained on mainly European or East Asian populations, and the relative lack of training on darker skin pigmentation may limit overall diagnostic accuracy. This possibility is demonstrated by the increased error rates in commercial systems, trained on predominantly white datasets, for facial analysis in identifying black individuals (Buolamwini and Gebru, 2018). Second, \gls{AI} may entrench existing social and economic biases and perpetuate inadvertent discriminatory practices, for example, in recommending less follow-up for black patients than for whites, when health costs are used as a proxy for health needs (Obermeyer et al., 2019). Third, disproportionate adoption by different groups may exacerbate existing inequities. Access to and use of technology differs based on sociodemographics (Tsetsi and Rains, 2017), and more techsavvy users may be more likely to embrace \gls{AI} for skin screening (Tong and Sopory, 2019). The issue of equity in \gls{AI} diagnosis needs to be carefully addressed to avoid inadvertent exacerbation of health-care disparities. \autocite{Young_2020} - dermatology
+				\item Model generalizability. Generalizability is a major concern for \gls{AI} models; studies of computer-assisted diagnosis of melanoma report lower sensitivity for melanoma on independent test sets than on nonindependent test sets (Dick et al., 2019). It is difficult to study generalizability because published DL models are not publicly available, making it impossible to compare performance, unless each study uses a standardized benchmark database, such as the Melanoma Classification Benchmark (Brinker et al., 2019d). Han et al. (2018a) reported excellent metrics of performance and made their model available for image submission; however, the model prediction was not robust when images from an outside clinic were submitted, image magnification or contrast was altered, or images were rotated (NavarreteDechent et al., 2018). On ImageNet, a nonmedical dataset of 1,000 object categories, training on a dataset of 300 ... \autocite{Young_2020}
 			\end{itemize}
 			\paragraph{Papers I would need access to}
 			\begin{itemize}
@@ -1327,7 +1341,7 @@
 						\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Mitigation Methods - Unbiasing Data (Pre-Processing)} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						\multicolumn{3}{l}{\textbf{Documentation and Transparency}} \\
 						Good Practices while using Data & X\tnote{1,2,3} &   \\
 						Datasheets as supporting document for dataset creation method, characteristics, motivations and skews & X\tnote{1,2,3} &   \\
@@ -1393,7 +1407,7 @@
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
-				\caption{Mitigation Methods - Unbiasing Data - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\caption{Mitigation Methods - Unbiasing Data - Mentioned in Contextual Research, grouped like in \textcite{Mehrabi_2021}, the author cannot guarantee for completeness}
 				\label{tab:mitigation_methods_unbiasing_data}
 			\end{table}
 				
@@ -1404,7 +1418,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Mitigation Methods - Fair Classification} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%	\midrule
 						
 						\multicolumn{3}{l}{\textbf{Satisfy Fairness Definitions}} \\ 
@@ -1431,7 +1445,7 @@
 						\multicolumn{3}{l}{\textbf{Algorithmic Adaptions for Fairness}} \\ 
 						Modified Discrimination-Free Naive Bayes Classifier & X\tnote{1,12} &  \\
 						
-						\multicolumn{3}{l}{\textbf{Fairness-Aware ML Frameworks}} \\ 
+						\multicolumn{3}{l}{\textbf{Fairness-Aware \gls{ML} Frameworks}} \\ 
 						Fairness-Aware Classification Framework & X\tnote{1,13} &  \\
 						Fairness Constraints in Multitask Learning (MTL) Framework & X\tnote{1,14} &  \\
 						Decoupled Classification System with Transfer Learning & X\tnote{1,15} &  \\
@@ -1477,7 +1491,7 @@
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
-				\caption{Mitigation Methods - Fair Classification - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\caption{Mitigation Methods - Fair Classification - Mentioned in Contextual Research, grouped like in \textcite{Mehrabi_2021}, the author cannot guarantee for completeness}
 				\label{tab:mitigation_methods_fair_classification}
 			\end{table}
 			
@@ -1488,7 +1502,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Mitigation Methods - not so relevant for us} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Fair NLP}} \\ 
 						Fair Word-Embedding & X\tnote{1,5,6,7} &   \\
@@ -1549,7 +1563,7 @@
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
-				\caption{Mitigation Methods - Others - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\caption{Mitigation Methods - Others - Mentioned in Contextual Research, grouped like in \textcite{Mehrabi_2021}, the author cannot guarantee for completeness}
 				\label{tab:mitigation_methods_others}
 			\end{table}
 			
@@ -1567,7 +1581,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Mitigation Methods} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						\multicolumn{3}{l}{\bolditalic{Unbiasing Data}} \\
 						Documentation and Transparency & X\tnote{1} & X\tnote{3} \\
 						Bias Detection and Evaluation & X\tnote{1} & X\tnote{2,4} \\ % simpsons paradoxon, subset scanning, input pertubation
@@ -1579,10 +1593,10 @@
 						Satisfy Fairness Definitions & X\tnote{1} &  \\ % satisfy Equalized Odds / Subgroup fairness
 						Satisfy Fairness and Stability Under Distribution Shifts & X\tnote{1} & \\
 						Fair Representation Learning & X\tnote{1} & \\
-						Fairness-Aware ML Frameworks & X\tnote{1} & \\
+						Fairness-Aware \gls{ML} Frameworks & X\tnote{1} & \\
 						Preferential Data Selection and Representation & X\tnote{1} & \\
 						Model Interpretability & X\tnote{1} & X\tnote{3} \\
-						\multicolumn{3}{l}{\bolditalic{For Other ML Algorithm Types}} \\
+						\multicolumn{3}{l}{\bolditalic{For Other \gls{ML} Algorithm Types}} \\
 						Fair NLP & X\tnote{1} &  \\
 						Fair Regression & X\tnote{1} &  \\
 						Structured Prediction & X\tnote{1} &  \\
@@ -1616,7 +1630,7 @@
 					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
 						\toprule
 						\textbf{Mitigation Methods - not so relevant for us} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{ML} & \textbf{Dermatology} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Fair NLP}} \\ 
 						Fair Word-Embedding & X\tnote{1,5,6,7} &   \\
@@ -1677,7 +1691,7 @@
 						\end{minipage}%
 					\end{tablenotes}
 				\end{threeparttable}
-				\caption{Mitigation Methods - Others - Mentioned in Contextual Research, grouped like in \cite{Mehrabi_2021}, the author cannot guarantee for completeness}
+				\caption{Mitigation Methods - Others - Mentioned in Contextual Research, grouped like in \textcite{Mehrabi_2021}, the author cannot guarantee for completeness}
 				\label{tab:mitigation_methods_others}
 			\end{table}
 			
@@ -1690,7 +1704,7 @@
 			\paragraph{Bias Examples and Mitigation Ideas}
 			Data bias examples and mitigation ideas
 			\begin{itemize}
-				\item Bias in ML Data - \autocite{M24_Buolamwini_2018} IJB-A / Adience imbalanced (mainly light-skinned subjects) - Bias towards dark-skinned groups (underrepresented). Other instance - when we do not consider different subgroups in the data. Considering only male-female groups not enough, use race to further subdivide gender groups. Only then, clear biases in sub groups can be found, since otherwise part of the groups would  compromise the other group and hide the underlaying bias towards that subgroup \autocite{Mehrabi_2021}
+				\item Bias in \gls{ML} Data - \autocite{M24_Buolamwini_2018} IJB-A / Adience imbalanced (mainly light-skinned subjects) - Bias towards dark-skinned groups (underrepresented). Other instance - when we do not consider different subgroups in the data. Considering only male-female groups not enough, use race to further subdivide gender groups. Only then, clear biases in sub groups can be found, since otherwise part of the groups would  compromise the other group and hide the underlaying bias towards that subgroup \autocite{Mehrabi_2021}
 				\rawcitationusedstart
 				\item Popular machine-learning datasets that serve as a base for most of the developed algorithms and tools can also be biased—which can be harmful to the downstream applications that are based on these datasets. ... In [\autocite{M142_Shankar_2017}, researchers showed that these datasets suffer from representation bias and advocate for the need to incorporate geographic diversity and inclusion while creating such datasets. \autocite{Mehrabi_2021}
 				\rawcitationusedend
@@ -1706,7 +1720,7 @@
 				\item we concentrate on discrimination prevention based on preprocessing, because the preprocessing approach seems the most flexible one: it does not require changing the standard data mining algorithms, unlike the inprocessing approach, and it allows data publishing (rather than just knowledge publishing), unlike the postprocessing approach. \autocite{M62_Hajian_2013} --> \todo{this is an important point which we should consider for PASSION, also, some more insight in regards of the different phases can be found in this paper}
 				
 				
-				\item From learning fair representations [42, 97, 112] to learning fair word embeddings [\autocite{M20_Bolukbasi_2016}, 58, 169], debiasing methods have been proposed in different AI applications and domains. \autocite{Mehrabi_2021} --> seems to refer mostly to NLP domains
+				\item From learning fair representations [42, 97, 112] to learning fair word embeddings [\autocite{M20_Bolukbasi_2016}, 58, 169], debiasing methods have been proposed in different \gls{AI} applications and domains. \autocite{Mehrabi_2021} --> seems to refer mostly to NLP domains
 				\item Most of these methods try to avoid unethical interference of sensitive or protected attributes into the decision-making process, while others target exclusion bias by trying to include users from sensitive groups. \autocite{Mehrabi_2021}
 				\item However, a recent paper [58] argues against these debiasing techniques and states that many recent works on debiasing word embeddings have been superficial, that those techniques just hide the bias and don’t actually remove it. \autocite{Mehrabi_2021}
 				\item some works try to satisfy one or more of the fairness notions in their methods, such as disparate learning processes (DLPs) which try to satisfy notions of treatment disparity and impact disparity by allowing the protected attributes during the training phase but avoiding them during prediction time [94].\autocite{Mehrabi_2021}
@@ -1724,7 +1738,7 @@
 					\item Other pre-processing approaches, such as messaging [74], preferential sampling [75, 76], disparate impact removal [51], also aim to remove biases from the data. \autocite{Mehrabi_2021}
 					
 					
-					\item Image quality. Several barriers to AI implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
+					\item Image quality. Several barriers to \gls{AI} implementation in the clinic need to be overcome with regards to imaging (Figure 1). These include technical variations (e.g., camera hardware and software) and differences in image acquisition and quality (e.g., zoom level, focus, lighting, and presence of hair). For example, the presence of surgical ink markings is associated with decreased specificity (Winkler et al., 2019), field of view can significantly affect prediction quality (Mishra et al., 2019), and classification performance improves when hair and rulers are removed (Bisla et al., 2019). We have developed a method to measure how model predictions might be biased by the presence of a visual artifact (e.g., ink) and proposed methods to reduce such biases (Pfau et al., 2019). Poor quality images are often excluded from studies, but the problem of what makes an image adequate is not well studied. Ideally, models need to be able to express a level of confidence in a prediction as a function of image quality and appropriately direct a user to retake photos if needed. \autocite{Young_2020} - dermatology
 				\end{itemize}
 			
 			\subparagraph{Fair Classification}
@@ -1759,7 +1773,7 @@
 				\end{itemize}
 			\subparagraph{Community Detection}
 				\todo{use this as an example for out of scope text, - Ludovic approved}
-				Community detection algorithms are specifically tailored to analyze network data and find connections in such datasets. For example, they can be used to detect groups of people with similar interest in social networks \autocite{Jayawickrama_2021}. This kind of data is not found in the context of PASSION, which is a classification task. Please refer to \cite{Mehrabi_2021} for more information on bias mitigation in community detection algorithms.
+				Community detection algorithms are specifically tailored to analyze network data and find connections in such datasets. For example, they can be used to detect groups of people with similar interest in social networks \autocite{Jayawickrama_2021}. This kind of data is not found in the context of PASSION, which is a classification task. Please refer to \textcite{Mehrabi_2021} for more information on bias mitigation in community detection algorithms.
 				
 			\subparagraph{Causal Approach to Fairness}
 				\todo{only relevant, if our variables have a dependency on the variables, e.g. age / gender determines how the disease is presenting itself in the images; check \autocite{Mehrabi_2021} page 18 if relevant}
@@ -1783,7 +1797,7 @@
 				
 			\paragraph{comparison of different mitigation algorithms}
 				\begin{itemize}
-					\item The field of algorithmic fairness is a relatively new area of research and work still needs to be done for its improvement. With that being said, there are already papers that propose fair AI algorithms and bias mitigation techniques and compare different mitigation algorithms using different benchmark datasets in the fairness domain. For instance, authors in [65] propose a geometric solution to learn fair representations that removes correlation between protected and unprotected features. The proposed approach can control the trade-off between fairness and accuracy via an adjustable parameter. In this work, authors evaluate the performance of their approach on different benchmark datasets, such as COMPAS, Adult and German, and compare them against various different approaches for fair learning algorithms considering fairness and accuracy measures [65, 72, 158, 159]. In addition, IBM’s AI Fairness 360 (AIF360) toolkit [11] has implemented many of the current fair learning algorithms and has demonstrated some of the results as demos which can be utilized by interested users to compare different methods with regards to different fairness measures. \autocite{Mehrabi_2021}
+					\item The field of algorithmic fairness is a relatively new area of research and work still needs to be done for its improvement. With that being said, there are already papers that propose fair \gls{AI} algorithms and bias mitigation techniques and compare different mitigation algorithms using different benchmark datasets in the fairness domain. For instance, authors in [65] propose a geometric solution to learn fair representations that removes correlation between protected and unprotected features. The proposed approach can control the trade-off between fairness and accuracy via an adjustable parameter. In this work, authors evaluate the performance of their approach on different benchmark datasets, such as COMPAS, Adult and German, and compare them against various different approaches for fair learning algorithms considering fairness and accuracy measures [65, 72, 158, 159]. In addition, IBM’s \gls{AI} Fairness 360 (AIF360) toolkit [11] has implemented many of the current fair learning algorithms and has demonstrated some of the results as demos which can be utilized by interested users to compare different methods with regards to different fairness measures. \autocite{Mehrabi_2021}
 				\end{itemize}			
 			
 		\subsection{Statistical biases}
@@ -1799,7 +1813,7 @@
 				\item A recent study reported mean top-1 and top-5 model accuracy of 44.8\% and 78.1\%, respectively, for the classification of 134 diseases (Han et al., 2019b). Most datasets are proprietary, often with minimal description, and datasets collected in dermatology clinics may be skewed toward more complex cases, to those patients with better access to care, or by the choice of camera used in one clinic versus another. Data should be collected from as many diverse sources as possible, including primary care clinics, and robust standards for external validation are needed. \autocite{Young_2020}
 				\item There have been successful efforts to support reproducibility and open access. For example, the study by Han et al. (2018a) details the number and characteristics of images from each data source and makes thumbnails of the images publicly available. Additionally, several studies classifying dermoscopic images use the publicly available International Skin Imaging Collaboration archive (Gutman et al., 2016). By making datasets public, it becomes possible to examine them for bias (Bissoto et al., 2019). Alternatively, reporting a model training database’s patient demographics and disease classes would be helpful in predicting model performance on external populations. \autocite{Young_2020}
 				\item Metrics of model performance. Standard metrics are needed to assess the performance of different models (Figure 1). Currently, standard performance metrics such as accuracy and area under the receiver operating characteristic and precision recall curves are routinely reported. However, for use in the clinic, studies should additionally describe how well their models deal with uncertainty by reporting (i) the Brier Score, or mean-squared calibration error (Rufibach, 2010), which measures how reliably a model can forecast its accuracy, and (ii) area under the response rate accuracy curve, which measures how capably a model can identify examples it is likely to predict falsely and thus abstain from predicting (Hendrycks et al., 2019) \autocite{Young_2020}
-				\item Model interpretability. Acceptance of AI in clinical decision making hinges on being able to understand the decisionmaking process fundamental to its predictions. DL models are inherently difficult to interpret because they are complex, routinely containing millions of learned parameters; interpretation of DL models’ output is an active field of research (Murdoch et al., 2019). One approach for interpreting model diagnoses is contentbased image retrieval, a method for retrieving training images that are visually similar to a test image (Tschandl et al., 2019a). This method may reassure the physician if all the retrieved training images have the same diagnosis as the predicted diagnosis but is less helpful if the test image looks similar to two or more training images with conflicting diagnoses. A second approach is to highlight pixels in an image most relevant for a model’s prediction, using methods such as saliency mapping (Figure 1). However, it is often the case that highlighted pixels correspond to the entire lesion or visually distinctive features that are already obvious to clinicians without indication as to why these pixels are important to the diagnosis. A third approach is to see through the eyes of a model by plotting an activation atlas (Carter et al., 2019), which shows how subtle changes, in particular visual features, may tip the model over into choosing one diagnosis over another. These activation atlases are experimental and have yet to be applied in dermatology. Understanding a model’s predictions and how the prediction is applicable to the patient at hand is necessary to build trust. As AI exceeds human performance in various tasks, interpreting models may help to advance scientific knowledge by understanding what the machine sees that is relevant to its predications \autocite{Young_2020}
+				\item Model interpretability. Acceptance of \gls{AI} in clinical decision making hinges on being able to understand the decisionmaking process fundamental to its predictions. DL models are inherently difficult to interpret because they are complex, routinely containing millions of learned parameters; interpretation of DL models’ output is an active field of research (Murdoch et al., 2019). One approach for interpreting model diagnoses is contentbased image retrieval, a method for retrieving training images that are visually similar to a test image (Tschandl et al., 2019a). This method may reassure the physician if all the retrieved training images have the same diagnosis as the predicted diagnosis but is less helpful if the test image looks similar to two or more training images with conflicting diagnoses. A second approach is to highlight pixels in an image most relevant for a model’s prediction, using methods such as saliency mapping (Figure 1). However, it is often the case that highlighted pixels correspond to the entire lesion or visually distinctive features that are already obvious to clinicians without indication as to why these pixels are important to the diagnosis. A third approach is to see through the eyes of a model by plotting an activation atlas (Carter et al., 2019), which shows how subtle changes, in particular visual features, may tip the model over into choosing one diagnosis over another. These activation atlases are experimental and have yet to be applied in dermatology. Understanding a model’s predictions and how the prediction is applicable to the patient at hand is necessary to build trust. As \gls{AI} exceeds human performance in various tasks, interpreting models may help to advance scientific knowledge by understanding what the machine sees that is relevant to its predications \autocite{Young_2020}
 			\end{itemize}
 		\subsubsection{Demographic Bias in Dermatology}
 		\paragraph{fairness melanoma detection}
@@ -1807,19 +1821,19 @@
 			\item Some biases can be easily detected and countered, such as through appropriate data curation; for example, having a balanced representation across skin tones and genders in training sets. However, in other cases, biases are hidden and untraceable [9]. \autocite{Montoya_2025}
 			\item whether information on demographic diversity (age, gender, race, or ethnicity of patients), clinical diversity (skin type, lesion type, anatomical location of lesion), or image characteristics (source, imaging techniques, resolution, and whether the images were real or artificially generated) \autocite{Montoya_2025}
 			\item The most popular skin color scale currently being used for data annotation for image recognition techniques is the Fitzpatrick Skin Tone Scale (FST) [10]which has six skin tones. Dating from the 1970s, it originally featured just 4 light tones and was designed for detecting photo sensitivity for white skin, with two darker tones added later [11]. The Monk Skin Scale was recently developed and still needs testing, but promisingly has 10 tones, 5 light and 5 dark [12].\autocite{Montoya_2025} \todo{highlight this (FST alternatives)}
-			\item Fig. 4. Comparison of skin tone scales that can be used for skin cancer detection utilizing AI. Recreation of fitzpatrick skin type scale, monk skin tone scale, and sampling of L’Oreal color chart map for reference. \autocite{Montoya_2025} \todo{include this figure}
-			\item While this systemic review provides a comprehensive review of the literature on fairness in AI for melanoma detection, it is primarily based on existing research. To validate the proposed recommendations or frameworks, continuing work is necessary to complete empirical analysis and experiments. Additionally, the suggested adoption of new skin tone scales, while beneficial, may face practical challenges in implementation. Furthermore, while the paper strongly advocates for specific skin tone scales, it’s important to note that other methods or tools might also effectively address fairness issues in AI for melanoma detection. Finally, while the study addresses fairness in AI, it could benefit from further exploration of the practical implementation of these recommendations in real-world clinical settings. Potential obstacles and the feasibility of widespread adoption should be considered to ensure that the proposed solutions are not only theoretically sound but also practically viable. \autocite{Montoya_2025} \todo{also mention the limitations regarding FST alternatives}
+			\item Fig. 4. Comparison of skin tone scales that can be used for skin cancer detection utilizing \gls{AI}. Recreation of fitzpatrick skin type scale, monk skin tone scale, and sampling of L’Oreal color chart map for reference. \autocite{Montoya_2025} \todo{include this figure}
+			\item While this systemic review provides a comprehensive review of the literature on fairness in \gls{AI} for melanoma detection, it is primarily based on existing research. To validate the proposed recommendations or frameworks, continuing work is necessary to complete empirical analysis and experiments. Additionally, the suggested adoption of new skin tone scales, while beneficial, may face practical challenges in implementation. Furthermore, while the paper strongly advocates for specific skin tone scales, it’s important to note that other methods or tools might also effectively address fairness issues in \gls{AI} for melanoma detection. Finally, while the study addresses fairness in \gls{AI}, it could benefit from further exploration of the practical implementation of these recommendations in real-world clinical settings. Potential obstacles and the feasibility of widespread adoption should be considered to ensure that the proposed solutions are not only theoretically sound but also practically viable. \autocite{Montoya_2025} \todo{also mention the limitations regarding FST alternatives}
 			\item Recent research [13] adds another axis, skin hue, which is described as ranging from red to yellow. This offers a more complete representation of variations of skin color by providing a multidimensional scale [13]. \autocite{Montoya_2025}
-			\item The effect of hue (blue, red, yellow, green) on skin tones adds depth to each face producing a range of undertones (cold, neutral, warm, and olive). In the realm of color theory, the concept of ‘contrast of hue’ emphasizes the distinctiveness among fundamental colors, with primary hues like yellow, red, and blue exhibiting the most pronounced differences [14]. Because skin cancer appears differently on different colored skin, it is important to acknowledge a full range of colors present in both healthy skin and suspicious lesions within datasets used to train skin cancer detection ML tools. \autocite{Montoya_2025}
-			\item These findings should correlate to AI for melanoma detection since the contrast between skin color and skin lesions is a preliminary marker during feature extraction. Although the Fitzpatrick Skin Tone (FST) measurement scale is not diverse enough and leads to biased AI tools, it is continually used and has even been used to test a recently FDA-approved AI device for detecting melanoma. \autocite{Montoya_2025}
-			\item We advocate for the adoption of improved scales like the Monk and L’Oreal maps. Future studies should ensure equitable representation and testing across skin tones to guarantee AI’s effectiveness for all. Please refer to Tables 2 through 7 in the discussion section for further recommendations for curating a diverse dataset, including purpose, ownership, funding, and data annotation, as well as recommendations for each stage of the data life cycle. \autocite{Montoya_2025} \todo{Link for further mitigation methods}
+			\item The effect of hue (blue, red, yellow, green) on skin tones adds depth to each face producing a range of undertones (cold, neutral, warm, and olive). In the realm of color theory, the concept of ‘contrast of hue’ emphasizes the distinctiveness among fundamental colors, with primary hues like yellow, red, and blue exhibiting the most pronounced differences [14]. Because skin cancer appears differently on different colored skin, it is important to acknowledge a full range of colors present in both healthy skin and suspicious lesions within datasets used to train skin cancer detection \gls{ML} tools. \autocite{Montoya_2025}
+			\item These findings should correlate to \gls{AI} for melanoma detection since the contrast between skin color and skin lesions is a preliminary marker during feature extraction. Although the Fitzpatrick Skin Tone (FST) \gls{FST} measurement scale is not diverse enough and leads to biased \gls{AI} tools, it is continually used and has even been used to test a recently FDA-approved \gls{AI} device for detecting melanoma. \autocite{Montoya_2025}
+			\item We advocate for the adoption of improved scales like the Monk and L’Oreal maps. Future studies should ensure equitable representation and testing across skin tones to guarantee \gls{AI}’s effectiveness for all. Please refer to Tables 2 through 7 in the discussion section for further recommendations for curating a diverse dataset, including purpose, ownership, funding, and data annotation, as well as recommendations for each stage of the data life cycle. \autocite{Montoya_2025} \todo{Link for further mitigation methods}
 			\item This study found that while using skin tone instead of race for fairness evaluations in computer vision seems objective, the annotation process remains biased by human annotators. Untested scales, unclear procedures, and a lack of awareness about annotator backgrounds and social context significantly influence skin tone labeling. This study exposes how even minor design choices in the annotation process, like scale order (dark to light instead of light to dark) or image context (face or no face, skin lesion presence), can sway agreement and introduce uncertainty in skin tone assessments. ... The researchers emphasize the need for greater transparency, standardized procedures, and careful consideration of annotator biases to mitigate these challenges and ensure fairer and more robust evaluations in computer vision. \autocite{Montoya_2025} - demographic dermatology bias
 		\end{itemize}
 	\rawcitationend
 	
 	\chapter{Ideas and Concepts}
 		\baaCriteria{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
-		
+					
 		\section{PASSION Dataset}
 			\todo{write things to consider more precisely:}
 			\begin{itemize}
@@ -1831,6 +1845,15 @@
 			\end{itemize}
 			
 		\section{Broad Methodology}
+			\todo{should this really be stated here or in the methodology section?}
+			First, I need to gain an overview over what biases, fairness metrics and mitigation strategies are known in general.
+			Then, I must scope the found information, to find what is relevant for PASSION and what is feasible to achieve within the time constraints of this thesis.
+			Before starting an assessment, a baseline needs to be established by computing chosen fairness metrics.
+			Afterwards, the mitigation methods can be applied, and the performance can be compared to the baseline, to find out whether the methods are indeed mitigating the biases.
+		
+		
+			\todo{add infos from the midterm presentation}
+		
 			\todo{write things to consider more precisely:}
 			\begin{itemize}
 				\item Divide and Conquer vs. All-In-One-Model
@@ -1852,10 +1875,52 @@
 				\item BLIND performance vs. Including the demographic data
 			\end{itemize}
 
-	\chapter{Methods}
+	\chapter{Methods}\label{chap:methodology}
 		\baaCriteria{Hier halten Sie fest und begründen, welches Vorgehensmodell Sie für Ihr Projekt wählen. Sie verweisen allenfalls auf die daraus entstandenen, konkreten Terminpläne mit Meilensteinen, welche z.B. unter Realisierung (Kapitel 5) oder im Anhang versorgt sind. Bei Projekten mit einer verlangten wissenschaftlichen Tiefe werden hier die geplanten Forschungsmethoden wie quantitative/qualitative Interviews, Befragungen, Beobachtungen, Feldexperiment etc. beschrieben und begründet. Warum ist in Ihrer Situation ein Interview besser als eine Umfrage? Wer soll interview werden?}
 		\baaCriteria{Die gewählten Methoden sind nachvollziehbar und begründet. Eine methodische Übersicht (Methodisches BigPicture) wurde aufgezeigt und Abgrenzungen erläutert.}
-
+		
+		
+		\subsection{Bias Evaluation in PASSION}
+		\todo{fix this writing}
+		\paragraph{Methodology}
+		In order to evaluate which biases are there in PASSION dataset, I need to
+		\begin{itemize}
+			\item reproduce the results of the paper using the PASSION evaluation project with the PASSION data to see a) verify the paper results, b) check what analysis data is available for the evaluation (the paper provides probably a summary), c) check what code can be reused and what needs to be adapted
+			\item evaluate what data is missing to do evaluate the fairness and biases
+			\item adapt code so that the relevant data is generated to be able to compute the relevant information
+			\item GPUHub from HSLU is used, \todo{maybe add some machine information}
+		\end{itemize}
+		\paragraph{Execution}
+			In order to run the reproduction of the PASSION results on GPUHub, some minor changes in the loading process for the metadata had to be done. The required changes will be contributed to the code base to make the reproduction easier for others. \todo{do that then ;)}
+			All 4 experiments where ran to get a broad overview over the results. The results of the 4 experiments contained the same scores as the ones mentioned in the paper. The scores are given separately for each demographic groups, either based on skin type or gender. There is no data for subgroups available. \todo{add results from age and center experiments}
+			For the conditions classification, the provided scores per demographic group in the paper are the average scores over all classes. The variance/deviation of the averages in the scores based on the condition varies between the groups. E.g. the F1 score for \gls{FST} VI is 0.71±0.11 (total support 87) while for \gls{FST} it is 0.73±0.04 (total support 254). 
+			The detailed information can be found in the attached logs \todo{add logs from C:\\Users\\nadja\\OneDrive\\HSLU\_Nadja\\BAA\\baa\_on\_git\\results\\reproducing\_PASSION\_results}.
+			
+			The available data allows to compute the equalized odds fairness. \todo{describe which fairness methods to use why}
+			In order to be able compute the subgroup fairness, the test results need to be split further into the subgroups. \todo{check exactly how to calculate subgroup fairness and whether there is already an algorithm for it, same for equalized odds}
+			
+					
+			To reproduce all 4 experiments, the training ran took roughly \todo{add: it started on 24.4. roughly at 7 o clock, took until ca. 16.4., 13:00, the two other experiments started on 26.4. 17:30} hours since there where no model checkpoints available. This runtime is not feasible for each new training using a mitigation method, especially because the GPUHub seems to cancel the script after roughly 2 days, which means that each experiment needs to be started independently.
+			Since this runtime it is not feasible to use for every mitigation run, the following adaptations where made \todo{add improvements described in protokol week 9}
+			
+			
+			checkpoint handling was a bit broken
+			runs x and x1 showed, that my code was reproducible while theirs was wrong
+			--> running on passion model checkpoint without loading the rest of the infos in the checkpoint
+			----> confirmed, that my calculations are reproducible while theirs are not; see commented out file names for comparison
+			% experiment_standard_split_conditions_passion__bias_test_BIG_MODEL_reloaded_from_checkpoint.circ vs 		
+			% experiment_standard_split_conditions_passion__bias_test_BIG_MODEL.circ
+			also tested on another checkpoint, same behaviour, not cached results though
+			
+			
+			no implementation of subgroup fairness found --> calc eq odds for subgroups
+			
+			
+			The results in the PASSION results where reproduced by 
+			After adapting the data linkage in the PASSION evaluation code, the results where available whe in the PASSION evaluation code. 
+		\paragraph{Evaluation and Validation}
+			
+		
 	\chapter{Execution}
 		\baaCriteria{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
 		\baaCriteria{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
@@ -1882,7 +1947,7 @@
 	%\listoffigures
 	%\listoftables
 	\todo{Add List of Formulas if necessary}
-	\todo{add AI declarations somewhere}
+	\todo{add \gls{AI} declarations somewhere}
 	
 	
 	\chapter{\bibname}
