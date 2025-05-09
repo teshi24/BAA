@@ -19,8 +19,6 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 
-import gerryfair
-
 is_test_5 = False
 is_test_6 = False
 
@@ -35,8 +33,8 @@ else:
     code_state = 'big_model_test'
 #input_file = 'reformed_%s__%s.csv' % (passion_exp, code_state)
 input_file = '%s__%s.csv' % (passion_exp, code_state)
-output_file = 'analysis_%s__%s_img_lvl.csv' % (passion_exp, code_state)
-create_data = False
+output_file = 'metadata_%s__%s_img_lvl.csv' % (passion_exp, code_state)
+create_data = True
 
 
 if create_data:
