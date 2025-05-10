@@ -225,6 +225,15 @@ train n test 1 for small dataset
 https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/1sk409vo
 
 
+# started initial small model training to set baseline: 19:10
+- experiment_standard_split_conditions_passion__bias_test_SMALL_MODEL_x.txt
+- Fold 0: https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/ofw6bjmx/logs
+- Fold 1: https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/ygswi2dr/logs
+- Fold 2: https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/ehs7n3y5/logs
+- Fold 3: https://wandb.ai/nadja-stadelmann-hochschule-luzern/PASSION-Evaluation/runs/wolyp1hh/logs
+
+
+
 Checkpoint conditions big model:
 model_best_big_resnet_conditions.pth in /PASSION-Bias-Evaluation$ ls assets/evaluation/experiment_standard_split_conditions/checkpoints/
 config:
