@@ -317,6 +317,8 @@
 			\subsection{PASSION Data Analysis Scripts}
 				The PASSION team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} together with their relevance to this thesis. The most relevant scripts are those related to demographic distributions of the chosen attributes, since they help identifying potential data imbalances. Scripts that lay the foundation for further analysis are somewhat relevant, while all other scripts are irrelevant for this thesis.
 				
+				\todo{add the distribution analysis from the presentation}
+				
 				\todo{move tbl to appendix}
 				
 				\begin{table}[H]
@@ -403,9 +405,12 @@
 		
 		
 		\section{Bias}
-		The algorithmic decisions of \gls{AI} affect peoples' lives. Due to that, healthcare \gls{AI} applications, like PASSION, are sensitive tools. However, decisions from \gls{AI} applications proved to be biased, which can harm underrepresented groups. Therefore, \gls{AI} engineers should aim to address and mitigate those biases. To do so, it is crucial to know what bias is, what types of biases exist and where they are coming from \autocite{Mehrabi_2021}.
-		This chapter provides therefore an overview over biases and related features which were mentioned in \gls{ML}- and dermatology-related research.
-			
+		This chapter provides an overview of biases and related demographic characteristics mentioned in \gls{ML}- and dermatology-related research. It also explains their relevance for PASSION.
+		
+		Algorithmic decisions made by \gls{AI} systems can directly affect peoples' lives. In healthcare applications such as PASSION, these decisions are especially sensitive, as they influence diagnoses and treatment outcomes. Diverse studies have shown that \gls{AI} application's decisions can hold biases that affect underrepresented groups. This leads to unfair or even harmful consequences. Therefore, it is essential for \gls{AI} engineers to identify, address and mitigate such biases in order to develop fair applications. This requires to understand what bias is in general, what concrete biases exist, and where they originate \autocite{Mehrabi_2021}.
+		
+		
+		\begin{comment}
 		\rawcitationusedstart
 		\begin{itemize}
 			\item Bias in facial recognition systems [128] and recommender systems [140] have also been largely studied and evaluated and in many cases shown to be discriminative towards certain populations and subgroups. In order to be able to address the bias issue in these applications, it is important for us to know where these biases are coming from and what we can do to prevent them.\autocite{Mehrabi_2021}.
@@ -413,11 +418,88 @@
 		\end{itemize}
 		\rawcitationusedend
 		
-		\subsection{Introduction to Bias in \gls{AI}}
-		    In \gls{ML}, bias can be defined as \textit{a systematic error that causes a model or estimator to consistently deviate from the true value or relationship} \autocite{Delgado-Rodriguez_2004, Taylor_2023}.
-
+		\end{comment}
+		
+		\subsection{Definition of Bias in \gls{ML}}
+		    In the context of \gls{ML}, bias can be defined as \textit{a systematic error that causes a model or estimator to consistently deviate from the true value or relationship} \autocite{Delgado-Rodriguez_2004, Taylor_2023}. In practice, this often results in models that make less accurate predictions for specific subgroups within the population \todo{cite this}.
+		    
 					    
-		    \todo{continue here}
+		    \todo{ChatGPT Text starts here, make sure it is cited correctly}
+		
+		\subsection{Demographic Biases in the Context of Dermatology}
+		Biases in dermatology in general can lead to unequal outcomes for different groups, which can result in unfair outcomes for certain groups. Demographic biases are particularly relevant in the context of dermatology \glspl{AI}, as they can cause differences in diagnostic accurracy and treatment outcomes among different demographic (sub-)groups.
+		From the literature review, three main ways have been identified in which demographic differences may introduce bias in dermatology \gls{ML} models:
+		\todo{cite all that, from presentation}
+		\begin{itemize}
+			\item \textbf{Disease Presentation}. \bolditalic{Skin type} affects how diseases appear on the skins. As Gottfrois notes, "any condition linked to inflammation is less visible if the skin is more pigmented" \todo{cite mail from philippe}. This directly influences training and evaluating image-based \gls{ML} models like those used in PASSION. For example, a model trained predominantely on images with low pigmented skin may perform poorly on images of highly pigmented skin.
+			
+			\item \textbf{Disease Prevalence}. Factors such as \bolditalic{age} and \bolditalic{sex} do not tend to affect disease presentation, but they can influence disease prevalence \todo{cite mail from philippe}. Therefore, these factors could introduce bias if certain conditions are underrepresented in the dataset due to demographic imbalances. \todo{consider adding smt like the car driver example here, indicating that it is not necessarily a problem due to the same disease presentation}
+			
+			\item \textbf{Access to Healthcare}. \bolditalic{Socioeconomic status} or \bolditalic{geographic location} can also introduce bias. Research shows that patients with lower socioeconomic status are often diagnosed at later stages of the disease, which may alter the visual presentation of the disease. If such cases are missing in training data, the model will fail to recognise them, leading to misdiagnosis. \todo{add example for geographic location?}.
+		\end{itemize}
+		
+		
+		To build a robust and fair \gls{ML} model, it is essential to identify and address this sources of biases \autocite{Mehrabi2022}.
+		
+		\todo{if citing is an issue: check the comment}
+		\begin{comment}
+			It captures three distinct pathways through which demographic differences can introduce bias in dermatological machine learning systems:
+			
+			Disease Presentation — covers how diseases manifest differently on various skin types, directly affecting the visual input to image-based models.
+			Disease Prevalence — focuses on who is more likely to have certain conditions, which affects label distribution in the dataset.
+			Access to Healthcare — reflects when and how people enter the medical system, influencing data collection quality and representativeness.
+			
+			Each of these groups addresses a different layer of the data generation and learning process:
+			
+			Input variability (visual features),
+			Target/label imbalance (class representation),
+			Data collection bias (who gets diagnosed and when).
+			
+			This structure is also supported in literature on medical \gls{AI} fairness (e.g., in works by Obermeyer et al. or Adamson & Smith).
+		\end{comment}
+		
+		\subsection{Types of Biases and Their Relevance for PASSION}
+		The literature describes numerous types of bias. Over 60 were identified during this research. These were grouped into categories to provide an overview. Their relevance for PASSION context was assessed.
+		
+		Among them, \textbf{sampling biases} and \textbf{representation biases} are particularly relevant, as they relate directly to the inclusion or exclusion of demographic subgroups in the dataset. For example, \textbf{ascertainment bias}, a subtype of sampling bias, occurs when parts of the target population are unintentionally excluded. A common example is healthcare studies conducted in public hospitals only, which excludes patients from higher socioeconomic backgrounds who visit private clinics. This skews the data and can lead to incorrect conclusions, such as overestimating disease prevalence in specific groups.
+		
+		Other relevant categories include \textbf{medical biases} and \textbf{imaging biases}, especially in the teledermatology setting of PASSION. These include clinical labeling errors, variations in image quality or lighting conditions which lead to bias.
+		
+		
+		This thesis focuses on the most relevant bias types. An extensive list is provided in the appendix and will be shared with the PASSION team for further evaluation. \todo{add the biases here}
+		
+		
+		\todo{use this template also in the appendix, ask ChatGPT to fill it out}
+			\subsection{Template for Describing Relevant Biases}
+			To systematically describe the most relevant biases for the PASSION project, the following template is used:
+			
+			\begin{itemize}
+				\item \textbf{Name:} Ascertainment Bias
+				\item \textbf{Category:} Sampling Bias
+				\item \textbf{Definition:} A systematic distortion arising from the method by which participants or data are selected for inclusion.
+				\item \textbf{Example:} Studies on STD prevalence conducted only in public clinics may overlook patients from higher-income backgrounds who go to private practitioners.
+				\item \textbf{PASSION Relevance:} If PASSION’s dataset is composed mostly of patients from certain types of clinics, it may not generalise well to other socioeconomic groups.
+				\item \textbf{Mitigation Strategy:} Ensure that data is collected from a diverse range of sources, including both public and private healthcare facilities.
+			\end{itemize}
+			
+			This structure will be used to explain 5–10 selected biases in detail in the following sections. The complete list of identified biases and their classifications can be found in the appendix.
+		
+		\todo{consider to use those chapters for fairness introduction}
+		\subsection{Bias Detection and Fairness Assessment}
+		Detecting bias in datasets and model outputs is the first step toward mitigation. However, bias detection alone is not sufficient. It is also necessary to evaluate the fairness of the model’s predictions. This should be done across different demographic groups to ensure equitably performance in real-world applications.
+		
+		
+		An initial analysis of the PASSION dataset indicates an overrepresentation of male children. This imbalance should be further investigated, both in terms of dataset composition and model performance.
+		
+		
+		\subsection{Focus for this Thesis}
+		\todo{check that there is no duplication between PASSION dataset feature description and here}
+		Due to time constraints, this thesis focuses on three protected characteristics: \bolditalic{skin type}, \bolditalic{age} and \bolditalic{sex}. These were selected based on their presence in the PASSION dataset and their influence on dermatological diagnosis and disease prevalence. Other potentially relevant features, such as \bolditalic{country of origin} and \bolditalic{socioeconomic status}, should be evaluated in future work by the PASSION team.
+		
+		
+		
+		\todo{continue here for fairness and so on}
+		
 		
 		
 			According to the Cambridge English dictionary, bias can be defined as "the fact of preferring a particular subject or thing" or even as "the action of supporting or opposing a particular person or thing in an unfair way, because of allowing personal opinions to influence your judgment" \autocite{Cambridge_2025}. While an \gls{AI} does not hold personal opinions, the judgment of an \gls{AI} algorithm is influenced by the underlying data and how the algorithm uses this data. The data and even the algorithm itself can hold biases, which affects the final outcome and potential lead to unfair decisions. In decision-making, fairness means "absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics" - or in other terms, a fair algorithms decisions are not scewed toward a group of people \autocite{Mehrabi_2021}. 
@@ -509,6 +591,7 @@
 				\label{tab:biases_types}
 			\end{table}
 			
+			\todo{Feedback Astrid: zu viele Unterkapitel -> anders strukturieren}
 			\subsubsection{Data Biases}
 				
 				\paragraph{Sampling Biases}
@@ -576,7 +659,7 @@
 				
 				
 				\subparagraph{Potential Biases in PASSION}
-				PASSION tries to mitigate representation bias, by including more FST skin types - however, it could introuce other representation biases
+				PASSION tries to mitigate representation bias, by including more FST skin types - however, it could introduce other representation biases
 				Aggregation bias and Simpson's Paradox could potentially be an issue when the analyzed skin diseases present themselves differently in patients based on their genetics
 				
 				
