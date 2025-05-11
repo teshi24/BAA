@@ -1,0 +1,54 @@
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Scripts\python.exe D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\src\utils\evaluator.py
+
+Distribution for 'country':
+Guinea: 384 (23.23%)
+Madagascar: 985 (59.59%)
+Malawi: 261 (15.79%)
+Tanzania: 23 (1.39%)
+
+Distribution for 'sex':
+f: 691 (41.8%)
+m: 962 (58.2%)
+
+Distribution for 'fitzpatrick':
+1: 1 (0.06%)
+3: 354 (21.42%)
+4: 486 (29.4%)
+5: 428 (25.89%)
+6: 384 (23.23%)
+
+Distribution for 'impetig':
+0.0: 1462 (88.45%)
+1.0: 191 (11.55%)
+
+Distribution for 'conditions_PASSION':
+Eczema: 414 (25.05%)
+Fungal: 579 (35.03%)
+Others: 189 (11.43%)
+Scabies: 471 (28.49%)
+
+Distribution for 'ageGroup':
+00-04: 354 (21.42%)
+05-09: 314 (19.0%)
+10-14: 132 (7.99%)
+15-19: 65 (3.93%)
+20-24: 126 (7.62%)
+25-29: 189 (11.43%)
+30-34: 150 (9.07%)
+35-39: 97 (5.87%)
+40-44: 76 (4.6%)
+45-49: 50 (3.02%)
+50-54: 44 (2.66%)
+55-59: 30 (1.81%)
+60-64: 15 (0.91%)
+65-69: 6 (0.36%)
+70-74: 3 (0.18%)
+75-79: 1 (0.06%)
+80-84: 0 (0.0%)
+85-89: 0 (0.0%)
+90-94: 0 (0.0%)
+nan: 1 (0.06%)
+
+Distribution for 'Split':
+TEST: 330 (19.96%)
+TRAIN: 1323 (80.04%)

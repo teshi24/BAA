@@ -1,0 +1,162 @@
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Scripts\python.exe D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\src\utils\evaluator.py
+
+Distribution for 'country':
+Guinea: 384 (23.23%)
+Madagascar: 985 (59.59%)
+Malawi: 261 (15.79%)
+Tanzania: 23 (1.39%)
+
+Distribution for 'sex':
+f: 691 (41.8%)
+m: 962 (58.2%)
+
+Distribution for 'fitzpatrick':
+1: 1 (0.06%)
+3: 354 (21.42%)
+4: 486 (29.4%)
+5: 428 (25.89%)
+6: 384 (23.23%)
+
+Distribution for 'impetig':
+0.0: 1462 (88.45%)
+1.0: 191 (11.55%)
+
+Distribution for 'conditions_PASSION':
+Eczema: 414 (25.05%)
+Fungal: 579 (35.03%)
+Others: 189 (11.43%)
+Scabies: 471 (28.49%)
+
+Distribution for 'ageGroup':
+00-04: 354 (21.42%)
+05-09: 314 (19.0%)
+10-14: 132 (7.99%)
+15-19: 65 (3.93%)
+20-24: 126 (7.62%)
+25-29: 189 (11.43%)
+30-34: 150 (9.07%)
+35-39: 97 (5.87%)
+40-44: 76 (4.6%)
+45-49: 50 (3.02%)
+50-54: 44 (2.66%)
+55-59: 30 (1.81%)
+60-64: 15 (0.91%)
+65-69: 6 (0.36%)
+70-74: 3 (0.18%)
+75-79: 1 (0.06%)
+80-84: 0 (0.0%)
+85-89: 0 (0.0%)
+90-94: 0 (0.0%)
+nan: 1 (0.06%)
+
+Distribution for 'Split':
+TEST: 330 (19.96%)
+TRAIN: 1323 (80.04%)
+
+--- TRAIN SPLIT ---
+
+Distribution for 'country':
+Guinea: 307 (23.2%)
+Madagascar: 788 (59.56%)
+Malawi: 209 (15.8%)
+Tanzania: 19 (1.44%)
+
+Distribution for 'sex':
+f: 539 (40.74%)
+m: 784 (59.26%)
+
+Distribution for 'fitzpatrick':
+1: 1 (0.08%)
+3: 275 (20.79%)
+4: 396 (29.93%)
+5: 344 (26.0%)
+6: 307 (23.2%)
+
+Distribution for 'impetig':
+0.0: 1174 (88.74%)
+1.0: 149 (11.26%)
+
+Distribution for 'conditions_PASSION':
+Eczema: 332 (25.09%)
+Fungal: 463 (35.0%)
+Others: 151 (11.41%)
+Scabies: 377 (28.5%)
+
+Distribution for 'ageGroup':
+00-04: 279 (21.09%)
+05-09: 254 (19.2%)
+10-14: 107 (8.09%)
+15-19: 49 (3.7%)
+20-24: 106 (8.01%)
+25-29: 144 (10.88%)
+30-34: 121 (9.15%)
+35-39: 80 (6.05%)
+40-44: 65 (4.91%)
+45-49: 42 (3.17%)
+50-54: 31 (2.34%)
+55-59: 24 (1.81%)
+60-64: 11 (0.83%)
+65-69: 5 (0.38%)
+70-74: 3 (0.23%)
+75-79: 1 (0.08%)
+80-84: 0 (0.0%)
+85-89: 0 (0.0%)
+90-94: 0 (0.0%)
+nan: 1 (0.08%)
+
+Distribution for 'Split':
+TRAIN: 1323 (100.0%)
+
+--- TEST SPLIT ---
+
+Distribution for 'country':
+Guinea: 77 (23.33%)
+Madagascar: 197 (59.7%)
+Malawi: 52 (15.76%)
+Tanzania: 4 (1.21%)
+
+Distribution for 'sex':
+f: 152 (46.06%)
+m: 178 (53.94%)
+
+Distribution for 'fitzpatrick':
+3: 79 (23.94%)
+4: 90 (27.27%)
+5: 84 (25.45%)
+6: 77 (23.33%)
+
+Distribution for 'impetig':
+0.0: 288 (87.27%)
+1.0: 42 (12.73%)
+
+Distribution for 'conditions_PASSION':
+Eczema: 82 (24.85%)
+Fungal: 116 (35.15%)
+Others: 38 (11.52%)
+Scabies: 94 (28.48%)
+
+Distribution for 'ageGroup':
+00-04: 75 (22.73%)
+05-09: 60 (18.18%)
+10-14: 25 (7.58%)
+15-19: 16 (4.85%)
+20-24: 20 (6.06%)
+25-29: 45 (13.64%)
+30-34: 29 (8.79%)
+35-39: 17 (5.15%)
+40-44: 11 (3.33%)
+45-49: 8 (2.42%)
+50-54: 13 (3.94%)
+55-59: 6 (1.82%)
+60-64: 4 (1.21%)
+65-69: 1 (0.3%)
+70-74: 0 (0.0%)
+75-79: 0 (0.0%)
+80-84: 0 (0.0%)
+85-89: 0 (0.0%)
+90-94: 0 (0.0%)
+
+Distribution for 'Split':
+TEST: 330 (100.0%)
+
+Process finished with exit code 0
