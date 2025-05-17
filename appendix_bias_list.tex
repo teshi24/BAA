@@ -559,6 +559,51 @@
 		
 		\section{initial sources}
 		\todo{check that all stuff above matches the stuff below}
+		
+					\rawcitationstart
+		\subsection{Bias Introduction}
+		\begin{itemize}
+			\item \textbf{Assessment Tools} An interesting direction that researchers have taken is introducing tools that can assess the amount of fairness in a tool or system. For example, Aequitas [136] is a toolkit that lets users to test models with regards to several bias and fairness metrics for different population subgroups. Aequitas produces reports from the obtained data that helps data scientists, machine learning researchers, and policymakers to make conscious decisions and avoid harm and damage toward certain populations. \gls{AI} Fairness 360 (AIF360) is another toolkit developed by IBM in order to help moving fairness research algorithms into an industrial setting and to create a benchmark for fairness algorithms to get evaluated and an environment for fairness researchers to share their ideas [11]. These types of toolkits can be helpful for learners, researchers, and people working in the industry to move towards developing fair machine learning application away from discriminatory behavior \autocite{Mehrabi_2021}.
+		\end{itemize}	
+		
+		\begin{itemize}
+			\item Most \gls{AI} systems and algorithms are data driven and require data upon which to be trained. Thus, data is tightly coupled to the functionality of these algorithms and systems. In the cases where the underlying training data contains biases, the algorithms trained on them will learn these biases and reflect them into their predictions. As a result, existing biases in data can affect the algorithms using the data, producing biased outcomes. Algorithms can even amplify and perpetuate existing biases in the data.\autocite{Mehrabi_2021}.
+			\item In addition, algorithms themselves can display biased behavior due to certain design choices, even if the data itself is not biased. The outcomes of these biased algorithms can then be fed into real-world systems and affect users’ decisions, which will result in more biased data for training future algorithms.\autocite{Mehrabi_2021}.
+			
+			\item Bias can exist in many shapes and forms, some of which can lead to unfairness in different downstream learning tasks. In \autocite{M144_Suresh_2021}, authors talk about sources of bias in machine learning with their categorizations and descriptions in order to motivate future solutions to each of the sources of bias introduced in the paper. In \autocite{M120_Olteanu_2019}, the authors prepare a complete list of different types of biases with their corresponding definitions that exist in different cycles from data origins to its collection and its processing.\autocite{Mehrabi_2021}.
+		\end{itemize}	
+		
+		\begin{itemize}
+			\item The list of biases that can occur in any research is considerably long, and certainly not all of them can be avoided. \autocite{Chakraborty_2024}
+		\end{itemize}
+		\rawcitationend
+		
+		\rawcitationstart
+		\subsection{Biases Extensive Sources}
+		
+		\paragraph{Data Biases}
+		Data biases (data to algorithm (biases in data which might have an impact on biased algorithmic outcomes \autocite{Mehrabi_2021}))	
+		\begin{itemize}
+			\item 
+		\end{itemize}	
+		
+		
+		\paragraph{Algorithmic Biases}
+		
+		Algorithmic biases (Algorithm to user (A modulates U behaviour, biases in algorithm might lead to introduce biases in user behaviour and affect it as a consequence)) \autocite{Mehrabi_2021}
+		
+		\paragraph{User Biases}
+		
+		User to Data (user-generated data, inherent biases in users could be reflected in the data they generate; biases in last section might introduce further bias in this process) \autocite{Mehrabi_2021}
+		
+		\paragraph{Dermatology Biases}
+		\begin{itemize}
+			\item Equity. \gls{AI} has the potential to worsen health-care disparities, as recognized by the popular media (Khullar, 2019), particularly in dermatology (Adamson and Smith, 2018). The first concern is adequate representation of underserved populations in training data. Existing DL models have been trained on mainly European or East Asian populations, and the relative lack of training on darker skin pigmentation may limit overall diagnostic accuracy. This possibility is demonstrated by the increased error rates in commercial systems, trained on predominantly white datasets, for facial analysis in identifying black individuals (Buolamwini and Gebru, 2018). Second, \gls{AI} may entrench existing social and economic biases and perpetuate inadvertent discriminatory practices, for example, in recommending less follow-up for black patients than for whites, when health costs are used as a proxy for health needs (Obermeyer et al., 2019). Third, disproportionate adoption by different groups may exacerbate existing inequities. Access to and use of technology differs based on sociodemographics (Tsetsi and Rains, 2017), and more techsavvy users may be more likely to embrace \gls{AI} for skin screening (Tong and Sopory, 2019). The issue of equity in \gls{AI} diagnosis needs to be carefully addressed to avoid inadvertent exacerbation of health-care disparities. \autocite{Young_2020} - dermatology
+			\item Model generalizability. Generalizability is a major concern for \gls{AI} models; studies of computer-assisted diagnosis of melanoma report lower sensitivity for melanoma on independent test sets than on nonindependent test sets (Dick et al., 2019). It is difficult to study generalizability because published DL models are not publicly available, making it impossible to compare performance, unless each study uses a standardized benchmark database, such as the Melanoma Classification Benchmark (Brinker et al., 2019d). Han et al. (2018a) reported excellent metrics of performance and made their model available for image submission; however, the model prediction was not robust when images from an outside clinic were submitted, image magnification or contrast was altered, or images were rotated (NavarreteDechent et al., 2018). On ImageNet, a nonmedical dataset of 1,000 object categories, training on a dataset of 300 ... \autocite{Young_2020}
+		\end{itemize}
+		\rawcitationend
+		
+		
 			\subsection{Bias Sources}
 		The general \gls{ML} lifecycle consists of data gathering, training the algorithm and the user interaction with the trained model. Now, while data gathering, biases can arise either through the collection process or it is already inherited in the available data. Further, depending on the algorithm design, during training, the existing bias in the data can be amplified and new bias can be introduced. Lastly, the result of the algorithm can affect the user experience on inference which can lead to further bias amplification. This generates a feedback loop between the biases in each step of the \gls{ML} lifecycle which can make it hard to identify the original bias source. The feedback loop is illustrated in \autoref{fig:bias_definitions_ML_lifecycle}, which also shows first bias definitons, which were categorized according to this feedback loop \autocite{Mehrabi_2021}.
 		
