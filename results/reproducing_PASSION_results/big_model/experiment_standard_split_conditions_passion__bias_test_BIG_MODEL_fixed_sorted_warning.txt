@@ -30,21 +30,9 @@ Forward/backward pass size (MB): 177.84
 Params size (MB): 94.08
 Estimated Total Size (MB): 272.52
 ====================================================================================================
-******************** finetuning ********************
-              precision    recall  f1-score   support
-
-      Eczema       0.66      0.65      0.65       222
-      Fungal       0.73      0.70      0.72       232
-      Others       0.71      0.73      0.72       200
-     Scabies       0.73      0.74      0.74       332
-
-    accuracy                           0.71       986
-   macro avg       0.71      0.71      0.71       986
-weighted avg       0.71      0.71      0.71       986
-
-Balanced Acc: 0.7076012297091441
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Scripts\python.exe D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\src\utils\evaluator.py
 330 unique subjects processed.
-********************* Overall Evaluation - finetuning *********************
+********************* Overall Evaluation - evaluator standalone *********************
 Confusion Matrix:
 [[145  23  12  42]
  [ 34 162   7  29]
@@ -69,7 +57,7 @@ cumulated - TP: 701, FP: 285, FN: 285, TN: 2673, macro-TPR (avg): 0.71, macro-FP
 weighted avg       0.71      0.71      0.71       986
 
 Balanced Accuracy: 0.7076012297091441
-********************* Detailed Evaluation - finetuning *********************
+********************* Detailed Evaluation - evaluator standalone *********************
 ~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Support: 303 ~~~~~~~~~~~~~~~~~~~~
 Confusion Matrix:
 [[70  3  4 15]
@@ -333,7 +321,7 @@ Fungal — TP: 5, FP: 1, FN: 12, TN: 25, TPR: 0.29, FPR: 0.04
 Others — TP: 0, FP: 2, FN: 0, TN: 41, TPR: 0, FPR: 0.05
 Scabies — TP: 20, FP: 2, FN: 5, TN: 16, TPR: 0.8, FPR: 0.11
 cumulated - TP: 26, FP: 17, FN: 17, TN: 112, macro-TPR (avg): 0.52, macro-FPR (avg): 0.12, micro-TPR: 0.6, micro-FPR: 0.13
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -460,8 +448,6 @@ Fungal — TP: 4, FP: 1, FN: 2, TN: 5, TPR: 0.67, FPR: 0.17
 Others — TP: 0, FP: 2, FN: 0, TN: 10, TPR: 0, FPR: 0.17
 Scabies — TP: 0, FP: 1, FN: 0, TN: 11, TPR: 0, FPR: 0.08
 cumulated - TP: 8, FP: 4, FN: 4, TN: 32, macro-TPR (avg): 0.34, macro-FPR (avg): 0.11, micro-TPR: 0.67, micro-FPR: 0.11
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       1.00      0.67      0.80         6
@@ -487,6 +473,8 @@ Fungal — TP: 7, FP: 0, FN: 4, TN: 21, TPR: 0.64, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 32, TPR: 0, FPR: 0.0
 Scabies — TP: 13, FP: 5, FN: 2, TN: 12, TPR: 0.87, FPR: 0.29
 cumulated - TP: 23, FP: 9, FN: 9, TN: 87, macro-TPR (avg): 0.5, macro-FPR (avg): 0.11, micro-TPR: 0.72, micro-FPR: 0.09
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.43      0.50      0.46         6
@@ -537,7 +525,7 @@ Fungal — TP: 7, FP: 0, FN: 2, TN: 1, TPR: 0.78, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 10, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 1, TN: 9, TPR: 0.0, FPR: 0.0
 cumulated - TP: 7, FP: 3, FN: 3, TN: 27, macro-TPR (avg): 0.2, macro-FPR (avg): 0.08, micro-TPR: 0.7, micro-FPR: 0.1
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -564,8 +552,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 cumulated - TP: 2, FP: 0, FN: 0, TN: 6, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       1.00      1.00      1.00         2
@@ -583,6 +569,9 @@ no support: group_by: ['ageGroup'], group_values: ('75-79',)
 no support: group_by: ['ageGroup'], group_values: ('80-84',)
 no support: group_by: ['ageGroup'], group_values: ('85-89',)
 no support: group_by: ['ageGroup'], group_values: ('90-94',)
+no support: group_by: ['ageGroup'], group_values: ('95-99',)
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
 ~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 3, Sex: f, Support: 156 ~~~~~~~~~~~~~~~~~~~~
 Confusion Matrix:
 [[36  1  3  7]
@@ -871,7 +860,7 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 cumulated - TP: 1, FP: 0, FN: 0, TN: 3, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -948,7 +937,9 @@ Fungal — TP: 1, FP: 0, FN: 1, TN: 1, TPR: 0.5, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 3, TPR: 0, FPR: 0.0
 Scabies — TP: 1, FP: 0, FN: 0, TN: 2, TPR: 1.0, FPR: 0.0
 cumulated - TP: 2, FP: 1, FN: 1, TN: 8, macro-TPR (avg): 0.38, macro-FPR (avg): 0.08, micro-TPR: 0.67, micro-FPR: 0.11
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -975,8 +966,6 @@ Fungal — TP: 1, FP: 0, FN: 2, TN: 5, TPR: 0.33, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 5, TN: 3, TPR: 0.0, FPR: 0.0
 Scabies — TP: 0, FP: 6, FN: 0, TN: 2, TPR: 0, FPR: 0.75
 cumulated - TP: 1, FP: 7, FN: 7, TN: 17, macro-TPR (avg): 0.08, macro-FPR (avg): 0.22, micro-TPR: 0.12, micro-FPR: 0.29
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -1002,7 +991,7 @@ Fungal — TP: 4, FP: 0, FN: 3, TN: 0, TPR: 0.57, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 7, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 2, FN: 0, TN: 5, TPR: 0, FPR: 0.29
 cumulated - TP: 4, FP: 3, FN: 3, TN: 18, macro-TPR (avg): 0.14, macro-FPR (avg): 0.11, micro-TPR: 0.57, micro-FPR: 0.14
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1079,8 +1068,6 @@ Fungal — TP: 0, FP: 0, FN: 4, TN: 0, TPR: 0.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 2, FN: 0, TN: 2, TPR: 0, FPR: 0.5
 cumulated - TP: 0, FP: 4, FN: 4, TN: 8, macro-TPR (avg): 0.0, macro-FPR (avg): 0.25, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00       0.0
@@ -1106,7 +1093,9 @@ Fungal — TP: 0, FP: 4, FN: 0, TN: 52, TPR: 0, FPR: 0.07
 Others — TP: 20, FP: 2, FN: 4, TN: 30, TPR: 0.83, FPR: 0.06
 Scabies — TP: 5, FP: 7, FN: 4, TN: 40, TPR: 0.56, FPR: 0.15
 cumulated - TP: 39, FP: 17, FN: 17, TN: 151, macro-TPR (avg): 0.5, macro-FPR (avg): 0.1, micro-TPR: 0.7, micro-FPR: 0.1
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1158,7 +1147,9 @@ Fungal — TP: 7, FP: 0, FN: 0, TN: 13, TPR: 1.0, FPR: 0.0
 Others — TP: 0, FP: 3, FN: 0, TN: 17, TPR: 0, FPR: 0.15
 Scabies — TP: 6, FP: 1, FN: 5, TN: 8, TPR: 0.55, FPR: 0.11
 cumulated - TP: 14, FP: 6, FN: 6, TN: 54, macro-TPR (avg): 0.51, macro-FPR (avg): 0.09, micro-TPR: 0.7, micro-FPR: 0.1
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1185,8 +1176,6 @@ Fungal — TP: 3, FP: 1, FN: 1, TN: 3, TPR: 0.75, FPR: 0.25
 Others — TP: 0, FP: 0, FN: 0, TN: 8, TPR: 0, FPR: 0.0
 Scabies — TP: 3, FP: 0, FN: 1, TN: 4, TPR: 0.75, FPR: 0.0
 cumulated - TP: 6, FP: 2, FN: 2, TN: 22, macro-TPR (avg): 0.38, macro-FPR (avg): 0.09, micro-TPR: 0.75, micro-FPR: 0.08
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -1212,7 +1201,7 @@ Fungal — TP: 4, FP: 1, FN: 5, TN: 11, TPR: 0.44, FPR: 0.08
 Others — TP: 0, FP: 2, FN: 0, TN: 19, TPR: 0, FPR: 0.1
 Scabies — TP: 8, FP: 0, FN: 4, TN: 9, TPR: 0.67, FPR: 0.0
 cumulated - TP: 12, FP: 9, FN: 9, TN: 54, macro-TPR (avg): 0.28, macro-FPR (avg): 0.12, micro-TPR: 0.57, micro-FPR: 0.14
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1289,7 +1278,7 @@ Fungal — TP: 7, FP: 0, FN: 1, TN: 5, TPR: 0.88, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 13, TPR: 0, FPR: 0.0
 Scabies — TP: 5, FP: 0, FN: 0, TN: 8, TPR: 1.0, FPR: 0.0
 cumulated - TP: 12, FP: 1, FN: 1, TN: 38, macro-TPR (avg): 0.47, macro-FPR (avg): 0.02, micro-TPR: 0.92, micro-FPR: 0.03
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1316,7 +1305,7 @@ Fungal — TP: 0, FP: 2, FN: 0, TN: 2, TPR: 0, FPR: 0.5
 Others — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Scabies — TP: 2, FP: 0, FN: 0, TN: 2, TPR: 1.0, FPR: 0.0
 cumulated - TP: 2, FP: 2, FN: 2, TN: 10, macro-TPR (avg): 0.25, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1343,7 +1332,7 @@ Fungal — TP: 5, FP: 0, FN: 3, TN: 3, TPR: 0.62, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 11, TPR: 0, FPR: 0.0
 Scabies — TP: 3, FP: 1, FN: 0, TN: 7, TPR: 1.0, FPR: 0.12
 cumulated - TP: 8, FP: 3, FN: 3, TN: 30, macro-TPR (avg): 0.4, macro-FPR (avg): 0.08, micro-TPR: 0.73, micro-FPR: 0.09
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1370,7 +1359,7 @@ Fungal — TP: 0, FP: 4, FN: 0, TN: 4, TPR: 0, FPR: 0.5
 Others — TP: 0, FP: 0, FN: 0, TN: 8, TPR: 0, FPR: 0.0
 Scabies — TP: 4, FP: 0, FN: 4, TN: 0, TPR: 0.5, FPR: 0
 cumulated - TP: 4, FP: 4, FN: 4, TN: 20, macro-TPR (avg): 0.12, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1397,7 +1386,7 @@ Fungal — TP: 7, FP: 0, FN: 1, TN: 1, TPR: 0.88, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 9, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 1, TN: 8, TPR: 0.0, FPR: 0.0
 cumulated - TP: 7, FP: 2, FN: 2, TN: 25, macro-TPR (avg): 0.22, macro-FPR (avg): 0.06, micro-TPR: 0.78, micro-FPR: 0.07
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1424,8 +1413,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 cumulated - TP: 2, FP: 0, FN: 0, TN: 6, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       1.00      1.00      1.00         2
@@ -1451,6 +1438,8 @@ Fungal — TP: 18, FP: 7, FN: 1, TN: 104, TPR: 0.95, FPR: 0.06
 Others — TP: 36, FP: 5, FN: 10, TN: 79, TPR: 0.78, FPR: 0.06
 Scabies — TP: 33, FP: 9, FN: 1, TN: 87, TPR: 0.97, FPR: 0.09
 cumulated - TP: 103, FP: 27, FN: 27, TN: 363, macro-TPR (avg): 0.8, macro-FPR (avg): 0.07, micro-TPR: 0.79, micro-FPR: 0.07
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.73      0.52      0.60        31
@@ -1501,8 +1490,6 @@ Fungal — TP: 2, FP: 1, FN: 1, TN: 28, TPR: 0.67, FPR: 0.03
 Others — TP: 0, FP: 3, FN: 0, TN: 29, TPR: 0, FPR: 0.09
 Scabies — TP: 12, FP: 4, FN: 5, TN: 11, TPR: 0.71, FPR: 0.27
 cumulated - TP: 23, FP: 9, FN: 9, TN: 87, macro-TPR (avg): 0.53, macro-FPR (avg): 0.11, micro-TPR: 0.72, micro-FPR: 0.09
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.90      0.75      0.82        12
@@ -1528,7 +1515,9 @@ Fungal — TP: 0, FP: 0, FN: 1, TN: 13, TPR: 0.0, FPR: 0.0
 Others — TP: 0, FP: 1, FN: 0, TN: 13, TPR: 0, FPR: 0.07
 Scabies — TP: 7, FP: 2, FN: 2, TN: 3, TPR: 0.78, FPR: 0.4
 cumulated - TP: 9, FP: 5, FN: 5, TN: 37, macro-TPR (avg): 0.32, macro-FPR (avg): 0.17, micro-TPR: 0.64, micro-FPR: 0.12
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1555,8 +1544,6 @@ Fungal — TP: 0, FP: 0, FN: 7, TN: 6, TPR: 0.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 13, TPR: 0, FPR: 0.0
 Scabies — TP: 6, FP: 2, FN: 0, TN: 5, TPR: 1.0, FPR: 0.29
 cumulated - TP: 6, FP: 7, FN: 7, TN: 32, macro-TPR (avg): 0.25, macro-FPR (avg): 0.17, micro-TPR: 0.46, micro-FPR: 0.18
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -1582,7 +1569,9 @@ Fungal — TP: 5, FP: 1, FN: 1, TN: 14, TPR: 0.83, FPR: 0.07
 Others — TP: 0, FP: 3, FN: 0, TN: 18, TPR: 0, FPR: 0.14
 Scabies — TP: 8, FP: 2, FN: 3, TN: 8, TPR: 0.73, FPR: 0.2
 cumulated - TP: 15, FP: 6, FN: 6, TN: 57, macro-TPR (avg): 0.52, macro-FPR (avg): 0.1, micro-TPR: 0.71, micro-FPR: 0.1
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1634,7 +1623,7 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 6, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 cumulated - TP: 6, FP: 0, FN: 0, TN: 18, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -1661,7 +1650,7 @@ Fungal — TP: 1, FP: 1, FN: 3, TN: 1, TPR: 0.25, FPR: 0.5
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 5, TPR: 0, FPR: 0.17
 cumulated - TP: 2, FP: 4, FN: 4, TN: 14, macro-TPR (avg): 0.19, macro-FPR (avg): 0.29, micro-TPR: 0.33, micro-FPR: 0.22
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1688,7 +1677,7 @@ Fungal — TP: 1, FP: 0, FN: 0, TN: 6, TPR: 1.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 7, TPR: 0, FPR: 0.0
 Scabies — TP: 4, FP: 0, FN: 2, TN: 1, TPR: 0.67, FPR: 0.0
 cumulated - TP: 5, FP: 2, FN: 2, TN: 19, macro-TPR (avg): 0.42, macro-FPR (avg): 0.07, micro-TPR: 0.71, micro-FPR: 0.1
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1715,7 +1704,7 @@ Fungal — TP: 0, FP: 1, FN: 0, TN: 5, TPR: 0, FPR: 0.17
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 cumulated - TP: 5, FP: 1, FN: 1, TN: 17, macro-TPR (avg): 0.21, macro-FPR (avg): 0.04, micro-TPR: 0.83, micro-FPR: 0.06
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1742,7 +1731,7 @@ Fungal — TP: 2, FP: 1, FN: 4, TN: 7, TPR: 0.33, FPR: 0.12
 Others — TP: 0, FP: 1, FN: 0, TN: 13, TPR: 0, FPR: 0.07
 Scabies — TP: 4, FP: 3, FN: 3, TN: 4, TPR: 0.57, FPR: 0.43
 cumulated - TP: 7, FP: 7, FN: 7, TN: 35, macro-TPR (avg): 0.48, macro-FPR (avg): 0.19, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -1844,8 +1833,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 1, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 cumulated - TP: 1, FP: 0, FN: 0, TN: 3, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -1871,6 +1858,8 @@ Fungal — TP: 3, FP: 3, FN: 2, TN: 3, TPR: 0.6, FPR: 0.5
 Others — TP: 1, FP: 0, FN: 1, TN: 9, TPR: 0.5, FPR: 0.0
 Scabies — TP: 2, FP: 1, FN: 0, TN: 8, TPR: 1.0, FPR: 0.11
 cumulated - TP: 6, FP: 5, FN: 5, TN: 28, macro-TPR (avg): 0.52, macro-FPR (avg): 0.18, micro-TPR: 0.55, micro-FPR: 0.15
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         2
@@ -1946,8 +1935,6 @@ Fungal — TP: 1, FP: 0, FN: 1, TN: 0, TPR: 0.5, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 1, TPR: 0, FPR: 0.5
 cumulated - TP: 1, FP: 1, FN: 1, TN: 5, macro-TPR (avg): 0.12, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -1973,7 +1960,11 @@ Fungal — TP: 3, FP: 0, FN: 2, TN: 1, TPR: 0.6, FPR: 0.0
 Others — TP: 0, FP: 2, FN: 0, TN: 4, TPR: 0, FPR: 0.33
 Scabies — TP: 0, FP: 1, FN: 0, TN: 5, TPR: 0, FPR: 0.17
 cumulated - TP: 3, FP: 3, FN: 3, TN: 15, macro-TPR (avg): 0.15, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2000,8 +1991,6 @@ Fungal — TP: 0, FP: 0, FN: 1, TN: 0, TPR: 0.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 cumulated - TP: 0, FP: 1, FN: 1, TN: 2, macro-TPR (avg): 0.0, macro-FPR (avg): 0.25, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00       0.0
@@ -2077,7 +2066,9 @@ Fungal — TP: 2, FP: 0, FN: 1, TN: 30, TPR: 0.67, FPR: 0.0
 Others — TP: 0, FP: 1, FN: 0, TN: 32, TPR: 0, FPR: 0.03
 Scabies — TP: 14, FP: 4, FN: 1, TN: 14, TPR: 0.93, FPR: 0.22
 cumulated - TP: 28, FP: 5, FN: 5, TN: 94, macro-TPR (avg): 0.6, macro-FPR (avg): 0.06, micro-TPR: 0.85, micro-FPR: 0.05
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2129,8 +2120,6 @@ Fungal — TP: 4, FP: 0, FN: 6, TN: 11, TPR: 0.4, FPR: 0.0
 Others — TP: 0, FP: 2, FN: 0, TN: 19, TPR: 0, FPR: 0.1
 Scabies — TP: 8, FP: 0, FN: 2, TN: 11, TPR: 0.8, FPR: 0.0
 cumulated - TP: 13, FP: 8, FN: 8, TN: 55, macro-TPR (avg): 0.55, macro-FPR (avg): 0.1, micro-TPR: 0.62, micro-FPR: 0.13
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.14      1.00      0.25         1
@@ -2256,7 +2245,7 @@ Fungal — TP: 1, FP: 0, FN: 0, TN: 5, TPR: 1.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 5, TPR: 0, FPR: 0.17
 cumulated - TP: 5, FP: 1, FN: 1, TN: 17, macro-TPR (avg): 0.45, macro-FPR (avg): 0.04, micro-TPR: 0.83, micro-FPR: 0.06
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2308,8 +2297,6 @@ Fungal — TP: 0, FP: 5, FN: 0, TN: 9, TPR: 0, FPR: 0.36
 Others — TP: 0, FP: 0, FN: 0, TN: 14, TPR: 0, FPR: 0.0
 Scabies — TP: 4, FP: 0, FN: 4, TN: 6, TPR: 0.5, FPR: 0.0
 cumulated - TP: 9, FP: 5, FN: 5, TN: 37, macro-TPR (avg): 0.33, macro-FPR (avg): 0.09, micro-TPR: 0.64, micro-FPR: 0.12
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       1.00      0.83      0.91         6
@@ -2335,8 +2322,12 @@ Fungal — TP: 7, FP: 0, FN: 2, TN: 1, TPR: 0.78, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 10, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 1, TN: 9, TPR: 0.0, FPR: 0.0
 cumulated - TP: 7, FP: 3, FN: 3, TN: 27, macro-TPR (avg): 0.2, macro-FPR (avg): 0.08, micro-TPR: 0.7, micro-FPR: 0.1
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -2362,8 +2353,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 cumulated - TP: 2, FP: 0, FN: 0, TN: 6, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       1.00      1.00      1.00         2
@@ -2489,7 +2478,7 @@ Fungal — TP: 1, FP: 1, FN: 6, TN: 14, TPR: 0.14, FPR: 0.07
 Others — TP: 0, FP: 0, FN: 0, TN: 22, TPR: 0, FPR: 0.0
 Scabies — TP: 12, FP: 2, FN: 3, TN: 5, TPR: 0.8, FPR: 0.29
 cumulated - TP: 13, FP: 9, FN: 9, TN: 57, macro-TPR (avg): 0.24, macro-FPR (avg): 0.16, micro-TPR: 0.59, micro-FPR: 0.14
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2566,6 +2555,8 @@ Fungal — TP: 6, FP: 0, FN: 3, TN: 12, TPR: 0.67, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 1, TN: 20, TPR: 0.0, FPR: 0.0
 Scabies — TP: 10, FP: 2, FN: 0, TN: 9, TPR: 1.0, FPR: 0.18
 cumulated - TP: 17, FP: 4, FN: 4, TN: 59, macro-TPR (avg): 0.67, macro-FPR (avg): 0.07, micro-TPR: 0.81, micro-FPR: 0.06
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.33      1.00      0.50         1
@@ -2591,8 +2582,6 @@ Fungal — TP: 2, FP: 2, FN: 4, TN: 0, TPR: 0.33, FPR: 1.0
 Others — TP: 0, FP: 0, FN: 0, TN: 8, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 3, FN: 0, TN: 5, TPR: 0, FPR: 0.38
 cumulated - TP: 2, FP: 6, FN: 6, TN: 18, macro-TPR (avg): 0.08, macro-FPR (avg): 0.39, micro-TPR: 0.25, micro-FPR: 0.25
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         2
@@ -2618,7 +2607,7 @@ Fungal — TP: 3, FP: 1, FN: 2, TN: 0, TPR: 0.6, FPR: 1.0
 Others — TP: 0, FP: 2, FN: 0, TN: 4, TPR: 0, FPR: 0.33
 Scabies — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 cumulated - TP: 3, FP: 3, FN: 3, TN: 15, macro-TPR (avg): 0.15, macro-FPR (avg): 0.33, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2645,7 +2634,9 @@ Fungal — TP: 1, FP: 0, FN: 0, TN: 6, TPR: 1.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 7, TPR: 0, FPR: 0.0
 Scabies — TP: 5, FP: 0, FN: 1, TN: 1, TPR: 0.83, FPR: 0.0
 cumulated - TP: 6, FP: 1, FN: 1, TN: 20, macro-TPR (avg): 0.46, macro-FPR (avg): 0.04, micro-TPR: 0.86, micro-FPR: 0.05
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2672,8 +2663,6 @@ Fungal — TP: 0, FP: 0, FN: 4, TN: 0, TPR: 0.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 2, FN: 0, TN: 2, TPR: 0, FPR: 0.5
 cumulated - TP: 0, FP: 4, FN: 4, TN: 8, macro-TPR (avg): 0.0, macro-FPR (avg): 0.25, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00       0.0
@@ -2699,8 +2688,6 @@ Fungal — TP: 0, FP: 1, FN: 0, TN: 69, TPR: 0, FPR: 0.01
 Others — TP: 6, FP: 10, FN: 0, TN: 54, TPR: 1.0, FPR: 0.16
 Scabies — TP: 27, FP: 1, FN: 13, TN: 29, TPR: 0.68, FPR: 0.03
 cumulated - TP: 52, FP: 18, FN: 18, TN: 192, macro-TPR (avg): 0.62, macro-FPR (avg): 0.08, micro-TPR: 0.74, micro-FPR: 0.09
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.76      0.79      0.78        24
@@ -2726,7 +2713,9 @@ Fungal — TP: 0, FP: 2, FN: 4, TN: 26, TPR: 0.0, FPR: 0.07
 Others — TP: 19, FP: 1, FN: 5, TN: 7, TPR: 0.79, FPR: 0.12
 Scabies — TP: 0, FP: 5, FN: 0, TN: 27, TPR: 0, FPR: 0.16
 cumulated - TP: 21, FP: 11, FN: 11, TN: 85, macro-TPR (avg): 0.32, macro-FPR (avg): 0.12, micro-TPR: 0.66, micro-FPR: 0.11
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2778,7 +2767,7 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 cumulated - TP: 1, FP: 0, FN: 0, TN: 3, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -2855,7 +2844,7 @@ Fungal — TP: 1, FP: 0, FN: 1, TN: 1, TPR: 0.5, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 3, TPR: 0, FPR: 0.0
 Scabies — TP: 1, FP: 0, FN: 0, TN: 2, TPR: 1.0, FPR: 0.0
 cumulated - TP: 2, FP: 1, FN: 1, TN: 8, macro-TPR (avg): 0.38, macro-FPR (avg): 0.08, micro-TPR: 0.67, micro-FPR: 0.11
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2882,7 +2871,7 @@ Fungal — TP: 1, FP: 0, FN: 2, TN: 5, TPR: 0.33, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 5, TN: 3, TPR: 0.0, FPR: 0.0
 Scabies — TP: 0, FP: 6, FN: 0, TN: 2, TPR: 0, FPR: 0.75
 cumulated - TP: 1, FP: 7, FN: 7, TN: 17, macro-TPR (avg): 0.08, macro-FPR (avg): 0.22, micro-TPR: 0.12, micro-FPR: 0.29
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -2909,7 +2898,7 @@ Fungal — TP: 2, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 cumulated - TP: 2, FP: 0, FN: 0, TN: 6, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -2936,7 +2925,7 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 cumulated - TP: 4, FP: 0, FN: 0, TN: 12, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -3013,8 +3002,6 @@ Fungal — TP: 8, FP: 0, FN: 4, TN: 17, TPR: 0.67, FPR: 0.0
 Others — TP: 0, FP: 6, FN: 0, TN: 23, TPR: 0, FPR: 0.21
 Scabies — TP: 5, FP: 2, FN: 2, TN: 20, TPR: 0.71, FPR: 0.09
 cumulated - TP: 20, FP: 9, FN: 9, TN: 78, macro-TPR (avg): 0.52, macro-FPR (avg): 0.09, micro-TPR: 0.69, micro-FPR: 0.1
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.88      0.70      0.78        10
@@ -3040,6 +3027,8 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 8, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 8, TPR: 0, FPR: 0.0
 Scabies — TP: 1, FP: 2, FN: 0, TN: 5, TPR: 1.0, FPR: 0.29
 cumulated - TP: 6, FP: 2, FN: 2, TN: 22, macro-TPR (avg): 0.43, macro-FPR (avg): 0.07, micro-TPR: 0.75, micro-FPR: 0.08
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       1.00      0.71      0.83         7
@@ -3065,7 +3054,7 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 3, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 3, TPR: 0, FPR: 0.0
 Scabies — TP: 2, FP: 0, FN: 1, TN: 0, TPR: 0.67, FPR: 0
 cumulated - TP: 2, FP: 1, FN: 1, TN: 8, macro-TPR (avg): 0.17, macro-FPR (avg): 0.08, micro-TPR: 0.67, micro-FPR: 0.11
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3117,7 +3106,7 @@ Fungal — TP: 2, FP: 0, FN: 3, TN: 0, TPR: 0.4, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 5, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 2, FN: 0, TN: 3, TPR: 0, FPR: 0.4
 cumulated - TP: 2, FP: 3, FN: 3, TN: 12, macro-TPR (avg): 0.1, macro-FPR (avg): 0.15, micro-TPR: 0.4, micro-FPR: 0.2
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3169,7 +3158,7 @@ Fungal — TP: 0, FP: 0, FN: 4, TN: 0, TPR: 0.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 2, FN: 0, TN: 2, TPR: 0, FPR: 0.5
 cumulated - TP: 0, FP: 4, FN: 4, TN: 8, macro-TPR (avg): 0.0, macro-FPR (avg): 0.25, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3196,7 +3185,7 @@ Fungal — TP: 0, FP: 3, FN: 0, TN: 30, TPR: 0, FPR: 0.09
 Others — TP: 19, FP: 1, FN: 3, TN: 10, TPR: 0.86, FPR: 0.09
 Scabies — TP: 0, FP: 3, FN: 2, TN: 28, TPR: 0.0, FPR: 0.1
 cumulated - TP: 24, FP: 9, FN: 9, TN: 90, macro-TPR (avg): 0.36, macro-FPR (avg): 0.09, micro-TPR: 0.73, micro-FPR: 0.09
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3223,7 +3212,7 @@ Fungal — TP: 0, FP: 6, FN: 0, TN: 6, TPR: 0, FPR: 0.5
 Others — TP: 0, FP: 0, FN: 6, TN: 6, TPR: 0.0, FPR: 0.0
 Scabies — TP: 4, FP: 0, FN: 0, TN: 8, TPR: 1.0, FPR: 0.0
 cumulated - TP: 6, FP: 6, FN: 6, TN: 30, macro-TPR (avg): 0.5, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3250,7 +3239,7 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 1, TPR: 0, FPR: 0.5
 cumulated - TP: 1, FP: 1, FN: 1, TN: 5, macro-TPR (avg): 0.12, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3277,7 +3266,7 @@ Fungal — TP: 1, FP: 0, FN: 1, TN: 3, TPR: 0.5, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 5, TPR: 0, FPR: 0.0
 Scabies — TP: 3, FP: 0, FN: 0, TN: 2, TPR: 1.0, FPR: 0.0
 cumulated - TP: 4, FP: 1, FN: 1, TN: 14, macro-TPR (avg): 0.38, macro-FPR (avg): 0.05, micro-TPR: 0.8, micro-FPR: 0.07
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3304,7 +3293,7 @@ Fungal — TP: 3, FP: 0, FN: 5, TN: 4, TPR: 0.38, FPR: 0.0
 Others — TP: 0, FP: 2, FN: 0, TN: 10, TPR: 0, FPR: 0.17
 Scabies — TP: 2, FP: 0, FN: 2, TN: 8, TPR: 0.5, FPR: 0.0
 cumulated - TP: 5, FP: 7, FN: 7, TN: 29, macro-TPR (avg): 0.22, macro-FPR (avg): 0.15, micro-TPR: 0.42, micro-FPR: 0.19
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3406,8 +3395,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 2, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 cumulated - TP: 2, FP: 0, FN: 0, TN: 6, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -3433,7 +3420,11 @@ Fungal — TP: 4, FP: 0, FN: 3, TN: 0, TPR: 0.57, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 7, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 6, TPR: 0, FPR: 0.14
 cumulated - TP: 4, FP: 3, FN: 3, TN: 18, macro-TPR (avg): 0.14, macro-FPR (avg): 0.11, micro-TPR: 0.57, micro-FPR: 0.14
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3460,8 +3451,6 @@ Fungal — TP: 0, FP: 4, FN: 0, TN: 4, TPR: 0, FPR: 0.5
 Others — TP: 0, FP: 0, FN: 0, TN: 8, TPR: 0, FPR: 0.0
 Scabies — TP: 4, FP: 0, FN: 4, TN: 0, TPR: 0.5, FPR: 0
 cumulated - TP: 4, FP: 4, FN: 4, TN: 20, macro-TPR (avg): 0.12, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -3487,8 +3476,6 @@ Fungal — TP: 7, FP: 0, FN: 1, TN: 1, TPR: 0.88, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 9, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 1, TN: 8, TPR: 0.0, FPR: 0.0
 cumulated - TP: 7, FP: 2, FN: 2, TN: 25, macro-TPR (avg): 0.22, macro-FPR (avg): 0.06, micro-TPR: 0.78, micro-FPR: 0.07
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -3514,7 +3501,9 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 cumulated - TP: 2, FP: 0, FN: 0, TN: 6, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -3541,7 +3530,7 @@ Fungal — TP: 0, FP: 1, FN: 0, TN: 22, TPR: 0, FPR: 0.04
 Others — TP: 1, FP: 1, FN: 1, TN: 20, TPR: 0.5, FPR: 0.05
 Scabies — TP: 5, FP: 4, FN: 2, TN: 12, TPR: 0.71, FPR: 0.25
 cumulated - TP: 15, FP: 8, FN: 8, TN: 61, macro-TPR (avg): 0.46, macro-FPR (avg): 0.14, micro-TPR: 0.65, micro-FPR: 0.12
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3593,7 +3582,7 @@ Fungal — TP: 7, FP: 0, FN: 0, TN: 11, TPR: 1.0, FPR: 0.0
 Others — TP: 0, FP: 3, FN: 0, TN: 15, TPR: 0, FPR: 0.17
 Scabies — TP: 6, FP: 0, FN: 5, TN: 7, TPR: 0.55, FPR: 0.0
 cumulated - TP: 13, FP: 5, FN: 5, TN: 49, macro-TPR (avg): 0.39, macro-FPR (avg): 0.07, micro-TPR: 0.72, micro-FPR: 0.09
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3645,7 +3634,7 @@ Fungal — TP: 1, FP: 1, FN: 0, TN: 7, TPR: 1.0, FPR: 0.12
 Others — TP: 0, FP: 0, FN: 0, TN: 9, TPR: 0, FPR: 0.0
 Scabies — TP: 6, FP: 0, FN: 2, TN: 1, TPR: 0.75, FPR: 0.0
 cumulated - TP: 7, FP: 2, FN: 2, TN: 25, macro-TPR (avg): 0.44, macro-FPR (avg): 0.06, micro-TPR: 0.78, micro-FPR: 0.07
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3697,8 +3686,6 @@ Fungal — TP: 0, FP: 1, FN: 4, TN: 14, TPR: 0.0, FPR: 0.07
 Others — TP: 0, FP: 0, FN: 0, TN: 19, TPR: 0, FPR: 0.0
 Scabies — TP: 14, FP: 1, FN: 1, TN: 3, TPR: 0.93, FPR: 0.25
 cumulated - TP: 14, FP: 5, FN: 5, TN: 52, macro-TPR (avg): 0.23, macro-FPR (avg): 0.12, micro-TPR: 0.74, micro-FPR: 0.09
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -3724,10 +3711,14 @@ Fungal — TP: 4, FP: 0, FN: 1, TN: 3, TPR: 0.8, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 8, TPR: 0, FPR: 0.0
 Scabies — TP: 3, FP: 0, FN: 0, TN: 5, TPR: 1.0, FPR: 0.0
 cumulated - TP: 7, FP: 1, FN: 1, TN: 23, macro-TPR (avg): 0.45, macro-FPR (avg): 0.03, micro-TPR: 0.88, micro-FPR: 0.04
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
       Eczema       0.00      0.00      0.00         0
       Fungal       1.00      0.80      0.89         5
       Others       0.00      0.00      0.00         0
@@ -3751,8 +3742,6 @@ Fungal — TP: 0, FP: 2, FN: 0, TN: 0, TPR: 0, FPR: 1.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 cumulated - TP: 0, FP: 2, FN: 2, TN: 4, macro-TPR (avg): 0.0, macro-FPR (avg): 0.25, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00       2.0
@@ -3803,8 +3792,6 @@ Fungal — TP: 15, FP: 5, FN: 1, TN: 14, TPR: 0.94, FPR: 0.26
 Others — TP: 12, FP: 0, FN: 4, TN: 19, TPR: 0.75, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 34, TPR: 0, FPR: 0.03
 cumulated - TP: 28, FP: 7, FN: 7, TN: 98, macro-TPR (avg): 0.5, macro-FPR (avg): 0.08, micro-TPR: 0.8, micro-FPR: 0.07
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.50      0.33      0.40         3
@@ -3830,7 +3817,9 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 18, TPR: 0, FPR: 0.0
 Others — TP: 15, FP: 0, FN: 1, TN: 2, TPR: 0.94, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 17, TPR: 0, FPR: 0.06
 cumulated - TP: 17, FP: 1, FN: 1, TN: 53, macro-TPR (avg): 0.48, macro-FPR (avg): 0.02, micro-TPR: 0.94, micro-FPR: 0.02
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3857,8 +3846,6 @@ Fungal — TP: 0, FP: 0, FN: 1, TN: 21, TPR: 0.0, FPR: 0.0
 Others — TP: 0, FP: 1, FN: 0, TN: 21, TPR: 0, FPR: 0.05
 Scabies — TP: 11, FP: 3, FN: 1, TN: 7, TPR: 0.92, FPR: 0.3
 cumulated - TP: 18, FP: 4, FN: 4, TN: 62, macro-TPR (avg): 0.43, macro-FPR (avg): 0.09, micro-TPR: 0.82, micro-FPR: 0.06
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       1.00      0.78      0.88         9
@@ -3884,7 +3871,9 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 cumulated - TP: 1, FP: 0, FN: 0, TN: 3, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -3911,8 +3900,6 @@ Fungal — TP: 0, FP: 0, FN: 1, TN: 3, TPR: 0.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Scabies — TP: 3, FP: 0, FN: 0, TN: 1, TPR: 1.0, FPR: 0.0
 cumulated - TP: 3, FP: 1, FN: 1, TN: 11, macro-TPR (avg): 0.25, macro-FPR (avg): 0.06, micro-TPR: 0.75, micro-FPR: 0.08
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -3938,7 +3925,9 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 7, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 3, FN: 0, TN: 4, TPR: 0, FPR: 0.43
 Scabies — TP: 2, FP: 1, FN: 3, TN: 1, TPR: 0.4, FPR: 0.5
 cumulated - TP: 3, FP: 4, FN: 4, TN: 17, macro-TPR (avg): 0.22, macro-FPR (avg): 0.23, micro-TPR: 0.43, micro-FPR: 0.19
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -3990,7 +3979,7 @@ Fungal — TP: 1, FP: 1, FN: 3, TN: 1, TPR: 0.25, FPR: 0.5
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 5, TPR: 0, FPR: 0.17
 cumulated - TP: 2, FP: 4, FN: 4, TN: 14, macro-TPR (avg): 0.19, macro-FPR (avg): 0.29, micro-TPR: 0.33, micro-FPR: 0.22
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4017,7 +4006,7 @@ Fungal — TP: 1, FP: 0, FN: 0, TN: 3, TPR: 1.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 Scabies — TP: 2, FP: 0, FN: 1, TN: 1, TPR: 0.67, FPR: 0.0
 cumulated - TP: 3, FP: 1, FN: 1, TN: 11, macro-TPR (avg): 0.42, macro-FPR (avg): 0.06, micro-TPR: 0.75, micro-FPR: 0.08
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4044,7 +4033,7 @@ Fungal — TP: 0, FP: 1, FN: 0, TN: 5, TPR: 0, FPR: 0.17
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 cumulated - TP: 5, FP: 1, FN: 1, TN: 17, macro-TPR (avg): 0.21, macro-FPR (avg): 0.04, micro-TPR: 0.83, micro-FPR: 0.06
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4096,6 +4085,8 @@ Fungal — TP: 23, FP: 2, FN: 0, TN: 48, TPR: 1.0, FPR: 0.04
 Others — TP: 16, FP: 20, FN: 0, TN: 37, TPR: 1.0, FPR: 0.35
 Scabies — TP: 7, FP: 1, FN: 22, TN: 43, TPR: 0.24, FPR: 0.02
 cumulated - TP: 48, FP: 25, FN: 25, TN: 194, macro-TPR (avg): 0.66, macro-FPR (avg): 0.11, micro-TPR: 0.66, micro-FPR: 0.11
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.50      0.40      0.44         5
@@ -4121,8 +4112,6 @@ Fungal — TP: 2, FP: 1, FN: 0, TN: 7, TPR: 1.0, FPR: 0.12
 Others — TP: 0, FP: 2, FN: 0, TN: 8, TPR: 0, FPR: 0.2
 Scabies — TP: 1, FP: 1, FN: 4, TN: 4, TPR: 0.2, FPR: 0.2
 cumulated - TP: 5, FP: 5, FN: 5, TN: 25, macro-TPR (avg): 0.47, macro-FPR (avg): 0.16, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.67      0.67      0.67         3
@@ -4148,8 +4137,6 @@ Fungal — TP: 0, FP: 0, FN: 1, TN: 12, TPR: 0.0, FPR: 0.0
 Others — TP: 0, FP: 1, FN: 0, TN: 12, TPR: 0, FPR: 0.08
 Scabies — TP: 7, FP: 2, FN: 2, TN: 2, TPR: 0.78, FPR: 0.5
 cumulated - TP: 8, FP: 5, FN: 5, TN: 34, macro-TPR (avg): 0.28, macro-FPR (avg): 0.2, micro-TPR: 0.62, micro-FPR: 0.13
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.33      0.33      0.33         3
@@ -4174,8 +4161,10 @@ Eczema — TP: 0, FP: 4, FN: 0, TN: 5, TPR: 0, FPR: 0.44
 Fungal — TP: 0, FP: 0, FN: 6, TN: 3, TPR: 0.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 9, TPR: 0, FPR: 0.0
 Scabies — TP: 3, FP: 2, FN: 0, TN: 4, TPR: 1.0, FPR: 0.33
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
 cumulated - TP: 3, FP: 6, FN: 6, TN: 21, macro-TPR (avg): 0.25, macro-FPR (avg): 0.19, micro-TPR: 0.33, micro-FPR: 0.22
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4252,8 +4241,10 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 6, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 cumulated - TP: 6, FP: 0, FN: 0, TN: 18, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -4279,8 +4270,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 3, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 3, TPR: 0, FPR: 0.0
 Scabies — TP: 2, FP: 0, FN: 1, TN: 0, TPR: 0.67, FPR: 0
 cumulated - TP: 2, FP: 1, FN: 1, TN: 8, macro-TPR (avg): 0.17, macro-FPR (avg): 0.08, micro-TPR: 0.67, micro-FPR: 0.11
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -4306,8 +4295,6 @@ Fungal — TP: 0, FP: 1, FN: 0, TN: 2, TPR: 0, FPR: 0.33
 Others — TP: 0, FP: 0, FN: 0, TN: 3, TPR: 0, FPR: 0.0
 Scabies — TP: 1, FP: 0, FN: 1, TN: 1, TPR: 0.5, FPR: 0.0
 cumulated - TP: 2, FP: 1, FN: 1, TN: 8, macro-TPR (avg): 0.38, macro-FPR (avg): 0.08, micro-TPR: 0.67, micro-FPR: 0.11
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       1.00      1.00      1.00         1
@@ -4321,6 +4308,12 @@ weighted avg       1.00      0.67      0.78         3
 
 Balanced Accuracy: 0.75
 ~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Sex: f, Agegroup: 05-09, Support: 6 ~~~~~~~~~~~~~~~~~~~~
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
 Confusion Matrix:
 [[0 0 0 0]
  [0 6 0 0]
@@ -4333,8 +4326,6 @@ Fungal — TP: 6, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 6, TPR: 0, FPR: 0.0
 cumulated - TP: 6, FP: 0, FN: 0, TN: 18, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -4385,8 +4376,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 1, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 cumulated - TP: 1, FP: 0, FN: 0, TN: 3, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -4462,8 +4451,6 @@ Fungal — TP: 1, FP: 0, FN: 1, TN: 3, TPR: 0.5, FPR: 0.0
 Others — TP: 1, FP: 0, FN: 0, TN: 4, TPR: 1.0, FPR: 0.0
 Scabies — TP: 0, FP: 2, FN: 0, TN: 3, TPR: 0, FPR: 0.4
 cumulated - TP: 3, FP: 2, FN: 2, TN: 13, macro-TPR (avg): 0.5, macro-FPR (avg): 0.1, micro-TPR: 0.6, micro-FPR: 0.13
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       1.00      0.50      0.67         2
@@ -4489,7 +4476,9 @@ Fungal — TP: 1, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 cumulated - TP: 1, FP: 0, FN: 0, TN: 3, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
   warnings.warn(
               precision    recall  f1-score   support
 
@@ -4516,7 +4505,7 @@ Fungal — TP: 1, FP: 0, FN: 0, TN: 1, TPR: 1.0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 1, TPR: 0, FPR: 0.5
 cumulated - TP: 1, FP: 1, FN: 1, TN: 5, macro-TPR (avg): 0.25, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4543,7 +4532,7 @@ Fungal — TP: 0, FP: 0, FN: 1, TN: 0, TPR: 0.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 cumulated - TP: 0, FP: 1, FN: 1, TN: 2, macro-TPR (avg): 0.0, macro-FPR (avg): 0.25, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4570,8 +4559,6 @@ Fungal — TP: 2, FP: 0, FN: 4, TN: 5, TPR: 0.33, FPR: 0.0
 Others — TP: 0, FP: 1, FN: 0, TN: 10, TPR: 0, FPR: 0.09
 Scabies — TP: 3, FP: 3, FN: 2, TN: 3, TPR: 0.6, FPR: 0.5
 cumulated - TP: 5, FP: 6, FN: 6, TN: 27, macro-TPR (avg): 0.23, macro-FPR (avg): 0.19, micro-TPR: 0.45, micro-FPR: 0.18
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -4597,6 +4584,8 @@ Fungal — TP: 16, FP: 2, FN: 0, TN: 2, TPR: 1.0, FPR: 0.5
 Others — TP: 1, FP: 0, FN: 0, TN: 19, TPR: 1.0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 1, TN: 18, TPR: 0.0, FPR: 0.05
 cumulated - TP: 17, FP: 3, FN: 3, TN: 57, macro-TPR (avg): 0.5, macro-FPR (avg): 0.14, micro-TPR: 0.85, micro-FPR: 0.05
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         2
@@ -4647,7 +4636,7 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 1, TN: 1, TPR: 0.0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 1, TPR: 0, FPR: 0.5
 cumulated - TP: 0, FP: 2, FN: 2, TN: 4, macro-TPR (avg): 0.0, macro-FPR (avg): 0.38, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4674,8 +4663,6 @@ Fungal — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 1, FP: 0, FN: 0, TN: 0, TPR: 1.0, FPR: 0
 cumulated - TP: 1, FP: 0, FN: 0, TN: 3, macro-TPR (avg): 0.25, macro-FPR (avg): 0.0, micro-TPR: 1.0, micro-FPR: 0.0
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
-  warnings.warn(
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -4701,6 +4688,10 @@ Fungal — TP: 0, FP: 1, FN: 2, TN: 2, TPR: 0.0, FPR: 0.33
 Others — TP: 0, FP: 0, FN: 0, TN: 5, TPR: 0, FPR: 0.0
 Scabies — TP: 2, FP: 1, FN: 0, TN: 2, TPR: 1.0, FPR: 0.33
 cumulated - TP: 2, FP: 3, FN: 3, TN: 12, macro-TPR (avg): 0.25, macro-FPR (avg): 0.23, micro-TPR: 0.4, micro-FPR: 0.2
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         1
@@ -4726,8 +4717,6 @@ Fungal — TP: 1, FP: 0, FN: 1, TN: 0, TPR: 0.5, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 2, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 1, TPR: 0, FPR: 0.5
 cumulated - TP: 1, FP: 1, FN: 1, TN: 5, macro-TPR (avg): 0.12, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00         0
@@ -4778,8 +4767,6 @@ Fungal — TP: 0, FP: 0, FN: 1, TN: 0, TPR: 0.0, FPR: 0
 Others — TP: 0, FP: 0, FN: 0, TN: 1, TPR: 0, FPR: 0.0
 Scabies — TP: 0, FP: 1, FN: 0, TN: 0, TPR: 0, FPR: 1.0
 cumulated - TP: 0, FP: 1, FN: 1, TN: 2, macro-TPR (avg): 0.0, macro-FPR (avg): 0.25, micro-TPR: 0.0, micro-FPR: 0.33
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
-  warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
       Eczema       0.00      0.00      0.00       0.0
@@ -4793,6 +4780,8 @@ weighted avg       0.00      0.00      0.00       1.0
 
 Balanced Accuracy: 0.0
 ~~~~~~~~~~~~~~~~~~~~ Fitzpatrick: 6, Sex: m, Agegroup: 45-49, Support: 4 ~~~~~~~~~~~~~~~~~~~~
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
 Confusion Matrix:
 [[0 0 0 0]
  [0 2 2 0]
@@ -4805,7 +4794,7 @@ Fungal — TP: 2, FP: 0, FN: 2, TN: 0, TPR: 0.5, FPR: 0
 Others — TP: 0, FP: 2, FN: 0, TN: 2, TPR: 0, FPR: 0.5
 Scabies — TP: 0, FP: 0, FN: 0, TN: 4, TPR: 0, FPR: 0.0
 cumulated - TP: 2, FP: 2, FN: 2, TN: 10, macro-TPR (avg): 0.12, macro-FPR (avg): 0.12, micro-TPR: 0.5, micro-FPR: 0.17
-/opt/conda/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+D:\source\PASSION_DATASET\PASSION-Bias-Evaluation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:2524: UserWarning: y_pred contains classes not in y_true
   warnings.warn("y_pred contains classes not in y_true")
               precision    recall  f1-score   support
 
@@ -4832,6 +4821,8 @@ average:
   -
 unclear:
   -
+no support:
+  -
 
 === Grouping: sex ===
 macro-TPR avg: 0.71; macro-FPR avg: 0.095
@@ -4843,9 +4834,11 @@ average:
   -
 unclear:
   -
+no support:
+  -
 
 === Grouping: ageGroup ===
-macro-TPR avg: 0.5057142857142857; macro-FPR avg: 0.11285714285714288
+macro-TPR avg: 0.5057142857142857; macro-FPR avg: 0.11285714285714286
 privileged:
   00-04; Support:  361 - Reasons: TPR ↑ (0.75), FPR ↓ (0.09)
   05-09; Support:  215 - Reasons: TPR ↑ (0.68), FPR ~ (0.10)
@@ -4864,6 +4857,13 @@ average:
 unclear:
   60-64; Support:   10 - Reasons: TPR ↓ (0.20), FPR ↓ (0.08)
   65-69; Support:    2 - Reasons: TPR ↓ (0.25), FPR ↓ (0.00)
+no support:
+  70-74; Support:    0
+  75-79; Support:    0
+  80-84; Support:    0
+  85-89; Support:    0
+  90-94; Support:    0
+  95-99; Support:    0
 
 === Grouping: fitzpatrick, sex ===
 macro-TPR avg: 0.68; macro-FPR avg: 0.10375000000000001
@@ -4879,6 +4879,8 @@ underprivileged:
 average:
   3, m; Support:  147 - Reasons: TPR ~ (0.67), FPR ~ (0.11)
 unclear:
+  -
+no support:
   -
 
 === Grouping: fitzpatrick, ageGroup ===
@@ -4935,6 +4937,8 @@ unclear:
   6, 05-09; Support:   26 - Reasons: TPR ↑ (0.50), FPR ↑ (0.14)
   6, 20-24; Support:    1 - Reasons: TPR ↓ (0.25), FPR ↓ (0.00)
   6, 25-29; Support:   11 - Reasons: TPR ↑ (0.52), FPR ↑ (0.18)
+no support:
+  -
 
 === Grouping: sex, ageGroup ===
 macro-TPR avg: 0.48615384615384616; macro-FPR avg: 0.12000000000000001
@@ -4968,6 +4972,8 @@ unclear:
   f, 60-64; Support:   10 - Reasons: TPR ↓ (0.20), FPR ↓ (0.08)
   f, 65-69; Support:    2 - Reasons: TPR ↓ (0.25), FPR ↓ (0.00)
   m, 50-54; Support:    7 - Reasons: TPR ↓ (0.46), FPR ↓ (0.04)
+no support:
+  -
 
 === Grouping: fitzpatrick, sex, ageGroup ===
 macro-TPR avg: 0.35654320987654325; macro-FPR avg: 0.1025925925925926
@@ -5056,3 +5062,7 @@ unclear:
   6, m, 05-09; Support:   20 - Reasons: TPR ↑ (0.50), FPR ↑ (0.14)
   6, m, 20-24; Support:    1 - Reasons: TPR ↓ (0.25), FPR ↓ (0.00)
   6, m, 35-39; Support:    7 - Reasons: TPR ↑ (0.62), FPR ↑ (0.12)
+no support:
+  -
+
+Process finished with exit code 0

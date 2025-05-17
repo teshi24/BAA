@@ -93,7 +93,8 @@ class EvaluationTrainer(ABC, object):
         cache_file = (
             self.cache_path / f"{dataset_name.value}_{self.experiment_name}.pickle"
         )
-        if cache_file.exists():
+#        if cache_file.exists():
+        if False:
             print(f"Found cached file loading: {cache_file}")
             with open(cache_file, "rb") as file:
                 cached_dict = pickle.load(file)
