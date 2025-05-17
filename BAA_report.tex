@@ -481,7 +481,7 @@
 			
 			\todo{add the 5-10 most important biases here}
 			
-			\todo{@proofreaders: wie findet ihr die struktur im Anhang für die detailierten Beschreibung? (wirklich nur grob die struktur anschauen, den text muss ich gemäss eurem feedback noch schärfen. Wenn ihr eine bessere Strukturidee habt bitte melden. Und hier im Text, soll ich einfach kurze fliesstext zusammenfassung machen für die wichtigsten biases? Ich soll 5-10 erwähnen gemäss experte)}
+			\todo{@proofreaders: wie findet ihr die struktur im Anhang für die detailierten Beschreibungen? (wirklich nur grob die struktur anschauen, den text muss ich gemäss eurem feedback noch schärfen. Wenn ihr eine bessere Strukturidee habt bitte melden. Und hier im Text, soll ich einfach kurze fliesstext zusammenfassung machen für die wichtigsten biases? Ich soll 5-10 erwähnen gemäss experte)}
 			
 			
 			\subsection{Sensitive Features}
@@ -629,134 +629,74 @@
 			\end{table}
 			\end{comment}
 			
-		\section{Fairness}
-		\todo{continue HERE}
-		The data and even the algorithm itself can hold biases, which affects the final outcome and potential lead to unfair decisions. In decision-making, fairness means "absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics" - or in other terms, a fair algorithms decisions are not scewed toward a group of people \autocite{Mehrabi_2021}. 
-		\todo{Do I need to say more about this? If so, add infos from section Discrimination vs. Biases}
-		
-		\rawcitationusedstart
-		\begin{itemize}
-			\item The Cambridge English dictionary defines bias as “the action of supporting or opposing a particular person or thing in an unfair way as a result of allowing personal opinions to influence your judgement.”1 However, statistical bias is defined as any systematic error in the determination of the association between exposure and disease.2 \autocite{Chakraborty_2024}
-			\item These biased predictions stem from the hidden or neglected biases in data or algorithms \autocite{Mehrabi_2021}.
-			\item There are clear benefits to algorithmic decision-making; unlike people, machines do not become tired or bored [45, 119], and can take into account orders of magnitude more factors than people can. However, like people, algorithms are vulnerable to biases that render their decisions “unfair” [6, 121]. In the context of decision-making, fairness is \textit{the absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics}. Thus, an unfair algorithm is one whose decisions are skewed toward a particular group of people. \autocite{Mehrabi_2021}.
-		\end{itemize}
-		\rawcitationusedend
+		\section{Fairness Metrics}
+		This chapter introduces the concept of fairness in \gls{ML}, as fairness is a way to detect whether and what biases exist in a model. As there is no universally accepted definition of fairness, various fairness metrics have been proposed in the literature, each based on different assumptions and goals.
+		This chapter focuses on those fairness metrics which are able to evaluate demographic fairness and are applicable to the dermatology context of PASSION.	
+		Those are mainly \textit{Equalized Odds} by \textcite{M63_Hardt_2016} and \textit{subgroup fairness} by \textcite{M79_Kearns_2018}.
 		
 		
-		\todo{consider to use those chapters for fairness introduction}
-		\subsection{Bias Detection and Fairness Assessment}
-		Detecting bias in datasets and model outputs is the first step toward mitigation. However, bias detection alone is not sufficient. It is also necessary to evaluate the fairness of the model’s predictions. This should be done across different demographic groups to ensure equitably performance in real-world applications.
+		\subsection{Definition of Fairness in \gls{ML}}
 		
+		In research, there is currently no agreement in regards of a fairness definition in \gls{ML}. Broadly, fairness \textit{is the absence of bias towards individuals or groups in a decision making context}. To assess fairness of \gls{AI} models, multiple fairness metrics have been proposed in the literature, each reflecting different interpretations of fairness. The choice of metric largely depends on the specific use case of the application \autocite{Mehrabi_2021}.
 		
-		As \textcite{Mehrabi_2021} states, "in order to be able to fight against discrimination and achieve fairness, one should first define fairness". However, research is no clear agreement for a single definition of fairness. Further, the fairness definitions are also prone to biases since different cultures and preferences influence the perception of fairness. In spite of those challenges, fairness can broadly be defined as absence of bias in decision making. While fairness is very desirable, it "can be surprisingly difficult to achieve in practice" \autocite{Mehrabi_2021}.
-		This chapter summarizes the existing fairness methods, which aim to achieve fairness. The fairness methods were listed by \textcite{Mehrabi_2021}.
+		\subsection{Fairness Metrics}
 		
-		\subsection{Fairness Definitions}
+			\textcite{Mehrabi_2021} summarized the fairness metrics and grouped them into the categories \textit{group fairness}, \textit{subgroup fairness} and \textit{individual fairness} \autocite{Mehrabi_2021}, depending on the main mechanics of the metrics. They are listed in \autoref{tab:fairness_definitions}.
+		
 			\begin{table}[H]
-				\centering
-				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
-						\toprule
-						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
-						Conditional Statistical Parity    & X\tnote{1,3,10} &   \\
-						Demographic/Statistical Parity  & X\tnote{1,3,4,5} &   \\
-						Equalized Odds     & X\tnote{1,2,3} &   \\
-						Equal Opportunity& X\tnote{1,2,3} &   \\
-						Treatment Equality & X\tnote{1,7} &   \\
-						Test Fairness         & X\tnote{1,3,8} &   \\
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Subgroup Fairness}} \\ 
-						Subgroup Fairness    & X\tnote{1,11,12} &   \\
-						%\midrule
-						\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
-						Counterfactual Fairness     & X\tnote{1,5} &   \\
-						Fairness Through Awareness     & X\tnote{1,4,5} &   \\
-						Fairness Through Unawareness        & X\tnote{1,5,6} &   \\
-						%\midrule
-						\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
-						Fairness in Relational Domains& X\tnote{1,9} &   \\
-						\bottomrule
-					\end{tabularx}
-					\begin{tablenotes}
-						\footnotesize
-						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[1] \autocite{Mehrabi_2021}
-							\item[2] \autocite{M63_Hardt_2016}
-							\item[3] \autocite{M149_Verma_2018}
-							\item[4] \autocite{M48_Dwork_2012}
-						\end{minipage}%
-						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[5] \autocite{M87_Kusner_2017}
-							\item[6] \autocite{M61_Grgic-Hlaca_2016}
-							\item[7] \autocite{M15_Berk_2017}
-							\item[8] \autocite{M34_Chouldechova_2017}
-						\end{minipage}%
-						\begin{minipage}{0.33\textwidth}\raggedright
-							\item[9] \autocite{M50_Farnadi_2018}
-							\item[10] \autocite{M41_Corbett-Davies_2017}
-							\item[11] \autocite{M79_Kearns_2018}
-							\item[12] \autocite{M80_Kearns_2019}
-						\end{minipage}%
-					\end{tablenotes}
-				\end{threeparttable}
-				\caption{Fairness definitions as stated in \textcite{Mehrabi_2021}}
-				\label{tab:fairness_definitions_extensive sources}
-			\end{table}
-			
-			\todo{deside which version should be used}
-			
-				\begin{table}[H]
-				\centering
-				\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
-						\toprule
-						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
-						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
-						Conditional Statistical Parity    & X &   \\
-						Demographic/Statistical Parity  & X & \\
-						Equal Opportunity& X &   \\
-						Treatment Equality & X &   \\
-						Test Fairness         & X &   \\
-						Equalized Odds     & X &   \\
-						%	\midrule
-						\multicolumn{3}{l}{\textbf{Subgroup Fairness}} \\ 
-						Subgroup Fairness    & X &   \\
-						%\midrule
-						\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
-						Counterfactual Fairness     & X &   \\
-						Fairness Through Awareness     & X &   \\
-						Fairness Through Unawareness        & X &   \\
-						%\midrule
-						\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
-						Fairness in Relational Domains& X &   \\
-						\bottomrule
-					\end{tabularx}
-				\end{threeparttable}
-				\caption{Fairness definitions as summarized in \textcite{Mehrabi_2021}}
-				\label{tab:fairness_definitions}
-			\end{table}
-			
-			\todo{potential bias in \autocite{M80_Kearns_2019} in this bc same author of the algorithm tested it}
-			
-			As shown in the \autoref{tab:fairness_definitions}, there are mainly three categories for fairness definitions. According to \textcite{Mehrabi_2021}, fairness can be achieved on a group level, subgroup level or even for a individual. Group fairness is about treating different groups as equal. Individual fairness tries to achieve similar predictions for similar individuals. Subgroup fairness tries to incorporate the best properties of the other two levels to improve the outcome in larger collections of subgroups \autocite{Mehrabi_2021}. 
-			
-			The specific fairness definitions can be found in \textcite{Mehrabi_2021}. In general, they try to get similar probability outcomes for 'unprotected' or 'protected' groups. This list summarizes how they work:
-			\begin{itemize}
-				\item \textbf{Demographic/Statistical Parity} and \textbf{Conditional Statistical Parity}: The parity checks that likelihood of a positive outcome is the same for both protected groups \autocite{Mehrabi_2021}. The conditional version adds legitimate factors before calculating the statistical parity \autocite{M41_Corbett-Davies_2017}.
-				\item \textbf{Equalized Odds}, \textbf{Test Fairness}. and \textbf{Equal Opportunity}: All those methods protected and unprotected groups should have equal rates for a positive outcome when belonging to a positive class, essentially comparing the true positive rates. \textbf{Equalized Odds} is a more restrictive since it also checks for similar false positive rates \autocites{M149_Verma_2018}{Mehrabi_2021}. \todo{add M48 and M87 for demographic parity}
-				\item \textbf{Treatment Equality}: It compares the false negative and false positive rates \autocite{M151_Wang_2014}
-				\item \textbf{Counterfactual Fairness}: This approach is different from the others as it is testing the same individual in both different demographic groups with the intention that the outcome is the same \autocites{M87_Kusner_2017}{Mehrabi_2021}. It differs from to the first group of fairness metrics since it does not compare the likelihoods of the outcomes for any person in a group, but checking how the exact same individual would be treated if it was in the other group.
-				\item \textbf{Fairness Through Awareness}: This method compares similar individuals based on similarity metrics to get a similar outcome \autocite{Mehrabi_2021}
-				\item \textbf{Fairness Through Unawareness}: This measure is ensuring that protected attributes are not explicitly used in desicion-making \autocite{M61_Grgic-Hlaca_2016, M87_Kusner_2017}.
-				\item \textbf{Fairness in Relational Domains}: This notion also takes into consideration relational structures between individuals \autocite{M50_Farnadi_2018}.
-			\end{itemize}
-			
-			\subsection{Challenges of Fairness Definitions}
+			\centering
+			\begin{threeparttable}
+				\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
+					\toprule
+					\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+					& \textbf{\gls{ML}} & \textbf{Dermatology} \\
+					%	\midrule
+					\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
+					Conditional Statistical Parity    & X &   \\
+					Demographic/Statistical Parity  & X & \\
+					Equal Opportunity& X &   \\
+					Treatment Equality & X &   \\
+					Test Fairness         & X &   \\
+					Equalized Odds     & X &   \\
+					%	\midrule
+					\multicolumn{3}{l}{\textbf{Subgroup Fairness}} \\ 
+					Subgroup Fairness    & X &   \\
+					%\midrule
+					\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
+					Counterfactual Fairness     & X &   \\
+					Fairness Through Awareness     & X &   \\
+					Fairness Through Unawareness        & X &   \\
+					%\midrule
+					\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
+					Fairness in Relational Domains& X &   \\
+					\bottomrule
+				\end{tabularx}
+			\end{threeparttable}
+			\caption{Fairness definitions based on \textcite{Mehrabi_2021}}
+			\label{tab:fairness_definitions}
+		\end{table}
+		
+		In the context of PASSION, the fairness metrics which consider both true positives and false positives are particularly relevant. A \textit{true positive} indicates that a disease was detected correctly, while a \textit{false positive} corresponds to a diagnosis of a disease that is not actually present. Including false positives helps to identify cases where individuals from certain demographic groups may be unfairly more likely to receive unjustified diagnoses.
+		
+		From the listed group fairness metrics, there is only one that considers true and false positives, which should therefore be used for the evaluation of PASSION. It is \bolditalic{Equalized Odds}, as introduced by \textcite{M63_Hardt_2016}: "\textit{A predictor $\hat{Y}$ satisfies equalized odds with respect to protected attribute $A$ and outcome $Y$, if $\hat{Y}$ and $A$ are independent conditional on $Y$."} \[
+		P(\hat{Y} = 1 \mid A = 0, Y = y) = P(\hat{Y} = 1 \mid A = 1, Y = y), \quad \forall y \in \{0, 1\}
+		\]
+		In other words, the probability of predicting a positive outcome should be the same across protected and unprotected groups, given the true label $Y$. This ensures that both \gls{TPR} and \gls{FPR} are equal across different demographic groups. If these rates are the same, the model satisfies Equalized Odds, and fairness is achieved. Since Equalized Odds compares conditional probability distributions across groups, it is a group fairness metrics.
+		
+		In regards of individual fairness in context of PASSION, it is not clear, whether the fairness metrics would be feasible to use, due to the specific dermatology use case. Certain metrics propose to change attributes which is not feasible for the skin type which is passed to the model implicitly through the picture. Therefore, this thesis focuses on the group fairness metrics for now.
+		
+		The mechanics of the other fairness metrics are described broadly in the appendix \autoref{app:fairnessMetrics}.
+		
+		\subsection{Limitations of Group Fairness}
+		
+		Despite its usefulness, Equalized Odds and similar group fairness metrics have limitations. These metrics can hide inequalities that exist within more specific subgroups. For example, a model might appear fair when assessed across broad groups such as age or skin type but still exhibit substantial disparities within subgroups, such as young individuals with darker skin tones \autocites{M79_Kearns_2018}{M80_Kearns_2019}.
+		
+		\todo{add imgs}
+		
+		To address this issue, \textit{subgroup fairness} metrics have been proposed. These metrics extend the idea of group fairness by explicitly evaluating fairness also on the subgroups. This ensures that fairness assessments do not overlook hidden biases that could affect smaller populations \autocites{M79_Kearns_2018}{M80_Kearns_2019}.
+		
+		Given the demographic focus of this study and the composition of the PASSION dataset, subgroup fairness is particularly important. Therefore, this work aims to incorporate equalized odds on subgroups as a core metric for evaluation, to incorporate the subgroup fairness.
+	
 			
 			
 		\section{Mitigation Methods}
@@ -879,6 +819,8 @@
 			\subsection{Mitigation Methods Overview}
 				\todo{write definitions of pre-in and post-processing, see Methods for fair machine learning below [43, 11, 14]}
 
+
+				\todo{add stratified split}
 				\todo{double check and futher improve groups}
 				\begin{table}[H]
 				\centering
@@ -1461,10 +1403,134 @@
 			no implementation of subgroup fairness found --> calc eq odds for subgroups
 			
 			
-			The results in the PASSION results where reproduced by 
-			After adapting the data linkage in the PASSION evaluation code, the results where available whe in the PASSION evaluation code. 
-		\paragraph{Evaluation and Validation}
+			The results in the PASSION results where reproducable only on the whole model level, but not for the groups. There was no subgroup analysis availbale.
+			After adapting the data linkage in the PASSION evaluation code, the results where available when in the PASSION evaluation code. 
 			
+			
+			The smaller model performance was used for the baseline. The Fairness results differ a bit from the bigger model, but it can still serve as a baseline.
+			\todo{add somewhere that only the conditions classifier is used in this thesis, the impetig classifier should also be checked. (code is generalized, but must be tested)}
+		\paragraph{Evaluation and Validation}
+			A first analysis shows issues regarding xy in the big model and y in the small model.
+			
+			There are some differences in the metrics per class based on the model size. To investigate each class individually would require more effort which should be done later. The provided scripts can be used to generate the required data. \todo{add specific info in the attachement}
+			Overall, the balanced accuraccy for the small model = 0.69, big model = 0.7
+			
+							small	big
+			Macro F1-Score: 0.69	0.71
+			Precision: 		0.68	0.71
+			Sensitivity:	0.69	0.71
+			
+			FST - 5 privileged in both
+			6 underprivileged in both
+			4,3 priviledged in big, avg or slightly underpriviledged in small
+			
+			Sex - no bias in small model, big model biased towards women; TPR ↑ (0.73), FPR ~ (0.09), m TPR ↓ (0.69), FPR ~ (0.10)
+			
+			Age - only slight differences between the models
+			0-14; 25-29 priviledged
+			20-24; 30-69 underpriviledged
+			70+ not represented in test data	
+			
+			FP and sex - big model: FST 3 only men avg, f priviledged; FST 6 - men and women underprivileged
+			small model: 3m priviledged, 3f underprivileged, 4 and 6 m underprivileged, f privileged
+			
+			
+			
+			here only the big model analyzed
+			FP and age - more or less the same as age alone indipendent of skin type, besides skin type 6 which more often drags them down
+			35-54 is more often well of with Skin type 3-5 though
+			
+			
+			Age and Gender - f00-34 privileged! others avg / slightly higher FPR (small model privileged f00-34, m00-15;m25-29, m35-39)
+			m 15-59 clearly underprivileged (same in small model)
+			
+			
+			FP, age, gender, often only low support found, which puts more record in the unclear section.  
+			
+			
+			country: Guniea much better on small model
+			bacc 0.64, macro prec 0.63, sensivity: 0.65, F1 0.64
+			big:
+			bacc 0.58, macro prec 0.56, sensivity: 0.58, F1 0.56
+						
+			madagascar, bigger slightly better
+			malawi bigger better
+			tanzania exactly the same
+			
+			Tanzania in both majorly underprivileged
+			Malawi majorly privileged
+			
+			FP and country: small model: Madagascar underprivileged in 4,6; 5 overprivileged;  
+			Tanzania, only 4 and 5 FSTs, but both perform badly
+			Malawi performs better as there are no records darker skin types
+			Guinea and Skin Type 6 perform better than others
+			
+			big model: Madagascar FST 6 performs badly as well as tanzania; Guinea 6 is a bit worse than in the small model, but still quite good
+						
+			
+			country and age: malawi is always privileged, tanzania under privileged
+			madagascar and guinea more or less show the same results as gender alone
+			
+			
+			compare from === Grouping: fitzpatrick, sex, country ===
+			
+			
+			for certain subgroups, also malawi was underperforming.
+			
+			--> conclusion: sex, skin type and country hold the most clear biases. Since the aim of the dataset is to reduce bias on darker FSTs, especially the skin type issues are crucial - but they could also be linked to the country.
+			Limitations: not all subgroup could be investigated in depht, especially the cross categories regarding age.
+			
+			
+			% C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\small_model
+			% C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\big_model
+			
+			
+			
+			
+			
+	\subsection{Stratified Split}
+		\paragraph{Methodology}
+		
+		\paragraph{Execution}
+		1. evaluating predifined dataset split regarding stratification
+		
+		
+			
+		since country, fitzpatrick and sex has been identified to have biased outcomes, they have to be checked most thoroughly 
+		
+		2. 
+		
+		\paragraph{Evaluation and Validation}
+		1. from the data analysis, \todo{add to appendix} the data is pretty well distributed for most attributes. %C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\analyzing_dataset_split	
+		Basically equal: Country, conditions\_PASSION
+		Almost equal: most ageGroup and impedig are 
+		Bigger differences: fitzpatrick, sex, some ageGroups
+		sex: contradictory to the bias towards female, the dataset is skewed to male, with even more males which was trained on. Therefore, this data skew might not be the source of the bias in the model.. 
+		
+		train: f: 539 (40.74\%) m: 784 (59.26\%)
+		test: f: 152 (46.06\%) m: 178 (53.94\%)
+		overall: f: 691 (41.8\%) m: 962 (58.2\%)
+		
+		
+		FST types 4 and 5 are overrepresented in training, which could cause the biases on the big model.
+		
+		
+		What I should do:
+		1 random split, 1 stratified on condition and country (what probably was the split from passion), 1 stratified with FST condition country, 1 stratified with FST condition country sex 
+		
+		
+		1. change dataset, so that those splits are reflected in validation data
+		2. train models with no folds on the train and validation (simply use other split file in the begining)
+		3. while training is running investigate how fold splits the data
+		
+		
+		
+	
+		for the country, the distribution is already almost the same for all splits, with Tanzania clearly underrepresented. On this variable, stratified splitting should be kept for sure. More data should be captured from Tanzania - it could be differences with the data quality which lead to different results.
+		
+		
+		
+		
 		
 	\chapter{Execution}
 		\baaCriteria{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
@@ -1486,7 +1552,8 @@
 
 
 
-	\chapter{\glossaryname \todo{probably remove this}}
+	\todo{probably remove this}
+	%\chapter{\glossaryname \todo{probably remove this}}
 		%\printglossary[title={}]
 	%\todo{Add to ToC of content somehow and fix chapter numbers}
 	%\listoffigures
@@ -1506,15 +1573,68 @@
 		%	APPENDIX
 		%----------------------------------------------------------------------------------------
 		\appendix
+		\begin{appendices}
 		\chapter{Appendix}
 			\baaCriteria{Projektspezifisch können weitere Dokumentationsteile angefügt werden wie: Aufgabenstellung, Projektmanagement-Plan/Bericht, Testplan/Testbericht, Bedienungsanleitungen, Details zu Umfragen, detaillierte Anforderungslisten, Referenzen auf projektspezifische Daten in externen Entwicklungs- und Datenverwaltungstools etc.}
 			\todo{fix appendices chapters, wtf}
 		
 		
 		
-		\begin{appendices}
+	
 			\input{appendix_bias_list.tex}
+			
+				
+			
+			\chapter{Fairness Metrics}\label{app:fairnessMetrics}
+			 According to \textcite{Mehrabi_2021}, fairness can be achieved on a group level, subgroup level or even for a individual. Group fairness is about treating different groups as equal. Individual fairness tries to achieve similar predictions for similar individuals. Subgroup fairness tries to incorporate the best properties of the other two levels to improve the outcome in larger collections of subgroups \autocite{Mehrabi_2021}. 
+			 
+			 \autoref{tab:fairness_definitions_appendix} shows the list of fairness definitions, structured in those categories.
+			\begin{table}[H]
+				\centering
+				\begin{threeparttable}
+					\begin{tabularx}{\textwidth}{>{\tblWidthDescription}X|>{\tblWidthContext}X|>{\tblWidthContext}X}
+						\toprule
+						\textbf{Fairness Definitions} & \multicolumn{2}{c}{\textbf{Mentioned in Context of}} \\
+						& \textbf{\gls{ML}} & \textbf{Dermatology} \\
+						%	\midrule
+						\multicolumn{3}{l}{\textbf{Group Fairness}} \\ 
+						Conditional Statistical Parity    & X &   \\
+						Demographic/Statistical Parity  & X & \\
+						Equal Opportunity& X &   \\
+						Treatment Equality & X &   \\
+						Test Fairness         & X &   \\
+						Equalized Odds     & X &   \\
+						%	\midrule
+						\multicolumn{3}{l}{\textbf{Subgroup Fairness}} \\ 
+						Subgroup Fairness    & X &   \\
+						%\midrule
+						\multicolumn{3}{l}{\textbf{Individual Fairness}} \\ 
+						Counterfactual Fairness     & X &   \\
+						Fairness Through Awareness     & X &   \\
+						Fairness Through Unawareness        & X &   \\
+						%\midrule
+						\multicolumn{3}{l}{\textbf{Not Categorized}} \\ 
+						Fairness in Relational Domains& X &   \\
+						\bottomrule
+					\end{tabularx}
+				\end{threeparttable}
+				\caption{Fairness definitions based on \textcite{Mehrabi_2021}}
+				\label{tab:fairness_definitions_appendix}
+			\end{table}
+			
+			The specific fairness definitions can be found in \textcite{Mehrabi_2021}. In general, they try to get similar probability outcomes for 'unprotected' or 'protected' groups. This list summarizes how they work:
+			\begin{itemize}
+				\item \textbf{Demographic/Statistical Parity} and \textbf{Conditional Statistical Parity}: The parity checks that likelihood of a positive outcome is the same for both protected groups \autocites{M48_Dwork_2012}{Mehrabi_2021}. The conditional version adds legitimate factors before calculating the statistical parity \autocite{M41_Corbett-Davies_2017}.
+				\item \textbf{Equalized Odds}, \textbf{Test Fairness}. and \textbf{Equal Opportunity}: All those methods protected and unprotected groups should have equal rates for a positive outcome when belonging to a positive class, essentially comparing the true positive rates. \textbf{Equalized Odds} is a more restrictive since it also checks for similar false positive rates \autocites{M149_Verma_2018}{Mehrabi_2021}.
+				\item \textbf{Treatment Equality}: It compares the false negative and false positive rates \autocite{M151_Wang_2014}
+				\item \textbf{Counterfactual Fairness}: This approach is different from the others as it is testing the same individual in both different demographic groups with the intention that the outcome is the same \autocites{M87_Kusner_2017}{Mehrabi_2021}. It differs from to the first group of fairness metrics since it does not compare the likelihoods of the outcomes for any person in a group, but checking how the exact same individual would be treated if it was in the other group.
+				\item \textbf{Fairness Through Awareness}: This method compares similar individuals based on similarity metrics to get a similar outcome \autocites{M48_Dwork_2012}{Mehrabi_2021}
+				\item \textbf{Fairness Through Unawareness}: This measure is ensuring that protected attributes are not explicitly used in decision-making \autocite{M61_Grgic-Hlaca_2016, M87_Kusner_2017}.
+				\item \textbf{Fairness in Relational Domains}: This notion also takes into consideration relational structures between individuals \autocite{M50_Farnadi_2018}.
+			\end{itemize}
+			
 		\end{appendices}
+		
 		
 		
 		
