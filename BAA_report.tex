@@ -784,37 +784,6 @@
 			\end{itemize}
 			\rawcitationend
 					
-			\rawcitationstart
-			\subsection{Fairness Extensive Sources}
-			\paragraph{Algorithmic Fairness}
-			\begin{itemize}
-				\rawcitationusedstart	
-				\item in order to be able to fight against discrimination and achieve fairness, one should first define fairness. \autocite{Mehrabi_2021}
-				\item The fact that no universal definition of fairness exists shows the difficulty of solving this problem [138]. Different preferences and outlooks in different cultures lend a preference to different ways of looking at fairness, which makes it harder to come up with just a single definition that is acceptable to everyone in a situation. there is still no clear agreement on which constraints are the most appropriate for those problems. \autocite{Mehrabi_2021}
-				\item Broadly, fairness is the absence of any prejudice or favoritism towards an individual or a group based on their intrinsic or acquired traits in the context of decision-making [139]. Even though fairness is an incredibly desirable quality in society, it can be surprisingly difficult to achieve in practice. \autocite{Mehrabi_2021}
-				\rawcitationusedend
-				\item Here we will reiterate and provide some of the most widely used definitions, along with their explanations inspired from \autocite{M149_Verma_2018}.\autocite{Mehrabi_2021}
-				\rawcitationusedstart
-				\item Definitions on page 12, 13, 14 \autocite{Mehrabi_2021}
-				\begin{itemize}
-					\item Equalized Odds (TP and FP rate should be the same for individuals in different sub groups) \autocite{Mehrabi_2021}
-					\item Equal Opportunity (TP rate should be the same) \autocite{Mehrabi_2021}
-					\item Demographic Parity / Statistical Parity (likelihood of positive outcome the same regardless of protected group) \autocite{Mehrabi_2021}
-					\item Fairness Through Awareness (similar predictions to similar individuals (similarity = inverse distance)) \autocite{Mehrabi_2021}
-					\item Fairness Through Unawareness (no protected attributes explicitly used in decision-making process) \autocite{Mehrabi_2021}
-					\item Treatment Equality (Ration FN and FP same for both protected group categories) \autocite{Mehrabi_2021}
-					\item Test Fairness (for predicted probability scores, people in both groups must have equal probability of TP) \autocite{Mehrabi_2021}
-					\item Counterfactual Fairness (same outcome in actual world and counterfactual world where the individual belonged to a different demographic group) \autocite{Mehrabi_2021}
-					\item Fairness in Relational Domains (“A notion of fairness that is able to capture the relational structure in a domain—not only by taking attributes of individuals into consideration but by taking into account the social, organizational, and other connections between individuals” \autocite{M50_Farnadi_2018}) \autocite{Mehrabi_2021} probably not relevant since not relational
-					\item Conditional Statistical Parity (people in both groups have equal possibilities of being assigned to a positive outcome given a set of legitimate factors) \autocite{Mehrabi_2021}
-					\item Subgroup fairness: Subgroup fairness intends to obtain the best properties of the group and individual notions of fairness. It is different than these notions but uses them in order to obtain better outcomes. It picks a group fairness constraint like equalizing false positive and asks whether this constraint holds over a large collection of subgroups
-					\rawcitationusedend
-					\autocite{M79_Kearns_2018}\autocite{M80_Kearns_2019}\autocite{Mehrabi_2021}
-					\item it is impossible to satisfy some of the fairness constraints at once except in highly constrained special cases. In [83], the authors show the inherent incompatibility of two conditions: calibration and balancing the positive and negative classes. These cannot be satisfied simultaneously with each other unless under certain constraints; therefore, it is important to take the context and application in which fairness definitions need to be used into consideration and use them accordingly [141]\autocite{Mehrabi_2021}
-					\item Another important aspect to consider is time and temporal analysis of the impacts that these definitions may have on individuals or groups. In [95] authors show that current fairness definitions are not always helpful and do not promote improvement for sensitive groups—and can actually be harmful when analyzed over time in some cases. They also show that measurement errors can also act in favor of these fairness definitions; therefore, they show how temporal modeling and measurement are important in evaluation of fairness criteria and introduce a new range of trade-offs and challenges toward this direction. It is also important to pay attention to the sources of bias and their types when trying to solve fairness-related questions. \autocite{Mehrabi_2021}
-				\end{itemize}
-			\end{itemize}
-			\rawcitationend
 			
 			\subsection{Mitigation Methods Overview}
 				\todo{write definitions of pre-in and post-processing, see Methods for fair machine learning below [43, 11, 14]}
