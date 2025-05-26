@@ -1,0 +1,113 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{amssymb}  % for checkmarks and crosses
+\usepackage{xcolor}   % for coloring the symbols
+\usepackage{pifont}   % for coloring the symbols
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+
+\newcommand{\done}{\textcolor{green}{\ding{52}}}
+\newcommand{\ongoing}{\textcolor{orange}{\ding{45}}}
+\newcommand{\notstarted}{\textcolor{red}{\ding{56}}}
+
+
+\raggedright
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Bachelor Thesis Update}
+\chead{Nadja Stadelmann}
+\rhead{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+	
+	\renewcommand{\arraystretch}{1.5}
+	\begin{longtable}{|p{3.5cm}|>{\vspace{-\baselineskip}}p{12cm}|}
+		\hline
+		\textbf{Section} & \textbf{Details} \\
+		\hline
+		Progress Overview (inkl. Reasons for Deviations of the Plan) & \begin{itemize}[topsep=6pt]
+			\item[\done] Evaluated and fixed PASSION results reproduction issue on group level
+			\item[\done] Fixed checkpoint handling
+			\item[\ongoing] Code integration into PASSION
+			\begin{itemize}
+				\item I would need to test (and potentially fix) it also for the impetigo experiment for a proper integration
+			\end{itemize}
+			\item[\done] Ran the evaluation on the tiny model to get a proper baseline
+			\item[\done] Analyzed which biases exist in the baseline
+			\item[\ongoing] Stratified split experiment
+			 \begin{itemize}
+			 	\item[\done] Created split files using different stratified splits based on identified biases
+			 	\item[\done] Trained small models with all split files without folds
+			 	\item[\notstarted] Analyze runs, rerun with folds for the 2 best performing split files to evaluate the best split
+			 \end{itemize}
+			\item[\done] Progress on the report
+			\item[\done] Created a plan for the last 3 weeks
+			\item[\notstarted] another experiment, due to missing time
+		\end{itemize} \\
+		\hline
+		Accomplishments & \begin{itemize}[topsep=6pt]
+		\item[\done] Provided value by fixing the code
+		\item[\done] Bias analysis on tiny model baseline
+		\item[\done] First results regarding stratified split experiment ready for analysis
+		\end{itemize} \\
+		\hline
+		Risks and Measures &
+		
+		Incomplete code integration leading to loose strings at the end of the thesis
+		\begin{itemize}
+			\item Focus on finalizing the integration instead of starting new experiments
+			\item OR: officially delay the proper code integration until after the thesis
+		\end{itemize}
+		
+		Burn out
+		\begin{itemize}
+			\item Reduce external workload by taking time off from work (ongoing).
+			\item Focus on finalizing existing work.
+			\item Schedule and take explicit off time.
+		\end{itemize}
+		
+	    Deliver too less in terms of executed experiments
+		\begin{itemize}
+			\item Transparently explain the trade-offs made in regards of the quality-over-quantity approach.
+			\item Outline which further experiments could be done in the outlook.
+			\item OR: do another quick experiment
+		\end{itemize} \\
+		
+		\hline
+		Next Steps & \begin{itemize}[topsep=6pt]
+			\item See attachement
+		\end{itemize} \\
+		\hline
+		Discussion Points / Questions & \begin{itemize}[topsep=6pt]
+			\item What are the expectations for the pitch video besides that it takes 1.5 minute?
+			\item Do you expect another report for the meeting in the last week?
+		\end{itemize} \\
+		\hline
+		Additional Notes & - \\
+		\hline
+		Attachments  & \begin{itemize}[topsep=6pt]
+			\item Plan for the upcoming weeks
+		\end{itemize} \\
+		\hline
+		Protocol  & 
+		Topic
+		\begin{itemize}
+			\item 
+		\end{itemize}
+		
+		Topic
+		\begin{itemize}
+			\item 
+		\end{itemize}
+		\\
+		\hline
+	\end{longtable}
+	
+\end{document}
