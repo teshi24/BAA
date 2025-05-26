@@ -867,3 +867,77 @@
 	annotation = {Mehrabi 63
 	},
 }
+
+
+@inproceedings{Valentim_2019,
+	title = {The Impact of Data Preparation on the Fairness of Software Systems},
+	url = {https://ieeexplore.ieee.org/abstract/document/8987497},
+	doi = {10.1109/ISSRE.2019.00046},
+	abstract = {Machine learning models are widely adopted in scenarios that directly affect people. The development of software systems based on these models raises societal and legal concerns, as their decisions may lead to the unfair treatment of individuals based on attributes like race or gender. Data preparation is key in any machine learning pipeline, but its effect on fairness is yet to be studied in detail. In this paper, we evaluate how the fairness and effectiveness of the learned models are affected by the removal of the sensitive attribute, the encoding of the categorical attributes, and instance selection methods (including cross-validators and random undersampling). We used the Adult Income and the German Credit Data datasets, which are widely studied and known to have fairness concerns. We applied each data preparation technique individually to analyse the difference in predictive performance and fairness, using statistical parity difference, disparate impact, and the normalised prejudice index. The results show that fairness is affected by transformations made to the training data, particularly in imbalanced datasets. Removing the sensitive attribute is insufficient to eliminate all the unfairness in the predictions, as expected, but it is key to achieve fairer models. Additionally, the standard random undersampling with respect to the true labels is sometimes more prejudicial than performing no random undersampling.},
+	eventtitle = {2019 {IEEE} 30th International Symposium on Software Reliability Engineering ({ISSRE})},
+	pages = {391--401},
+	booktitle = {2019 {IEEE} 30th International Symposium on Software Reliability Engineering ({ISSRE})},
+	author = {Valentim, Inês and Lourenço, Nuno and Antunes, Nuno},
+	urldate = {2025-05-19},
+	date = {2019-10},
+	note = {{ISSN}: 2332-6549},
+	keywords = {Data Preparation, Fairness, Machine Learning}
+}
+
+
+@misc{Sabato_2024,
+	title = {Fairness and Unfairness in Binary and Multiclass Classification: Quantifying, Calculating, and Bounding},
+	url = {http://arxiv.org/abs/2206.03234},
+	doi = {10.48550/arXiv.2206.03234},
+	shorttitle = {Fairness and Unfairness in Binary and Multiclass Classification},
+	abstract = {We propose a new interpretable measure of unfairness, that allows providing a quantitative analysis of classifier fairness, beyond a dichotomous fair/unfair distinction. We show how this measure can be calculated when the classifier's conditional confusion matrices are known. We further propose methods for auditing classifiers for their fairness when the confusion matrices cannot be obtained or even estimated. Our approach lower-bounds the unfairness of a classifier based only on aggregate statistics, which may be provided by the owner of the classifier or collected from freely available data. We use the equalized odds criterion, which we generalize to the multiclass case. We report experiments on data sets representing diverse applications, which demonstrate the effectiveness and the wide range of possible uses of the proposed methodology. An implementation of the procedures proposed in this paper and as the code for running the experiments are provided in https://github.com/sivansabato/unfairness.},
+	number = {{arXiv}:2206.03234},
+	publisher = {{arXiv}},
+	author = {Sabato, Sivan and Treister, Eran and Yom-Tov, Elad},
+	urldate = {2025-05-23},
+	date = {2024-04-05},
+	eprinttype = {arxiv},
+	eprint = {2206.03234 [cs]},
+	keywords = {Computer Science - Computers and Society, Computer Science - Machine Learning, Statistics - Machine Learning},
+	file = {Preprint PDF:files/1006/Sabato et al. - 2024 - Fairness and Unfairness in Binary and Multiclass C.pdf:application/pdf;Snapshot:files/1005/2206.html:text/html},
+}
+
+
+@article{Nezami_2024,
+	title = {Assessing Disparities in Predictive Modeling Outcomes for College Student Success: The Impact of Imputation Techniques on Model Performance and Fairness},
+	volume = {14},
+	rights = {http://creativecommons.org/licenses/by/3.0/},
+	issn = {2227-7102},
+	url = {https://www.mdpi.com/2227-7102/14/2/136},
+	doi = {10.3390/educsci14020136},
+	shorttitle = {Assessing Disparities in Predictive Modeling Outcomes for College Student Success},
+	abstract = {The education sector has been quick to recognize the power of predictive analytics to enhance student success rates. However, there are challenges to widespread adoption, including the lack of accessibility and the potential perpetuation of inequalities. These challenges present in different stages of modeling, including data preparation, model development, and evaluation. These steps can introduce additional bias to the system if not appropriately performed. Substantial incompleteness in responses is a common problem in nationally representative education data at a large scale. This can lead to missing data and can potentially impact the representativeness and accuracy of the results. While many education-related studies address the challenges of missing data, little is known about the impact of handling missing values on the fairness of predictive outcomes in practice. In this paper, we aim to assess the disparities in predictive modeling outcomes for college student success and investigate the impact of imputation techniques on model performance and fairness using various notions. We conduct a prospective evaluation to provide a less biased estimation of future performance and fairness than an evaluation of historical data. Our comprehensive analysis of a real large-scale education dataset reveals key insights on modeling disparities and the impact of imputation techniques on the fairness of the predictive outcome under different testing scenarios. Our results indicate that imputation introduces bias if the testing set follows the historical distribution. However, if the injustice in society is addressed and, consequently, the upcoming batch of observations is equalized, the model would be less biased.},
+	pages = {136},
+	number = {2},
+	journaltitle = {Education Sciences},
+	author = {Nezami, Nazanin and Haghighat, Parian and Gándara, Denisa and Anahideh, Hadis},
+	urldate = {2025-05-23},
+	date = {2024-02},
+	langid = {english},
+	note = {Number: 2
+	Publisher: Multidisciplinary Digital Publishing Institute},
+	keywords = {education analytics, fairness of predictive outcomes, imputation, machine learning, prospective evaluation},
+	file = {Full Text PDF:files/1008/Nezami et al. - 2024 - Assessing Disparities in Predictive Modeling Outco.pdf:application/pdf},
+}
+
+
+@misc{Putzel_2022,
+	title = {Blackbox Post-Processing for Multiclass Fairness},
+	url = {http://arxiv.org/abs/2201.04461},
+	doi = {10.48550/arXiv.2201.04461},
+	abstract = {Applying standard machine learning approaches for classification can produce unequal results across different demographic groups. When then used in real-world settings, these inequities can have negative societal impacts. This has motivated the development of various approaches to fair classification with machine learning models in recent years. In this paper, we consider the problem of modifying the predictions of a blackbox machine learning classifier in order to achieve fairness in a multiclass setting. To accomplish this, we extend the 'post-processing' approach in Hardt et al. 2016, which focuses on fairness for binary classification, to the setting of fair multiclass classification. We explore when our approach produces both fair and accurate predictions through systematic synthetic experiments and also evaluate discrimination-fairness tradeoffs on several publicly available real-world application datasets. We find that overall, our approach produces minor drops in accuracy and enforces fairness when the number of individuals in the dataset is high relative to the number of classes and protected groups.},
+	number = {{arXiv}:2201.04461},
+	publisher = {{arXiv}},
+	author = {Putzel, Preston and Lee, Scott},
+	urldate = {2025-05-23},
+	date = {2022-01-12},
+	eprinttype = {arxiv},
+	eprint = {2201.04461 [cs]},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computers and Society, Computer Science - Machine Learning},
+	file = {Preprint PDF:files/1011/Putzel und Lee - 2022 - Blackbox Post-Processing for Multiclass Fairness.pdf:application/pdf;Snapshot:files/1010/2201.html:text/html},
+}
