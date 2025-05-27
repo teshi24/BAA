@@ -291,7 +291,7 @@
 			\subsection{PASSION Dataset}
 				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical information, see \autoref{tab:PASSION_metadata}. There is one record per patient and one or more corresponding images which are linked to the record through the filename. The images are taken with mobile phones, in order to train the models on a \gls{teledermatology}-like setup regarding image quality \autocite{Gottfrois2024}.
 				
-			    The data split is a predefined 80/20 stratified development-test split at patient level. This ensures reproducibility, fair comparison, while preventing information leaking \autocite{Gottfrois2024}. Stratified splitting is a method to split imbalanced datasets without changing the original class distribution within the subset. This is important to maintain the representativeness of the data, especially for minority classes \autocite{Balde_2023}. \todo{add better source for the stratified data split (and the other stuff where medium was used)}.
+			    The data split is a predefined 80/20 stratified train-test split at patient level. This ensures reproducibility, fair comparison, while preventing information leaking \autocite{Gottfrois2024}. Stratified splitting is a method to split imbalanced datasets without changing the original class distribution within the subset. This is important to maintain the representativeness of the data, especially for minority classes \autocite{Balde_2023}. \todo{add better source for the stratified data split (and the other stuff where medium was used)}.
 			    
 				Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
 				
@@ -1319,7 +1319,6 @@
 %				\end{itemize}
 %		
 %		\end{comment}	
-
 	\chapter{Methods}\label{chap:methodology}
 		\baaCriteria{Hier halten Sie fest und begründen, welches Vorgehensmodell Sie für Ihr Projekt wählen. Sie verweisen allenfalls auf die daraus entstandenen, konkreten Terminpläne mit Meilensteinen, welche z.B. unter Realisierung (Kapitel 5) oder im Anhang versorgt sind. Bei Projekten mit einer verlangten wissenschaftlichen Tiefe werden hier die geplanten Forschungsmethoden wie quantitative/qualitative Interviews, Befragungen, Beobachtungen, Feldexperiment etc. beschrieben und begründet. Warum ist in Ihrer Situation ein Interview besser als eine Umfrage? Wer soll interview werden?}
 		\baaCriteria{Die gewählten Methoden sind nachvollziehbar und begründet. Eine methodische Übersicht (Methodisches BigPicture) wurde aufgezeigt und Abgrenzungen erläutert.}
@@ -1327,7 +1326,9 @@
 		
 		This chapter describes the methodological approach and project organization used in this thesis. It outlines the selected process model, planned research methods, and relevant conditions. The focus lies on ensuring that the chosen methods are appropriate, transparent, and justified in the context of evaluating and mitigating bias in the PASSION project.
 		
-		\section{Project Approach}
+		\section{Project Management}
+		This chapter illustrates the used process model, how the progress and risk are managed and what technical constraints are available, to get a sense of the constraints and the general plan of this thesis. 
+		
 		\subsection{Process Model}
 		The project follows the waterfall model. This means the work is done sequentially and each sequence is based on the one before \autocite{Petersen_2009}. This model has been chosen for the project, since it provides a solid base for the main project while keeping the project management overhead small.
 		This project is separated in two phases:
@@ -1338,15 +1339,28 @@
 		
 		The detailed project plan is included in the appendix. \todo{add to appendix}
 		
-		\section{Detailed Methods}
+		\subsection{Progress Monitoring and Risk Management}
+		To ensure project transparency and timely delivery, bi-weekly status meetings with the advisor are scheduled. Each meeting is prepared beforehand. Discussed are:
+		\begin{itemize}
+			\item Work completed in the last period
+			\item Planned work for the next period
+			\item Current project status and comparison with planned schedule
+			\item Top three project risks and planned mitigation strategies
+		\end{itemize}
 		
-		\subsection{Literature Research}
+		Meeting protocols, including the risk reports are included in the appendix. \todo{add to appendix}
+		
+		\subsection{Technical Constraints}
+		Model training is performed on \gls{HSLU}'s \gls{gpuhub} infrastructure, while code development is carried out on a personal notebook. The code is written in Python and builds upon the existing PASSION project architecture.
+		Libraries such as \texttt{Fairlearn} are used for bias detection and mitigation. \todo{consolidate formatting - consider replacing textit with texttt or vise versa}
+		
+		
+		\section{Literature Research}
 		The literature review targets known bias types, fairness metrics, and mitigation techniques in medical \gls{AI}, with special attention to \gls{teledermatology} and demographic factors. Sources include scientific publications, surveys, and technical documentation of relevant libraries. The goal is to build a conceptual and methodological foundation for subsequent analysis.
 		
 		To ensure the thesis follows scientific standards while still being feasible, the literature review is conducted based on the pragmatic method of \textcite{Alake_2021} as suggested by my advisor. The papers are found via Google Scholar \todo{link}. First, the focus is on survey and taxonomy papers, which provide an overview over the existing research. Them, more detailed papers in the area of dermatology \gls{AI} is conducted to get more insight in the healthcare context. Such a 2-step approach has also been done by \textcite{Chen_2024}. In general, the papers are filtered by focusing on title, abstract and conclusion. Only relevant papers are read in full. \todo{cite protocol in appendix, week1}
 		
-		
-		\subsection{Contextualization and Scope Definition}
+		\section{Contextualization and Scope Definition}
 		The relevance of the literature findings is evaluated in the context of the PASSION project. This includes analyze the findings from the literature review in terms of their relevance to \gls{teledermatology} and similar healthcare applications, taking into account the available metadata in the PASSION dataset. Limitations due to dataset constraints or the available time are documented for future work.
 		
 		The relevance will be categorized into the following groups:
@@ -1361,79 +1375,64 @@
 		
 		This contextual analysis is important, as the context and application of fairness metrics and as well as the effect and therefore importance of potential biases can vary by the use case of the \gls{AI} application \autocites{Mehrabi_2021}{Barr_2025}.
 		
+		
+		\section{Reproduce PASSION Results}
+		Before starting any evaluation, the PASSION experiments must be reproduced on the \gls{gpuhub}, to ensure, that the code base and the data loading is working the same way as for the initial paper. Only then, the evaluation outcome can be used by the PASSION team.
+		
 				
-		\subsection{Fairness Assessment}
+		\section{Fairness Assessment}\label{chap:fairnessAssessment}
 		The selected fairness metrics are used to assess the output of the current PASSION model, establishing a baseline for the model's fairness. This includes subgroup performance evaluation and identification of any disparities.
 		
-		\todo{add more details?}
+		\todo{add more details? Or in explain the detailed approach with Equalized Odds in a seperate (sub-?)chapter? for sure, bring fairlearn into it}
+		
+		\begin{comment}
+			\begin{itemize}
+				\item \textbf{Quantitative Analysis:} The fairness of the PASSION model is assessed using quantitative fairness metrics such as demographic parity and equalized odds. The use of these metrics enables objective comparison before and after the application of mitigation strategies.
+				\item \textbf{Framework-Based Evaluation:} The fairness analysis and mitigation methods are implemented using existing research libraries (e.g., Fairlearn), ensuring that the approach is comparable to state-of-the-art scientific methods.
+			\end{itemize}
+			
+			Qualitative methods (e.g., interviews or surveys) are not applicable in this context, as the project focuses on technical evaluation using quantitative model performance and fairness indicators.
+		\end{comment}
 		
 		Each time after applying a mitigation method, the fairness of the updated model is assessed using the exact same procedure. This consistent evaluation is necessary to enable the comparison between the baseline and each mitigation method.
 		
 		A mitigation method is considered to have potential for improving the fairness of the PASSION project of it results in a significantly higher fairness than the baseline.
 		
-		\subsubsection{Limitation}
+		\subsection{Limitation}
 			This method can only provide an initial indication of the potential effectiveness of a mitigation method. To determine whether a mitigation method is scientifically beneficial, it must be tested more systematically. Ideally, each mitigation method should be applied multiple times using different seeds. In the best case, the baseline should also be established multiple times using the same set of seeds. This would allow for a statistical significant evaluation of the results. \todo{cite the paper which mentioned that it executed the scripts 30 times with different seeds}
 			
 			Due to technical limitations and time constraints, this was unfortunately not feasible to do during this thesis. It is advice that the PASSION team executes the experiments further times using the provided scripts, in order to get a more established insight.
-
-
-		\subsection{Reproduce PASSION Results}
-		Before starting any evaluation, the PASSION experiments must be reproduced on the \gls{gpuhub}, as to ensure, that the code base and the data loading is working the same way as for the initial paper. Only then, the evaluation outcome can be used by the PASSION team. 
 		
-		\todo{continue here}
+		\section{Mitigation Method Selection and Evaluation} \todo{consider to split chapter in mitigation method stuff and data split setup}
+		The PASSION model uses a predefined train-test split. To prevent test set leakage and overfitting while applying mitigation methods, the training data is further divided into a training and a validation set. 
 		
-		\subsection{Mitigation and Evaluation}
-		Selected bias mitigation strategies will be applied (e.g., reweighting, post-processing). Their effect on fairness and model performance is then evaluated relative to the established baseline.
+		If a mitigation method can be applied in multiple ways (e.g., with different parameters, configurations, or data splits), all these variants are evaluated using the train-validation split. The variant that performs best on the validation set is then used to evaluate the effectiveness of the mitigation method on the original test set.
 		
-		\begin{itemize}
-			\item \textbf{Quantitative Analysis:} The fairness of the PASSION model is assessed using quantitative fairness metrics such as demographic parity and equalized odds. The use of these metrics enables objective comparison before and after the application of mitigation strategies.
-			\item \textbf{Framework-Based Evaluation:} The fairness analysis and mitigation methods are implemented using existing research libraries (e.g., Fairlearn), ensuring that the approach is comparable to state-of-the-art scientific methods.
-		\end{itemize}
+		This approach ensures that the final test results are comparable across different methods, while keeping the selection process independent of the test data. It follows standard machine learning methodology to prevent overfitting to the test set.\todo{cite AI lectures or textbook, e.g., Goodfellow et al., 2016
+		Goodfellow, I., Bengio, Y., Courville, A. (2016). Deep Learning. MIT Press.
+		Or a standard practice guideline like:
+		Varma, S., Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.}
 		
-		Qualitative methods (e.g., interviews or surveys) are not applicable in this context, as the project focuses on technical evaluation using quantitative model performance and fairness indicators.
+		Selected bias mitigation strategies are applied to this setup individually, so that the impact on the fairness can be clearly assigned to the tested mitigation strategy. The impact is evaluated relative to the established baseline as described in \linkchap{chap:fairnessAssessment}. \todo{ensure to also compare model performance - if you did it, also mention here!}
 		
-		
-		\section{Framework Conditions}
-		\subsection{Technical Environment}
-		Model training is performed on HSLU's GPUhub infrastructure, while code development is carried out on the student’s personal notebook. The code is written in Python and builds upon the existing PASSION project architecture. Libraries such as \texttt{Fairlearn} are used for bias detection and mitigation.
-		
-		\todo{move this chapter to the project approach}
-		\subsection{Progress Monitoring and Risk Management}
-		To ensure project transparency and timely delivery, bi-weekly status meetings with the advisor are scheduled. Each meeting is prepared as follows:
-		
-		\begin{itemize}
-			\item One day before the meeting, the student submits a one-page summary covering:
-			\begin{itemize}
-				\item Work completed in the last period
-				\item Planned work for the next period
-				\item Current project status and comparison with planned schedule
-				\item Top three project risks and planned mitigation strategies
-			\end{itemize}
-			\item For the meeting itself, a short slide presentation is prepared to elaborate on the above points.
-		\end{itemize}
-		
-		Meeting protocols and risk reports are included in the appendix.
+	\chapter{Execution}
+		\baaCriteria{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
+		\baaCriteria{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
 		
 		
-		\todo{cpt ends here}
+	\chapter{Evaluation and Validation}
+		\baaCriteria{Auswertung und Interpretation der Ergebnisse. Nachweis, dass die Ziele erreicht wurden, oder warum	welche nicht erreicht wurden.}
+		\baaCriteria{Die Ziele / Forschungsfragen sind dem Umfang der Arbeit entsprechend sehr klar abgegrenzt; sie sind präzise, überprüfbar und nach den Standards der Zielformulierung definiert. Die Zielerreichung wurde systematisch und korrekt validiert.}
+		\baaCriteria{Die Herleitung und Bedeutung der Ergebnisse, mögliche Varianten, Gütekriterien und eine Validierung allgemein werden nachvollziehbar diskutiert}
 		
-		\section{Project Management}
-		
-		
-		
-		\section{Literature Review}
-		A literature review will be conducted to get an overview of what biases, fairness metrics and mitigation strategies are known in medical \gls{AI}.
-			
-		\section{Contextualization and Scope Definition}
-		The findings' relevance for PASSION's \gls{teledermatology} context will be evaluated. Based on this, relevant types of bias, applicable fairness metrics and mitigation methods will be selected. Aspects not feasible to address within the scope of this thesis will documented for future work.
-			
-		\section{Baseline Fairness Assessment}
-		The current PASSION model will be evaluated using the selected fairness metrics. This will provide a baseline for comparison after mitigation methods are applied.
-			
-		\section{Mitigation and Evaluation}
-		Selected mitigation strategies will be implementend individually. Their effect on model fairness and performance will assessed relative to the baseline.
+	\chapter{Outlook}
+		\baaCriteria{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
+		\baaCriteria{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
 		
 		
+		Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
+		
+	\chapter{writing ongoing TODO REMOVE THIS CHAPTER}\todo{remove this chapter}
 		\section{PASSION Dataset Assessment}
 		Therefore, the dataset will be reviewed with regards to:
 		\begin{itemize}
@@ -1443,22 +1442,11 @@
 			\item Presence of \glspl{proxyVar} that might complicate fairness assessments
 		\end{itemize}
 		
-		
-		
-		
-		
-		
-		
-		
-		
 		\subsection{Data Evaluation in PASSION}
-		
-		
-		
 		\todo{consider this: 
 			Further, the available metadata in the dataset should be checked for completeness and feasibility to address the identified biases. When attributes are missing, the fairness for this particular subgroup cannot be evaluated and therefore, biases can not be detected. The dataset should also be checked for \glspl{proxyVar}, which should ideally be replaces with the real attributes, as they can lead to wrong conclusions.}
 		
-			\todo{maybe include more regarding passion dataset / model based on https://chatgpt.com/c/683412cd-5fa0-8007-8369-7bc9e41ac6ba}
+			\todo{maybe include more regarding passion dataset or model based on https://chatgpt.com/c/683412cd-5fa0-8007-8369-7bc9e41ac6ba}
 			\todo{write things to consider more precisely:}
 			\begin{itemize}
 				\item Include more details in gender attribute - transgender have probably different genes / hormones, and should be indicated for more accuracy
@@ -1494,11 +1482,6 @@
 		
 		Missing data: Ignoring missing data is not an effective approach to handling missing values, and more importantly, it can result in predictive disparity for minority groups. While many education-related studies have addressed the challenges of missing data, as discussed, little is known about the impact of different imputation techniques on fairness outcomes in the final model. This project aims to address this gap by considering the three aforementioned imputation strategies.
 		
-		
-		
-		
-		
-		
 		https://proceedings.mlr.press/v108/awasthi20a.html
 		BiasY =y(Yb) =Pr h		Yb = 1	Y = y, A = 0i −Pr h	Yb = 1 		Y = y, A = 1i				.
 		\rawcitationusedend
@@ -1509,8 +1492,9 @@
 		\paragraph{Execution}
 			In order to run the reproduction of the PASSION results on GPUHub, some minor changes in the loading process for the metadata had to be done. The required changes will be contributed to the code base to make the reproduction easier for others. \todo{do that then ;)}
 			All 4 experiments where ran to get a broad overview of the results. The results of the 4 experiments contained the same scores as the ones mentioned in the paper. The scores are given separately for each demographic groups, either based on skin type or gender. There is no data for subgroups available. \todo{add results from age and center experiments}
-			For the conditions classification, the provided scores per demographic group in the paper are the average scores over all classes. The variance/deviation of the averages in the scores based on the condition varies between the groups. E.g., the F1 score for \gls{FST} VI is 0.71±0.11 (total support 87) while for \gls{FST} it is 0.73±0.04 (total support 254). 
-			The detailed information can be found in the attached logs \todo{add logs from C:\\Users\\nadja\\OneDrive\\HSLU\_Nadja\\BAA\\baa\_on\_git\\results\\reproducing\_PASSION\_results}.
+			For the conditions classification, the provided scores per demographic group in the paper are the average scores over all classes. The variance/deviation of the averages in the scores based on the condition varies between the groups. E.g., the F1 score for \gls{FST} VI is 0.71$\pm$0.11 (total support 87) while for \gls{FST} it is 0.73$\pm$0.04 (total support 254). 
+			The detailed information can be found in the attached logs
+			% \todo{add logs from the file C:\\Users\\nadja\\OneDrive\\HSLU\_Nadja\\BAA\\baa\_on\_git\\results\\reproducing\_PASSION\_results}.
 			
 			The available data allows to compute the equalized odds fairness. \todo{describe which fairness methods to use why}
 			In order to be able compute the subgroup fairness, the test results need to be split further into the subgroups. \todo{check exactly how to calculate subgroup fairness and whether there is already an algorithm for it, same for equalized odds}
@@ -1696,27 +1680,9 @@
 	
 		for the country, the distribution is already almost the same for all splits, with Tanzania clearly underrepresented. On this variable, stratified splitting should be kept for sure. More data should be captured from Tanzania - it could be differences with the data quality which lead to different results.
 		
-		
-		
-		
-		
-	\chapter{Execution}
-		\baaCriteria{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
-		\baaCriteria{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
+			
+			
 
-
-	\chapter{Evaluation and Validation}
-		\baaCriteria{Auswertung und Interpretation der Ergebnisse. Nachweis, dass die Ziele erreicht wurden, oder warum	welche nicht erreicht wurden.}
-		\baaCriteria{Die Ziele / Forschungsfragen sind dem Umfang der Arbeit entsprechend sehr klar abgegrenzt; sie sind präzise, überprüfbar und nach den Standards der Zielformulierung definiert. Die Zielerreichung wurde systematisch und korrekt validiert.}
-		\baaCriteria{Die Herleitung und Bedeutung der Ergebnisse, mögliche Varianten, Gütekriterien und eine Validierung allgemein werden nachvollziehbar diskutiert}
-	
-	\chapter{Outlook}
-		\baaCriteria{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
-		\baaCriteria{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
-		
-		
-		Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
-		
 		% Lists and References
 		\newpage
 
