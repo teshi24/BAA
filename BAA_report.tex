@@ -12,6 +12,7 @@
 \usepackage{csquotes}       % Quotation support
 \usepackage[style=apa,backend=biber]{biblatex}       % Bibliography, 
 % todo: original template uses ieee3
+\DeclareLanguageMapping{american}{american-apa}
 \addbibresource{references.bib} % Bibliography file
 
 \usepackage{graphicx}							% for inclusion of image
@@ -183,7 +184,9 @@
 	
 	\todo{fix the weird line breaks}
 	
-	\todo{ensure fine-tuning ResNet-50, overview of instead of overview over, accuracy (you got all other versions of rr and cc); coma after e.g., point after vs., decision not desicion ...}
+	\todo{TEXT MISTAKES ensure fine-tuning ResNet-50, overview of instead of overview over, accuracy (you got all other versions of rr and cc); coma after e.g., point after vs., decision not desicion, decision-making not decision making ...}
+	
+	\todo{fix gls mentions in list of figures, it breaks how the glossary works}
 	
 	\todo{when you got to many pages: fix in order to - to, for the purpose of - For}
 	
@@ -213,7 +216,7 @@
 	\chapter{Problem Statement}
 		\baaCriteria{Welche Ziele, Fragestellungen werden mit dem Projekt verfolgt? Die Bedeutung, Auswirkung und Relevanz dieses Projektes für die unterschiedlichen Beteiligten soll aufgeführt werden. Typischerweise wird hier ein Verweis auf die Aufgabenstellung im Anhang gemacht.}
 		
-		In Sub-Saharan Africa dermatology treatment is inaccessible according to \textcite{Gottfrois2024}. There is fewer than one dermatologist available per one million people. Despite this, up to 80\% of the children and adolescents in the area are affected by skin conditions. AI-based \gls{teledermatology} promises to close this gap of specialists per case, for example by serving as a triage option. Potential patients could upload pictures to diagnostic dermatology AIs which can indicate whether the person should indeed visit a dermatologist or promote other treatment options. However, current dermatology AIs tend to fail to deliver accurate results for patients with highly pigmented skin tones. This is mainly due to demographic biases in existing AI models. The models are trained on established datasets which mainly feature low pigmented skin. Therefore, the datasets lack representation of highly pigmented skin, leading to AI models which do not generalize to the population in Sub-Saharan Africa \autocite{Gottfrois2024}.
+		In Sub-Saharan Africa dermatology treatment is inaccessible according to \textcite{Gottfrois2024}. There is fewer than one dermatologist available per one million people. Despite this, up to 80\% of the children and adolescents in the area are affected by skin conditions. \Gls{teledermatology} based on \gls{AI} promises to close this gap of specialists per case, for example by serving as a triage option. Potential patients could upload pictures to diagnostic dermatology \glspl{AI} which can indicate whether the person should indeed visit a dermatologist or promote other treatment options. However, current dermatology \glspl{AI} tend to fail to deliver accurate results for patients with highly pigmented skin tones. This is mainly due to demographic biases in existing \gls{AI} models. The models are trained on established datasets which mainly feature low pigmented skin. Therefore, the datasets lack representation of highly pigmented skin, leading to AI models which do not generalize to the population in Sub-Saharan Africa \autocite{Gottfrois2024}.
 		
 		These biases result in unequal access to treatment and especially affect underrepresented groups. Such biased results must be avoided, especially in AI models which impact life-changing decisions \autocite{Mehrabi_2021}.
 		
@@ -413,7 +416,7 @@
 		\subsection{Limitations}
 				\todo{maybe move to execution phase}
 				\todo{write in more details}
-			   - multiple executions showed inconsistent results for the different group evaluations on the same model checkpoint. It turned out that the metadata linkage did not work consistently. I resolved the issue was resolved by providing the image name in the data loader and link the metadata directly from the source file instead of using the indexes. probably related to different shufflings between data loader and metadata loader
+			   - multiple executions showed inconsistent results for the different group evaluations on the same model checkpoint. It turned out that the metadata linkage did not work consistently. I resolved the issue was resolved by providing the image name in the data loader and link the metadata directly from the source file instead of using the indexes. probably related to different shuffling between data loader and metadata loader
 		
 			\begin{comment}
 				\todo{probably remove this}
@@ -432,7 +435,7 @@
 		\section{Bias}
 			This chapter provides an overview of biases and related demographic characteristics mentioned in \gls{ML}- and dermatology-related research. It also explains their relevance for PASSION.
 			
-			Algorithmic decisions made by \gls{AI} systems can directly affect peoples' lives. In healthcare applications such as PASSION, these decisions are especially sensitive, as they influence diagnoses and treatment outcomes. Diverse studies have shown that \gls{AI} application's decisions can hold biases that affect underrepresented groups. This leads to unfair or even harmful consequences. Therefore, it is essential for \gls{AI} engineers to identify, address and mitigate such biases in order to develop fair applications. This requires understanding what bias is in general, what concrete biases exist, and where they originate \autocite{Mehrabi_2021}.
+			Algorithmic decisions made by \gls{AI} systems can directly affect peoples' lives. In healthcare applications such as PASSION, these decisions are especially sensitive, as they influence diagnoses and treatment outcomes. Diverse studies have shown that \gls{AI} application's decisions can hold biases that affect underrepresented groups. This leads to unfair or even harmful consequences. Therefore, it is essential for \gls{AI} engineers to identify, address, and mitigate such biases in order to develop fair applications. This requires an understanding of what bias is in general, which concrete biases exist, and where they originate \autocite{Mehrabi_2021}.
 			
 			
 			\begin{comment}
@@ -654,11 +657,13 @@
 		
 		\subsection{Definition of Fairness in \gls{ML}}
 		
-		In research, there is currently no agreement in regards of a fairness definition in \gls{ML}. Broadly, fairness \textit{is the absence of bias towards individuals or groups in a decision making context}. To assess fairness of \gls{AI} models, multiple fairness metrics have been proposed in the literature, each reflecting different interpretations of fairness. The choice of metric largely depends on the specific use case of the application \autocite{Mehrabi_2021}.
+		In research, there is currently no common agreement regarding a fairness definition in \gls{ML}. Broadly, fairness \textit{is the absence of bias towards individuals or groups in a decision-making context}. To assess how fair \gls{AI} models are, multiple fairness metrics have been proposed in the literature, each reflecting different interpretations of fairness. The choice of metric largely depends on the specific use case of the application \autocite{Mehrabi_2021}.
 		
 		\subsection{Fairness Metrics}
 		
 			\textcite{Mehrabi_2021} summarized the fairness metrics and grouped them into the categories group fairness, subgroup fairness and individual fairness, depending on the main mechanics of the metrics. They are listed in \autoref{tab:fairness_definitions}.
+			
+			\todo{evtl in anhang wenn es zu viele Seiten werden}
 		
 			\begin{table}[H]
 			\centering
@@ -709,13 +714,13 @@
 			\label{fig:eqOdds}
 		\end{figure}
 		
-		In regards of individual fairness in context of PASSION, it is not clear, whether the fairness metrics would be feasible to use, due to the specific dermatology use case. Certain metrics propose to change attributes which is not feasible for the skin type which is passed on to the model implicitly through the picture. Therefore, this thesis focuses on the group fairness metrics for now.
+		Given the specific dermatology use case in the context of PASSION, it is not clear whether individual fairness metrics would be feasible to use. Certain metrics propose to change attributes. This approach is not feasible for the skin type which is passed on to the model implicitly through the picture. Therefore, this thesis focuses on the group fairness metrics for now.
 		
 		The mechanics of the other fairness metrics are described broadly in \linkapp{app:fairnessMetrics}.
 		
 		\subsection{Limitations of Group Fairness}
 		
-		Despite its usefulness, equalized odds and similar group fairness metrics have limitations. These metrics can hide inequalities that exist within more specific subgroups. For example, a model might appear fair when assessed across broad groups such as age or skin type (\autoref{fig:eqOdds}) but still exhibit substantial disparities within subgroups, such as older individuals with darker skin tones (\autoref{fig:eqOddsLimits}) \autocites{M79_Kearns_2018}{M80_Kearns_2019}.
+		Despite its usefulness, equalized odds and similar group fairness metrics have limitations. These metrics can hide inequalities that exist within more specific subgroups. For example, a model might appear fair when assessed across broad groups such as age or skin type (\autoref{fig:eqOdds}) but still exhibit substantial disparities within subgroups, such as older individuals with darker skin tones (\autoref{fig:eqOddsLimits}) \autocite{M79_Kearns_2018,M80_Kearns_2019}.
 		
 		\begin{figure}[H]
 			\centering
@@ -724,22 +729,22 @@
 			\label{fig:eqOddsLimits}
 		\end{figure}
 		
-		To address this issue, subgroup fairness metrics have been proposed. These metrics extend the idea of group fairness by explicitly evaluating fairness also on the subgroups. This ensures that fairness assessments do not overlook hidden biases that could affect smaller populations \autocites{M79_Kearns_2018}{M80_Kearns_2019}.
+		To address this issue, subgroup fairness metrics have been proposed. These extend group fairness metrics by explicitly evaluating fairness across subgroups. This ensures that fairness assessments do not overlook hidden biases that could affect smaller populations \autocite{M79_Kearns_2018,M80_Kearns_2019}.
 		
-		Given the demographic focus of this study and the composition of the PASSION dataset, subgroup fairness is particularly important. Therefore, this work aims to incorporate equalized odds on subgroups as a core metric for evaluation, to incorporate the subgroup fairness.
+		Given the demographic focus of this study and the composition of the PASSION dataset, subgroup fairness is particularly important. Therefore, this thesis aims to incorporate equalized odds on subgroups as a core metric for evaluation.
 		
 		
 		\subsection{Limitations of Fairness Evaluation in Multiclass Settings with Equalized Odds}
-		Fairness metrics such as equalized odds are originally defined for binary classification problems, typically considering binary labels and binary demographic groups. As a result, fairness libraries like AI Fairness 360 and Fairlearn offer implementations of these fairness metrics only for binary classification tasks \todo{cite relevant sources}. To evaluate fairness in multiclass settings using these libraries, certain considerations are required. This chapter introduces the two key challenges, handling multiclass labels and multiple subgroups.		
+		Fairness metrics such as equalized odds are originally defined for binary classification problems, typically considering binary labels and binary demographic groups. As a result, fairness libraries like AI Fairness 360 and Fairlearn offer implementations of these fairness metrics only for binary classification tasks \todo{cite relevant sources} \todo{explain fairness libraries and add the individual ones to the glossar}. To evaluate fairness in multiclass settings using these libraries, certain considerations are required. This chapter introduces the two key challenges, handling multiclass labels and multiple subgroups.		
 		
 		\subsubsection{Multiclass Labels}
 		In binary settings, fairness can be evaluated through simple comparisons of false positive and false negative rates. However, in multiclass classification, fairness must account for the full structure of the confusion matrix. \textcite{Sabato_2024} generalizes equalized odds to multiclass classification by defining:
 		\textit{"For each \( y, z \in \mathcal{Y} \), the value of \( \mathbb{P}[\hat{Y} = z \mid Y = y, G = g] \) is the same for all \( g \in \mathcal{G} \)."}
-		In practice, this means the entire confusion matrix must be equal across groups to satisfy strict multiclass fairness under equalized odds \autocite{Sabato_2024}. \textcite{Putzel_2022} proposes the same approach.
+		In practice, this means the entire confusion matrix must be equal across groups to satisfy strict multiclass fairness under equalized odds \autocite{Sabato_2024}. The similar approach is purposed by \textcite{Putzel_2022}.
 		
-		More relaxed versions of multiclass equalized odds have also be proposed. However, researcher argue that such relaxations may not be suitable in all contexts, especially when different types of errors carry different consequences \autocites{Sabato_2024}{Putzel_2022}.
+		More relaxed versions of multiclass equalized odds have also been proposed in the literature. However, researchers argue that such relaxations may not be suitable in all contexts, especially when different types of errors carry different consequences \autocites{Sabato_2024}{Putzel_2022}.
 		
-		For instance, when the type of misclassification matters, equality of error rates is essential to ensure fairness \textcite{Putzel_2022}. \textcite{Sabato_2024} explicitly states that a fair classifier in healthcare should avoid difference in diagnosis errors for specific diseases across subgroups, since misdiagnoses can lead to different treatment outcomes. Therefore, in PASSION, the strict version of the multiclass equalized odds should be preferred.
+		For instance, when the type of misclassification matters, equality of error rates is essential to ensure fairness, as noted by \textcite{Putzel_2022}. Furthermore, as \textcite{Sabato_2024} explicitly states, a fair classifier in healthcare should avoid differences in diagnosis errors for specific diseases across subgroups, since misdiagnoses can lead to different treatment outcomes. Therefore, in PASSION, the strict version of the multiclass equalized odds should be preferred.
 		
 		\subsubsection{Non-Binary Sensitive Features}
 		There can also be non-binary sensitive features leading to multiple subgroups. The original definition of equalized odds does not account for this complexity. To generalize fairness evaluation to such settings, a one-vs-rest strategy can be applied. In this approach, each group is individually compared against the rest of the population \autocite{Nezami_2024}.
@@ -955,7 +960,7 @@
 						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Removing Sensitive Attributes}} \\ 
-						Disregard sensitive attributes in effect on decision making & X\tnote{1} &   \\						
+						Disregard sensitive attributes in effect on decision-making & X\tnote{1} &   \\						
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -1083,7 +1088,7 @@
 						
 						%	\midrule
 						\multicolumn{3}{l}{\textbf{Removing Sensitive Attributes}} \\ 
-						Disregard sensitive attributes in effect on decision making & X\tnote{1} &   \\						
+						Disregard sensitive attributes in effect on decision-making & X\tnote{1} &   \\						
 						\bottomrule
 					\end{tabularx}
 					\begin{tablenotes}
@@ -1235,7 +1240,7 @@
 				\item A recent study reported mean top-1 and top-5 model accuracy of 44.8\% and 78.1\%, respectively, for the classification of 134 diseases (Han et al., 2019b). Most datasets are proprietary, often with minimal description, and datasets collected in dermatology clinics may be skewed toward more complex cases, to those patients with better access to care, or by the choice of camera used in one clinic versus another. Data should be collected from as many diverse sources as possible, including primary care clinics, and robust standards for external validation are needed. \autocite{Young_2020}
 				\item There have been successful efforts to support reproducibility and open access. For example, the study by Han et al. (2018a) details the number and characteristics of images from each data source and makes thumbnails of the images publicly available. Additionally, several studies classifying dermoscopic images use the publicly available International Skin Imaging Collaboration archive (Gutman et al., 2016). By making datasets public, it becomes possible to examine them for bias (Bissoto et al., 2019). Alternatively, reporting a model training database’s patient demographics and disease classes would be helpful in predicting model performance on external populations. \autocite{Young_2020}
 				\item Metrics of model performance. Standard metrics are needed to assess the performance of different models (Figure 1). Currently, standard performance metrics such as accuracy and area under the receiver operating characteristic and precision recall curves are routinely reported. However, for use in the clinic, studies should additionally describe how well their models deal with uncertainty by reporting (i) the Brier Score, or mean-squared calibration error (Rufibach, 2010), which measures how reliably a model can forecast its accuracy, and (ii) area under the response rate accuracy curve, which measures how capably a model can identify examples it is likely to predict falsely and thus abstain from predicting (Hendrycks et al., 2019) \autocite{Young_2020}
-				\item Model interpretability. Acceptance of \gls{AI} in clinical decision making hinges on being able to understand the decisionmaking process fundamental to its predictions. DL models are inherently difficult to interpret because they are complex, routinely containing millions of learned parameters; interpretation of DL models’ output is an active field of research (Murdoch et al., 2019). One approach for interpreting model diagnoses is contentbased image retrieval, a method for retrieving training images that are visually similar to a test image (Tschandl et al., 2019a). This method may reassure the physician if all the retrieved training images have the same diagnosis as the predicted diagnosis but is less helpful if the test image looks similar to two or more training images with conflicting diagnoses. A second approach is to highlight pixels in an image most relevant for a model’s prediction, using methods such as saliency mapping (Figure 1). However, it is often the case that highlighted pixels correspond to the entire lesion or visually distinctive features that are already obvious to clinicians without indication as to why these pixels are important to the diagnosis. A third approach is to see through the eyes of a model by plotting an activation atlas (Carter et al., 2019), which shows how subtle changes, in particular visual features, may tip the model over into choosing one diagnosis over another. These activation atlases are experimental and have yet to be applied in dermatology. Understanding a model’s predictions and how the prediction is applicable to the patient at hand is necessary to build trust. As \gls{AI} exceeds human performance in various tasks, interpreting models may help to advance scientific knowledge by understanding what the machine sees that is relevant to its predications \autocite{Young_2020}
+				\item Model interpretability. Acceptance of \gls{AI} in clinical decision-making hinges on being able to understand the decisionmaking process fundamental to its predictions. DL models are inherently difficult to interpret because they are complex, routinely containing millions of learned parameters; interpretation of DL models’ output is an active field of research (Murdoch et al., 2019). One approach for interpreting model diagnoses is contentbased image retrieval, a method for retrieving training images that are visually similar to a test image (Tschandl et al., 2019a). This method may reassure the physician if all the retrieved training images have the same diagnosis as the predicted diagnosis but is less helpful if the test image looks similar to two or more training images with conflicting diagnoses. A second approach is to highlight pixels in an image most relevant for a model’s prediction, using methods such as saliency mapping (Figure 1). However, it is often the case that highlighted pixels correspond to the entire lesion or visually distinctive features that are already obvious to clinicians without indication as to why these pixels are important to the diagnosis. A third approach is to see through the eyes of a model by plotting an activation atlas (Carter et al., 2019), which shows how subtle changes, in particular visual features, may tip the model over into choosing one diagnosis over another. These activation atlases are experimental and have yet to be applied in dermatology. Understanding a model’s predictions and how the prediction is applicable to the patient at hand is necessary to build trust. As \gls{AI} exceeds human performance in various tasks, interpreting models may help to advance scientific knowledge by understanding what the machine sees that is relevant to its predications \autocite{Young_2020}
 			\end{itemize}
 		\subsubsection{Demographic Bias in Dermatology}
 		\paragraph{fairness melanoma detection}
@@ -1373,7 +1378,7 @@
 		
 		Based on this contextual analysis, the highly relevant bias types and mitigation methods are investigated further using the most relevant fairness metrics. The selection process follows domain-specific requirements identified in the literature. Such considerations guide the identification of suitable metrics, which are then justified and evaluated in detail during the execution phase.
 		
-		This contextual analysis is important, as the context and application of fairness metrics and as well as the effect and therefore importance of potential biases can vary by the use case of the \gls{AI} application \autocites{Mehrabi_2021}{Barr_2025}.
+		This contextual analysis is important, as the context and application of fairness metrics and as well as the effect and therefore importance of potential biases can vary by the use case of the \gls{AI} application \autocite{Mehrabi_2021,Barr_2025}.
 		
 		
 		\section{Reproduce PASSION Results}
@@ -1761,15 +1766,15 @@
 			
 			The specific fairness definitions can be found in \textcite{Mehrabi_2021}. In general, they try to get similar probability outcomes for 'unprotected' or 'protected' groups. This list summarizes how they work:
 			\begin{itemize}
-				\item \textit{Demographic/Statistical Parity} and \textit{Conditional Statistical Parity}: The parity checks that the likelihood of a positive outcome is the same for both protected groups \autocites{M48_Dwork_2012}{Mehrabi_2021}. The conditional version adds legitimate factors before calculating the statistical parity \autocite{M41_Corbett-Davies_2017}.
+				\item \textit{Demographic/Statistical Parity} and \textit{Conditional Statistical Parity}: The parity checks that the likelihood of a positive outcome is the same for both protected groups \autocite{M48_Dwork_2012,Mehrabi_2021}. The conditional version adds legitimate factors before calculating the statistical parity \autocite{M41_Corbett-Davies_2017}.
 				
-				\item \textit{Equalized Odds}, \textit{Test Fairness}, and \textit{Equal Opportunity}: In all these methods, protected and unprotected groups should have equal rates of positive outcomes when belonging to the positive class. These methods essentially compare the groups' \glspl{TPR}. \textit{Equalized Odds} is a more restrictive since it also checks for similar false positive rates \autocites{M149_Verma_2018}{Mehrabi_2021}.
+				\item \textit{Equalized Odds}, \textit{Test Fairness}, and \textit{Equal Opportunity}: In all these methods, protected and unprotected groups should have equal rates of positive outcomes when belonging to the positive class. These methods essentially compare the groups' \glspl{TPR}. \textit{Equalized Odds} is a more restrictive since it also checks for similar false positive rates \autocite{M149_Verma_2018,Mehrabi_2021}.
 				
 				\item \textit{Treatment Equality}: It compares the false negative and false positive rates \autocite{M151_Wang_2014}
 				
-				\item \textit{Counterfactual Fairness}: This approach is different from the others as it is testing the same individual in both different demographic groups with the intention that the outcome is the same \autocites{M87_Kusner_2017}{Mehrabi_2021}. It differs from the first group of fairness metrics since it does not compare the likelihoods of the outcomes for any person in a group, but checks how the exact same individual would be treated if it was in the other group.
+				\item \textit{Counterfactual Fairness}: This approach is different from the others as it is testing the same individual in both different demographic groups with the intention that the outcome is the same \autocite{M87_Kusner_2017,Mehrabi_2021}. It differs from the first group of fairness metrics since it does not compare the likelihoods of the outcomes for any person in a group, but checks how the exact same individual would be treated if it was in the other group.
 				
-				\item \textit{Fairness Through Awareness}: This method compares similar individuals based on similarity metrics to get a similar outcome \autocites{M48_Dwork_2012}{Mehrabi_2021}
+				\item \textit{Fairness Through Awareness}: This method compares similar individuals based on similarity metrics to get a similar outcome \autocite{M48_Dwork_2012,Mehrabi_2021}
 				
 				\item \textit{Fairness Through Unawareness}: This measure is ensuring that protected attributes are not explicitly used in decision-making \autocite{M61_Grgic-Hlaca_2016, M87_Kusner_2017}.
 				
