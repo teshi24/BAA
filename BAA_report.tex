@@ -42,6 +42,7 @@
 \usepackage{siunitx}
 \usepackage{tabularx}
 \usepackage{tikzscale}
+\usepackage{csvsimple}
 
 \usepackage{appendix}
 
@@ -292,11 +293,13 @@
 			For the purpose of this thesis, it is essential to understand the dataset's metadata, the architecture and fine-tuning process of the PASSION model and which bias mitigation methods have already been applied. The dataset can influence which biases could arise in the model or rather which ones can be measured. The labels which should be predicted, and the model architecture give insight into the \gls{ML} task. All this information affects which mitigation methods are feasible to be used for the project. \todo{add sources}
 			
 			\subsection{PASSION Dataset}
-				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical information, see \autoref{tab:PASSION_metadata}. There is one record per patient and one or more corresponding images which are linked to the record through the filename. The images are taken with mobile phones, in order to train the models on a \gls{teledermatology}-like setup regarding image quality \autocite{Gottfrois2024}.
+				The PASSION dataset contains data from patients from four African countries in dermatology clinics. It contains 4901 images of 1653 dermatology cases with the corresponding demographic and clinical metadata. Each patient is represented by one record, with images linked to the record via filename. The images were captured with mobile phones to ensure that the training data complies with a \gls{teledermatology} setting regarding image quality \autocite{Gottfrois2024}.
 				
-			    The data split is a predefined 80/20 stratified train-test split at patient level. This ensures reproducibility, fair comparison, while preventing information leaking \autocite{Gottfrois2024}. Stratified splitting is a method to split imbalanced datasets without changing the original class distribution within the subset. This is important to maintain the representativeness of the data, especially for minority classes \autocite{Balde_2023}. \todo{add better source for the stratified data split (and the other stuff where medium was used)}.
+			    A predefined 80/20 stratified train-test split at patient level ensures reproducibility and fair comparison, while preventing information leaking \autocite{Gottfrois2024}.
 			    
-				Access to the dataset can be requested via \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
+			    Stratified splitting is a method to split  datasets while maintaining the original class distribution within the subsets. This is important for imbalanced datasets to maintain minority class representation  \autocite{Balde_2023}. \todo{add better source for the stratified data split (and the other stuff where medium was used)}.
+				
+				The metadata, as listed in \autoref{tab:PASSION_metadata}, includes demographic attributes such as \textit{age}, \textit{sex}, and \textit{\gls{FST}}. These are essential for identifying potential demographic biases lateron.	The labels \textit{impetig} and \textit{conditions\_PASSION} represent dermatology diagnosis as evaluated by dermatologists \autocite{Gottfrois2024}, and are the target variables the PASSION model learns to predict. Therefore, this \gls{ML} task is a multilabel classification problem. PASSION addresses this by training separate models for each label \autocite{Gottfrois2024}. The prediction of conditions\_PASSION is a multiclass classification task, while predicting impetig is a binary classification task. 
 				
 				\begin{table}[H]
 					\centering
@@ -317,81 +320,18 @@
 					\label{tab:PASSION_metadata}
 				\end{table}
 				
-				For this thesis, the attributes \textit{fitzpatrick}, \textit{sex} and \textit{age} are relevant, as they cover relevant demographic information from the patients which can be used to identify demographic biases. The skin type is directly relevant because it can affect disease presentation and therefore the model's learning process to detect the condition \todo{add citation, also from mail}. According to Philippe Gottfrois, the main author of the PASSION paper, the same condition looks similar regardless of a patient's age and sex. However, the prevalence of conditions varies based on these factors \todo{add citation, also from mail}. Therefore, the data distribution of age and sex could become relevant for an inclusive \gls{AI} model, because these demographic factors influence the likelihood of a condition being represented in the dataset. In this thesis, the attributes will be used to identify potential biases in the PASSION model. Further, it will be evaluated whether the data distributions for these attributes indeed are relevant for any biases \todo{check in the end if I really did that}.
+				The PASSION team also provides a set of \gls{JupyterNotebook}-based data analysis scripts. For example, one script analyses the correlation between the clinical conditions and location of the data collection. A full list of these scripts is included in \linkapp{app:PASSIONdataAnalysisScripts}. Additionally, the paper visualizes demographic analyzes related to age, sex and \gls{FST} as shown in \autoref{fig:PASSIONDistr}.
 				
-				The attribute \textit{country} seems to be another demographic factor. Since it is the country where the data collection took place \todo{cite mail}, the only demographic information it could indicate is the geographic location where the patient was diagnosed. This could potentially be used as \gls{proxyVar} for where the patient lives, which could be relevant for disease prevalence \todo{cite this}. However, this could lead to false conclusions which is why this label will not be used in this thesis. The PASSION team should investigate the need for this label and possible enhancement. Also, they should state the meaning of the label clearer in the dataset description. \todo{add this to PASSION investigation list}
-				
-				The labels \textit{impetig} and \textit{conditions\_PASSION} are the ones which the PASSION model learns to predict. They can appear independently of each other. Therefore, the \gls{ML} task for PASSION it is a multiclassification task.
-			
-			\subsection{PASSION Data Analysis Scripts}
-				The PASSION team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} together with their relevance to this thesis. The most relevant scripts are those related to demographic distributions of the chosen attributes, since they help identifying potential data imbalances. Scripts that lay the foundation for further analysis are somewhat relevant, while all other scripts are irrelevant for this thesis.
-				
-				\todo{move tbl to appendix}
-				
-				\begin{table}[H]
-					\centering
-					\begin{threeparttable}
-					\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
-						\toprule
-						\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
-						Distribution of \glspl{FST} &
-						Counts and visualizes the skin type distribution  &
-						\textbf{High} - Insight into demographic distributions \\
-						\hline
-						Regrouping Malawi and Tanzania to EAS &
-						Data aggregation due to dataset size and geographical proximity &
-						\textbf{Medium} - Might impact interpretation of the results of the following scripts \\
-						\hline
-						Linking CSV Data with Image Files & 
-						Mapping between data records and images. &
-						\textbf{Medium} - Basis for other analyses \\
-						\hline
-						Extracting and Comparing Subject IDs &
-						Dataset verification regarding completeness &
-						\textbf{Low} - No insight in regards of demographic distribution \\
-						\hline
-						Conditions by Country &
-						Correlation between clinical conditions and country &
-						\textbf{Low} - The attribute \textit{country} is out of scope of this thesis \\
-						\hline
-						Body Localizations by Conditions &
-						Correlation between the condition and primarily affected body parts &
-						\textbf{Low} - No insight in regards of demographic distribution \\
-						\hline
-						Impetigo Cases &
-						Total count of impetigo cases and proportion to all cases &
-						\textbf{Low} - No insight in regards of demographic distribution\tnote{*} \\
-						
-						\bottomrule
-					\end{tabularx}
-						\begin{tablenotes}
-							\footnotesize
-							\item[*] Research is divided on which demographic factors influence the prevalence of impetigo \autocites{Romani_2017}{Aleid_2024}.
-						\end{tablenotes}
-					\end{threeparttable}
-					
-					\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024} \todo{decide on a table style}}
-					\label{tab:PASSION_scripts}
-				\end{table}
-				
-				\todo{write in a bit more detail and potentially move second part to biases}
-				An initial analysis of the PASSION dataset indicates an overrepresentation of male children. This imbalance should be further investigated, both in terms of dataset composition and model performance.
 				
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.9\textwidth]{figures/PASSIONDatasetDistribution.png}
-					\caption{PASSION dataset distributions \autocite{Gottfrois2024}}
+					\caption{PASSION data distributions \autocite{Gottfrois2024}}
 					\label{fig:PASSIONDistr}
 				\end{figure}
 				
-				\begin{figure}[H]
-					\centering
-					\includegraphics[width=0.9\textwidth]{figures/PASSIONDatasetDistributionPotentialImbalances.png}
-					\caption{PASSION dataset distributions - potential imbalances}
-					\label{fig:PASSIONDistrImbalances}
-				\end{figure}
-
 				
+				Due to the sensitivity of patient data, the dataset is confidential. Access to it can be requested via the project website: \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
 				
 			\subsection{PASSION Model}
 			  The model architecture is a ResNet-50 model which is pretrained on ImageNet. The model was fine-tuned by replacing the last fully connected classification layer with a dropout layer with a 0.3 dropout rate followed by batch normalization. The class activation is done by a single linear layer. To minimize the weighted cross-entropy loss, Adam optimization is used. For improved generalization and to avoid overfitting, data augmentations were applied. The methods used were random resizing, cropping, flipping, and rotating \textcite{Gottfrois2024}. \todo{add individual citations for ResNet-50, ImageNet, Adam optimization, weighted cross-entropy loss}.
@@ -411,6 +351,7 @@
 			  The code for those experiments is available in the PASSION evaluation GitHub repo. This repo can serve as a starting point, since reproducing the results helps to verify that the provided setup works the same on my side. Also, they can be used as examples for further experiments. \todo{mention which ones I really used why for the thesis and move the others to the appendix}
 			  
 			  The paper indicates lower performance when evaluating the model on a subject level (performance per case/patient) rather than a sample level (performance per image). The authors emphasize the importance of assessing classifier performance on both levels for completeness \autocite{Gottfrois2024}. Therefore, the subject level performance should also be considered during this thesis.
+			  \todo{challenge this to be tested again in the outlook bc of the inproper metadata linkage}
 	
 	
 		\subsection{Limitations}
@@ -453,7 +394,7 @@
 		    			    
 		  	\todo{make sure the following is cited correctly}
 			
-			\subsection{Demographic Biases in the Context of Dermatology}
+			\subsection{Demographic Biases in the Context of Dermatology} \label{chap:demographicBiasesDermatology}
 			Biases in dermatology in general can lead to unequal outcomes for different groups, which can result in unfair outcomes for certain groups. Demographic biases are particularly relevant in the context of dermatology \glspl{AI}, as they can cause differences in diagnostic accuracy and treatment outcomes among different demographic (sub-)groups.
 			From the literature review, three main ways have been identified in which demographic differences may introduce bias in dermatology \gls{ML} models:
 			\todo{cite all that, from presentation}
@@ -469,6 +410,7 @@
 			
 			To build a robust and fair \gls{ML} model, it is essential to identify and address biases linked to such protected characteristics \autocite{Mehrabi2022}.
 			\todo{check that there is no duplication between PASSION dataset feature description and here}
+			\todo{probably remove}
 			Due to time constraints, this thesis focuses on three protected characteristics: skin type, age, and sex. These were selected based on their presence in the PASSION dataset and their influence on dermatological diagnosis and disease prevalence. Other potentially relevant features, such as geographic location and socioeconomic status, should be evaluated in future work by the PASSION team.
 			
 			
@@ -502,13 +444,10 @@
 			
 			\todo{add the 5-10 most important biases here}
 			
-			\todo{@proofreaders: wie findet ihr die struktur im Anhang für die detailierten Beschreibungen? (wirklich nur grob die struktur anschauen, den text muss ich gemäss eurem feedback noch schärfen. Wenn ihr eine bessere Strukturidee habt bitte melden. Und hier im Text, soll ich einfach kurze fliesstext zusammenfassung machen für die wichtigsten biases? Ich soll 5-10 erwähnen gemäss experte)}
-			
-			
 			\subsection{Sensitive Features}
 			Research has identified sensitive features that are particularly prone to bias. These features have already caused biases in existing \gls{AI} applications and should therefore be carefully evaluated during model development \autocite{Mehrabi_2021}.
 			
-			\autoref{tab:biases_features} summarizes sensitive features mentioned in the literature. For completeness, the table also contains sensitive demographic features which appear unrelated to dermatology according based on current research.
+			\autoref{tab:biases_features} summarizes sensitive features mentioned in the literature. The categorization in the table was done based on the research described in \autoref{chap:demographicBiasesDermatology}. For completeness, the table also contains sensitive demographic features which appear unrelated to dermatology according based on current research.
 			
 			\begin{comment}
 			\todo{check what to do with those additional features:}
@@ -580,18 +519,6 @@
 				\caption{Commonly used features which often are affected by biases}
 				\label{tab:biases_features}
 			\end{table}
-			
-			
-			Some of the listed features were also mentioned in the dermatology context and are included as metadata in the PASSION dataset. Therefore, potential biases associated with them must be evaluated.
-			Since PASSION aims to improve classification of skin diseases based solely on image data, it does not use these factors as features for training, except for characteristics that are implicitly visible in the images. Since the model can access these characteristics during model training, they can introduce bias during model training and therefore must be closely examined. Those characteristics include \textit{skin type} (including the undertone) and - more broadly defined - \textit{socioeconomic status} and \textit{geographic location}, due to their influence on disease progression.
-			
-			\textit{Age}, \textit{sex} and \textit{geographic location} are generally not visible in the images. However, since they can influence disease prevalence and are prone to bias, the PASSION model must be evaluated for potential bias regarding these characteristics.
-			
-			The potential impact of \textit{ethnicity} and \textit{disabilities} on visual presentation or prevalence of dermatological conditions has not been assessed in this thesis. It is recommended that the PASSION team investigates these aspects further.
-			
-			While metadata is currently not used in PASSION's training process, it can be used to identify biases and evaluate fairness. However, some relevant metadata is missing. For example, there is no information regarding \textit{ethnicity}, \textit{socioeconomic status}, and \textit{disabilities} available in the dataset. Further, the variable \textit{country} is insufficient to determine \textit{geographic location}, as it only reflects the location of diagnosis. While this may serve as a \gls{proxyVar} for a patient's residence, more precise data would be preferable for robust bias analysis.
-			It is suggested to add the missing characteristics to the dataset. Given the sensitivity of those characteristics, ethical considerations must be addressed before extending the dataset.
-			
 			
 			
 			\begin{comment}
@@ -740,6 +667,7 @@
 		\subsubsection{Multiclass Labels}
 		In binary settings, fairness can be evaluated through simple comparisons of false positive and false negative rates. However, in multiclass classification, fairness must account for the full structure of the confusion matrix. \textcite{Sabato_2024} generalizes equalized odds to multiclass classification by defining:
 		\textit{"For each \( y, z \in \mathcal{Y} \), the value of \( \mathbb{P}[\hat{Y} = z \mid Y = y, G = g] \) is the same for all \( g \in \mathcal{G} \)."}
+		
 		In practice, this means the entire confusion matrix must be equal across groups to satisfy strict multiclass fairness under equalized odds \autocite{Sabato_2024}. The similar approach is purposed by \textcite{Putzel_2022}.
 		
 		More relaxed versions of multiclass equalized odds have also been proposed in the literature. However, researchers argue that such relaxations may not be suitable in all contexts, especially when different types of errors carry different consequences \autocites{Sabato_2024}{Putzel_2022}.
@@ -752,7 +680,12 @@
 		
 			
 		\section{Mitigation Methods}
+			 \todo{still to be written}
+			 
+			 \begin{comment}
 			 see text from bias chapter - Further, \gls{AI} engineers need to know what prevention methods are available to reduce the biases \autocite{Mehrabi_2021}.
+			 
+			 
 			
 			
 		\section{Extensive Sources}
@@ -1257,6 +1190,8 @@
 			\item This study found that while using skin tone instead of race for fairness evaluations in computer vision seems objective, the annotation process remains biased by human annotators. Untested scales, unclear procedures, and a lack of awareness about annotator backgrounds and social context significantly influence skin tone labeling. This study exposes how even minor design choices in the annotation process, like scale order (dark to light instead of light to dark) or image context (face or no face, skin lesion presence), can sway agreement and introduce uncertainty in skin tone assessments. ... The researchers emphasize the need for greater transparency, standardized procedures, and careful consideration of annotator biases to mitigate these challenges and ensure fairer and more robust evaluations in computer vision. \autocite{Montoya_2025} - demographic dermatology bias
 		\end{itemize}
 	\rawcitationend
+	\end{comment}
+	
 	
 	\chapter{Ideas and Concepts}
 		\baaCriteria{Hier geht es um die Fragestellung, wie Sie die formulierten Ziele der Arbeit erreichen wollen. Sie halten z.B. erste, grobe Ideen, skizzenhafte Lösungsansätze fest. Gibt es mehrere Wege, Ansätze um dieses Ziel zu erreichen, begründen Sie hier, warum Sie einen bestimmten Weg einschlagen. Beispiel für ein Softwareprojekt: Erste Gedanken über eine grobe Systemarchitektur. Ist z.B. eine Microservice-Architektur angebracht? Welche Alternativen bestehen, wo gibt es Problempunkte? Die Umsetzung, die Beurteilung der Machbarkeit und die detaillierte Beschreibung der umgesetzten Architektur sind dann Teil der Realisierung.}
@@ -1357,15 +1292,14 @@
 		
 		\subsection{Technical Constraints}
 		Model training is performed on \gls{HSLU}'s \gls{gpuhub} infrastructure, while code development is carried out on a personal notebook. The code is written in Python and builds upon the existing PASSION project architecture.
-		Libraries such as \texttt{Fairlearn} are used for bias detection and mitigation. \todo{consolidate formatting - consider replacing textit with texttt or vise versa}
 		
 		
-		\section{Literature Research}
+		\section{Literature Review}
 		The literature review targets known bias types, fairness metrics, and mitigation techniques in medical \gls{AI}, with special attention to \gls{teledermatology} and demographic factors. Sources include scientific publications, surveys, and technical documentation of relevant libraries. The goal is to build a conceptual and methodological foundation for subsequent analysis.
 		
-		To ensure the thesis follows scientific standards while still being feasible, the literature review is conducted based on the pragmatic method of \textcite{Alake_2021} as suggested by my advisor. The papers are found via Google Scholar \todo{link}. First, the focus is on survey and taxonomy papers, which provide an overview over the existing research. Them, more detailed papers in the area of dermatology \gls{AI} is conducted to get more insight in the healthcare context. Such a 2-step approach has also been done by \textcite{Chen_2024}. In general, the papers are filtered by focusing on title, abstract and conclusion. Only relevant papers are read in full. \todo{cite protocol in appendix, week1}
+		To ensure the thesis follows scientific standards while still being feasible, the literature review is conducted based on the pragmatic method of \textcite{Alake_2021} as suggested by my advisor. First, the focus is on survey and taxonomy papers, which provide an overview over the existing research. Them, more detailed papers in the area of dermatology \gls{AI} is conducted to get more insight in the healthcare context. Such a 2-step approach has also been done by \textcite{Chen_2024}. In general, the papers are filtered by focusing on title, abstract and conclusion. Only relevant papers are read in full. \todo{cite protocol in appendix, week1}
 		
-		\section{Contextualization and Scope Definition}
+		\section{Contextualization and Scope Definition} \label{chap:contextMethod}
 		The relevance of the literature findings is evaluated in the context of the PASSION project. This includes analyze the findings from the literature review in terms of their relevance to \gls{teledermatology} and similar healthcare applications, taking into account the available metadata in the PASSION dataset. Limitations due to dataset constraints or the available time are documented for future work.
 		
 		The relevance will be categorized into the following groups:
@@ -1376,19 +1310,39 @@
 			\item \textbf{Not Applicable.} Not relevant for PASSION due to fundamental differences in domain, type of data, or type of model.
 		\end{itemize}
 		
+		\todo{must de sensitive feature table be split? or the categorization explained?}
+		
 		Based on this contextual analysis, the highly relevant bias types and mitigation methods are investigated further using the most relevant fairness metrics. The selection process follows domain-specific requirements identified in the literature. Such considerations guide the identification of suitable metrics, which are then justified and evaluated in detail during the execution phase.
 		
 		This contextual analysis is important, as the context and application of fairness metrics and as well as the effect and therefore importance of potential biases can vary by the use case of the \gls{AI} application \autocite{Mehrabi_2021,Barr_2025}.
 		
+		\section{PASSION Dataset Assessment}\label{chap:datasetAssessmentMethod}
+		The assessment of the PASSION dataset focuses on four core areas:
+		
+		\begin{itemize}
+			\item \textbf{Metadata Completeness.} The metadata is reviewed to verify that all relevant demographic attributes, as identified in the contextualized literature review, are included. Missing attributes limit bias detection and mitigation strategies. They should be added to enable a thorough fairness analysis and bias mitigation. Therefore, potentially missing attributes are listed and passed on to the PASSION team for inclusion in the metadata.
+			
+			\item \textbf{Presence of \glslink{proxyVar}{Proxy Variables}.} Available metadata attributes are assessed regarding their intended purpose and potential use as \glspl{proxyVar}. If \glspl{proxyVar} are identified, alternatives are proposed to be added to the data instead. This step is essential, as relying on \glspl{proxyVar} may introduce unintended bias into the analysis or model.
+			
+			\item \textbf{Representation of Main Groups.} To evaluate overall demographic distributions, the proportions of the values for each demographic attribute (age, sex, \gls{FST}) are analyzed to identify over- or underrepresented groups. This provides an initial indication of potential data skews, which then can be compared to the model's fairness assessment results. This grants first insight into whether potential unfairness stems from representation bias or other factors.
+			
+			\item \textbf{Representation of Relevant Subgroups.}
+			If the fairness assessment of model outputs reveals unfairness on subgroup levels, the distribution of the subgroups is examined using the same method as for the main groups. As this is a more detailed analysis than the representation of main groups, it is done later in the process if biases regarding subgroups in the model indeed exist.
+		\end{itemize}
+		\todo{cite methods}
 		
 		\section{Reproduce PASSION Results}
-		Before starting any evaluation, the PASSION experiments must be reproduced on the \gls{gpuhub}, to ensure, that the code base and the data loading is working the same way as for the initial paper. Only then, the evaluation outcome can be used by the PASSION team.
+		Before starting any evaluation on the model, the PASSION experiments must be reproduced on the \gls{gpuhub}, to ensure, that the code base and the data loading is working the same way as for the initial paper. Only then, the evaluation outcome can be used by the PASSION team.
 		
 				
 		\section{Fairness Assessment}\label{chap:fairnessAssessment}
 		The selected fairness metrics are used to assess the output of the current PASSION model, establishing a baseline for the model's fairness. This includes subgroup performance evaluation and identification of any disparities.
 		
-		\todo{add more details? Or in explain the detailed approach with Equalized Odds in a seperate (sub-?)chapter? for sure, bring fairlearn into it}
+		Each time after applying a mitigation method, the fairness of the updated model is assessed using the exact same procedure. This consistent evaluation is necessary to enable the comparison between the baseline and each mitigation method.
+		
+		A mitigation method is considered to have potential for improving the fairness of the PASSION project of it results in a significantly higher fairness than the baseline.
+		
+		\todo{add more details? Or in explain the detailed approach with Equalized Odds in a seperate (sub-?)chapter? for sure, bring fairlearn into it (smt like Libraries such as \textit{Fairlearn} are used for bias detection and mitigation.)}
 		
 		\begin{comment}
 			\begin{itemize}
@@ -1399,12 +1353,9 @@
 			Qualitative methods (e.g., interviews or surveys) are not applicable in this context, as the project focuses on technical evaluation using quantitative model performance and fairness indicators.
 		\end{comment}
 		
-		Each time after applying a mitigation method, the fairness of the updated model is assessed using the exact same procedure. This consistent evaluation is necessary to enable the comparison between the baseline and each mitigation method.
-		
-		A mitigation method is considered to have potential for improving the fairness of the PASSION project of it results in a significantly higher fairness than the baseline.
 		
 		\subsection{Limitation}
-			This method can only provide an initial indication of the potential effectiveness of a mitigation method. To determine whether a mitigation method is scientifically beneficial, it must be tested more systematically. Ideally, each mitigation method should be applied multiple times using different seeds. In the best case, the baseline should also be established multiple times using the same set of seeds. This would allow for a statistical significant evaluation of the results. \todo{cite the paper which mentioned that it executed the scripts 30 times with different seeds}
+			This method can only provide an initial indication of the potential effectiveness of a mitigation method. To determine whether a mitigation method is scientifically beneficial, it must be tested more systematically. Ideally, each mitigation method should be applied multiple times using different seeds for the random generators. In the best case, the baseline should also be established multiple times using the same set of seeds. This would allow for a statistical significant evaluation of the results. This approach has been used by \textcite{Valentim_2019} who used 30 different seeds for each configuration.
 			
 			Due to technical limitations and time constraints, this was unfortunately not feasible to do during this thesis. It is advice that the PASSION team executes the experiments further times using the provided scripts, in order to get a more established insight.
 		
@@ -1413,16 +1364,68 @@
 		
 		If a mitigation method can be applied in multiple ways (e.g., with different parameters, configurations, or data splits), all these variants are evaluated using the train-validation split. The variant that performs best on the validation set is then used to evaluate the effectiveness of the mitigation method on the original test set.
 		
-		This approach ensures that the final test results are comparable across different methods, while keeping the selection process independent of the test data. It follows standard machine learning methodology to prevent overfitting to the test set.\todo{cite AI lectures or textbook, e.g., Goodfellow et al., 2016
-		Goodfellow, I., Bengio, Y., Courville, A. (2016). Deep Learning. MIT Press.
-		Or a standard practice guideline like:
-		Varma, S., Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.}
+		This approach ensures that the final test results are comparable across different methods, while keeping the selection process independent of the test data. It follows standard machine learning methodology to prevent overfitting to the test set.\todo{cite AI lectures}
+		\begin{comment}
+			AI lectures or textbook, e.g., Goodfellow et al., 2016
+			Goodfellow, I., Bengio, Y., Courville, A. (2016). Deep Learning. MIT Press.
+			Or a standard practice guideline like:
+			Varma, S., Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.
+		\end{comment}
 		
-		Selected bias mitigation strategies are applied to this setup individually, so that the impact on the fairness can be clearly assigned to the tested mitigation strategy. The impact is evaluated relative to the established baseline as described in \linkchap{chap:fairnessAssessment}. \todo{ensure to also compare model performance - if you did it, also mention here!}
+		Selected bias mitigation strategies are applied to this setup individually, so that the impact on the fairness can be clearly assigned to the tested mitigation strategy. The impact is evaluated relative to the established baseline as described in \linkchap{chap:fairnessAssessment}.
+		
+		\todo{ensure to also compare model performance - if you did it, also mention here!}
+		
+		\todo{explain specific mitigation method used}
 		
 	\chapter{Execution}
 		\baaCriteria{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
 		\baaCriteria{Die gewählten Methoden werden systematisch, konsistent und korrekt auf den Kontext der Arbeit angewendet. Die Bearbeitungs- bzw. Forschungsobjekte sind einheitlich benannt, im Kontext dargestellt und sinnvoll in die Arbeit integriert. Praxis- und Erfahrungswissen (z.B. aus Interviews) wird zur Validierung und Ergänzung der erarbeiteten Ergebnisse herangezogen. }
+		
+		\section{Contextualization and Scope Definition}
+		This section applies the information found during the literature review to the PASSION project using the method described in \autoref{chap:contextMethod}. It also scopes what information can be assessed during this thesis and what should be passed on to the PASSION team.
+		
+		\todo{@Proofreaders, würdet ihr dieses Kapitel hier lassen oder in die Evaluation schieben, basierend auf den Kriterien in blau? Und ist es sinnvoll, wie ich es fürs PASSION dataset assessment gemacht habe?
+		Habe das aus dem Research teil herausgelöst weil der Betreuer dazu meinte: I would keep the evaluation for PASSION separate from the state of research and place it in its own subsection in the execution/evaluation.
+		In the Methods, you also describe how you perform this evaluation.}
+		
+		\subsection{Sensitive Features}
+			Some of the listed features in \autoref{tab:biases_features} were also mentioned in the dermatology context and/or are included as metadata in the PASSION dataset. Therefore, potential biases associated with them should be evaluated in the PASSION model.
+			
+			Since PASSION aims to improve classification of skin diseases based solely on image data without any metadata, it does not use these factors as features for training, except for characteristics that are implicitly visible in the images. This is primarily the \textit{skin type} (including the undertone). More broadly defined, the \textit{socioeconomic status} and \textit{geographic location} can also be leaked to the model through the images, due to their impact on disease presentation and progression. Since the model can access these characteristics during training, they can introduce bias and should therefore be closely examined.
+			
+			\textit{Age} and \textit{sex} are generally not visible in the images. Also, \textit{socioeconomic status} and \textit{geographic location} do not necessarily need to lead to visual effects. However, since they can influence disease prevalence and are prone to bias, the PASSION model should be evaluated for potential bias regarding these characteristics.
+			
+			The potential impact of \textit{ethnicity} and \textit{disabilities} on visual presentation or prevalence of dermatological conditions has not been assessed in this thesis, due to time constraints. It is recommended that the PASSION team investigates these aspects further.
+			
+			The other sensitive feature seem not to be further relevant for PASSION.
+			
+		\section{PASSION Dataset Assessment} \label{chap:datasetAssessmentExecution}
+		The practical analysis is conducted according to the methods outlined in \autoref{chap:datasetAssessmentMethod}:
+		
+		\begin{itemize}
+			\item \textbf{Metadata Completeness.}
+			The available PASSION metadata listed in \autoref{tab:PASSION_metadata} is compared to the demographic factors which are relevant for bias detection. Missing attributes are listed in \autoref{chap:datasetAssessmentMetadataEvaluation}.
+			
+			For certain attributes, the impact on dermatology specific use case is not entirely clear based on the literature review. For the attributes sex and age which are used in the PASSION dataset, the author of PASSION was contacted to provide more insight about their impact. This information was incorporated in the literature review.
+			
+			In order to provide the most complete view possible, all attributes which might have an impact are listed for the PASSION team to double-check with a dermatologist.
+			
+			\item \textbf{Presence of \glslink{proxyVar}{Proxy Variables}.}
+			Since the intended purpose of the variables are not mentioned in the paper, the analysis for \glspl{proxyVar} was more difficult then expected. The result is based on the sensitive features and biases mentioned in the literature.
+			
+			Also, what the country variable represents in PASSION is not entirely clear based on the documentation. To clarify its meaning, the main author of PASSION was contacted.
+			For all variables which appear to potentially be used as a \gls{proxyVar}, recommendations are provided for more precise alternatives for the PASSION team to check.
+			
+			\item \textbf{Representation of Main Groups.}
+			Since there is no \gls{JupyterNotebook} script provided by PASSION to gather the proportions in depth, a python script is created to gather this data, what increased the time effort for the detailed analysis. The script is part of the newly created \texttt{evaluator} class and is meant to be executed standalone.
+			It prints the distribution as absolute support and percentage for all values of the attributes country, sex, fitzpatrick, impetig, conditions\_PASSION, and ageGroup. The age group contains the ages binned into 5 year intervals, like it has been done by \textcite{Gottfrois2024} in their distribution analysis.
+			Also, it saves the distribution in a csv and prints a plot per attribute. The comparison between the values is done manually for now, since there are not too many values.
+			
+			\todo{ensure to discuss the evaluator class beforehand somewhere and add command to command in readme(evaluator.run\_split\_distribution\_evaluation)} \todo{consider to mention the age stuff once before hand in a constraints chapter or so}
+			
+			\item \textbf{Representation of Relevant Subgroups.} The demographic distribution figures of PASSION are briefly analyzed for an initial indication of the representation of age and sex.
+		\end{itemize}
 		
 		
 	\chapter{Evaluation and Validation}
@@ -1430,37 +1433,140 @@
 		\baaCriteria{Die Ziele / Forschungsfragen sind dem Umfang der Arbeit entsprechend sehr klar abgegrenzt; sie sind präzise, überprüfbar und nach den Standards der Zielformulierung definiert. Die Zielerreichung wurde systematisch und korrekt validiert.}
 		\baaCriteria{Die Herleitung und Bedeutung der Ergebnisse, mögliche Varianten, Gütekriterien und eine Validierung allgemein werden nachvollziehbar diskutiert}
 		
+		
+			\section{PASSION Dataset Assessment}
+		The PASSION dataset assessment results are described in this section.
+		Overall, the dataset enables a foundational fairness analysis but does not support in-depth bias evaluation without augmentation or careful interpretation.
+		
+		\subsection{Metadata Completeness and \glslink{proxyVar}{Proxy Variables}} \label{chap:datasetAssessmentMetadataEvaluation}
+		Based on the literature regarding sensitive features and potential biases, important metadata is available in the dataset, namingly age, sex and \gls{FST}.
+		However, relevant metadata for a thorough fairness assessment and bias mitigation is missing. This limits what biases can be detected.
+		
+		The missing metadata attributes are:
+		\begin{itemize}
+			\item socioeconomic status
+			\item geographic location / residence of the patient
+			\item (type of) the clinic and their medical focus
+			\item image quality or other image related information such as the phone used, whether the image contains hair, and so on
+			\item ethnicity (if it proves to have an impact on dermatology conditions)
+			\item disabilities (if it proves to have an impact on dermatology conditions)
+		\end{itemize}
+		
+		The variable \textit{country} currently could theoretically serve as \gls{proxyVar} for \textit{geographic location}, which clinic the data is from and more broadly even for the \textit{image quality}. It is not clear if those usages are intended. According to the literature review, this should be prevented. \todo{ensure that this is indeed written somewhere in the literature section}
+		Since the country only reflects the location of diagnosis, it is insufficient to determine the \textit{geographic location} or residence of the patient. More precise data would be preferable for robust bias analysis.
+		Since the data is gathered only from one clinic per country, this \gls{proxyVar} usage is feasible for now. However, more clinics should be included into the data collection process to mitigate medical biases and ascertainment bias. Then, the clinic and some more data about it should be added to the dataset.
+		The clinic again might be a \gls{proxyVar} for the picture quality. If this information can be quantified in another way, e.g., the used phone and camera settings, that would further improve the dataset by tackling image biases.
+		The country information can still be used in the fairness assessment to see if there are fairness differences in those populations. However, in order to clearly identify related biases, the suggested changes to the metadata would need to be introduced.
+		
+		It is suggested to add the missing metadata attributes to the dataset. Given the sensitivity of those attributes, ethical considerations must be addressed before extending the dataset.
+		
+		\subsection{Demographic Representation}		
+		The demographic distribution in the PASSION dataset shows clear imbalances across several attributes. The data is available in \linkapp{app:PASSIONdataDistributionAnalysis}.
+		
+		To summarize:
+		
+		\begin{itemize}
+			\item \textbf{Country.} The dataset is heavily skewed towards samples from Madagascar (59.59\%), while Tanzania is significantly underrepresented (1.39\%). This imbalance may introduce geographic or clinic-specific biases.
+			
+			\item \textbf{Sex.} Male patients are overrepresented (58.2\%) compared to female patients (41.8\%). No data is available for individuals of other sexes.
+			
+			This thesis did not explore whether other biological sex differences or gender-affirming hormone therapies have any impact on dermatological conditions, since the main focus for PASSION is on inclusion regarding skin type. However, for a complete fairness evaluation, this factors should be explored in the future.
+			
+			\item \textbf{\gls{FST}.} The types III to VI are represented, with the distribution ranging from 21.42\% (type III) to 29.4\% (type IV). No data is available for type II and only one sample for type I.  Given PASSION's focus on highly pigmented skin, this distribution is somewhat justified. However, it limits applicability to lighter skin tones and could impair model generalizability. 
+			
+			An interesting future direction would be to combine PASSION with other dermatology datasets to evaluate fairness and performance across the full spectrum of \gls{FST}. Moreover, due to historical underrepresentation of highly-pigmented skin in dermatology datasets, the performance on types V (25.89\%) and VI (23.23\%) should be examined in more detail, to see if their representation in the dataset must be addressed further.
+			\todo{cite https://academic.oup.com/bjd/article-abstract/185/1/198/6600283?redirectedFrom=fulltext, already mention this in dermatology bias section}
+			
+			
+			\item \textbf{Age Groups.} Children aged 0–9 account for over 40\% of the dataset, whereas elderly patients (65+) are nearly absent. Although this skew reflects PASSION’s focus on \gls{pediatric} conditions, the lack of data for seniors may reduce fairness for those age groups.
+			
+			Nevertheless, PASSION's age-generalization experiments suggest that a model trained on primarily \gls{pediatric} images might generalize reasonably well \autocite{Gottfrois2024}.
+			
+			\item \textbf{Conditions.} The dataset is dominated by fungal infections (35.02\%), followed by scabies (28.49\%), and eczema (25.05\%). Other conditions account only for 11.43\%. Mo data is available for healthy skin.
+			
+			The ambiguous "other" category complicates fairness evaluations for specific conditions. Disaggregating this group into defined labels would improve clarity. Additionally, including healthy skin samples could reduce potential bias and enable better calibration of diagnostic models. \todo{find and add healthy-vs-disease bias here}
+			
+			\item \textbf{Impetigo Indicator.} The impetigo label is present in only 11.6\% of the cases, indicating class imbalance that may affect prediction reliability for this condition.
+		\end{itemize}
+		
+		The \autoref{fig:PASSIONDistrImbalances} illustrates the overrepresentation of male children, based on the figures presented by \textcite{Gottfrois2024}. There are also condition-specific differences in \gls{FST} distribution. If this imbalances significantly affect model fairness, the dataset composition may need to be revised.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figures/PASSIONDatasetDistributionPotentialImbalances.png}
+			\caption{PASSION dataset distributions by \textcite{Gottfrois2024} - highlighting potential imbalances}
+			\label{fig:PASSIONDistrImbalances}
+		\end{figure}
+		
+		These findings highlight representation disparities across several demographic and clinical factors. Such disparities should be accounted for during training and fairness evaluation, especially when assessing subgroup-specific performance.
+		
+		It is important to note that the provided analysis only is a high-level overview at the group level. Detailed subgroup representation has not yet been assessed in details. Due to the time limits of this thesis, this was deferred in favor of executing the stratified split experiment.
+		
+		To enable subgroup-level representation analysis, group-level dataset representation script should be extended accordingly. As the script output will increase substantially, manual comparison may become impractical. Therefore, automating the comparison and generating summaries of the largest disparities is recommended.
+		
+		
+		
 	\chapter{Outlook}
 		\baaCriteria{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
 		\baaCriteria{Die Ergebnisse und Empfehlungen schaffen einen konkreten Mehrwert für die Auftraggebenden. Einschränkungen und Grenzen werden kritisch diskutiert und die nächsten Schritte im Ausblick festgehalten, so dass die Ergebnisse direkt in der Praxis weiterverwendet und/oder angewendet werden können.}
 		
+		This chapter summarizes the concrete recommendations to overcome the limitations of the current work. This includes e.g., revising the metadata used in PASSION, and extending the analytical tools used.
 		
-		Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
+		It also provides ideas, such as adding more diverse data and combining PASSION with other dermatology datasets to improve bias detection and aim for a more complete dataset.
 		
-	\chapter{writing ongoing TODO REMOVE THIS CHAPTER}\todo{remove this chapter}
-		\section{PASSION Dataset Assessment}
-		Therefore, the dataset will be reviewed with regards to:
+		These measures aim to enhance the practical applicability of the results and support the development of fair, generalizable \gls{ML} models in dermatology.
+	
+		
+		\section{PASSION Dataset Improvements}
+		To improve the fairness assessment capabilities of the PASSION dataset, the following dataset improvements are proposed:
 		\begin{itemize}
-			\item Representation of the main groups to get a first impression
-			\item Representation of relevant subgroups if the model output proves to be biased
-			\item Completeness of metadata relevant for fairness evaluation
-			\item Presence of \glspl{proxyVar} that might complicate fairness assessments
+			\item Include the missing metadata attributes identified in \autoref{chap:datasetAssessmentMetadataEvaluation} (e.g., socioeconomic status, clinic type, image quality) to enable a more comprehensive fairness evaluation. Ensure to assess the ethical implications before collecting such data.
+			\begin{itemize}
+				\item Investigate whether \textit{ethnicity} and \textit{disabilities} influence the presentation or prevalence of dermatological conditions before adding them to the dataset.
+			\end{itemize}
+						
+			\item Clarify the intended purpose of the \textit{country} variable, and replace or supplement it with more precise alternatives, as discussed in \autoref{chap:datasetAssessmentMetadataEvaluation}.
+			
+			\item Refine the "other" condition category by breaking it down into more specific labels to improve diagnostic granularity and fairness assessment per condition.
+			
+			\item Incorporate healthy skin samples into the dataset to allow for a more balanced classification task and to mitigate potential bias.
+			
+			\item Explore whether combining PASSION with other dermatology datasets enhances generalization across the full \gls{FST} range. \todo{add point to consider to use other categorizations}
 		\end{itemize}
 		
-		\subsection{Data Evaluation in PASSION}
-		\todo{consider this: 
-			Further, the available metadata in the dataset should be checked for completeness and feasibility to address the identified biases. When attributes are missing, the fairness for this particular subgroup cannot be evaluated and therefore, biases can not be detected. The dataset should also be checked for \glspl{proxyVar}, which should ideally be replaces with the real attributes, as they can lead to wrong conclusions.}
 		
-			\todo{maybe include more regarding passion dataset or model based on https://chatgpt.com/c/683412cd-5fa0-8007-8369-7bc9e41ac6ba}
-			\todo{write things to consider more precisely:}
-			\begin{itemize}
-				\item Include more details in gender attribute - transgender have probably different genes / hormones, and should be indicated for more accuracy
-				\item include profession / at least an adapted version to indicate high risk patients for certain diseases? -> might lead to other biases?
-				\item change country of origin to ethnicity (less of a proxy variable)
-				\item are the data collectors specialized in some fields? That could lead to bias towards the center's country and the diagnosed diseases
-				\item include images of healthy skin
-			\end{itemize}
+		\section{Fairness Assessment Process Improvements}
+		The measures to improve the fairness assessment process further are:
+		\begin{itemize}
+			\item Extend the existing dataset representation script, as described in \autoref{chap:datasetAssessmentExecution}, to support subgroup-level analysis and automated comparison.
+		\end{itemize}
 		
+		
+		\section{Fairness Assessment Results Extension}
+		\todo{@Proofreaders: habt ihr einen besseren Namen für dieses Kapitel? Es geht mir darum, dass weitere Analysen / Fairness assessments gemacht werden sollten}
+		The existing fairness assessment results can be extended with those actions:
+		\begin{itemize}
+			\item Perform the representation analysis of relevant subgroups, as described in \autoref{chap:datasetAssessmentMethod} using the extended script, to determine whether observed unfairness stems from distribution imbalances at subgroup level.	
+			
+			\item Evaluate model performance across \gls{FST} types V and VI more closely and take measures if bias exist. \todo{check if this will still be needed}
+		\end{itemize}
+		
+		
+		Implementing these measures will enhance the dataset’s ability to support fair, robust, and generalizable \gls{ML} models in dermatology.
+	
+	
+	\chapter{currently working on}
+	
+	\todo{put this somewhere in the outlook}
+	Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
+	
+	\chapter{writing ongoing TODO REMOVE THIS CHAPTER}\todo{remove this chapter}
+	
+		\begin{itemize}
+			\item \textbf{Tooling Support.}
+			While the provided scripts enable basic demographic visualization, they lack functionality for intersectional subgroup analysis or fairness metric evaluation (e.g., \textit{equalized odds}).
+		\end{itemize}
+	
 		\subsection{Bias Evaluation in PASSION}
 		\todo{fix this writing}
 		\paragraph{Methodology}
@@ -1471,9 +1577,6 @@
 			\item adapt code so that the relevant data is generated to be able to compute the relevant information
 			\item GPUHub from HSLU is used, \todo{maybe add some machine information}
 		\end{itemize}
-		
-		
-		
 		
 		
 		\rawcitationusedstart
@@ -1720,12 +1823,60 @@
 			\baaCriteria{Projektspezifisch können weitere Dokumentationsteile angefügt werden wie: Aufgabenstellung, Projektmanagement-Plan/Bericht, Testplan/Testbericht, Bedienungsanleitungen, Details zu Umfragen, detaillierte Anforderungslisten, Referenzen auf projektspezifische Daten in externen Entwicklungs- und Datenverwaltungstools etc.}
 			
 			\todo{fix appendices chapters, wtf}
+			\todo{also move the bibliography potentially after the appendices, idk}
 			%\renewcommand{\thechapter}{Appendix \Alph{chapter}}
 		
 	
+			\chapter{PASSION Data Analysis Scripts}\label{app:PASSIONdataAnalysisScripts}
+			The PASSION team provides a \gls{JupyterNotebook} with code examples and analysis scripts. They are listed in \autoref{tab:PASSION_scripts} together with their relevance to this thesis. The most relevant scripts are those related to demographic distributions of the chosen attributes, since they help identifying potential data imbalances. Scripts that lay the foundation for further analysis are somewhat relevant, while all other scripts are irrelevant for this thesis.
+			
+			\begin{table}[H]
+				\centering
+				\begin{threeparttable}
+					\begin{tabularx}{\textwidth}{>{\hsize=.25\hsize\raggedright}X>{\hsize=.41\hsize}X>{\hsize=.34\hsize}X}
+						\toprule
+						\textbf{Script Title}       & \textbf{Description} & \textbf{Relevance - Reasoning}       \\ \midrule
+						Distribution of \glspl{FST} &
+						Counts and visualizes the skin type distribution  &
+						\textbf{High} - Insight into demographic distributions \\
+						\hline
+						Regrouping Malawi and Tanzania to EAS &
+						Data aggregation due to dataset size and geographical proximity &
+						\textbf{Medium} - Might impact interpretation of the results of the following scripts \\
+						\hline
+						Linking CSV Data with Image Files & 
+						Mapping between data records and images. &
+						\textbf{Medium} - Basis for other analyses \\
+						\hline
+						Extracting and Comparing Subject IDs &
+						Dataset verification regarding completeness &
+						\textbf{Low} - No insight in regards of demographic distribution \\
+						\hline
+						Conditions by Country &
+						Correlation between clinical conditions and country &
+						\textbf{Low} - The attribute \textit{country} is out of scope of this thesis \\
+						\hline
+						Body Localizations by Conditions &
+						Correlation between the condition and primarily affected body parts &
+						\textbf{Low} - No insight in regards of demographic distribution \\
+						\hline
+						Impetigo Cases &
+						Total count of impetigo cases and proportion to all cases &
+						\textbf{Low} - No insight in regards of demographic distribution\tnote{*} \\
+						\bottomrule
+					\end{tabularx}
+					\begin{tablenotes}
+						\footnotesize
+						\item[*] Research is divided on which demographic factors influence the prevalence of impetigo \autocites{Romani_2017}{Aleid_2024}.
+					\end{tablenotes}
+				\end{threeparttable}
+				
+				\caption{PASSION dataset - existing analysis scripts \autocite{Gottfrois2024}}
+				\label{tab:PASSION_scripts}
+			\end{table}
+			
 			\input{appendix_bias_list.tex}
 			
-				
 			
 			\chapter{Fairness Metrics}\label{app:fairnessMetrics}
 			 According to \textcite{Mehrabi_2021}, fairness can be achieved on a group level, subgroup level or even for an individual. Group fairness is about treating different groups as equal. Individual fairness tries to achieve similar predictions for similar individuals. Subgroup fairness tries to incorporate the best properties of the other two levels to improve the outcome in larger collections of subgroups \autocite{Mehrabi_2021}. 
@@ -1781,6 +1932,26 @@
 				\item \textit{Fairness in Relational Domains}: This notion also takes into consideration relational structures between individuals \autocite{M50_Farnadi_2018}.
 			\end{itemize}
 			
+			\chapter{PASSION Dataset Distribution Analysis}\label{app:PASSIONdataDistributionAnalysis}
+
+			The data in \autoref{tbl:PASSIONDatasetDistrAnalysis} shows the distribution of the values of the individual metadata attributes in the PASSION dataset. The data has been generated with a python script \todo{add/refer to python script}. In \autoref{fig:PASSIONDatasetDistrAnalysis}, the data is visualized.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.9\textwidth]{figures/PASSION_split_all_distributions.png}
+				\caption{PASSION dataset distribution analysis on group level}
+				\label{fig:PASSIONDatasetDistrAnalysis}
+			\end{figure}
+			
+			\begin{table}[H]
+				\centering
+				{
+					\catcode`\_=12
+					\csvautobooktabular{csvs/distribution_PASSION_split.csv}
+					\catcode`\_=8
+				}
+				\caption{Distribution of metadata attributes in the PASSION dataset}
+				\label{tbl:PASSIONDatasetDistrAnalysis}
+			\end{table}
 		\end{appendices}
 		
 		
