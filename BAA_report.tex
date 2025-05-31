@@ -1322,6 +1322,8 @@
 		\begin{itemize}
 			\item \textbf{Metadata Completeness.} The metadata is reviewed to verify that all relevant demographic attributes, as identified in the contextualized literature review, are included. Missing attributes limit bias detection and mitigation strategies. They should be added to enable a thorough fairness analysis and bias mitigation. Therefore, potentially missing attributes are listed and passed on to the PASSION team for inclusion in the metadata.
 			
+			Further, the available sensitive attributes are identified to ensure that they are included in the subgroup fairness evaluation.
+			
 			\item \textbf{Presence of \glslink{proxyVar}{Proxy Variables}.} Available metadata attributes are assessed regarding their intended purpose and potential use as \glspl{proxyVar}. If \glspl{proxyVar} are identified, alternatives are proposed to be added to the data instead. This step is essential, as relying on \glspl{proxyVar} may introduce unintended bias into the analysis or model.
 			
 			\item \textbf{Representation of Main Groups.} To evaluate overall demographic distributions, the proportions of the values for each demographic attribute (age, sex, \gls{FST}) are analyzed to identify over- or underrepresented groups. This provides an initial indication of potential data skews, which then can be compared to the model's fairness assessment results. This grants first insight into whether potential unfairness stems from representation bias or other factors.
@@ -1331,40 +1333,36 @@
 		\end{itemize}
 		\todo{cite methods}
 		
-		\section{Reproduce PASSION Results}
+		\section{Reproducing PASSION Results}
 		Before starting any evaluation on the model, the PASSION experiments must be reproduced on the \gls{gpuhub}, to ensure, that the code base and the data loading is working the same way as for the initial paper. Only then, the evaluation outcome can be used by the PASSION team.
 		
 				
-		\section{Fairness Assessment}\label{chap:fairnessAssessment}
-		The selected fairness metrics are used to assess the output of the current PASSION model, establishing a baseline for the model's fairness. This includes subgroup performance evaluation and identification of any disparities.
+		\section{Fairness Assessment}\label{chap:fairnessAssessmentMethod}
+		To establish a reproducible foundation for fairness evaluations within the PASSION project, a baseline fairness assessment with the original project setup is done. For the assessment, the fairness metric selected by the execution of the method \todo{link to the right chapter} is implemented to analyze model performance across sensitive subgroups, to identify any potential biases in the model output.
 		
-		Each time after applying a mitigation method, the fairness of the updated model is assessed using the exact same procedure. This consistent evaluation is necessary to enable the comparison between the baseline and each mitigation method.
+		The same fairness assessment process is used to evaluate fairness on the model after applying each mitigation method. This ensures consistency and comparability of results across all experimental stages. A mitigation method is considered to hold potential if it significantly improves the fairness assessment results compared to the established baseline.
 		
-		A mitigation method is considered to have potential for improving the fairness of the PASSION project of it results in a significantly higher fairness than the baseline.
+		The fairness assessment uses the fairness metric chosen with \todo{link to fairness metric analysis method chapter} on a subgroup level. For its computation, the \textit{Fairlearn} library is used where supported to use the standard implementation \todo{mention the library somewhere in fairness metric research}. Since fairlearn does not support multiclass analysis and multiple subgroup combinations out of the box, custom code must be developed to handle that part.
+		The subgroups are defined by all unique combinations of the sensitive PASSION metadata attributes as evaluated using the method in \linkchap{chap:datasetAssessmentMethod}.
 		
-		\todo{add more details? Or in explain the detailed approach with Equalized Odds in a seperate (sub-?)chapter? for sure, bring fairlearn into it (smt like Libraries such as \textit{Fairlearn} are used for bias detection and mitigation.)}
+		The assessment is run based on the prediction outputs and linked metadata generated in the model evaluation phase, which are cached for later inspection. An independent evaluation class computes the required statistics, and reports fairness metrics. This implementation allows evaluation to be performed independently of model training and supports reproducibility of results.
 		
-		\begin{comment}
-			\begin{itemize}
-				\item \textbf{Quantitative Analysis:} The fairness of the PASSION model is assessed using quantitative fairness metrics such as demographic parity and equalized odds. The use of these metrics enables objective comparison before and after the application of mitigation strategies.
-				\item \textbf{Framework-Based Evaluation:} The fairness analysis and mitigation methods are implemented using existing research libraries (e.g., Fairlearn), ensuring that the approach is comparable to state-of-the-art scientific methods.
-			\end{itemize}
+		Alongside with Fairlearn, the implementation builds upon \textit{pandas} and \textit{numpy} for data handling, and \textit{scikit-learn} for standard evaluation metrics. \todo{consider to add links}
+		
+		\subsection{Limitations}
+			This method provides an initial understanding of fairness in the model output and potential mitigation impacts. However, for scientifically robust conclusions on the fairness impact of a mitigation method, more systematical testing is required.
 			
-			Qualitative methods (e.g., interviews or surveys) are not applicable in this context, as the project focuses on technical evaluation using quantitative model performance and fairness indicators.
-		\end{comment}
-		
-		
-		\subsection{Limitation}
-			This method can only provide an initial indication of the potential effectiveness of a mitigation method. To determine whether a mitigation method is scientifically beneficial, it must be tested more systematically. Ideally, each mitigation method should be applied multiple times using different seeds for the random generators. In the best case, the baseline should also be established multiple times using the same set of seeds. This would allow for a statistical significant evaluation of the results. This approach has been used by \textcite{Valentim_2019} who used 30 different seeds for each configuration.
+			Ideally, multiple training and evaluation runs per mitigation method using different random seeds should be conducted. Also, the baseline assessment should be run multiple times, using the same seeds to ensure comparison. This approach ensures statistically significant results and accounts for variance due to randomization at diverse stages in the model training process. For instance, \textcite{Valentim_2019} ran each configuration 30 times using different random seeds.
 			
-			Due to technical limitations and time constraints, this was unfortunately not feasible to do during this thesis. It is advice that the PASSION team executes the experiments further times using the provided scripts, in order to get a more established insight.
+			Due to technical limitations and time constraints, multiple runs were not feasible during this thesis. It is strongly recommended that the PASSION team executes the experiments with additional seeds using the provided scripts, to get a more established result.
+		
 		
 		\section{Mitigation Method Selection and Evaluation} \todo{consider to split chapter in mitigation method stuff and data split setup}
 		The PASSION model uses a predefined train-test split. To prevent test set leakage and overfitting while applying mitigation methods, the training data is further divided into a training and a validation set. 
 		
-		If a mitigation method can be applied in multiple ways (e.g., with different parameters, configurations, or data splits), all these variants are evaluated using the train-validation split. The variant that performs best on the validation set is then used to evaluate the effectiveness of the mitigation method on the original test set.
+		If a mitigation method can be applied in multiple ways (e.g., with different parameters, configurations, or data splits), all these variants are evaluated using the train-validation split to prevent test data leakage. The training for all variants will be done without 5-fold cross-validation which allows for significantly faster iteration cycles. This is crucial given the time limitation for this thesis. The variant that performs best on the validation set is then used to evaluate the effectiveness of the mitigation method on the original test set. For this final assessment, 5-fold cross-validation is used again.
 		
-		This approach ensures that the final test results are comparable across different methods, while keeping the selection process independent of the test data. It follows standard machine learning methodology to prevent overfitting to the test set.\todo{cite AI lectures}
+		This approach ensures that the final test results are comparable across different methods, while keeping the selection process short and independent of the test data.\todo{cite AI lectures}
 		\begin{comment}
 			AI lectures or textbook, e.g., Goodfellow et al., 2016
 			Goodfellow, I., Bengio, Y., Courville, A. (2016). Deep Learning. MIT Press.
@@ -1372,7 +1370,7 @@
 			Varma, S., Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.
 		\end{comment}
 		
-		Selected bias mitigation strategies are applied to this setup individually, so that the impact on the fairness can be clearly assigned to the tested mitigation strategy. The impact is evaluated relative to the established baseline as described in \linkchap{chap:fairnessAssessment}.
+		Selected bias mitigation strategies are applied to this setup individually, so that the impact on the fairness can be clearly assigned to the tested mitigation strategy. The impact is evaluated relative to the established baseline as described in \linkchap{chap:fairnessAssessmentMethod}.
 		
 		\todo{ensure to also compare model performance - if you did it, also mention here!}
 		
@@ -1422,10 +1420,75 @@
 			It prints the distribution as absolute support and percentage for all values of the attributes country, sex, fitzpatrick, impetig, conditions\_PASSION, and ageGroup. The age group contains the ages binned into 5 year intervals, like it has been done by \textcite{Gottfrois2024} in their distribution analysis.
 			Also, it saves the distribution in a csv and prints a plot per attribute. The comparison between the values is done manually for now, since there are not too many values.
 			
-			\todo{ensure to discuss the evaluator class beforehand somewhere and add command to command in readme(evaluator.run\_split\_distribution\_evaluation)} \todo{consider to mention the age stuff once before hand in a constraints chapter or so}
+			\todo{ensure to discuss the evaluator class beforehand somewhere and add command to command in readme(evaluator.run\_split\_distribution\_evaluation)} 
 			
 			\item \textbf{Representation of Relevant Subgroups.} The demographic distribution figures of PASSION are briefly analyzed for an initial indication of the representation of age and sex.
 		\end{itemize}
+		
+		
+		\section{Reproducing PASSION Results}
+		While attempting to reproduce the results reported in the PASSION paper, some issues in the provided codebase had to be addressed. First, the metadata filenames referenced in the code were outdated, and the linkage between images and metadata records seemed to not fit the provided metadata files, preventing proper data loading. This was resolved using the same method as in the "Linking CSV Data with Image Files" script included with the PASSION data analysis scripts, ensuring compatibility. After fixing the data linkage, the models for \texttt{conditions\_PASSION} and \texttt{impetig} were trained, and the results were compared with those reported in the PASSION publication.
+		
+		During the verification of group-level performance reproducibility, it was identified that the linkage between predictions and metadata was not functioning correctly in the evaluation pipeline. The original linkage used indices, which proved unreliable. To confirm the issue, the trained model was reloaded and the evaluation rerun. If group-level evaluation metrics changed despite identical model and data inputs, the linkage must be faulty.
+		
+		To allow for the model reloading, the checkpoint handling had to be revised. The evaluation process was encapsulated within a separate \texttt{Evaluator} class to improve code modularity and separation of concerns.
+		
+		The corrupted metadata linkage was resolved by adding the image filename into the dataloader, allowing the \texttt{Evaluator} to accurately link predictions to the correct metadata records.
+		
+		These unanticipated code fixes required significant time, but they were essential for ensuring the validity of the analysis.
+
+		
+		\section{PASSION Baseline Fairness Assessment} \label{chap:PASSIONFairnessAssessmentBaselineExecution}
+		
+		\subsection{Baseline Setup}
+		This evaluation was conducted on the \textit{conditions\_PASSION} model. The binary \textit{impetig} model was excluded due to the already high complexity and runtime demands of the multiclass setup.
+		
+		The original PASSION model was trained using a \textit{ResNet50} architecture. However, due to its long training and evaluation time, a smaller model version, \textit{ResNet18}, was used for the experiments to enable faster iteration. To get insight in potential performance disparities based on this substitution, both models were evaluated using the same fairness assessment process as described in \linkchap{chap:fairnessAssessmentMethod}. This enabled a comparison to verify whether the smaller model produced comparable subgroup fairness insights and could be reliably used for the experimental phase.
+		\todo{try to cite, or at least use protocols}
+		
+		\todo{if the results differ, mention the limits in the evaluation section}
+		
+		To further improve runtime efficiency and flexibility during the experiments, the several modifications were made to the original pipeline and methodology:
+		
+		\begin{itemize}
+			\item Temporarily enabled parallel data loading to accelerate experimentation (this change was later reverted for better reproducibility).
+			\item Accelerated data loading by moving redundant checks out of a loop.
+			\item Introducing the concept to check variants of a mitigation method without 5-fold cross validation to allow for faster iterations
+		\end{itemize}
+		
+		
+		\subsection{Fairness Assessment Implementation} \label{chap:fairnessAssessmentImpementation}
+		Fairness was assessed using \textit{equalized odds} on sensitive subgroups defined by unique combinations of \textit{\gls{FST}, sex, age group, and country}, as introduced in previous chapters. The evaluation was implemented following the method described in \autoref{chap:fairnessAssessmentMethod}.
+		
+		There was no existing code for equalized odds evaluation with multiclass classification support and the implementation for the suggested method in \todo{link EqODd descr. chapter} was not entirely clear, especially how the comparison should be programmed. Therefore, Fairlearn methods where combined with custom implementation to implement the other version of multiclass equalized odds \todo{also link to eq odds descr chapter}.
+		
+		The final evaluation consists of several steps:
+		\begin{itemize}
+			\item \textbf{Data Aggregation:} Prediction results and metadata are linked and saved into a unified CSV, which can be used for manual inspection and is loaded on evaluation reruns.
+			\item \textbf{General Performance:} Overall performance metrics are reported, as implemented by the PASSION team.
+			\item \textbf{(Sub-)group Evaluation:} For each combination of sensitive attributes, performance and fairness metrics are computed.
+			\item \textbf{Class-Level Fairness Metric Computation:} Using \texttt{MetricFrame} from Fairlearn, Equalized Odds Difference (EOD) and Ratio (EOR) are computed per class. Due to the binary limitation of Fairlearn's implementation, a one-vs-all strategy is applied to enable multiclass fairness evaluation. \todo{cite who did this as well}
+			\item \textbf{Aggregation on Subgroup Level:} Class-level fairness metrics are further aggregated per subgroup using:
+			\begin{itemize}
+				\item Worst-case
+				\item Mean
+				\item Best-case
+			\end{itemize}
+			This aggregation approach is inspired by the \textit{summary} aggregation for subgroup reporting for one class provided by fairlearn. \todo{cite}
+			\item \textbf{Aggregation on Model Level:} The subgroup level metrics are aggregated further, to report fairness across all subpopulations for easier model comparison, using:
+			\begin{itemize}
+				\item Worst-case
+				\item Mean
+				\item Median
+				\item Best-case
+				\item Standard deviation
+			\end{itemize}
+			This last step is done manually so far.
+		\end{itemize}
+		\todo{add EOD and EOR and Fairlearn to glossary}
+		
+		To identify all privileged and underprivileged subgroups, comparisons of subgroup \gls{TPR} and \gls{FPR} against macro-averages of the same type of subgroups were conducted. The rates where computed based on the confusion matrices. A relaxed threshold of 0.2 was used to ignore slight differences in this initial fairness assessment. Subgroups with better-than-average \gls{TPR} and lower-than-average \gls{FPR} were marked \textit{privileged}; the inverse as \textit{underprivileged}. Borderline groups were labeled \textit{unclear}, and those lacking support were tagged with \textit{no support}. Those outputs were cross-validated against manual calculations and Fairlearn's outputs for correctness. \todo{cite / Add reference to methods for multiclass fairness.}
+		
 		
 		
 	\chapter{Evaluation and Validation}
@@ -1434,12 +1497,12 @@
 		\baaCriteria{Die Herleitung und Bedeutung der Ergebnisse, mögliche Varianten, Gütekriterien und eine Validierung allgemein werden nachvollziehbar diskutiert}
 		
 		
-			\section{PASSION Dataset Assessment}
+		\section{PASSION Dataset Assessment}
 		The PASSION dataset assessment results are described in this section.
 		Overall, the dataset enables a foundational fairness analysis but does not support in-depth bias evaluation without augmentation or careful interpretation.
 		
 		\subsection{Metadata Completeness and \glslink{proxyVar}{Proxy Variables}} \label{chap:datasetAssessmentMetadataEvaluation}
-		Based on the literature regarding sensitive features and potential biases, important metadata is available in the dataset, namingly age, sex and \gls{FST}.
+		Based on the literature regarding sensitive features and potential biases, sensitive metadata is available in the dataset, namingly \gls{FST}, age, sex, and country. To obtain a feasible number of comparable subgroups, age can be grouped into age groups by using 5-year age groups, following the approach by \textcite{Gottfrois2024}.
 		However, relevant metadata for a thorough fairness assessment and bias mitigation is missing. This limits what biases can be detected.
 		
 		The missing metadata attributes are:
@@ -1505,6 +1568,62 @@
 		To enable subgroup-level representation analysis, group-level dataset representation script should be extended accordingly. As the script output will increase substantially, manual comparison may become impractical. Therefore, automating the comparison and generating summaries of the largest disparities is recommended.
 		
 		
+		\section{Reproducing PASSION Results}
+		The overall model performance was consistent with the results reported in the PASSION paper.
+		
+		However, the group-level performance results could not be reproduced. Multiple inference runs with the same model and dataset produced inconsistent results. Introducing metadata linkage via filenames resolved this issue and provided stable, reproducible results. This confirms a reliable association between predictions and metadata, which is critical for fairness analysis.
+		
+		Currently, the checkpoint handling supports only evaluation. Additional adjustments are needed to fully support resumed training, particularly to ensure correct and reproducible handling of epochs and cross-validation folds.
+		
+		
+		While these extensive code improvements reduced the time available for fairness analysis, they are a critical enhancement to the robustness and usability of the PASSION evaluation.
+		
+		\section{PASSION Baseline Fairness Assessment} \label{sec:evaluation}
+		
+		The baseline fairness performance of \texttt{ResNet50} and \texttt{ResNet18} was assessed. This evaluation represents a reproducible baseline against which the impact of mitigation methods can be measured.
+		
+		\begin{itemize}
+			\item \textbf{Baseline ResNet50:} \todo{[Insert Equalized Odds Difference/Ratio metrics here per subgroup and model level aggregation]}
+			\item \textbf{Baseline ResNet18:} \todo{[Insert Equalized Odds Difference/Ratio metrics here per subgroup and model level aggregation]}
+		\end{itemize}
+		
+		Although minor performance differences between the two model versions were found, the subgroup-level fairness trends proved largely consistent. Therefore, \texttt{ResNet18} was considered a valid substitution model for experimentation in this thesis.
+		
+		Further conclusions are summarized in the following subchapters.
+		
+		\subsection{Subgroup-Level Insights}
+		Using the aggregation of class-level equalized odds metrics, the assessment revealed substantial variance across subgroups. Privileged and underprivileged subgroups are consistently identifiable.
+		
+		While some groups showed stable behavior across classes, others shifted category depending on the evaluated class, which underlines the importance of per-class fairness computation in multiclass settings.
+		
+		\subsection{Pipeline Challenges}
+		
+		Several technical limitations impacted the reliability and completeness of the fairness assessment:
+		\begin{itemize}
+			\item Fairlearn’s default multiclass handling is limited. To overcome this, a custom implementation was required, which introduces complexity and potential inconsistencies with the intended methodology of researchers.
+			\item In the report part where subgroups are classified regarding privilege level, some subgroups were suppressed. This affects fairness analysis negatively. The comparison to the fairlearn output revealed this issue. This proves that it is preferable to use well-established, tested libraries for whenever possible.
+			\item Manual aggregation of subgroup-level to model-level metrics is currently not automated, reducing reproducibility and increasing error risk.
+		\end{itemize}
+		
+		Despite these challenges, the evaluation successfully surfaced subgroup disparities, supporting claims that fairness analysis on subgroups is important for reducing biases in dermatology models, including PASSION.
+		
+		\subsection{Aggregation Trade-offs}
+		Aggregating fairness metrics at subgroup and model level provided helpful summaries but hide subgroup-specific effects. This must be considered when interpreting aggregated metrics.
+		
+		The proposed aggregation strategy was implemented due to the absence of ready-to-use multiclass equalized odds metrics in fairlearn or similar libraries. This illustrates the need for researchers to work together and implement suggested methodology improvements in the state of the art libraries.
+		
+		\subsection{Outlook on Evaluation Improvements}
+		\todo{probably move to outlook}
+		
+		The current evaluation pipeline lays a solid groundwork but needs refinement:
+		\begin{itemize}
+			\item Replace confusion-matrix-based fairness calculations with direct \texttt{MetricFrame}-based computation to streamline and unify the process.
+			\item Improve subgroup handling to include low-support groups more reliably, potentially via resampling or relaxed filtering.
+			\item Automate the aggregation steps and document all assumptions clearly to enhance reproducibility.
+		\end{itemize}
+		
+		In future work, incorporating multiple training seeds per setup will be essential for drawing statistically valid conclusions about fairness across model variations and mitigation methods.
+		
 		
 	\chapter{Outlook}
 		\baaCriteria{Reflexion der eigenen Arbeit, ungelöste Probleme, weitere Ideen.}
@@ -1535,6 +1654,15 @@
 		\end{itemize}
 		
 		
+		\section{Training Process Improvements}
+		To enable full reproducibility and extensibility, further work should include:
+		
+		\begin{itemize}
+			\item Finalizing checkpoint loading support for resumed training by correctly tracking and reloading epochs and folds.
+			\item Incorporating automated tests to verify linkage integrity and model reproducibility.
+		\end{itemize}
+		
+		
 		\section{Fairness Assessment Process Improvements}
 		The measures to improve the fairness assessment process further are:
 		\begin{itemize}
@@ -1557,10 +1685,54 @@
 	
 	\chapter{currently working on}
 	
-	\todo{put this somewhere in the outlook}
-	Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
+	\chapter{PASSION Baseline Fairness Assessment}
 	
+	
+	
+	
+	
+	\section{Outlook} \label{sec:outlook}
+	
+	
+	In summary, the evaluation infrastructure and insights established in this thesis provide a meaningful first step toward robust fairness assessments in PASSION. With technical extensions and methodological refinements, it can evolve into a comprehensive toolset for bias detection and mitigation in dermatology and beyond.
+	
+	The fairness evaluation presented in this thesis revealed critical insights into subgroup disparities and pipeline limitations within the PASSION project setup. While the implemented approach provided a reproducible and structured baseline, several directions for future work have emerged to improve the robustness, generalisability, and reproducibility of fairness assessments.
+	
+	\subsection{Metric Implementation and Evaluation Consistency}
+	
+	As discussed, the current fairness evaluation relies in part on confusion-matrix-based metric computations. Replacing these with direct use of Fairlearn’s \texttt{MetricFrame} functionality across all fairness metrics would ensure a unified calculation standard and reduce implementation complexity. This would also increase consistency with other fairness research and future-proof the pipeline against methodological updates in fairness literature.
+	
+	\subsection{Improved Subgroup Handling}
+	
+	The suppression of low-support subgroups due to Fairlearn’s internal handling and manual filtering mechanisms may bias the evaluation. This highlights the need for a more sophisticated strategy to include or resample underrepresented subgroups without compromising statistical reliability. Future efforts should aim to ensure that all relevant subgroups are fairly assessed, particularly in the context of medical datasets where representation imbalances are common.
+	
+	\subsection{Automation and Documentation of Aggregation}
+	
+	Currently, the aggregation of fairness metrics from class to subgroup to model level involves manual steps. These introduce the risk of inconsistency and reduce reproducibility. Automating these aggregation procedures with fully transparent logic and clearly documented assumptions would significantly improve the interpretability and replicability of fairness assessments. Where applicable, sensitivity analyses of aggregation strategies should be added to evaluate their impact.
+	
+	\subsection{Statistical Robustness through Multiple Seeds}
+	
+	One key limitation of this work is the single-seed evaluation due to time and computational constraints. In fairness research, especially with deep learning models, results can be sensitive to random initialization and data splits. As recommended in \textcite{Valentim_2019}, future assessments should include multiple training and evaluation runs with different seeds to draw statistically significant conclusions about model fairness and mitigation impact. The current pipeline provides a foundation for such extensions.
+	
+	\subsection{Library and Methodology Development}
+	
+	The absence of well-established multiclass fairness implementations, particularly for metrics like equalized odds, required custom adaptations. This points to a broader need within the research community to extend existing libraries like Fairlearn to better support multiclass and subgroup-level analyses. Contributing the implemented methods and findings back to these open-source tools would benefit both the PASSION project and the wider fairness research community.
+	
+	\subsection{Broader Context and Integration}
+	
+	While this thesis focused on subgroup-level fairness analysis, future work could integrate fairness metrics into clinical utility assessments and decision-making contexts. This would enable a more holistic evaluation of trade-offs between fairness and clinical performance, which is essential for practical deployment in medical settings.
+	
+
+	
+	
+	
+
 	\chapter{writing ongoing TODO REMOVE THIS CHAPTER}\todo{remove this chapter}
+	\todo{put this somewhere in the outlook} Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
+	
+	
+	\todo{add to the stratified split experiment }: Cross-validation folds were removed to reduce evaluation time, it did not help that the gpuhub shut down your virtual machine after a while (2-3 days?), interrupting long (chained) experiment runs. Bc the checkpoint handling is not working yet for continuing training (only fixed that I can reload checkpoints for evaluating on the model again), this meant that some parts of the experiment had to be executed multiple times. Strongly suggest that the checkpoint handling is improved further by the passion team.
+	
 	
 		\begin{itemize}
 			\item \textbf{Tooling Support.}
