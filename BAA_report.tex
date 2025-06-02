@@ -44,6 +44,12 @@
 \usepackage{tikzscale}
 \usepackage{csvsimple}
 
+\usepackage{enumitem}
+
+\setlist[itemize]{itemsep=3pt, parsep=0pt}
+\setlist[enumerate]{itemsep=3pt, parsep=0pt}
+
+
 \usepackage{appendix}
 
 % PDF/A Compliance, todo: enable and remove hyperref usepackage afterwards
@@ -288,7 +294,7 @@
 		\section{PASSION for Dermatology}
 			This section provides an overview of the PASSION project regarding its medical scope and technical components.
 			
-			While the overall goal remains to improve the accessibility of dermatological care by building fair and inclusive AI systems, PASSION specifically addresses common \gls{pediatric} skin conditions in Sub-Saharan Africa. To create a dataset which represents patients with highly pigmented skin, they collected data from patients with \glspl{FST} III to VI. Based on this dataset, the PASSION team fine-tuned a ResNet-50 model using transfer learning. With the dataset and trained model, the researchers published data analysis scripts and initial insights on the model performance in a MICCAI \todo{add to glossary} publication \autocite{Gottfrois2024}.
+			While the overall goal remains to improve the accessibility of dermatological care by building fair and inclusive AI systems, PASSION specifically addresses common \gls{pediatric} skin conditions in Sub-Saharan Africa. To create a dataset which represents patients with highly pigmented skin, they collected data from patients with \gls{FST} III to VI. Based on this dataset, the PASSION team fine-tuned a ResNet-50 model using transfer learning. With the dataset and trained model, the researchers published data analysis scripts and initial insights on the model performance in a MICCAI \todo{add to glossary} publication \autocite{Gottfrois2024}.
 			
 			For the purpose of this thesis, it is essential to understand the dataset's metadata, the architecture and fine-tuning process of the PASSION model and which bias mitigation methods have already been applied. The dataset can influence which biases could arise in the model or rather which ones can be measured. The labels which should be predicted, and the model architecture give insight into the \gls{ML} task. All this information affects which mitigation methods are feasible to be used for the project. \todo{add sources}
 			
@@ -1357,7 +1363,7 @@
 			Due to technical limitations and time constraints, multiple runs were not feasible during this thesis. It is strongly recommended that the PASSION team executes the experiments with additional seeds using the provided scripts, to get a more established result.
 		
 		
-		\section{Mitigation Method Selection and Evaluation} \todo{consider to split chapter in mitigation method stuff and data split setup}
+		\section{Mitigation Method Selection and Evaluation} \label{chap:mitigationMethodsApplyMethod} \todo{consider to split chapter in mitigation method stuff and data split setup}
 		The PASSION model uses a predefined train-test split. To prevent test set leakage and overfitting while applying mitigation methods, the training data is further divided into a training and a validation set. 
 		
 		If a mitigation method can be applied in multiple ways (e.g., with different parameters, configurations, or data splits), all these variants are evaluated using the train-validation split to prevent test data leakage. The training for all variants will be done without 5-fold cross-validation which allows for significantly faster iteration cycles. This is crucial given the time limitation for this thesis. The variant that performs best on the validation set is then used to evaluate the effectiveness of the mitigation method on the original test set. For this final assessment, 5-fold cross-validation is used again.
@@ -1375,6 +1381,15 @@
 		\todo{ensure to also compare model performance - if you did it, also mention here!}
 		
 		\todo{explain specific mitigation method used}
+		
+		\section{Stratified Split Experiment}
+		Stratified splitting is a bias mitigation method commonly applied using the target labels to ensure a balanced representation of classes. However, additional variables can also be included to maintain minority subgroup representation across train and test sets \autocite{Balde_2023}.
+		
+		This experiment investigates how different stratification strategies affect model fairness. While the PASSION dataset includes a predefined training-test split, the stratification criteria used are undocumented. To approximate the original criteria, the distribution of key attributes is analyzed across the original train and test sets, to get a better understanding of the baseline used.
+		
+		To maintain comparability with the baseline, the original test set is preserved. The training set is re-split using various stratification configurations. All splits include the target labels, and additional attributes based on known representation disparities are incorporated. A purely random split serves as a control configuration.
+		
+		Splits are generated using \texttt{sklearn.model\_selection.train\_test\_split} with the \texttt{stratify} parameter. The general evaluation follows the procedure described in \autoref{chap:mitigationMethodsApplyMethod}.
 		
 	\chapter{Execution}
 		\baaCriteria{Dies ist das Hauptkapitel Ihrer Arbeit! Hier wird die Umsetzung der eigenen Ideen und Konzepte (Kapitel 3) anhand der gewählten Methoden (Kapitel 4) beschrieben, inkl. der dabei aufgetretenen Schwierigkeiten und Einschränkungen.}
@@ -1483,12 +1498,44 @@
 				\item Best-case
 				\item Standard deviation
 			\end{itemize}
-			This last step is done manually so far.
+			This last step is done manually using an \textit{Excel}-file so far.
 		\end{itemize}
 		\todo{add EOD and EOR and Fairlearn to glossary}
 		
 		To identify all privileged and underprivileged subgroups, comparisons of subgroup \gls{TPR} and \gls{FPR} against macro-averages of the same type of subgroups were conducted. The rates where computed based on the confusion matrices. A relaxed threshold of 0.2 was used to ignore slight differences in this initial fairness assessment. Subgroups with better-than-average \gls{TPR} and lower-than-average \gls{FPR} were marked \textit{privileged}; the inverse as \textit{underprivileged}. Borderline groups were labeled \textit{unclear}, and those lacking support were tagged with \textit{no support}. Those outputs were cross-validated against manual calculations and Fairlearn's outputs for correctness. \todo{cite / Add reference to methods for multiclass fairness.}
 		
+		For comparing models, the aggregated values have to be compared. Currently, this step is also covered in the mentioned Excel file.
+		
+		
+		\section{Stratified Split Experiment}
+		To analyze the original split, the script from \autoref{chap:datasetAssessmentExecution} was extended to evaluate attribute distributions across each subsets.
+		
+		The following attribute combinations were used for stratification:
+		\begin{enumerate}
+			\item conditions\_PASSION, impetig
+			\item conditions\_PASSION, impetig, country
+			\item conditions\_PASSION, impetig, fitzpatrick
+			\item conditions\_PASSION, impetig, country, fitzpatrick
+			\item conditions\_PASSION, impetig, country, fitzpatrick, sex
+			\item Random split without stratification
+		\end{enumerate}
+		
+		A key challenge was the presence of subgroups with single records, which hinder stratification since at least two samples per subgroup are required for even distribution. These single-record instances were handled in two ways:
+		\begin{itemize}
+			\item Strategy A: Assigning them to the training set, ensuring the model learns from all subgroups but excluding them from fairness evaluation.
+			\item Strategy B: Assigning them to the validation set, allowing subgroup inclusion in fairness analysis but excluding them from model training.
+		\end{itemize}
+		
+		Both strategies were applied to each split, resulting in 12 models. The seeds got fixed to remain compatibility. Unfortunately, the seed was mistakenly changed between generating the different strategies. Therefore, the models were evaluated per strategy, to avoid improper comparisons.
+		
+		To evaluate fairness, the models were trained using PASSION's pipeline with each split configuration. The evaluation focused on fairness metrics alone, given that this was the primary objective. Final evaluations included both fairness and performance trade-offs using 5-fold cross-validation on the most promising splits.
+		
+		\subsection{Limitations}
+		Fairness evaluation was based on Equalized Odds Difference (EOD), as Equalized Odds Ratio (EOR) reported mostly values close to zero across most subgroups. This reports were consistent over the models, rendering EOR uninformative for this experiment. \todo{add to glossary}
+		
+		Furthermore, skewed subgroup distributions often led to extreme \gls{TPR} and \gls{FPR} values, especially in small subgroups. This heavily affected the resulting EODs. Future work should address this by collecting more subgroup-specific data.
+		
+		Lastly, the evaluation was challenging due to the number of models to comare and the required manual intervention. The process in \autoref{chap:fairnessAssessmentImpementation} needs to be improved.
 		
 		
 	\chapter{Evaluation and Validation}
@@ -1523,7 +1570,7 @@
 		
 		It is suggested to add the missing metadata attributes to the dataset. Given the sensitivity of those attributes, ethical considerations must be addressed before extending the dataset.
 		
-		\subsection{Demographic Representation}		
+		\subsection{Demographic Representation}	\label{chap:PASSIONDatasetAssessmentEvalDemogRepr}
 		The demographic distribution in the PASSION dataset shows clear imbalances across several attributes. The data is available in \linkapp{app:PASSIONdataDistributionAnalysis}.
 		
 		To summarize:
@@ -1602,7 +1649,7 @@
 		\begin{itemize}
 			\item Fairlearn’s default multiclass handling is limited. To overcome this, a custom implementation was required, which introduces complexity and potential inconsistencies with the intended methodology of researchers.
 			\item In the report part where subgroups are classified regarding privilege level, some subgroups were suppressed. This affects fairness analysis negatively. The comparison to the fairlearn output revealed this issue. This proves that it is preferable to use well-established, tested libraries for whenever possible.
-			\item Manual aggregation of subgroup-level to model-level metrics is currently not automated, reducing reproducibility and increasing error risk.
+			\item Manual aggregation of subgroup-level to model-level metrics as well as the cross-model comparison is currently not automated, reducing reproducibility and increasing error risk.
 		\end{itemize}
 		
 		Despite these challenges, the evaluation successfully surfaced subgroup disparities, supporting claims that fairness analysis on subgroups is important for reducing biases in dermatology models, including PASSION.
@@ -1623,6 +1670,214 @@
 		\end{itemize}
 		
 		In future work, incorporating multiple training seeds per setup will be essential for drawing statistically valid conclusions about fairness across model variations and mitigation methods.
+		
+		\section{Stratified Split Experiment}
+		
+		The evaluation of this experiment confirms that stratification strategies can influence fairness. The current findings suggest that including the attributes country and fitzpatrick in the stratification process can improve the fairness of models trained on the PASSION dataset. However, this improvement may come at the cost of overall model performance.
+		
+		These results should be interpreted with caution, as the experiment faced several limitations. To achieve more statistically robust findings, additional data is needed. Further experiments should be conducted using the available codebase. Based on the results, the current PASSION split could likely be refined. Moreover, analyzing subgroup-specific performance may help guide future data collection efforts toward fairer outcomes.
+		
+		
+		\subsection{Demographic Representation Accross Subsets}
+		Distribution analysis of the original PASSION split shows that the distributions between the subsets are balanced for some attributes (e.g., country, conditions\_PASSION), while others show notable discrepancies (fitzpatrick and sex). This suggests the original split may have used country and conditions\_PASSION for stratification, possibly including impetig and ageGroup.
+		\todo{link to appendix or github} 	%C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\analyzing_dataset_split	
+		
+		Interestingly, the dataset shows male overrepresentation, especially in the training set, despite slight female bias in model performance (\autoref{tab:PASSIONSexDistribution}). Similarly, \gls{FST} IV and V are overrepresented in training data (\autoref{tab:PASSIONFstDistribution}), possibly contributing to the observed bias. However, \gls{FST} VI is evenly distributed accross the subsets, yet model performance remains poor. This suggests that data imbalance is not necessarily the sole cause of observed biases. However, a more detailed subgroup-level analysis across all subsets is still essential for a robust interpretation.
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+				\toprule
+				\textbf{Set} & \textbf{Female} & \textbf{Male} & \textbf{Total} \\
+				\midrule
+				Training set & 539 (40.74\%) & 784 (59.26\%) & 1323 \\
+				Test set & 152 (46.06\%) & 178 (53.94\%) & 330 \\
+				Overall & 691 (41.8\%) & 962 (58.2\%) & 1653 \\
+				\bottomrule
+			\end{tabularx}
+			\caption{PASSION Dataset: Sex distribution (train, test, overall).}
+			\label{tab:PASSIONSexDistribution}
+		\end{table}
+		
+		\todo{consider to move tables in appendix}
+				
+		\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{l *{6}{>{\centering\arraybackslash}X} >{\centering\arraybackslash}X}
+				\toprule
+				\textbf{Set} & \textbf{I} & \textbf{II} & \textbf{III} & \textbf{IV} & \textbf{V} & \textbf{VI} & \textbf{Total} \\
+				\midrule
+				Training set & 1 (0.08\%) & -- & 275 (20.79\%) & 396 (29.93\%) & 344 (26.00\%) & 307 (23.20\%) & 1323 \\
+				Test set & -- & -- & 79 (23.94\%) & 90 (27.27\%) & 84 (25.45\%) & 77 (23.33\%) & 330 \\
+				Overall & 1 (0.06\%) & -- & 354 (21.42\%) & 486 (29.40\%) & 428 (25.89\%) & 384 (23.23\%) & 1653 \\
+				\bottomrule
+			\end{tabularx}
+			\caption{PASSION Dataset: \glslink{FST}{FST} distribution (train, test, overall).}
+			\label{tab:PASSIONFstDistribution}
+		\end{table}	
+		
+		\subsection{Initial Training}
+		
+		The fairness assessment of the initial model training as shown in \autoref{tab:StratifiedSplitstratified-seed42} indicated that for strategy A, placing single records in training data, the configuration 4, using country and fitzpatrick, resulted in the fairest model overall, due to:
+		\begin{itemize}
+			\item Lowest average and median EOD
+			\item Fairly low standard deviation
+			\item Moderate worst-case fairness
+		\end{itemize}
+		
+		
+		For strategy B (\autoref{tab:StratifiedSplitstratified-seed32}), placing singletons in validation data, the fairest model was achieved by stratifying only on the target labels, due to:
+		\begin{itemize}
+			\item Low average and median EOD
+			\item Lowest standard deviation
+			\item Moderate worst-case fairness
+		\end{itemize}
+		
+		\begin{table}[H]
+			\centering
+			\scriptsize
+			\begin{tabularx}{\textwidth}{l *{6}{>{\centering\arraybackslash}X}}
+				\toprule
+				\textbf{Metric} & \textbf{Split 1} & \textbf{Split 2} & \textbf{Split 3} & \textbf{Split 4} & \textbf{Split 5} & \textbf{Split 6} \\
+				\midrule
+				avg & 0.53 & 0.55 & \textcolor{red}{0.56} & \textcolor{teal}{0.48} & 0.54 & 0.55 \\
+				best & 0.03 & 0.03 & 0.04 & 0.05 & \textcolor{teal}{0.01} & \textcolor{red}{0.08} \\
+				worst & \textcolor{teal}{0.74} & 0.81 & \textcolor{red}{0.83} & 0.79 & 0.79 & 0.78 \\
+				median & 0.55 & 0.54 & \textcolor{red}{0.60} & \textcolor{teal}{0.44} & 0.53 & 0.56 \\
+				std. dev. sub pop. & 0.22 & 0.23 & \textcolor{red}{0.25} & 0.23 & 0.25 & \textcolor{teal}{0.22} \\
+				std. dev. whole pop. & 0.21 & 0.22 & \textcolor{red}{0.24} & 0.23 & 0.24 & \textcolor{teal}{0.21} \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Stratified Split: Fairness summary (seed 42, single-record training stratification).}
+			\label{tab:StratifiedSplitstratified-seed42}
+		\end{table}
+		
+		\begin{table}[H]
+			\centering
+			\scriptsize
+			\begin{tabularx}{\textwidth}{l *{6}{>{\centering\arraybackslash}X}}
+				\toprule
+				\textbf{Metric} & \textbf{Split 1} & \textbf{Split 2} & \textbf{Split 3} & \textbf{Split 4} & \textbf{Split 5} & \textbf{Split 6} \\
+				\midrule
+				avg & 0.51 & 0.55 & \textcolor{red}{0.57} & 0.55 & 0.55 & \textcolor{teal}{0.49} \\
+				best & \textcolor{teal}{0.02} & 0.04 & 0.03 & 0.03 & \textcolor{red}{0.05} & 0.03 \\
+				worst & 0.74 & 0.82 & \textcolor{red}{0.84} & 0.75 & \textcolor{teal}{0.71} & 0.73 \\
+				median & 0.53 & 0.58 & 0.56 & 0.56 & \textcolor{red}{0.65} & \textcolor{teal}{0.50} \\
+				std. dev. sub pop. & \textcolor{teal}{0.18} & \textcolor{red}{0.25} & 0.23 & 0.20 & 0.19 & 0.22 \\
+				std. dev. whole pop. & \textcolor{teal}{0.17} & \textcolor{red}{0.25} & 0.22 & 0.20 & 0.18 & 0.21 \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Stratified Split: Fairness summary (seed 32, single-record validation stratification).}
+			\label{tab:StratifiedSplitstratified-seed32}
+		\end{table}
+		
+		Random splits also performed surprisingly well. Using strategy B, even the highest fairness was achieved in terms of average and median, though with higher variance. Using strategy A, the lowest standard deviation was achieved, but the fairness was lower overall.
+		
+		Due to these observations, and their overall well performance, splits 1, 4, and 6 were selected for 5-fold cross-validation.
+		
+		\subsection{Cross-Validation}
+		
+		Results of the 5-fold cross-validation step confirmed that including country and fitzpatrick in the stratification consistently resulted in the fairest models for both single-records-handling strategies (\autoref{tab:StratifiedSplitstratified-seed32-crossVal}, \autoref{tab:StratifiedSplitstratified-seed42-crossVal}).
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+				\toprule
+				\textbf{Metric} & \textbf{Split 1} & \textbf{Split 4} & \textbf{Split 6} \\
+				\midrule
+				avg & \textcolor{red}{0.54} & 0.50 & \textcolor{teal}{0.48} \\
+				best & \textcolor{teal}{0.03} & \textcolor{teal}{0.03} & \textcolor{teal}{0.03} \\
+				worst & \textcolor{red}{0.75} & \textcolor{teal}{0.65} & 0.71 \\
+				median & \textcolor{red}{0.57} & 0.55 & \textcolor{teal}{0.53} \\
+				std. dev. sub pop. & \textcolor{red}{0.20} & \textcolor{teal}{0.16} & \textcolor{red}{0.20} \\
+				std. dev. whole pop. & 0.19 & \textcolor{teal}{0.16} & \textcolor{red}{0.20} \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Stratified Split: Fairness summary (5-fold CV, seed 32, validation stratification).}
+			\label{tab:StratifiedSplitstratified-seed32-crossVal}
+		\end{table}
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+				\toprule
+				\textbf{Metric} & \textbf{Split 1} & \textbf{Split 4} & \textbf{Split 6} \\
+				\midrule
+				avg & \textcolor{red}{0.55} & \textcolor{teal}{0.50} & \textcolor{red}{0.55} \\
+				best & \textcolor{teal}{0.04} & \textcolor{teal}{0.04} & \textcolor{red}{0.06} \\
+				worst & \textcolor{red}{0.82} & \textcolor{teal}{0.77} & \textcolor{teal}{0.77} \\
+				median & 0.54 & \textcolor{teal}{0.51} & \textcolor{red}{0.58} \\
+				std. dev. sub pop. & \textcolor{red}{0.25} & 0.23 & \textcolor{teal}{0.22} \\
+				std. dev. whole pop. & \textcolor{red}{0.24} & \textcolor{teal}{0.22} & \textcolor{red}{0.22} \\
+				\bottomrule
+			\end{tabularx}
+			
+			\caption{Stratified Split: Fairness summary (5-fold CV, seed 42, training stratification).}
+			\label{tab:StratifiedSplitstratified-seed42-crossVal}
+		\end{table}
+		
+		
+		\subsection{Baseline Comparison}
+		Final evaluation on the original test set (\autoref{tab:StratifiedSplitBaselineComparison}) confirms that applying stratified splitting impacts model fairness, especially on subgroup levels.
+		Stratifying also on country and fitzpatrick improved fairness, especially when single records are in the training set. For the other strategy, results are mixed, but also there, an impact is notable. Note the results are not directly comparable though due to different seeds.
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+				\toprule
+				\textbf{Metric} & \textbf{Baseline} & \textbf{Strategy A} & \textbf{Strategy B} \\
+				\multicolumn{4}{l}{\textbf{Overall}} \\
+				avg & 0.49 & \textcolor{teal}{0.47} & \textcolor{red}{0.51} \\
+				best & 0.03 & \textcolor{teal}{0.02} & \textcolor{black}{0.03} \\
+				worst & 0.73 & \textcolor{red}{0.75} & \textcolor{red}{0.74} \\
+				median & 0.54 & \textcolor{teal}{0.51} & \textcolor{black}{0.54} \\
+				std. dev. sub pop. & 0.24 & \textcolor{teal}{0.21} & \textcolor{teal}{0.22} \\
+				std. dev. whole pop. & 0.23 & \textcolor{teal}{0.21} & \textcolor{teal}{0.22} \\
+				
+				\midrule
+				\multicolumn{4}{l}{\textbf{Avg. Per Subgroup}} \\
+				fitzpatrick & 0.10 & \textcolor{red}{0.14} & \textcolor{red}{0.19} \\
+				sex & 0.03 & \textcolor{teal}{0.02} & \textcolor{black}{0.03} \\
+				ageGroup & 0.46 & \textcolor{teal}{0.43} & \textcolor{red}{0.54} \\
+				country & 0.34 & \textcolor{red}{0.36} & \textcolor{teal}{0.33} \\
+				fitzpatrick, sex & 0.18 & \textcolor{red}{0.20} & \textcolor{red}{0.28} \\
+				fitzpatrick, ageGroup & 0.67 & \textcolor{teal}{0.60} & \textcolor{red}{0.68} \\
+				fitzpatrick, country & 0.51 & \textcolor{black}{0.51} & \textcolor{teal}{0.50} \\
+				sex, ageGroup & 0.56 & \textcolor{teal}{0.53} & \textcolor{red}{0.62} \\
+				sex, country & 0.38 & \textcolor{red}{0.41} & \textcolor{teal}{0.37} \\
+				ageGroup, country & 0.73 & \textcolor{teal}{0.48} & \textcolor{teal}{0.64} \\
+				fitzpatrick, sex, ageGroup & 0.70 & \textcolor{red}{0.75} & \textcolor{red}{0.74} \\
+				fitzpatrick, sex, country & 0.54 & \textcolor{teal}{0.51} & \textcolor{black}{0.54} \\
+				fitzpatrick, ageGroup, country & 0.73 & \textcolor{teal}{0.60} & \textcolor{teal}{0.70} \\
+				sex, ageGroup, country & 0.73 & \textcolor{teal}{0.69} & \textcolor{red}{0.74} \\
+				fitzpatrick, sex, ageGroup, country & 0.73 & \textcolor{red}{0.75} & \textcolor{red}{0.74} \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Stratified Split: Fairness comparison: baseline vs. stratified variants.}
+			\label{tab:StratifiedSplitBaselineComparison}
+		\end{table} 
+		
+		While fairness improved in the stratified variants, this came with a noticeable drop in overall model performance (\autoref{tab:StratifiedSplitBaselineComparisonPerformance}). This was somewhat expected, as the baseline used the full original training set, whereas the stratified variants employed an additional train-validation split, reducing the number of training samples. Both F1-score and balanced accuracy decreased compared to the baseline. Strategy~B, in particular, exhibited the lowest performance across most metrics, likely due to having the smallest training set and lacking certain rare cases.
+		
+		This illustrates the trade-off between fairness and predictive performance, which must be carefully managed in real-world applications.
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+				\toprule
+				\textbf{Metric} & \textbf{Baseline} & \textbf{Strategy A} & \textbf{Strategy B} \\
+				\midrule
+				Accuracy             & 0.69 & \textcolor{red}{0.61} & \textcolor{red}{0.59} \\
+				Macro F1             & 0.69 & \textcolor{red}{0.61} & \textcolor{red}{0.59} \\
+				Weighted F1          & 0.69 & \textcolor{red}{0.62} & \textcolor{red}{0.59} \\
+				Balanced Accuracy    & 0.69 & \textcolor{red}{0.62} & \textcolor{red}{0.60} \\
+				\bottomrule
+			\end{tabularx}
+			
+			\caption{Stratified Split: Performance comparison: baseline vs. stratified variants.}
+			\label{tab:StratifiedSplitBaselineComparisonPerformance}
+		\end{table}
+		
 		
 		
 	\chapter{Outlook}
@@ -1685,15 +1940,17 @@
 	
 	\chapter{currently working on}
 	
-	\chapter{PASSION Baseline Fairness Assessment}
+	
+
+	\chapter{writing ongoing TODO REMOVE THIS CHAPTER}\todo{remove this chapter}
+	\todo{put this somewhere in the outlook} Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
 	
 	
+	\todo{add to the stratified split experiment }: Cross-validation folds were removed to reduce evaluation time, it did not help that the gpuhub shut down your virtual machine after a while (2-3 days?), interrupting long (chained) experiment runs. Bc the checkpoint handling is not working yet for continuing training (only fixed that I can reload checkpoints for evaluating on the model again), this meant that some parts of the experiment had to be executed multiple times. Strongly suggest that the checkpoint handling is improved further by the passion team.
 	
 	
-	
-	\section{Outlook} \label{sec:outlook}
-	
-	
+	\chapter{Outlook PASSION Baseline Fairness Assessment}
+	\todo{this must be summarized heavily}
 	In summary, the evaluation infrastructure and insights established in this thesis provide a meaningful first step toward robust fairness assessments in PASSION. With technical extensions and methodological refinements, it can evolve into a comprehensive toolset for bias detection and mitigation in dermatology and beyond.
 	
 	The fairness evaluation presented in this thesis revealed critical insights into subgroup disparities and pipeline limitations within the PASSION project setup. While the implemented approach provided a reproducible and structured baseline, several directions for future work have emerged to improve the robustness, generalisability, and reproducibility of fairness assessments.
@@ -1722,35 +1979,10 @@
 	
 	While this thesis focused on subgroup-level fairness analysis, future work could integrate fairness metrics into clinical utility assessments and decision-making contexts. This would enable a more holistic evaluation of trade-offs between fairness and clinical performance, which is essential for practical deployment in medical settings.
 	
-
 	
-	
-	
-
-	\chapter{writing ongoing TODO REMOVE THIS CHAPTER}\todo{remove this chapter}
-	\todo{put this somewhere in the outlook} Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
-	
-	
-	\todo{add to the stratified split experiment }: Cross-validation folds were removed to reduce evaluation time, it did not help that the gpuhub shut down your virtual machine after a while (2-3 days?), interrupting long (chained) experiment runs. Bc the checkpoint handling is not working yet for continuing training (only fixed that I can reload checkpoints for evaluating on the model again), this meant that some parts of the experiment had to be executed multiple times. Strongly suggest that the checkpoint handling is improved further by the passion team.
-	
-	
-		\begin{itemize}
-			\item \textbf{Tooling Support.}
-			While the provided scripts enable basic demographic visualization, they lack functionality for intersectional subgroup analysis or fairness metric evaluation (e.g., \textit{equalized odds}).
-		\end{itemize}
-	
-		\subsection{Bias Evaluation in PASSION}
+	\chapter{Bias Evaluation using Equalized Odds in PASSION}
 		\todo{fix this writing}
-		\paragraph{Methodology}
-		In order to evaluate which biases are there in PASSION dataset, I need to
-		\begin{itemize}
-			\item reproduce the results of the paper using the PASSION evaluation project with the PASSION data to see a) verify the paper results, b) check what analysis data is available for the evaluation (the paper provides probably a summary), c) check what code can be reused and what needs to be adapted
-			\item evaluate what data is missing to do evaluate the fairness and biases
-			\item adapt code so that the relevant data is generated to be able to compute the relevant information
-			\item GPUHub from HSLU is used, \todo{maybe add some machine information}
-		\end{itemize}
-		
-		
+		\subsection{Methodology}
 		\rawcitationusedstart
 		https://www.mdpi.com/2227-7102/14/2/136
 		Equalized Odds (EO)	 𝑃(𝑌̂ =1|𝑌=𝑦,𝑆=1)−𝑃(𝑌̂ =1|𝑌=𝑦,𝑆=0),∀𝑦∈{0,1}
@@ -1758,18 +1990,51 @@
 		and compare it against the rest 𝑆=0
 		(i.e., all other subgroups), one at a time. We mainly focus on racial disparities; however, our proposed approach for auditing fairness and investigating the imputation impact can be extended to use other sensitive attributes. For example, the decision-maker can use “gender” as a sensitive attribute.
 		
-		
-		
 		Missing data: Ignoring missing data is not an effective approach to handling missing values, and more importantly, it can result in predictive disparity for minority groups. While many education-related studies have addressed the challenges of missing data, as discussed, little is known about the impact of different imputation techniques on fairness outcomes in the final model. This project aims to address this gap by considering the three aforementioned imputation strategies.
 		
 		https://proceedings.mlr.press/v108/awasthi20a.html
 		BiasY =y(Yb) =Pr h		Yb = 1	Y = y, A = 0i −Pr h	Yb = 1 		Y = y, A = 1i				.
 		\rawcitationusedend
 		
-				
+				\rawcitationstart
+		Furthermore, another version of each dataset was created with all features using a one-hot (or 1-of-K) encoding scheme [5] after being discretised, meaning that they are represented by binary dummy variables. We refer to this as the one-hot encoded version of a dataset.
+		\autocite{Valentim_2019}
+		The age attribute was discretised into two bins defined by a value greater than or equal to 25, a threshold that was set based on the findings reported by [26]. \autocite{Valentim_2019}
+		
+		Model Assessment
+		We performed five-fold cross-validation with the help of the methods provided by Scikit-learn [8]. In addition to the standard version of cross-validation (normal-cv), the experiments were repeated with stratification (stratified-cv) so as to maintain the class distributions of the original data. Furthermore, each configuration was run with 30 different seeds for the random generators.
+		
+		We selected fairness metrics which can be applied to the datasets and to the predictions made by the models, so as to be able to compare the unfairness in the predictions to that originally found in the training data. The selected set of metrics includes statistical parity difference (CVS), disparate impact (DI), and the normalised prejudice index (NPI).
+		
+		The F1-score is more suitable when dealing with imbalanced datasets. However, we also include accuracy in our analysis to facilitate the comparison with previous work. \autocite{Valentim_2019}
+		
+		Fairness Comparison Between Data and Predictions
+		Besides performing our analysis based on the fairness metrics mentioned in III-E, we computed the ratio between the CVS in the predictions and the CVS found in the data subset used to train the models (CVS Ratio), as well as a similar ratio regarding the NPI (NPI Ratio). These ratios give an indication of whether the unfairness in the training data was increased or reduced under each configuration. A value of 1 indicates that the unfairness in the predictions is the same as in the training data, an absolute value greater than 1 means that the unfairness in the predictions is greater, and an absolute value lower than 1 means that the model makes fairer predictions than the procedure which produced the true labels of the training data. A DI Ratio was not computed since it would be difficult to interpret the results. \autocite{Valentim}
+		Comparison
+		-->  How to compute the ratios between models:
+		Let’s say you have two or more models: Model A, Model B, ..., Model N.
+		
+		And you compute the fairness metric (e.g., CVS) on each model’s predictions over the same dataset.
+		
+		Then, define a relative fairness ratio as follows:
+		
+		Model-vs-Baseline Fairness Ratio
+		Choose one model as a baseline (e.g., the best, worst, or most standard one), and compare each other model to it:
+		CSV / NPI = fairness metrics
+		CVS RatioModel𝑋 = CVS (Model X) / CVS(Baseline Model)
+		​		NPI RatioModel𝑋 = NPI (Model 𝑋) / NPI(Baseline Model)
+		
+		Interpretation:
+		Ratio = 1: Model X has the same fairness as the baseline.
+		Ratio > 1: Model X is less fair (greater disparity or bias) than the baseline.
+		Ratio < 1: Model X is fairer than the baseline.
+		
+		This approach is fully compatible with comparisons across models, even if you don’t consider the training data's fairness.
+		
+		\rawcitationend
 		
 		
-		\paragraph{Execution}
+		\section{Execution}
 			In order to run the reproduction of the PASSION results on GPUHub, some minor changes in the loading process for the metadata had to be done. The required changes will be contributed to the code base to make the reproduction easier for others. \todo{do that then ;)}
 			All 4 experiments where ran to get a broad overview of the results. The results of the 4 experiments contained the same scores as the ones mentioned in the paper. The scores are given separately for each demographic groups, either based on skin type or gender. There is no data for subgroups available. \todo{add results from age and center experiments}
 			For the conditions classification, the provided scores per demographic group in the paper are the average scores over all classes. The variance/deviation of the averages in the scores based on the condition varies between the groups. E.g., the F1 score for \gls{FST} VI is 0.71$\pm$0.11 (total support 87) while for \gls{FST} it is 0.73$\pm$0.04 (total support 254). 
@@ -1779,7 +2044,6 @@
 			The available data allows to compute the equalized odds fairness. \todo{describe which fairness methods to use why}
 			In order to be able compute the subgroup fairness, the test results need to be split further into the subgroups. \todo{check exactly how to calculate subgroup fairness and whether there is already an algorithm for it, same for equalized odds}
 			
-					
 			To reproduce all 4 experiments, the training ran took roughly \todo{add: it started on 24.4. roughly at 7 o clock, took until ca. 16.4., 13:00, the two other experiments started on 26.4. 17:30} hours since there where no model checkpoints available. This runtime is not feasible for each new training using a mitigation method, especially because the GPUHub seems to cancel the script after roughly 2 days, which means that each experiment needs to be started independently.
 			Since this runtime it is not feasible to use for every mitigation run, the following adaptations where made \todo{add improvements described in protokol week 9}
 			
@@ -1791,10 +2055,7 @@
 			% experiment_standard_split_conditions_passion__bias_test_BIG_MODEL_reloaded_from_checkpoint.circ vs 		
 			% experiment_standard_split_conditions_passion__bias_test_BIG_MODEL.circ
 			also tested on another checkpoint, same behaviour, not cached results though
-			
-			
 			no implementation of subgroup fairness found --> calc eq odds for subgroups
-			
 			
 			The results in the PASSION results where reproducable only on the whole model level, but not for the groups. There was no subgroup analysis availbale.
 			After adapting the data linkage in the PASSION evaluation code, the results where available when in the PASSION evaluation code. 
@@ -1802,7 +2063,21 @@
 			
 			The smaller model performance was used for the baseline. The Fairness results differ a bit from the bigger model, but it can still serve as a baseline.
 			\todo{add somewhere that only the conditions classifier is used in this thesis, the impetig classifier should also be checked. (code is generalized, but must be tested)}
-		\paragraph{Evaluation and Validation}
+			
+			
+			\todo{add this here or in a special Equalized Odds chapter}
+			For fairness evaluation, MetricFrame metrics such as equalized odds \textit{difference} and \textit{ratio} were computed across subgroups defined by sensitive attributes.
+			To quantify disparity, we primarily focus on:
+			\begin{itemize}
+				\item \textbf{Mean distance to overall performance} (``mean to overall''): the average absolute deviation of subgroup metrics from the overall value.
+				\item \textbf{Mean}: the average raw metric value across subgroups.
+				\item \textbf{Worst mean to overall}: the maximum deviation observed among subgroups.
+			\end{itemize}
+			
+			\textit{Mean to overall} is preferred over the simple mean of subgroup scores because it explicitly measures fairness in terms of consistency across groups. As recommended by the Fairlearn framework, metrics like ``mean absolute deviation from overall performance'' are more fairness-relevant, since a model might score well on average but still be highly biased toward or against certain subgroups. By centering the evaluation around the overall performance, this metric captures inequality and unfairness more directly \cite{fairlearn}.
+			
+			
+		\section{Evaluation and Validation - baseline}
 			A first analysis shows issues regarding xy in the big model and y in the small model.
 			
 			There are some differences in the metrics per class based on the model size. To investigate each class individually would require more effort which should be done later. The provided scripts can be used to generate the required data. \todo{add specific info in the attachement}
@@ -1878,90 +2153,24 @@
 			% C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\big_model
 			
 			
+			\todo{ensure this fits the description in the fairness assessment with eq odds}
+		\begin{itemize}
+			\item \textbf{Lowest Average And Median}, indicating the highest fairness over all subgroups.
+			\item \textbf{Low Standard Deviations}, demonstrating high fairness and low performance disparity.
+			\item \textbf{Average Worst-Case Performance}.
+		\end{itemize}
+			
+		\subsection{Country-Specific Observations}
+			
+			Country-wise distributions remain relatively stable across all stratified splits. However, Tanzania is consistently underrepresented. This suggests that while stratified splitting on \texttt{country} should be maintained, additional data collection efforts should prioritize Tanzania. Data quality or scarcity might be contributing to inconsistent results for this subgroup.
+
+
+			Tanzania appears strongly underrepresented, which might be causing bias in the model., which could be attributed to image quality or inconsistencies during data acquisition. The observed discrepancies in model performance might also stem from a specific subgroup—such as male patients from Tanzania with \gls{FST} VI—potentially presenting unique clinical conditions in the images. Due to the sensitive medical nature of the images and personal limitations in handling such content, they were not directly reviewed. It is, however, strongly recommended that the PASSION team conducts a thorough analysis of these cases.
 			
 			
-			
-	\subsection{Stratified Split}
-		\paragraph{Methodology}
-		
-		\rawcitationstart
-		Furthermore, another version of each dataset was created with all features using a one-hot (or 1-of-K) encoding scheme [5] after being discretised, meaning that they are represented by binary dummy variables. We refer to this as the one-hot encoded version of a dataset.
-		\autocite{Valentim_2019}
-		The age attribute was discretised into two bins defined by a value greater than or equal to 25, a threshold that was set based on the findings reported by [26]. \autocite{Valentim_2019}
-		
-		Model Assessment
-		We performed five-fold cross-validation with the help of the methods provided by Scikit-learn [8]. In addition to the standard version of cross-validation (normal-cv), the experiments were repeated with stratification (stratified-cv) so as to maintain the class distributions of the original data. Furthermore, each configuration was run with 30 different seeds for the random generators.
-		
-		We selected fairness metrics which can be applied to the datasets and to the predictions made by the models, so as to be able to compare the unfairness in the predictions to that originally found in the training data. The selected set of metrics includes statistical parity difference (CVS), disparate impact (DI), and the normalised prejudice index (NPI).
-		
-		The F1-score is more suitable when dealing with imbalanced datasets. However, we also include accuracy in our analysis to facilitate the comparison with previous work. \autocite{Valentim_2019}
-		
-		Fairness Comparison Between Data and Predictions
-		Besides performing our analysis based on the fairness metrics mentioned in III-E, we computed the ratio between the CVS in the predictions and the CVS found in the data subset used to train the models (CVS Ratio), as well as a similar ratio regarding the NPI (NPI Ratio). These ratios give an indication of whether the unfairness in the training data was increased or reduced under each configuration. A value of 1 indicates that the unfairness in the predictions is the same as in the training data, an absolute value greater than 1 means that the unfairness in the predictions is greater, and an absolute value lower than 1 means that the model makes fairer predictions than the procedure which produced the true labels of the training data. A DI Ratio was not computed since it would be difficult to interpret the results. \autocite{Valentim}
-		Comparison
-		-->  How to compute the ratios between models:
-		Let’s say you have two or more models: Model A, Model B, ..., Model N.
-		
-		And you compute the fairness metric (e.g., CVS) on each model’s predictions over the same dataset.
-		
-		Then, define a relative fairness ratio as follows:
-		
-		Model-vs-Baseline Fairness Ratio
-		Choose one model as a baseline (e.g., the best, worst, or most standard one), and compare each other model to it:
-		CSV / NPI = fairness metrics
-		CVS RatioModel𝑋 = CVS (Model X) / CVS(Baseline Model)
-​		NPI RatioModel𝑋 = NPI (Model 𝑋) / NPI(Baseline Model)
-		
-		Interpretation:
-		Ratio = 1: Model X has the same fairness as the baseline.
-		Ratio > 1: Model X is less fair (greater disparity or bias) than the baseline.
-		Ratio < 1: Model X is fairer than the baseline.
-		
-		This approach is fully compatible with comparisons across models, even if you don’t consider the training data's fairness.
-		
-		\rawcitationend
-		
-		
-		
-		\paragraph{Execution}
-		1. evaluating predifined dataset split regarding stratification
-		
-		
-			
-		since country, fitzpatrick and sex has been identified to have biased outcomes, they have to be checked most thoroughly 
-		
-		2. 
-		
-		\paragraph{Evaluation and Validation}
-		1. from the data analysis, \todo{add to appendix} the data is pretty well distributed for most attributes. %C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\analyzing_dataset_split	
-		Basically equal: Country, conditions\_PASSION
-		Almost equal: most ageGroup and impedig are 
-		Bigger differences: fitzpatrick, sex, some ageGroups
-		sex: contradictory to the bias towards female, the dataset is skewed to male, with even more males which was trained on. Therefore, this data skew might not be the source of the bias in the model.. 
-		
-		train: f: 539 (40.74\%) m: 784 (59.26\%)
-		test: f: 152 (46.06\%) m: 178 (53.94\%)
-		overall: f: 691 (41.8\%) m: 962 (58.2\%)
-		
-		
-		FST types 4 and 5 are overrepresented in training, which could cause the biases on the big model.
-		
-		
-		What I should do:
-		1 random split, 1 stratified on condition and country (what probably was the split from passion), 1 stratified with FST condition country, 1 stratified with FST condition country sex 
-		
-		
-		1. change dataset, so that those splits are reflected in validation data
-		2. train models with no folds on the train and validation (simply use other split file in the begining)
-		3. while training is running investigate how fold splits the data
-		
-		
-		
 	
-		for the country, the distribution is already almost the same for all splits, with Tanzania clearly underrepresented. On this variable, stratified splitting should be kept for sure. More data should be captured from Tanzania - it could be differences with the data quality which lead to different results.
-		
 			
-			
+	\chapter{übergang zu bibliography}
 
 		% Lists and References
 		\newpage
