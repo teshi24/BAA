@@ -11,7 +11,6 @@
 
 \usepackage{csquotes}       % Quotation support
 \usepackage[style=apa,backend=biber]{biblatex}       % Bibliography, 
-% todo: original template uses ieee3
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{references.bib} % Bibliography file
 
@@ -129,10 +128,10 @@
 \author{Nadja Stadelmann}                       % author name
 \city{Lucerne (Switzerland)}                    % author's place of origin
 \title{Demographic Biases in\linebreak Dermatology Models}   % thesis title
-\subtitle{\large \todo{subtitle}}               % thesis subtitle
+\subtitle{\large}               % thesis subtitle
 
 \date{2025}                                     % the year when the thesis was written (for the titlepage)
-\defensedate{\todo{adapt date} October 27th, 2024}                % the date of the private defense
+\defensedate{June 23th, 2025}                % the date of the private defense
 \defencelocation{Lucerne}                       % location of defence
 \extexpert{Dr. Jürg Schelldorfer}                         % name of external expert
 \indpartner{Applied AI Research Lab}                       % name of industry partner
@@ -176,24 +175,12 @@
 	\tableofcontents
 	
 	\listoftodos
-	\todo{solve todos} 
-	
-	
 	\todo{also solve todos in the code ;)} 
-	
-	
-	\todo{also fix metadata entry!!!} 
-	
-	
-	\todo{Portfolio DB für Referenzarbeiten anschauen}
+
 	
 	\todo{remove all \textbackslash rawcitationstart \textbackslash rawcitationend  \textbackslash baaCriteria}
 	
-	\todo{fix the weird line breaks}
-	
 	\todo{TEXT MISTAKES ensure fine-tuning ResNet-50, overview of instead of overview over, accuracy (you got all other versions of rr and cc); coma after e.g., point after vs., decision not desicion, decision-making not decision making ...}
-	
-	\todo{fix gls mentions in list of figures, it breaks how the glossary works}
 	
 	\todo{when you got to many pages: fix in order to - to, for the purpose of - For}
 	
@@ -303,8 +290,8 @@
 				
 			    A predefined 80/20 stratified train-test split at patient level ensures reproducibility and fair comparison, while preventing information leaking \autocite{Gottfrois2024}.
 			    
-			    Stratified splitting is a method to split  datasets while maintaining the original class distribution within the subsets. This is important for imbalanced datasets to maintain minority class representation  \autocite{Balde_2023}. \todo{add better source for the stratified data split (and the other stuff where medium was used)}.
-				
+			    Stratified splitting is a method to split  datasets while maintaining the original class distribution within the subsets. This is important for imbalanced datasets to maintain minority class representation  \autocite{Balde_2023}.
+			    
 				The metadata, as listed in \autoref{tab:PASSION_metadata}, includes demographic attributes such as \textit{age}, \textit{sex}, and \textit{\gls{FST}}. These are essential for identifying potential demographic biases lateron.	The labels \textit{impetig} and \textit{conditions\_PASSION} represent dermatology diagnosis as evaluated by dermatologists \autocite{Gottfrois2024}, and are the target variables the PASSION model learns to predict. Therefore, this \gls{ML} task is a multilabel classification problem. PASSION addresses this by training separate models for each label \autocite{Gottfrois2024}. The prediction of conditions\_PASSION is a multiclass classification task, while predicting impetig is a binary classification task. 
 				
 				\begin{table}[H]
@@ -340,9 +327,7 @@
 				Due to the sensitivity of patient data, the dataset is confidential. Access to it can be requested via the project website: \href{https://passionderm.github.io/}{https://passionderm.github.io/} \autocite{Gottfrois2024}.
 				
 			\subsection{PASSION Model}
-			  The model architecture is a ResNet-50 model which is pretrained on ImageNet. The model was fine-tuned by replacing the last fully connected classification layer with a dropout layer with a 0.3 dropout rate followed by batch normalization. The class activation is done by a single linear layer. To minimize the weighted cross-entropy loss, Adam optimization is used. For improved generalization and to avoid overfitting, data augmentations were applied. The methods used were random resizing, cropping, flipping, and rotating \textcite{Gottfrois2024}. \todo{add individual citations for ResNet-50, ImageNet, Adam optimization, weighted cross-entropy loss}.
-			  
-			  \todo{add information regarding how many folds are there, how is the data split, ...}
+			  The model architecture is a ResNet-50 model which is pretrained on ImageNet. The model was fine-tuned by replacing the last fully connected classification layer with a dropout layer with a 0.3 dropout rate followed by batch normalization. The class activation is done by a single linear layer. To minimize the weighted cross-entropy loss, Adam optimization is used. For improved generalization and to avoid overfitting, data augmentations were applied. The methods used were random resizing, cropping, flipping, and rotating. For training, the model uses 5-fold cross-validation \textcite{Gottfrois2024}.
 			  			
 			\subsection{PASSION Experiments}
 			  The PASSION team conducted various experiments to evaluate the classifiers on the test set with the following schemes \autocite{Gottfrois2024}:
@@ -583,20 +568,16 @@
 			\end{comment}
 			
 		\section{Fairness Metrics}
-		This chapter introduces the concept of fairness in \gls{ML}, as fairness is a way to detect whether and what biases exist in a model. As there is no universally accepted definition of fairness, various fairness metrics have been proposed in the literature, each based on different assumptions and goals.
-		This chapter focuses on those fairness metrics which are able to evaluate demographic fairness and are applicable to the dermatology context of PASSION.	
-		Those are mainly \textit{equalized odds} by \textcite{M63_Hardt_2016} and \textit{subgroup fairness} by \textcite{M79_Kearns_2018}.
+		This chapter introduces the concept of fairness in \gls{ML}, as fairness is a way to detect whether and what biases exist in a model. As there is no universally accepted definition of fairness, various fairness metrics have been proposed in the literature, each based on different assumptions and goals \autocite{Mehrabi_2021}.
 		
 		
 		\subsection{Definition of Fairness in \gls{ML}}
 		
 		In research, there is currently no common agreement regarding a fairness definition in \gls{ML}. Broadly, fairness \textit{is the absence of bias towards individuals or groups in a decision-making context}. To assess how fair \gls{AI} models are, multiple fairness metrics have been proposed in the literature, each reflecting different interpretations of fairness. The choice of metric largely depends on the specific use case of the application \autocite{Mehrabi_2021}.
 		
-		\subsection{Fairness Metrics}
+		\subsection{Fairness Metrics} \label{chap:FairnessMetrics}
 		
 			\textcite{Mehrabi_2021} summarized the fairness metrics and grouped them into the categories group fairness, subgroup fairness and individual fairness, depending on the main mechanics of the metrics. They are listed in \autoref{tab:fairness_definitions}.
-			
-			\todo{evtl in anhang wenn es zu viele Seiten werden}
 		
 			\begin{table}[H]
 			\centering
@@ -631,25 +612,23 @@
 			\label{tab:fairness_definitions}
 		\end{table}
 		
-		In the context of PASSION, the fairness metrics which consider both true positives and false positives are particularly relevant. A \textit{true positive} indicates that a disease was detected correctly, while a \textit{false positive} corresponds to a diagnosis of a disease that is not actually present. Including false positives helps to identify cases where individuals from certain demographic groups may be unfairly more likely to receive unjustified diagnoses. This has also been indicated by \textcite{Sabato_2024}.
-		
-		From the listed group fairness metrics, there is only one that considers true and false positives, which should therefore be used for the evaluation of PASSION. It is equalized odds, as introduced by \textcite{M63_Hardt_2016}: \newline
+		To better understand how fairness can be formally defined, consider the example of equalized odds, introduced by \textcite{M63_Hardt_2016}: \newline
 		"\textit{A predictor $\hat{Y}$ satisfies equalized odds with respect to protected attribute $A$ and outcome $Y$, if $\hat{Y}$ and $A$ are independent conditional on $Y$. \newline
-		\(
-		P(\hat{Y} = 1 \mid A = 0, Y = y) = P(\hat{Y} = 1 \mid A = 1, Y = y), \quad \forall y \in \{0, 1\}
-		\)"} \todo{add formula list} \newline
+			\(
+			P(\hat{Y} = 1 \mid A = 0, Y = y) = P(\hat{Y} = 1 \mid A = 1, Y = y), \quad \forall y \in \{0, 1\}
+			\)"} \todo{add formula list} \newline
 		In other words, the probability of predicting a positive outcome should be the same across protected and unprotected groups, given the true label $Y$. This ensures that both \gls{TPR} and \gls{FPR} are equal across different demographic groups. If these rates are the same, like in the example of \autoref{fig:eqOdds}, the model satisfies equalized odds, and fairness is achieved. Since equalized odds compares conditional probability distributions across groups, it is a group fairness metrics.
 		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.9\textwidth]{figures/EqualizedOddsIllustration.png}
-			\caption{Equalized odds mechanics, inspired by \autocite{M80_Kearns_2019}.}
+			\caption{Equalized odds mechanics, inspired by \textcite{M80_Kearns_2019}.}
 			\label{fig:eqOdds}
 		\end{figure}
 		
-		Given the specific dermatology use case in the context of PASSION, it is not clear whether individual fairness metrics would be feasible to use. Certain metrics propose to change attributes. This approach is not feasible for the skin type which is passed on to the model implicitly through the picture. Therefore, this thesis focuses on the group fairness metrics for now.
-		
 		The mechanics of the other fairness metrics are described broadly in \linkapp{app:fairnessMetrics}.
+		
+		There are Python libraries like \textit{\gls{Fairlearn}} available, which can be used for the computation of the fairness metric \autocite{Agarwal_2018}. They tend to support the most popular metrics for binary classification \autocite{Fairlearn_nodate}.
 		
 		\subsection{Limitations of Group Fairness}
 		
@@ -658,43 +637,18 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\textwidth]{figures/EqualizedOddsSubgroupsIssueIllustration.png}
-			\caption{Equalized odds violations on subgroups, inspired by \autocite{M80_Kearns_2019}.}
+			\caption{Equalized odds violations on subgroups, inspired by \textcite{M80_Kearns_2019}.}
 			\label{fig:eqOddsLimits}
 		\end{figure}
 		
 		To address this issue, subgroup fairness metrics have been proposed. These extend group fairness metrics by explicitly evaluating fairness across subgroups. This ensures that fairness assessments do not overlook hidden biases that could affect smaller populations \autocite{M79_Kearns_2018,M80_Kearns_2019}.
 		
-		Given the demographic focus of this study and the composition of the PASSION dataset, subgroup fairness is particularly important. Therefore, this thesis aims to incorporate equalized odds on subgroups as a core metric for evaluation.
-		
-		
-		\subsection{Limitations of Fairness Evaluation in Multiclass Settings with Equalized Odds}
-		Fairness metrics such as equalized odds are originally defined for binary classification problems, typically considering binary labels and binary demographic groups. As a result, fairness libraries like AI Fairness 360 and Fairlearn offer implementations of these fairness metrics only for binary classification tasks \todo{cite relevant sources} \todo{explain fairness libraries and add the individual ones to the glossar}. To evaluate fairness in multiclass settings using these libraries, certain considerations are required. This chapter introduces the two key challenges, handling multiclass labels and multiple subgroups.		
-		
-		\subsubsection{Multiclass Labels}
-		In binary settings, fairness can be evaluated through simple comparisons of false positive and false negative rates. However, in multiclass classification, fairness must account for the full structure of the confusion matrix. \textcite{Sabato_2024} generalizes equalized odds to multiclass classification by defining:
-		\textit{"For each \( y, z \in \mathcal{Y} \), the value of \( \mathbb{P}[\hat{Y} = z \mid Y = y, G = g] \) is the same for all \( g \in \mathcal{G} \)."}
-		
-		In practice, this means the entire confusion matrix must be equal across groups to satisfy strict multiclass fairness under equalized odds \autocite{Sabato_2024}. The similar approach is purposed by \textcite{Putzel_2022}.
-		
-		More relaxed versions of multiclass equalized odds have also been proposed in the literature. However, researchers argue that such relaxations may not be suitable in all contexts, especially when different types of errors carry different consequences \autocites{Sabato_2024}{Putzel_2022}.
-		
-		For instance, when the type of misclassification matters, equality of error rates is essential to ensure fairness, as noted by \textcite{Putzel_2022}. Furthermore, as \textcite{Sabato_2024} explicitly states, a fair classifier in healthcare should avoid differences in diagnosis errors for specific diseases across subgroups, since misdiagnoses can lead to different treatment outcomes. Therefore, in PASSION, the strict version of the multiclass equalized odds should be preferred.
-		
-		\subsubsection{Non-Binary Sensitive Features}
-		There can also be non-binary sensitive features leading to multiple subgroups. The original definition of equalized odds does not account for this complexity. To generalize fairness evaluation to such settings, a one-vs-rest strategy can be applied. In this approach, each group is individually compared against the rest of the population \autocite{Nezami_2024}.
-		
-		
 			
 		\section{Mitigation Methods}
 			 \todo{still to be written}
 			 
-			 \begin{comment}
 			 see text from bias chapter - Further, \gls{AI} engineers need to know what prevention methods are available to reduce the biases \autocite{Mehrabi_2021}.
-			 
-			 
 			
-			
-		\section{Extensive Sources}
 			\subsection{Mitigation Methods Overview}
 				\todo{write definitions of pre-in and post-processing, see Methods for fair machine learning below [43, 11, 14]}
 
@@ -1196,7 +1150,6 @@
 			\item This study found that while using skin tone instead of race for fairness evaluations in computer vision seems objective, the annotation process remains biased by human annotators. Untested scales, unclear procedures, and a lack of awareness about annotator backgrounds and social context significantly influence skin tone labeling. This study exposes how even minor design choices in the annotation process, like scale order (dark to light instead of light to dark) or image context (face or no face, skin lesion presence), can sway agreement and introduce uncertainty in skin tone assessments. ... The researchers emphasize the need for greater transparency, standardized procedures, and careful consideration of annotator biases to mitigate these challenges and ensure fairer and more robust evaluations in computer vision. \autocite{Montoya_2025} - demographic dermatology bias
 		\end{itemize}
 	\rawcitationend
-	\end{comment}
 	
 	
 	\chapter{Ideas and Concepts}
@@ -1234,12 +1187,6 @@
 		
 			
 %		\begin{comment}
-%			\todo{should this really be stated here or in the methodology section?}
-%			First, I need to gain an overview of what biases, fairness metrics and mitigation strategies are known in general.
-%			Then, I must scope the found information, to find what is relevant for PASSION and what is feasible to achieve within the time constraints of this thesis.
-%			Before starting an assessment, a baseline needs to be established by computing chosen fairness metrics.
-%			Afterwards, the mitigation methods can be applied, and the performance can be compared to the baseline, to find out whether the methods are indeed mitigating the biases.
-%			
 %			\section{some general mitigation method ideas}
 %				\todo{add infos from the midterm presentation}
 %			
@@ -1283,7 +1230,7 @@
 		
 		\textbf{Phase 2 – Execution and Evaluation.} In the second phase, the planned assessments and mitigation strategies are implemented. The PASSION model is evaluated against the selected fairness metrics, and improvements are measured and discussed.
 		
-		The detailed project plan is included in the appendix. \todo{add to appendix}
+		The detailed project plan is included in the provided zip-file.
 		
 		\subsection{Progress Monitoring and Risk Management}
 		To ensure project transparency and timely delivery, bi-weekly status meetings with the advisor are scheduled. Each meeting is prepared beforehand. Discussed are:
@@ -1298,6 +1245,11 @@
 		
 		\subsection{Technical Constraints}
 		Model training is performed on \gls{HSLU}'s \gls{gpuhub} infrastructure, while code development is carried out on a personal notebook. The code is written in Python and builds upon the existing PASSION project architecture.
+		The code base for this thesis is a fork of the PASSION GitHub Project.
+		\begin{itemize}
+			\item Original Project: \href{https://github.com/Digital-Dermatology/PASSION-Evaluation}{https://github.com/Digital-Dermatology/PASSION-Evaluation}
+			\item Fork: \href{https://github.com/teshi24/PASSION-Bias-Evaluation}{https://github.com/teshi24/PASSION-Bias-Evaluation}
+		\end{itemize}
 		
 		
 		\section{Literature Review}
@@ -1315,8 +1267,6 @@
 			\item \textbf{Low.} Related to PASSION, but only limited.
 			\item \textbf{Not Applicable.} Not relevant for PASSION due to fundamental differences in domain, type of data, or type of model.
 		\end{itemize}
-		
-		\todo{must de sensitive feature table be split? or the categorization explained?}
 		
 		Based on this contextual analysis, the highly relevant bias types and mitigation methods are investigated further using the most relevant fairness metrics. The selection process follows domain-specific requirements identified in the literature. Such considerations guide the identification of suitable metrics, which are then justified and evaluated in detail during the execution phase.
 		
@@ -1344,16 +1294,16 @@
 		
 				
 		\section{Fairness Assessment}\label{chap:fairnessAssessmentMethod}
-		To establish a reproducible foundation for fairness evaluations within the PASSION project, a baseline fairness assessment with the original project setup is done. For the assessment, the fairness metric selected by the execution of the method \todo{link to the right chapter} is implemented to analyze model performance across sensitive subgroups, to identify any potential biases in the model output.
+		To establish a reproducible foundation for fairness evaluations within the PASSION project, a baseline fairness assessment with the original project setup is done. For the assessment, the fairness metric selected in \autoref{chap:ContextFairnessMetrics} is implemented to analyze model performance across sensitive subgroups, to identify any potential biases in the model output.
 		
 		The same fairness assessment process is used to evaluate fairness on the model after applying each mitigation method. This ensures consistency and comparability of results across all experimental stages. A mitigation method is considered to hold potential if it significantly improves the fairness assessment results compared to the established baseline.
 		
-		The fairness assessment uses the fairness metric chosen with \todo{link to fairness metric analysis method chapter} on a subgroup level. For its computation, the \textit{Fairlearn} library is used where supported to use the standard implementation \todo{mention the library somewhere in fairness metric research}. Since fairlearn does not support multiclass analysis and multiple subgroup combinations out of the box, custom code must be developed to handle that part.
+		The fairness is assessed on a subgroup level. For its computation, the \gls{Fairlearn} library is used where supported to use the standard implementation. Since \gls{Fairlearn} does not support multiclass analysis and multiple subgroup combinations out of the box, custom code must be developed to handle that part.
 		The subgroups are defined by all unique combinations of the sensitive PASSION metadata attributes as evaluated using the method in \linkchap{chap:datasetAssessmentMethod}.
 		
 		The assessment is run based on the prediction outputs and linked metadata generated in the model evaluation phase, which are cached for later inspection. An independent evaluation class computes the required statistics, and reports fairness metrics. This implementation allows evaluation to be performed independently of model training and supports reproducibility of results.
 		
-		Alongside with Fairlearn, the implementation builds upon \textit{pandas} and \textit{numpy} for data handling, and \textit{scikit-learn} for standard evaluation metrics. \todo{consider to add links}
+		Alongside with \gls{Fairlearn}, the implementation builds upon \textit{pandas} and \textit{numpy} for data handling, and \textit{scikit-learn} for standard evaluation metrics.
 		
 		\subsection{Limitations}
 			This method provides an initial understanding of fairness in the model output and potential mitigation impacts. However, for scientifically robust conclusions on the fairness impact of a mitigation method, more systematical testing is required.
@@ -1362,11 +1312,10 @@
 			
 			Due to technical limitations and time constraints, multiple runs were not feasible during this thesis. It is strongly recommended that the PASSION team executes the experiments with additional seeds using the provided scripts, to get a more established result.
 		
-		
-		\section{Mitigation Method Selection and Evaluation} \label{chap:mitigationMethodsApplyMethod} \todo{consider to split chapter in mitigation method stuff and data split setup}
+		\section{Mitigation Method Evaluation} \label{chap:mitigationMethodsApplyMethod}
 		The PASSION model uses a predefined train-test split. To prevent test set leakage and overfitting while applying mitigation methods, the training data is further divided into a training and a validation set. 
 		
-		If a mitigation method can be applied in multiple ways (e.g., with different parameters, configurations, or data splits), all these variants are evaluated using the train-validation split to prevent test data leakage. The training for all variants will be done without 5-fold cross-validation which allows for significantly faster iteration cycles. This is crucial given the time limitation for this thesis. The variant that performs best on the validation set is then used to evaluate the effectiveness of the mitigation method on the original test set. For this final assessment, 5-fold cross-validation is used again.
+		If a mitigation method can be applied in multiple ways (e.g., with different parameters, configurations, or data splits), all these variants are evaluated using the train-validation split to prevent test data leakage. The training for all variants will be done without 5-fold cross-validation which allows for significantly faster iteration cycles. This is crucial given the time limitation for this thesis. The variant that performs best on the validation set is then used to evaluate the effectiveness of the mitigation method on the original test set. For this final assessment, 5-fold cross-validation, as setup by \textcite{Gottfrois2024}, is used again.
 		
 		This approach ensures that the final test results are comparable across different methods, while keeping the selection process short and independent of the test data.\todo{cite AI lectures}
 		\begin{comment}
@@ -1378,9 +1327,7 @@
 		
 		Selected bias mitigation strategies are applied to this setup individually, so that the impact on the fairness can be clearly assigned to the tested mitigation strategy. The impact is evaluated relative to the established baseline as described in \linkchap{chap:fairnessAssessmentMethod}.
 		
-		\todo{ensure to also compare model performance - if you did it, also mention here!}
-		
-		\todo{explain specific mitigation method used}
+		To get insight on how the mitigation method influences model performance, also the performance should be compared to the baseline.
 		
 		\section{Stratified Split Experiment}
 		Stratified splitting is a bias mitigation method commonly applied using the target labels to ensure a balanced representation of classes. However, additional variables can also be included to maintain minority subgroup representation across train and test sets \autocite{Balde_2023}.
@@ -1398,10 +1345,8 @@
 		\section{Contextualization and Scope Definition}
 		This section applies the information found during the literature review to the PASSION project using the method described in \autoref{chap:contextMethod}. It also scopes what information can be assessed during this thesis and what should be passed on to the PASSION team.
 		
-		\todo{@Proofreaders, würdet ihr dieses Kapitel hier lassen oder in die Evaluation schieben, basierend auf den Kriterien in blau? Und ist es sinnvoll, wie ich es fürs PASSION dataset assessment gemacht habe?
-		Habe das aus dem Research teil herausgelöst weil der Betreuer dazu meinte: I would keep the evaluation for PASSION separate from the state of research and place it in its own subsection in the execution/evaluation.
-		In the Methods, you also describe how you perform this evaluation.}
-		
+		\subsection{Bias}
+			
 		\subsection{Sensitive Features}
 			Some of the listed features in \autoref{tab:biases_features} were also mentioned in the dermatology context and/or are included as metadata in the PASSION dataset. Therefore, potential biases associated with them should be evaluated in the PASSION model.
 			
@@ -1412,6 +1357,58 @@
 			The potential impact of \textit{ethnicity} and \textit{disabilities} on visual presentation or prevalence of dermatological conditions has not been assessed in this thesis, due to time constraints. It is recommended that the PASSION team investigates these aspects further.
 			
 			The other sensitive feature seem not to be further relevant for PASSION.
+		
+		\subsection{Fairness Metrics} \label{chap:ContextFairnessMetrics}
+		This chapter focuses on those fairness metrics which are able to evaluate demographic fairness and are applicable to the dermatology context of PASSION.	Those are mainly \textit{equalized odds} by \textcite{M63_Hardt_2016} and \textit{subgroup fairness} by \textcite{M79_Kearns_2018}.
+		
+		In the context of PASSION, fairness metrics which consider both true positives and false positives are particularly relevant. A \textit{true positive} indicates that a disease was detected correctly, while a \textit{false positive} corresponds to a diagnosis of a disease that is not actually present. Including false positives helps to identify cases where individuals from certain demographic groups may be unfairly more likely to receive unjustified diagnoses. This has also been indicated by \textcite{Sabato_2024}.
+		
+		From the listed group fairness metrics in \autoref{tab:fairness_definitions}, only equalized odds considers true and false positives, which should therefore be used for the evaluation of PASSION. A detailed explanation of equalized odds is provided in \autoref{chap:FairnessMetrics}.
+		
+		Given the specific dermatology use case in the context of PASSION, it is not clear whether individual fairness metrics would be feasible to use. Certain metrics propose to change attributes. This approach is not feasible for the skin type which is passed on to the model implicitly through the picture. Therefore, this thesis focuses on the group fairness metrics for now.
+		
+		Given the demographic focus of this study and the composition of the PASSION dataset, subgroup fairness is particularly important. Therefore, this thesis aims to incorporate equalized odds on subgroups as a core metric for evaluation.
+		
+		\subsubsection{Limitations of Fairness Evaluation with Equalized Odds for PASSION}
+		Fairness metrics such as equalized odds are originally defined for binary classification problems, typically considering binary labels and binary demographic groups. As a result, fairness libraries like \gls{Fairlearn} offer implementations of these fairness metrics only for binary classification tasks \autocite{Fairlearn_nodate}. To evaluate fairness in multiclass settings using these libraries, certain considerations are required. This chapter introduces the two key challenges for the fairness evaluation of PASSION, handling multiclass labels and multiple subgroups.
+		
+		\paragraph{Multiclass Labels}
+		In binary settings, fairness can be evaluated through simple comparisons of false positive and false negative rates. However, in multiclass classification, fairness must account for the full structure of the confusion matrix. \textcite{Sabato_2024} generalizes equalized odds to multiclass classification by defining:
+		\textit{"For each \( y, z \in \mathcal{Y} \), the value of \( \mathbb{P}[\hat{Y} = z \mid Y = y, G = g] \) is the same for all \( g \in \mathcal{G} \)."}
+		
+		In practice, this means the entire confusion matrix must be equal across groups to satisfy strict multiclass fairness under equalized odds \autocite{Sabato_2024}. The similar approach is purposed by \textcite{Putzel_2022}.
+		
+		More relaxed versions of multiclass equalized odds have also been proposed in the literature, such as applying equalized odds per class. However, researchers argue that such relaxations may not be suitable in all contexts, especially when different types of errors carry different consequences \autocites{Sabato_2024}{Putzel_2022}.
+		
+		For instance, when the type of misclassification matters, equality of error rates is essential to ensure fairness, as noted by \textcite{Putzel_2022}. Furthermore, as \textcite{Sabato_2024} explicitly states, a fair classifier in healthcare should avoid differences in diagnosis errors for specific diseases across subgroups, since misdiagnoses can lead to different treatment outcomes.
+		
+		Therefore, in PASSION, the strict version of the multiclass equalized odds should be preferred. However, the code provided by \textcite{Sabato_2024} was not easy reusable, and there is no such version included in libraries like \gls{Fairlearn}. Therefore, this thesis uses the more relaxed version, since this is implementable with \gls{Fairlearn} and is still able to provide first insights for PASSION.
+		
+		\paragraph{Non-Binary Sensitive Features}
+		There can also be non-binary sensitive features leading to multiple subgroups. The original definition of equalized odds does not account for this complexity. To generalize fairness evaluation to such settings, a one-vs-rest strategy can be applied. In this approach, each group is individually compared against the rest of the population \autocite{Nezami_2024}.
+		
+		\subsubsection{Fairlearn Implementation and Interpretation of Equalized Odds}
+		\gls{Fairlearn} provides the functionality to calculate equalized Odds by calculating \gls{EOD} and \gls{EOR} and the class \texttt{MetricFrame} for a disaggregated report. It allows for the calculation of performance metrics based on sensitive attributes and supports the configuration of aggregation functions for summarizing subgroup disparities \autocite{Fairlearn_nodate}.
+		
+		For the calculation of the metrics, \gls{Fairlearn} provides multiple configuration options. In this thesis, the settings \texttt{agg="mean"} and \texttt{method="to\_overall"} are particularly relevant. This configuration reports the average difference between each subgroup’s performance and the overall performance, for a given type of subgroups (e.g., all possible subgroups based on \gls{FST} and sex).
+		
+		While it is also possible to report the worst-case deviation instead of the mean, this thesis focuses on an initial fairness assessment of PASSION. Therefore, using the mean as an aggregate measure is considered sufficient. For a more critical or risk-focused analysis, worst-case metrics should also be considered.
+		
+		When comparing models, additional aggregation is necessary because \gls{Fairlearn} reports fairness metrics separately for each type of subgroup. To identify the fairest model based on aggregated statistics across all subgroups, the following indicators should be considered:
+		\begin{itemize}
+			\item \textbf{Lowest average and median \gls{EOD}}: reflects strong overall fairness across subgroups.
+			\item \textbf{Low standard deviation of \gls{EOD}}: indicates consistent performance and minimal disparity among subgroups.
+			\item \textbf{Lowest worst-case \gls{EOD}}: captures the fairness for the most disadvantaged subgroup by highlighting the largest deviation.
+		\end{itemize}
+		These metrics were selected based on the principle that a lower \gls{EOD} indicates higher fairness, as a difference of 0 represents perfect equalized odds. For \gls{EOR}, the interpretation is inverted: a value closer to one signifies higher fairness, while lower values indicate greater disparity \autocite{Fairlearn_nodate}.
+		
+		
+		\subsection{Mitigation Methods}
+		\todo{\textbf{write mitigation methods chapter}}
+		
+		
+		
+		
 			
 		\section{PASSION Dataset Assessment} \label{chap:datasetAssessmentExecution}
 		The practical analysis is conducted according to the methods outlined in \autoref{chap:datasetAssessmentMethod}:
@@ -1461,8 +1458,6 @@
 		The original PASSION model was trained using a \textit{ResNet50} architecture. However, due to its long training and evaluation time, a smaller model version, \textit{ResNet18}, was used for the experiments to enable faster iteration. To get insight in potential performance disparities based on this substitution, both models were evaluated using the same fairness assessment process as described in \linkchap{chap:fairnessAssessmentMethod}. This enabled a comparison to verify whether the smaller model produced comparable subgroup fairness insights and could be reliably used for the experimental phase.
 		\todo{try to cite, or at least use protocols}
 		
-		\todo{if the results differ, mention the limits in the evaluation section}
-		
 		To further improve runtime efficiency and flexibility during the experiments, the several modifications were made to the original pipeline and methodology:
 		
 		\begin{itemize}
@@ -1475,21 +1470,19 @@
 		\subsection{Fairness Assessment Implementation} \label{chap:fairnessAssessmentImpementation}
 		Fairness was assessed using \textit{equalized odds} on sensitive subgroups defined by unique combinations of \textit{\gls{FST}, sex, age group, and country}, as introduced in previous chapters. The evaluation was implemented following the method described in \autoref{chap:fairnessAssessmentMethod}.
 		
-		There was no existing code for equalized odds evaluation with multiclass classification support and the implementation for the suggested method in \todo{link EqODd descr. chapter} was not entirely clear, especially how the comparison should be programmed. Therefore, Fairlearn methods where combined with custom implementation to implement the other version of multiclass equalized odds \todo{also link to eq odds descr chapter}.
-		
-		The final evaluation consists of several steps:
+		Considering the findings in \autoref{chap:ContextFairnessMetrics}, \gls{Fairlearn} methods where combined with custom implementation to implement the relaxed version of multiclass equalized odds. The final evaluation consists of several steps:
 		\begin{itemize}
 			\item \textbf{Data Aggregation:} Prediction results and metadata are linked and saved into a unified CSV, which can be used for manual inspection and is loaded on evaluation reruns.
 			\item \textbf{General Performance:} Overall performance metrics are reported, as implemented by the PASSION team.
 			\item \textbf{(Sub-)group Evaluation:} For each combination of sensitive attributes, performance and fairness metrics are computed.
-			\item \textbf{Class-Level Fairness Metric Computation:} Using \texttt{MetricFrame} from Fairlearn, Equalized Odds Difference (EOD) and Ratio (EOR) are computed per class. Due to the binary limitation of Fairlearn's implementation, a one-vs-all strategy is applied to enable multiclass fairness evaluation. \todo{cite who did this as well}
+			\item \textbf{Class-Level Fairness Metric Computation:} Using \texttt{MetricFrame} from \gls{Fairlearn}, \gls{EOD} and \gls{EOR} are computed per class. Due to the binary limitation of \gls{Fairlearn}'s implementation, a one-vs-all strategy is applied to enable multiclass fairness evaluation.
 			\item \textbf{Aggregation on Subgroup Level:} Class-level fairness metrics are further aggregated per subgroup using:
 			\begin{itemize}
 				\item Worst-case
 				\item Mean
 				\item Best-case
 			\end{itemize}
-			This aggregation approach is inspired by the \textit{summary} aggregation for subgroup reporting for one class provided by fairlearn. \todo{cite}
+			This aggregation approach is inspired by the \textit{summary} aggregation for subgroup reporting for one class provided by \gls{Fairlearn} \autocite{Fairlearn_nodate}
 			\item \textbf{Aggregation on Model Level:} The subgroup level metrics are aggregated further, to report fairness across all subpopulations for easier model comparison, using:
 			\begin{itemize}
 				\item Worst-case
@@ -1500,9 +1493,8 @@
 			\end{itemize}
 			This last step is done manually using an \textit{Excel}-file so far.
 		\end{itemize}
-		\todo{add EOD and EOR and Fairlearn to glossary}
 		
-		To identify all privileged and underprivileged subgroups, comparisons of subgroup \gls{TPR} and \gls{FPR} against macro-averages of the same type of subgroups were conducted. The rates where computed based on the confusion matrices. A relaxed threshold of 0.2 was used to ignore slight differences in this initial fairness assessment. Subgroups with better-than-average \gls{TPR} and lower-than-average \gls{FPR} were marked \textit{privileged}; the inverse as \textit{underprivileged}. Borderline groups were labeled \textit{unclear}, and those lacking support were tagged with \textit{no support}. Those outputs were cross-validated against manual calculations and Fairlearn's outputs for correctness. \todo{cite / Add reference to methods for multiclass fairness.}
+		To identify all privileged and underprivileged subgroups, comparisons of subgroup \gls{TPR} and \gls{FPR} against macro-averages of the same type of subgroups were conducted. The rates where computed based on the confusion matrices. A relaxed threshold of 0.2 was used to ignore slight differences in this initial fairness assessment. Subgroups with better-than-average \gls{TPR} and lower-than-average \gls{FPR} were marked \textit{privileged}; the inverse as \textit{underprivileged}. Borderline groups were labeled \textit{unclear}, and those lacking support were tagged with \textit{no support}. Those outputs were cross-validated against manual calculations and \gls{Fairlearn}'s outputs for correctness. \todo{cite / Add reference to methods for multiclass fairness.}
 		
 		For comparing models, the aggregated values have to be compared. Currently, this step is also covered in the mentioned Excel file.
 		
@@ -1531,9 +1523,9 @@
 		To evaluate fairness, the models were trained using PASSION's pipeline with each split configuration. The evaluation focused on fairness metrics alone, given that this was the primary objective. Final evaluations included both fairness and performance trade-offs using 5-fold cross-validation on the most promising splits.
 		
 		\subsection{Limitations}
-		Fairness evaluation was based on Equalized Odds Difference (EOD), as Equalized Odds Ratio (EOR) reported mostly values close to zero across most subgroups. This reports were consistent over the models, rendering EOR uninformative for this experiment. \todo{add to glossary}
+		Fairness evaluation was done entirely based on \gls{EOD}, as \gls{EOR} reported mostly values close to zero across most subgroups. This trend is consistent over the models, rendering \gls{EOR} uninformative for this experiment. 
 		
-		Furthermore, skewed subgroup distributions often led to extreme \gls{TPR} and \gls{FPR} values, especially in small subgroups. This heavily affected the resulting EODs. Future work should address this by collecting more subgroup-specific data.
+		Furthermore, skewed subgroup distributions often led to extreme \gls{TPR} and \gls{FPR} values, especially in small subgroups. This heavily affected the resulting \glspl{EOD}. Future work should address this by collecting more subgroup-specific data.
 		
 		Lastly, the evaluation was challenging due to the number of models to comare and the required manual intervention. The process in \autoref{chap:fairnessAssessmentImpementation} needs to be improved.
 		
@@ -1622,34 +1614,62 @@
 		
 		Currently, the checkpoint handling supports only evaluation. Additional adjustments are needed to fully support resumed training, particularly to ensure correct and reproducible handling of epochs and cross-validation folds.
 		
+		Those changes will be contributed to the PASSION code base to make the reproduction easier for others.
 		
 		While these extensive code improvements reduced the time available for fairness analysis, they are a critical enhancement to the robustness and usability of the PASSION evaluation.
 		
 		\section{PASSION Baseline Fairness Assessment} \label{sec:evaluation}
 		
-		The baseline fairness performance of \texttt{ResNet50} and \texttt{ResNet18} was assessed. This evaluation represents a reproducible baseline against which the impact of mitigation methods can be measured.
+		The baseline fairness performance of \texttt{ResNet50} and \texttt{ResNet18} was assessed. This evaluation serves as a reproducible reference against which the impact of fairness mitigation strategies can be compared.
 		
 		\begin{itemize}
 			\item \textbf{Baseline ResNet50:} \todo{[Insert Equalized Odds Difference/Ratio metrics here per subgroup and model level aggregation]}
 			\item \textbf{Baseline ResNet18:} \todo{[Insert Equalized Odds Difference/Ratio metrics here per subgroup and model level aggregation]}
 		\end{itemize}
 		
-		Although minor performance differences between the two model versions were found, the subgroup-level fairness trends proved largely consistent. Therefore, \texttt{ResNet18} was considered a valid substitution model for experimentation in this thesis.
+		Although minor performance differences between the two model versions were found (e.g., balanced accuracy of 0.70 for ResNet50 and 0.69 for ResNet18), the subgroup-level fairness trends proved largely consistent. Therefore, ResNet18 was considered a valid substitution model for experimentation in this thesis.
+		\todo{add performance metrics as table}
 		
 		Further conclusions are summarized in the following subchapters.
+		
+		\subsection{Bias in the Baseline}
+		\todo{link output}
+		Subgroup fairness results revealed some slight disparities, but still indicates a trend:
+		
+		\begin{itemize}
+			\item \textbf{Sex:} The small model (\texttt{ResNet18}) showed no clear sex-related bias, whereas the larger model (\texttt{ResNet50}) exhibited a slight bias toward women, with higher \gls{TPR} for female patients.
+			\item \textbf{Skin Type (Fitzpatrick):} Both models consistently privileged Skin Types V and underprivileged Type VI. Notably, Skin Types III and VI showed different behavior across models, being more privileged in the big model.
+			\item \textbf{Age:} The impact of age was relatively small overall. Nevertheless, age groups 0–14 and 25–29 were generally better off, whereas groups 20–24 and 30–69 were more often underprivileged. No samples from the 70+ group were available in the test data.
+			\item \textbf{Intersectional Analysis (e.g., Sex × Age × Skin Type):} Subgroup-level analysis revealed distinct patterns, such as males aged 15–59 being consistently underprivileged across both models. Also, subgroups tend to have very low support, which makes the fairness analysis less stable.
+			\item \textbf{Country:} Substantial differences emerged between countries. For example, Guinea performed better under the small model, while Malawi showed better results with the larger model. Tanzania remained underprivileged across both architectures.
+		\end{itemize}
+		
+		Intersectional fairness issues also became apparent when combining protected attributes. For example, in the large model:
+		\begin{itemize}
+			\item \textbf{\gls{FST} VI in Madagascar and Tanzania} performed particularly poorly.
+			\item \textbf{Guinea with \gls{FST} VI} still showed favorable outcomes, albeit slightly worse in ResNet50 compared to ResNet18. This indicates, that the country might impact the model's bias stronger than the skin type.
+		\end{itemize}
+		
+		Overall, the clearest fairness disparities were observed in subgroups related to the attributes \gls{FST}, sex, and country. Given PASSION’s goal to mitigate bias against highly pigmented skin tones, fairness issues with \gls{FST} VI are especially concerning. That some subgroups including \gls{FST} VI and specific countries perform well indicates, that the bias could stem from other origins, such as the image quality or the process on how the data was gathered in those countries. While this analysis provides a first systematic fairness evaluation, deeper investigations are necessary, particularly into age-related intersectional effects. The provided scripts enable further detailed analysis and subgroup comparisons.
+		
+		For further work,  additional data collection efforts should prioritize Tanzania since the country is underrepresented which is consistently reflected in the model performance. Data quality or scarcity might be contributing to inconsistent results for this subgroup. Due to the sensitive medical nature of the images and personal limitations in handling such content, the images were not directly reviewed to support this hypothesis. It is, however, strongly recommended that the PASSION team conducts a thorough analysis of these cases.
+		
+		% \todo{Add link or reference to analysis scripts and generated data, possibly in appendix}
 		
 		\subsection{Subgroup-Level Insights}
 		Using the aggregation of class-level equalized odds metrics, the assessment revealed substantial variance across subgroups. Privileged and underprivileged subgroups are consistently identifiable.
 		
-		While some groups showed stable behavior across classes, others shifted category depending on the evaluated class, which underlines the importance of per-class fairness computation in multiclass settings.
+		While some groups showed stable behavior across classes, others shifted category depending on the evaluated class, which underlines the importance of per-class fairness computation in multiclass settings.	
+		
 		
 		\subsection{Pipeline Challenges}
 		
 		Several technical limitations impacted the reliability and completeness of the fairness assessment:
 		\begin{itemize}
-			\item Fairlearn’s default multiclass handling is limited. To overcome this, a custom implementation was required, which introduces complexity and potential inconsistencies with the intended methodology of researchers.
-			\item In the report part where subgroups are classified regarding privilege level, some subgroups were suppressed. This affects fairness analysis negatively. The comparison to the fairlearn output revealed this issue. This proves that it is preferable to use well-established, tested libraries for whenever possible.
+			\item \gls{Fairlearn}’s default multiclass handling is limited. To overcome this, a custom implementation was required, which introduces complexity and potential inconsistencies with the intended methodology of researchers.
+			\item In the report part where subgroups are classified regarding privilege level, some subgroups were suppressed. This affects fairness analysis negatively. The comparison to the \gls{Fairlearn} output revealed this issue. This proves that it is preferable to use well-established, tested libraries for whenever possible.
 			\item Manual aggregation of subgroup-level to model-level metrics as well as the cross-model comparison is currently not automated, reducing reproducibility and increasing error risk.
+			\item For model comparisons, the approach of \textcite{Valentim_2019} of creating fairness comparison rations could be used for the automated reporting.
 		\end{itemize}
 		
 		Despite these challenges, the evaluation successfully surfaced subgroup disparities, supporting claims that fairness analysis on subgroups is important for reducing biases in dermatology models, including PASSION.
@@ -1657,19 +1677,7 @@
 		\subsection{Aggregation Trade-offs}
 		Aggregating fairness metrics at subgroup and model level provided helpful summaries but hide subgroup-specific effects. This must be considered when interpreting aggregated metrics.
 		
-		The proposed aggregation strategy was implemented due to the absence of ready-to-use multiclass equalized odds metrics in fairlearn or similar libraries. This illustrates the need for researchers to work together and implement suggested methodology improvements in the state of the art libraries.
-		
-		\subsection{Outlook on Evaluation Improvements}
-		\todo{probably move to outlook}
-		
-		The current evaluation pipeline lays a solid groundwork but needs refinement:
-		\begin{itemize}
-			\item Replace confusion-matrix-based fairness calculations with direct \texttt{MetricFrame}-based computation to streamline and unify the process.
-			\item Improve subgroup handling to include low-support groups more reliably, potentially via resampling or relaxed filtering.
-			\item Automate the aggregation steps and document all assumptions clearly to enhance reproducibility.
-		\end{itemize}
-		
-		In future work, incorporating multiple training seeds per setup will be essential for drawing statistically valid conclusions about fairness across model variations and mitigation methods.
+		The proposed aggregation strategy was implemented due to the absence of ready-to-use multiclass equalized odds metrics in \gls{Fairlearn} or similar libraries. This illustrates the need for researchers to work together and implement suggested methodology improvements in the state of the art libraries.
 		
 		\section{Stratified Split Experiment}
 		
@@ -1718,9 +1726,9 @@
 		
 		\subsection{Initial Training}
 		
-		The fairness assessment of the initial model training as shown in \autoref{tab:StratifiedSplitstratified-seed42} indicated that for strategy A, placing single records in training data, the configuration 4, using country and fitzpatrick, resulted in the fairest model overall, due to:
+		The fairness assessment of the initial model training as shown in \autoref{tab:StratifiedSplitstratified-seed42} indicated that for strategy A, placing single records in training data, the configuration 4, using country and fitzpatrick, resulted in the fairest model overall, due to the analysis of reported \gls{EOD}:
 		\begin{itemize}
-			\item Lowest average and median EOD
+			\item Lowest average and median
 			\item Fairly low standard deviation
 			\item Moderate worst-case fairness
 		\end{itemize}
@@ -1728,7 +1736,7 @@
 		
 		For strategy B (\autoref{tab:StratifiedSplitstratified-seed32}), placing singletons in validation data, the fairest model was achieved by stratifying only on the target labels, due to:
 		\begin{itemize}
-			\item Low average and median EOD
+			\item Low average and median
 			\item Lowest standard deviation
 			\item Moderate worst-case fairness
 		\end{itemize}
@@ -1905,7 +1913,7 @@
 			
 			\item Incorporate healthy skin samples into the dataset to allow for a more balanced classification task and to mitigate potential bias.
 			
-			\item Explore whether combining PASSION with other dermatology datasets enhances generalization across the full \gls{FST} range. \todo{add point to consider to use other categorizations}
+			\item Explore whether combining PASSION with other dermatology datasets enhances generalization across the full \gls{FST} range.
 		\end{itemize}
 		
 		
@@ -1922,8 +1930,11 @@
 		The measures to improve the fairness assessment process further are:
 		\begin{itemize}
 			\item Extend the existing dataset representation script, as described in \autoref{chap:datasetAssessmentExecution}, to support subgroup-level analysis and automated comparison.
-		\end{itemize}
-		
+			\item Replace confusion-matrix-based fairness calculations with direct \texttt{MetricFrame}-based computation to streamline and unify the process.
+			\item Improve subgroup handling in the fairness evaluation pipeline to include low-support groups more reliably.
+			\item Automate all metric aggregation steps and document all assumptions clearly to enhance reproducibility.
+			\item Introduce the model comparison ratio by \textcite{Valentim_2019}.
+		\end{itemize}		
 		
 		\section{Fairness Assessment Results Extension}
 		\todo{@Proofreaders: habt ihr einen besseren Namen für dieses Kapitel? Es geht mir darum, dass weitere Analysen / Fairness assessments gemacht werden sollten}
@@ -1932,11 +1943,16 @@
 			\item Perform the representation analysis of relevant subgroups, as described in \autoref{chap:datasetAssessmentMethod} using the extended script, to determine whether observed unfairness stems from distribution imbalances at subgroup level.	
 			
 			\item Evaluate model performance across \gls{FST} types V and VI more closely and take measures if bias exist. \todo{check if this will still be needed}
+			
+			\item Evaluate worst-case metrics and \gls{EOR} during the fairness assessment and model comparisons as suggested in \autoref{chap:ContextFairnessMetrics}. The metric computation is already included in the script but not yet useful due to missing data.
+			
+			\item Incorporate multiple training seeds for each experiment (also for the baseline) for drawing statistically valid conclusions about fairness across model variations and mitigation methods.
 		\end{itemize}
-		
 		
 		Implementing these measures will enhance the dataset’s ability to support fair, robust, and generalizable \gls{ML} models in dermatology.
 	
+		\section{Code Contribution}
+		The code written during this thesis will be cleaned and provided as a pull request to the PASSION GitHub project, so that the team can us it for their future work.
 	
 	\chapter{currently working on}
 	
@@ -1944,9 +1960,6 @@
 
 	\chapter{writing ongoing TODO REMOVE THIS CHAPTER}\todo{remove this chapter}
 	\todo{put this somewhere in the outlook} Checkout this paper which suggest further methods and a flowchart to select the right fairness metric \textcite{Barr_2025}
-	
-	
-	\todo{add to the stratified split experiment }: Cross-validation folds were removed to reduce evaluation time, it did not help that the gpuhub shut down your virtual machine after a while (2-3 days?), interrupting long (chained) experiment runs. Bc the checkpoint handling is not working yet for continuing training (only fixed that I can reload checkpoints for evaluating on the model again), this meant that some parts of the experiment had to be executed multiple times. Strongly suggest that the checkpoint handling is improved further by the passion team.
 	
 	
 	\chapter{Outlook PASSION Baseline Fairness Assessment}
@@ -1957,11 +1970,11 @@
 	
 	\subsection{Metric Implementation and Evaluation Consistency}
 	
-	As discussed, the current fairness evaluation relies in part on confusion-matrix-based metric computations. Replacing these with direct use of Fairlearn’s \texttt{MetricFrame} functionality across all fairness metrics would ensure a unified calculation standard and reduce implementation complexity. This would also increase consistency with other fairness research and future-proof the pipeline against methodological updates in fairness literature.
+	As discussed, the current fairness evaluation relies in part on confusion-matrix-based metric computations. Replacing these with direct use of \gls{Fairlearn}’s \texttt{MetricFrame} functionality across all fairness metrics would ensure a unified calculation standard and reduce implementation complexity. This would also increase consistency with other fairness research and future-proof the pipeline against methodological updates in fairness literature.
 	
 	\subsection{Improved Subgroup Handling}
 	
-	The suppression of low-support subgroups due to Fairlearn’s internal handling and manual filtering mechanisms may bias the evaluation. This highlights the need for a more sophisticated strategy to include or resample underrepresented subgroups without compromising statistical reliability. Future efforts should aim to ensure that all relevant subgroups are fairly assessed, particularly in the context of medical datasets where representation imbalances are common.
+	The suppression of low-support subgroups due to \gls{Fairlearn}’s internal handling and manual filtering mechanisms may bias the evaluation. This highlights the need for a more sophisticated strategy to include or resample underrepresented subgroups without compromising statistical reliability. Future efforts should aim to ensure that all relevant subgroups are fairly assessed, particularly in the context of medical datasets where representation imbalances are common.
 	
 	\subsection{Automation and Documentation of Aggregation}
 	
@@ -1973,109 +1986,18 @@
 	
 	\subsection{Library and Methodology Development}
 	
-	The absence of well-established multiclass fairness implementations, particularly for metrics like equalized odds, required custom adaptations. This points to a broader need within the research community to extend existing libraries like Fairlearn to better support multiclass and subgroup-level analyses. Contributing the implemented methods and findings back to these open-source tools would benefit both the PASSION project and the wider fairness research community.
+	The absence of well-established multiclass fairness implementations, particularly for metrics like equalized odds, required custom adaptations. This points to a broader need within the research community to extend existing libraries like \gls{Fairlearn} to better support multiclass and subgroup-level analyses. Contributing the implemented methods and findings back to these open-source tools would benefit both the PASSION project and the wider fairness research community.
 	
 	\subsection{Broader Context and Integration}
 	
 	While this thesis focused on subgroup-level fairness analysis, future work could integrate fairness metrics into clinical utility assessments and decision-making contexts. This would enable a more holistic evaluation of trade-offs between fairness and clinical performance, which is essential for practical deployment in medical settings.
 	
 	
+				
+	\todo{add somewhere that only the conditions classifier is used in this thesis, the impetig classifier should also be checked. (code is generalized, but must be tested)}
+	
 	\chapter{Bias Evaluation using Equalized Odds in PASSION}
 		\todo{fix this writing}
-		\subsection{Methodology}
-		\rawcitationusedstart
-		https://www.mdpi.com/2227-7102/14/2/136
-		Equalized Odds (EO)	 𝑃(𝑌̂ =1|𝑌=𝑦,𝑆=1)−𝑃(𝑌̂ =1|𝑌=𝑦,𝑆=0),∀𝑦∈{0,1}
-		We extend the fairness metrics, as described in Table 2, for non-binary sensitive attributes by considering a one-versus-rest approach for unfairness calculation. More specifically, to calculate the unfairness gaps, we consider each subgroup as 𝑆=1
-		and compare it against the rest 𝑆=0
-		(i.e., all other subgroups), one at a time. We mainly focus on racial disparities; however, our proposed approach for auditing fairness and investigating the imputation impact can be extended to use other sensitive attributes. For example, the decision-maker can use “gender” as a sensitive attribute.
-		
-		Missing data: Ignoring missing data is not an effective approach to handling missing values, and more importantly, it can result in predictive disparity for minority groups. While many education-related studies have addressed the challenges of missing data, as discussed, little is known about the impact of different imputation techniques on fairness outcomes in the final model. This project aims to address this gap by considering the three aforementioned imputation strategies.
-		
-		https://proceedings.mlr.press/v108/awasthi20a.html
-		BiasY =y(Yb) =Pr h		Yb = 1	Y = y, A = 0i −Pr h	Yb = 1 		Y = y, A = 1i				.
-		\rawcitationusedend
-		
-				\rawcitationstart
-		Furthermore, another version of each dataset was created with all features using a one-hot (or 1-of-K) encoding scheme [5] after being discretised, meaning that they are represented by binary dummy variables. We refer to this as the one-hot encoded version of a dataset.
-		\autocite{Valentim_2019}
-		The age attribute was discretised into two bins defined by a value greater than or equal to 25, a threshold that was set based on the findings reported by [26]. \autocite{Valentim_2019}
-		
-		Model Assessment
-		We performed five-fold cross-validation with the help of the methods provided by Scikit-learn [8]. In addition to the standard version of cross-validation (normal-cv), the experiments were repeated with stratification (stratified-cv) so as to maintain the class distributions of the original data. Furthermore, each configuration was run with 30 different seeds for the random generators.
-		
-		We selected fairness metrics which can be applied to the datasets and to the predictions made by the models, so as to be able to compare the unfairness in the predictions to that originally found in the training data. The selected set of metrics includes statistical parity difference (CVS), disparate impact (DI), and the normalised prejudice index (NPI).
-		
-		The F1-score is more suitable when dealing with imbalanced datasets. However, we also include accuracy in our analysis to facilitate the comparison with previous work. \autocite{Valentim_2019}
-		
-		Fairness Comparison Between Data and Predictions
-		Besides performing our analysis based on the fairness metrics mentioned in III-E, we computed the ratio between the CVS in the predictions and the CVS found in the data subset used to train the models (CVS Ratio), as well as a similar ratio regarding the NPI (NPI Ratio). These ratios give an indication of whether the unfairness in the training data was increased or reduced under each configuration. A value of 1 indicates that the unfairness in the predictions is the same as in the training data, an absolute value greater than 1 means that the unfairness in the predictions is greater, and an absolute value lower than 1 means that the model makes fairer predictions than the procedure which produced the true labels of the training data. A DI Ratio was not computed since it would be difficult to interpret the results. \autocite{Valentim}
-		Comparison
-		-->  How to compute the ratios between models:
-		Let’s say you have two or more models: Model A, Model B, ..., Model N.
-		
-		And you compute the fairness metric (e.g., CVS) on each model’s predictions over the same dataset.
-		
-		Then, define a relative fairness ratio as follows:
-		
-		Model-vs-Baseline Fairness Ratio
-		Choose one model as a baseline (e.g., the best, worst, or most standard one), and compare each other model to it:
-		CSV / NPI = fairness metrics
-		CVS RatioModel𝑋 = CVS (Model X) / CVS(Baseline Model)
-		​		NPI RatioModel𝑋 = NPI (Model 𝑋) / NPI(Baseline Model)
-		
-		Interpretation:
-		Ratio = 1: Model X has the same fairness as the baseline.
-		Ratio > 1: Model X is less fair (greater disparity or bias) than the baseline.
-		Ratio < 1: Model X is fairer than the baseline.
-		
-		This approach is fully compatible with comparisons across models, even if you don’t consider the training data's fairness.
-		
-		\rawcitationend
-		
-		
-		\section{Execution}
-			In order to run the reproduction of the PASSION results on GPUHub, some minor changes in the loading process for the metadata had to be done. The required changes will be contributed to the code base to make the reproduction easier for others. \todo{do that then ;)}
-			All 4 experiments where ran to get a broad overview of the results. The results of the 4 experiments contained the same scores as the ones mentioned in the paper. The scores are given separately for each demographic groups, either based on skin type or gender. There is no data for subgroups available. \todo{add results from age and center experiments}
-			For the conditions classification, the provided scores per demographic group in the paper are the average scores over all classes. The variance/deviation of the averages in the scores based on the condition varies between the groups. E.g., the F1 score for \gls{FST} VI is 0.71$\pm$0.11 (total support 87) while for \gls{FST} it is 0.73$\pm$0.04 (total support 254). 
-			The detailed information can be found in the attached logs
-			% \todo{add logs from the file C:\\Users\\nadja\\OneDrive\\HSLU\_Nadja\\BAA\\baa\_on\_git\\results\\reproducing\_PASSION\_results}.
-			
-			The available data allows to compute the equalized odds fairness. \todo{describe which fairness methods to use why}
-			In order to be able compute the subgroup fairness, the test results need to be split further into the subgroups. \todo{check exactly how to calculate subgroup fairness and whether there is already an algorithm for it, same for equalized odds}
-			
-			To reproduce all 4 experiments, the training ran took roughly \todo{add: it started on 24.4. roughly at 7 o clock, took until ca. 16.4., 13:00, the two other experiments started on 26.4. 17:30} hours since there where no model checkpoints available. This runtime is not feasible for each new training using a mitigation method, especially because the GPUHub seems to cancel the script after roughly 2 days, which means that each experiment needs to be started independently.
-			Since this runtime it is not feasible to use for every mitigation run, the following adaptations where made \todo{add improvements described in protokol week 9}
-			
-			
-			checkpoint handling was a bit broken
-			runs x and x1 showed, that my code was reproducible while theirs was wrong
-			--> running on passion model checkpoint without loading the rest of the infos in the checkpoint
-			----> confirmed, that my calculations are reproducible while theirs are not; see commented out file names for comparison
-			% experiment_standard_split_conditions_passion__bias_test_BIG_MODEL_reloaded_from_checkpoint.circ vs 		
-			% experiment_standard_split_conditions_passion__bias_test_BIG_MODEL.circ
-			also tested on another checkpoint, same behaviour, not cached results though
-			no implementation of subgroup fairness found --> calc eq odds for subgroups
-			
-			The results in the PASSION results where reproducable only on the whole model level, but not for the groups. There was no subgroup analysis availbale.
-			After adapting the data linkage in the PASSION evaluation code, the results where available when in the PASSION evaluation code. 
-			
-			
-			The smaller model performance was used for the baseline. The Fairness results differ a bit from the bigger model, but it can still serve as a baseline.
-			\todo{add somewhere that only the conditions classifier is used in this thesis, the impetig classifier should also be checked. (code is generalized, but must be tested)}
-			
-			
-			\todo{add this here or in a special Equalized Odds chapter}
-			For fairness evaluation, MetricFrame metrics such as equalized odds \textit{difference} and \textit{ratio} were computed across subgroups defined by sensitive attributes.
-			To quantify disparity, we primarily focus on:
-			\begin{itemize}
-				\item \textbf{Mean distance to overall performance} (``mean to overall''): the average absolute deviation of subgroup metrics from the overall value.
-				\item \textbf{Mean}: the average raw metric value across subgroups.
-				\item \textbf{Worst mean to overall}: the maximum deviation observed among subgroups.
-			\end{itemize}
-			
-			\textit{Mean to overall} is preferred over the simple mean of subgroup scores because it explicitly measures fairness in terms of consistency across groups. As recommended by the Fairlearn framework, metrics like ``mean absolute deviation from overall performance'' are more fairness-relevant, since a model might score well on average but still be highly biased toward or against certain subgroups. By centering the evaluation around the overall performance, this metric captures inequality and unfairness more directly \cite{fairlearn}.
-			
 			
 		\section{Evaluation and Validation - baseline}
 			A first analysis shows issues regarding xy in the big model and y in the small model.
@@ -2087,105 +2009,13 @@
 			Macro F1-Score: 0.69	0.71
 			Precision: 		0.68	0.71
 			Sensitivity:	0.69	0.71
-			
-			FST - 5 privileged in both
-			6 underprivileged in both
-			4,3 priviledged in big, avg or slightly underpriviledged in small
-			
-			Sex - no bias in small model, big model biased towards women; TPR ↑ (0.73), FPR ~ (0.09), m TPR ↓ (0.69), FPR ~ (0.10)
-			
-			Age - only slight differences between the models
-			0-14; 25-29 priviledged
-			20-24; 30-69 underpriviledged
-			70+ not represented in test data	
-			
-			FP and sex - big model: FST 3 only men avg, f priviledged; FST 6 - men and women underprivileged
-			small model: 3m priviledged, 3f underprivileged, 4 and 6 m underprivileged, f privileged
-			
-			
-			
-			here only the big model analyzed
-			FP and age - more or less the same as age alone indipendent of skin type, besides skin type 6 which more often drags them down
-			35-54 is more often well of with Skin type 3-5 though
-			
-			
-			Age and Gender - f00-34 privileged! others avg / slightly higher FPR (small model privileged f00-34, m00-15;m25-29, m35-39)
-			m 15-59 clearly underprivileged (same in small model)
-			
-			
-			FP, age, gender, often only low support found, which puts more record in the unclear section.  
-			
-			
-			country: Guniea much better on small model
-			bacc 0.64, macro prec 0.63, sensivity: 0.65, F1 0.64
-			big:
-			bacc 0.58, macro prec 0.56, sensivity: 0.58, F1 0.56
-						
-			madagascar, bigger slightly better
-			malawi bigger better
-			tanzania exactly the same
-			
-			Tanzania in both majorly underprivileged
-			Malawi majorly privileged
-			
-			FP and country: small model: Madagascar underprivileged in 4,6; 5 overprivileged;  
-			Tanzania, only 4 and 5 FSTs, but both perform badly
-			Malawi performs better as there are no records darker skin types
-			Guinea and Skin Type 6 perform better than others
-			
-			big model: Madagascar FST 6 performs badly as well as tanzania; Guinea 6 is a bit worse than in the small model, but still quite good
-						
-			
-			country and age: malawi is always privileged, tanzania under privileged
-			madagascar and guinea more or less show the same results as gender alone
-			
-			
-			compare from === Grouping: fitzpatrick, sex, country ===
-			
-			
-			for certain subgroups, also malawi was underperforming.
-			
-			--> conclusion: sex, skin type and country hold the most clear biases. Since the aim of the dataset is to reduce bias on darker FSTs, especially the skin type issues are crucial - but they could also be linked to the country.
-			Limitations: not all subgroup could be investigated in depht, especially the cross categories regarding age.
-			
-			
-			% C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\small_model
-			% C:\Users\nadja\OneDrive\HSLU_Nadja\BAA\baa_on_git\results\reproducing_PASSION_results\big_model
-			
-			
-			\todo{ensure this fits the description in the fairness assessment with eq odds}
-		\begin{itemize}
-			\item \textbf{Lowest Average And Median}, indicating the highest fairness over all subgroups.
-			\item \textbf{Low Standard Deviations}, demonstrating high fairness and low performance disparity.
-			\item \textbf{Average Worst-Case Performance}.
-		\end{itemize}
-			
-		\subsection{Country-Specific Observations}
-			
-			Country-wise distributions remain relatively stable across all stratified splits. However, Tanzania is consistently underrepresented. This suggests that while stratified splitting on \texttt{country} should be maintained, additional data collection efforts should prioritize Tanzania. Data quality or scarcity might be contributing to inconsistent results for this subgroup.
-
-
-			Tanzania appears strongly underrepresented, which might be causing bias in the model., which could be attributed to image quality or inconsistencies during data acquisition. The observed discrepancies in model performance might also stem from a specific subgroup—such as male patients from Tanzania with \gls{FST} VI—potentially presenting unique clinical conditions in the images. Due to the sensitive medical nature of the images and personal limitations in handling such content, they were not directly reviewed. It is, however, strongly recommended that the PASSION team conducts a thorough analysis of these cases.
-			
-			
+			\todo{here were the scripts linked, check github}
 	
 			
 	\chapter{übergang zu bibliography}
 
 		% Lists and References
 		\newpage
-
-
-
-
-	\todo{probably remove this}
-	%\chapter{\glossaryname \todo{probably remove this}}
-		%\printglossary[title={}]
-	%\todo{Add to ToC of content somehow and fix chapter numbers}
-	%\listoffigures
-	%\listoftables
-	\todo{Add List of Formulas if necessary}
-	\todo{add \gls{AI} declarations somewhere}
 	
 	
 	\chapter{\bibname}
