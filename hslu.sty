@@ -95,7 +95,7 @@
 \def\en@summary{Summary}
 
 \def\en@cons@hmain{Declaration}
-\def\en@cons@hi{Bachelor Thesis at Lucerne University of Applied Sciences and Arts\\ \en@depname{}}
+\def\en@cons@hi{Bachelor Thesis at Lucerne University of\\Applied~Sciences~and~Arts\\ \en@depname{}}
 \def\en@cons@title{Title of Bachelor Thesis}
 \def\en@cons@student{Name of Student}
 \def\en@cons@study@topic{Degree Program}
@@ -112,7 +112,7 @@
 \def\en@cons@hiv{Submission of the Thesis to the Portfolio Database}
 \def\en@cons@vis{Confirmation by the student}
 \def\en@cons@save{I hereby confirm that this bachelor thesis has been correctly uploaded to the portfolio database in line with the code of practice of the University. I rescind all responsibility and authorization after upload so that no changes or amendments to the document may be undertaken.}
-\def\en@cons@thanks{Expression of thanks and gratitude}
+\def\en@cons@thanks{Expression of Thanks and Gratitude}
 \def\en@cons@ip{Intellectual property of the degree programs of the Lucerne University of Applied Sciences and Arts, FH Zentralschweiz, in accordance with Student Regulations: \href{https://srl.lu.ch/app/de/texts_of_law/521/versions/4065}{Studienordnung}}
 
 
@@ -194,12 +194,11 @@ an der Hochschule Luzern, FH Zentralschweiz}
     \cleardoublepage
     \begin{center}\LARGE\textbf{#1}\end{center}
     \vspace{1cm}
-    
-    \setlength{\tindent}{\parindent}
-    \setlength{\parindent}{0pt}
+    %\setlength{\tindent}{\parindent}
+    %\setlength{\parindent}{0pt}
     }{%
     \vspace{1cm}
-    \setlength{\parindent}{\tindent}
+    %\setlength{\parindent}{\tindent}
 }
 
 \DeclareFontFamily{\encodingdefault}{\ttdefault}{\hyphenchar\font=`\-} % Allow hyphen in texttt
